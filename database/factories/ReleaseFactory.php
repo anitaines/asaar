@@ -1,0 +1,12 @@
+<?php
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use App\Release;
+use Faker\Generator as Faker;
+
+$factory->define(Release::class, function (Faker $faker) {
+    return [
+        //
+    ];
+});
