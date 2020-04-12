@@ -1,54 +1,65 @@
 window.onload = function(){
 
   // iframe layout preview:
-  var iframe = document.getElementById("output_iframe");
+  let iframe = document.getElementById("output_iframe");
+
+  // preview imagen principal en iframe:
+  let imagenPrincipal = iframe.contentWindow.document.querySelector(".img_container");
+
+  // imagen para canvas:
+  let imgCanvas = document.getElementById('imgCanvas');
 
   // imagen Facebook layout preview:
   // var canvasFacebook = document.getElementById("canvasFacebook");
 
-  // titular noticia:
-  var titulo = iframe.contentWindow.document.getElementsByTagName("h3")[0];
-  var inputTitulo = document.getElementById("title");
+
+
+  // setear titular noticia:
+  let inputTitulo = document.getElementById("title");
   inputTitulo.oninput = function(){
+    let titulo = iframe.contentWindow.document.getElementsByTagName("h3")[0];
+
     titulo.style.display = "block";
     titulo.innerHTML = this.value;
   }
 
-  // bajada titular noticia:
-  var subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
-  var inputSubtitulo = document.getElementById("subtitle");
+  // setear bajada titular noticia:
+  let inputSubtitulo = document.getElementById("subtitle");
   inputSubtitulo.oninput = function(){
+    let subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
+
     subtitulo.style.display = "block";
     subtitulo.innerHTML = this.value;
   }
 
-  // preview imagen principal:
-  var imagen = iframe.contentWindow.document.querySelector(".img_container");
+  // setear preview imagen principal:
+  // let imagen = iframe.contentWindow.document.querySelector(".img_container");
 
-  // incluir imagen == sí => display de más opciones y display de preview imagen en iframe:
-  var imagenNoticia = document.querySelector(".imagenNoticia");
-  imagenNoticia.oninput = function(){
-    if (imagenNoticia.firstElementChild.checked == true){
+  // setear imagen principal:
+
+  // incluir imagen principal == sí => display de más opciones y display de preview imagen en iframe:
+  var imagenNoticiaCheckbox = document.querySelector(".imagenNoticia");
+  imagenNoticiaCheckbox.oninput = function(){
+    if (imagenNoticiaCheckbox.firstElementChild.checked == true){
       document.querySelector(".admin .imagenesWrap").style.display ="block";
-      imagen.style.display = "block";
+      imagenPrincipal.style.display = "block";
       // canvasFacebook.style.backgroundImage = "url('/media/noticias/preloaded/03.jpeg')";
     } else {
       document.querySelector(".admin .imagenesWrap").style.display ="none";
-      imagen.style.display = "none";
+      imagenPrincipal.style.display = "none";
       // canvasFacebook.style.backgroundImage = "none";
     }
   }
 
   // funcionalidad thumbnails:
-  var opcionesImagen = document.querySelector(".imagenes");
+  let opcionesImagen = document.querySelector(".imagenes");
   // console.log(opcionesImagen.children[0]);
   for (var i = 0; i < opcionesImagen.children.length; i++) {
     opcionesImagen.children[i].oninput = function(){
       // insertar imagen elegida en preview iframe:
-      imagen.style.backgroundImage = "url(" + this.lastElementChild.value + ")";
+      imagenPrincipal.style.backgroundImage = "url(" + this.lastElementChild.value + ")";
 
       // Canvas:
-      var imgCanvas = document.getElementById('imgCanvas');
       imgCanvas.src = this.lastElementChild.value;
       // insertar imagen elegida en preview canvas Facebook:
       imgCanvas.onload = function(){
@@ -57,27 +68,23 @@ window.onload = function(){
     }
   }
 
-  // cargar nueva imagen:
+  // upload externa de nueva imagen principal:
   function handleFileSelect(evt) {
-    var files = evt.target.files; // FileList object
+    let files = evt.target.files; // FileList object
 
       if(files.length > 0 ){
 
-      var reader = new FileReader();
+      let reader = new FileReader();
 
       // Closure to capture the file information.
       reader.onload = (function(theFile) {
         return function(e) {
           if(files[0].type == 'image/jpeg' || files[0].type == 'image/png'){
           // Render imagen:
-          var iframe = document.getElementById("output_iframe");
-          var imagen = iframe.contentWindow.document.querySelector(".img_container");
-          // imagen.style.display = "block";
-          imagen.style.backgroundImage = "url(" + e.target.result + ")";
+          imagenPrincipal.style.backgroundImage = "url(" + e.target.result + ")";
 
           // Render imagen en Canvas:
-          var imgCanvas = document.getElementById('imgCanvas');
-          imgCanvas.src = this.lastElementChild.value;
+          imgCanvas.src = e.target.result;
           // insertar imagen elegida en preview canvas Facebook:
           imgCanvas.onload = function(){
             scaleToFill(this, canvasFacebook, ctxFacebook);
@@ -94,11 +101,10 @@ window.onload = function(){
           // Darle funcionalidad al thumbnail:
           document.getElementById('uploadedImage').children[0].oninput = function(){
             // imagen.style.display = "block";
-            imagen.style.backgroundImage = "url(" + e.target.result + ")";
+            imagenPrincipal.style.backgroundImage = "url(" + e.target.result + ")";
 
             // Canvas:
-            var imgCanvas = document.getElementById('imgCanvas');
-            imgCanvas.src = this.lastElementChild.value;
+            imgCanvas.src = e.target.result;
             // insertar imagen elegida en preview canvas Facebook:
             imgCanvas.onload = function(){
               scaleToFill(this, canvasFacebook, ctxFacebook);
@@ -122,13 +128,18 @@ window.onload = function(){
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
   // incluir logo AsAAr:
-  var logoAsaar = document.querySelector(".logoAsaar");
+  let logoAsaar = document.querySelector(".logoAsaar");
   logoAsaar.oninput = function(){
-    var box1Iframe = iframe.contentWindow.document.querySelector(".info_img_container .box1");
-    var logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
+    let box1Iframe = iframe.contentWindow.document.querySelector(".info_img_container .box1");
+    let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
     if (logoAsaar.firstElementChild.checked == true){
       logoAsaarIframe.style.display ="inline";
       box1Iframe.style.justifyContent="space-between";
+
+      // Canvas:
+      // insertar logo en preview canvas Facebook:
+      // ctxFacebook.drawImage(logoAsaarIframe, 10, 10, 50, 50);
+
     } else {
       logoAsaarIframe.style.display ="none";
       box1Iframe.style.justifyContent="flex-end";
@@ -137,9 +148,9 @@ window.onload = function(){
   }
 
   // incluir calendario:
-  var calendar = document.querySelector(".calendar");
+  let calendar = document.querySelector(".calendar");
   calendar.oninput = function(){
-    var calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
+    let calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
     if (calendar.firstElementChild.checked == true){
       calendarioIframe.style.display ="flex";
       calendar.nextElementSibling.style.display ="block";
@@ -171,15 +182,21 @@ window.onload = function(){
   }
 
   // incluir titular sobre imagen:
-  var tituloImagen = document.querySelector(".tituloImagen textarea");
+  let tituloImagen = document.querySelector(".tituloImagen textarea");
   tituloImagen.oninput = function(){
     if (this.value.length > 0){
     iframe.contentWindow.document.querySelector(".info_img_container .box2").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box2 p").innerHTML = this.value.replace(/\n/g, "<br>");
 
     document.querySelector(".colorTipoTitular").style.display = "block";
+
+
+var texto = this.value;
+getLines(ctxFacebook, texto, 500);
+// console.log(getLinesForParagraphs(ctxFacebook, texto, 500));
+
     // funcionalidad thumbnails colores tipografía:
-    var opcionesColorTipo = document.querySelectorAll(".colorTipoTitular input");
+    let opcionesColorTipo = document.querySelectorAll(".colorTipoTitular input");
     for (var i = 0; i < opcionesColorTipo.length; i++) {
       opcionesColorTipo[i].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color = this.value;
@@ -189,7 +206,7 @@ window.onload = function(){
 
     document.querySelector(".colorFondoTitular").style.display = "block";
     // funcionalidad thumbnails colores fondo:
-    var opcionesColorFondo = document.querySelectorAll(".colorFondoTitular input");
+    let opcionesColorFondo = document.querySelectorAll(".colorFondoTitular input");
     for (var i = 0; i < opcionesColorFondo.length; i++) {
       opcionesColorFondo[i].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor = this.value;
@@ -407,7 +424,148 @@ window.onload = function(){
   if (canvasFacebook.getContext){
     var ctxFacebook = canvasFacebook.getContext("2d");
 
-    // ctxFacebook.drawImage(imgCanvas, 10, 10);
+    // LOGO:
+    let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
+    ctxFacebook.drawImage(logoAsaarIframe, 30, 30, 216, 124);
+    // console.log(logoAsaarIframe.clientWidth);
+    // console.log(logoAsaarIframe.clientHeight);
+
+    // CALENDARIO:
+
+    // let calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
+    // console.log(calendarioIframe.style);
+
+    // context.rotate(angle in radians);
+    ctxFacebook.rotate(3 * Math.PI / 180);
+    ctxFacebook.fillStyle = "#fffadf";
+    // context.fillRect(x,y,width,height);
+    ctxFacebook.fillRect(1000, -10, 163, 163);
+
+    // ctxFacebook.rotate(3 * Math.PI / 180);
+    ctxFacebook.fillStyle = "#f72929";
+    // context.fillRect(x,y,width,height);
+    ctxFacebook.fillRect(1005, -10, 151, 56);
+
+    var mes_calendario = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar_mes").firstElementChild.innerHTML;
+    ctxFacebook.font = "30px Helvetica";
+    ctxFacebook.fillStyle = "#fffadf";
+    ctxFacebook.fillText(mes_calendario, 1005, -10);
+
+
+
+
+    // TITULAR CAJA:
+    var div2 = document.querySelector(".div2");
+    console.log(div2.clientWidth);
+    console.log(div2.clientHeight);
+    ctxFacebook.rotate(-3 * Math.PI / 180);
+
+    ctxFacebook.beginPath();
+    ctxFacebook.lineWidth = "4";
+    ctxFacebook.strokeStyle = "#ab2097";
+
+    var xPos = (canvasFacebook.width/2) - (div2.clientWidth/2);
+    var yPos = (canvasFacebook.height/2) - (div2.clientHeight/2);
+
+    ctxFacebook.rect(xPos,yPos, div2.clientWidth, div2.clientHeight);
+    ctxFacebook.stroke();
+
+    // TITULAR TEXTO:
+    // ctxFacebook.font = "bold 70px 'Gidugu', sans-serif";
+    // ctxFacebook.fillStyle = "#ab2097";
+    // ctxFacebook.textAlign = "center";
+    // var titular_texto = "TALLER DE PADRES".split("").join(String.fromCharCode(8202));
+    // // ctxFacebook.fillText(titular_texto, canvasFacebook.width/2,yPos);
+    // ctxFacebook.fillText("tAller de padres TALLER DE PADRES TALLER DE PADRES TALLER DE PADRES TALLER DE PADRES TALLER DE PADRES TALLER DE PADRES", canvasFacebook.width/2,yPos);
+
+
+
+
+    /* color: var(--magenta); */
+
+    /* line-height: 0.7; */
+    // line-height: 1;
+    // letter-spacing: 2px;
+    // text-align: center;
+    // margin: 20px 10px;
+    // var texto = "1234 56 78910 111213 14 151617 181920 21 222324 25262728 29 303132 333435 36 373839 404142 43 444546 474849 50 515253";
+    //
+    // getLines(ctxFacebook, texto, 500);
+
+    // function getLinesForParagraphs(ctx, text, maxWidth) {
+    //   return text.split("\n").map(para => getLines(ctx, para, maxWidth)).reduce([], (a, b) => a.concat(b))
+    // }
+
+    function getLines(ctx, text, maxWidth) {
+      // var text = text.split("").join(String.fromCharCode(8202));
+      var motherLines = text.split("\n");
+
+      for (var i = 0; i < motherLines.length; i++) {
+
+
+      var words = motherLines[i].split(" ");
+      var lines = [];
+      var currentLine = words[0];
+
+      for (var i = 1; i < words.length; i++) {
+        var word = words[i];
+        var width = ctx.measureText(currentLine + " " + word).width;
+        if (width < maxWidth) {
+            currentLine += " " + word;
+          } else {
+            lines.push(currentLine);
+            currentLine = word;
+        }
+      }
+      lines.push(currentLine);
+      // return lines;
+      var posX;
+      var posY = 500;
+      for (var i = 0; i < lines.length; i++) {
+        ctx.font = "bold 70px 'Gidugu', sans-serif";
+        ctx.fillStyle = "#ab2097";
+
+        posX = (canvasFacebook.width/2) - (ctxFacebook.measureText(lines[i]).width/2);
+
+        posY = posY + 80;
+
+        ctx.fillText(lines[i], posX, posY);
+      }
+    }
+    }
+    // function getLines(ctx, text, maxWidth) {
+    //   // var text = text.split("").join(String.fromCharCode(8202));
+    //   var motherLines = text.split("\n");
+    //
+    //   var words = text.split(" ");
+    //   var lines = [];
+    //   var currentLine = words[0];
+    //
+    //   for (var i = 1; i < words.length; i++) {
+    //     var word = words[i];
+    //     var width = ctx.measureText(currentLine + " " + word).width;
+    //     if (width < maxWidth) {
+    //         currentLine += " " + word;
+    //       } else {
+    //         lines.push(currentLine);
+    //         currentLine = word;
+    //     }
+    //   }
+    //   lines.push(currentLine);
+    //   // return lines;
+    //   var posX;
+    //   var posY = 500;
+    //   for (var i = 0; i < lines.length; i++) {
+    //     ctx.font = "bold 70px 'Gidugu', sans-serif";
+    //     ctx.fillStyle = "#ab2097";
+    //
+    //     posX = (canvasFacebook.width/2) - (ctxFacebook.measureText(lines[i]).width/2);
+    //
+    //     posY = posY + 80;
+    //
+    //     ctx.fillText(lines[i], posX, posY);
+    //   }
+    // }
 
   } else {
     // canvas-unsupported code here
@@ -434,8 +592,8 @@ function scaleToFill(img, canvas, context){
 
 
 
-  ctxFacebook.font = "30px Arial";
-  ctxFacebook.fillText("Hello World", 10, 50);
+  // ctxFacebook.font = "30px Arial";
+  // ctxFacebook.fillText("Hello World", 10, 50);
   // ctx.font = "10px Arial";
   // ctx.fillText("Hello", 10, 50);
 

@@ -289,11 +289,47 @@
         <iframe id="output_iframe" src="{{ url('/plantilla-noticia') }}"></iframe>
       </div>
 
-      <canvas id="canvasFacebook" width="500" height="500" style="border:1px solid #000000;"></canvas>
-
       <img id="imgCanvas" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;">
 
-      <img id="prueba" src="" alt="">
+      <div class="forFacebook">
+        <div class="div1">
+          <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina">
+          {{-- <div class="div1_calendar">
+            <div class="div1_calendar_mes">
+              <p>SEPTIEMBRE</p>
+            </div>
+            <div class="div1_calendar_dia">
+              <p>DOMINGO</p>
+              <p>14</p>
+            </div>
+          </div> --}}
+        </div>
+        <div class="div2">
+          <p>1234 56 78910 111213 14 151617 181920 21 222324 25262728 29 303132 333435 36 373839 404142 43 444546 474849 50 515253</p>
+        </div>
+        {{-- <div class="forFacebook_titular" style="border: 4px solid var(--magenta);">
+          prueba
+        </div> --}}
+        <div class="div3">
+          <div class="">
+            <p>Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.</p>
+          </div>
+          <div class="">
+            <p>Para padres de niños, adolescentes y adultos</p>
+            <p>LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
+            Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p>
+          </div>
+        </div>
+        <div class="div4">
+          <p>www.asperger.org.ar</p>
+        </div>
+      </div>
+
+      <canvas id="canvasFacebook" width="1200px" height="1200px" style="border:1px solid #000000;"></canvas>
+
+      <p>fin prueba canvas</p>
+
+      {{-- <img id="prueba" src="" alt=""> --}}
 
     </div>
   </main>
