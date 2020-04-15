@@ -305,7 +305,7 @@
           </div> --}}
         </div>
         <div class="div2">
-          <p>1234 56 78910 111213 14 151617 181920 21 222324 25262728 29 303132 333435 36 373839 404142 43 444546 474849 50 515253</p>
+          <p>TALLER DE PADRES</p>
         </div>
         {{-- <div class="forFacebook_titular" style="border: 4px solid var(--magenta);">
           prueba
@@ -327,7 +327,7 @@
 
       <canvas id="canvasFacebook" width="1200px" height="1200px" style="border:1px solid #000000;"></canvas>
 
-      <p>fin prueba canvas</p>
+      {{-- <p>fin prueba canvas</p> --}}
 
       {{-- <img id="prueba" src="" alt=""> --}}
 
