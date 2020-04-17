@@ -101,30 +101,41 @@
           <div class="colorTipoTitular" style="display: none;">
             <p>Cambiar color tipografía:</p>
             <label class="cambiarColorMagenta"> Magenta
+              {{-- --magenta: #ab2097; --}}
               <div></div>
-              <input type="radio" name="colorTipoTitular" value="var(--magenta)" checked>
+              <input type="radio" name="colorTipoTitular" value="#AB2097" checked>
             </label>
+
             <label class="cambiarColorVerde"> Verde
+              {{-- --green: #6ACF95; --}}
               <div></div>
-              <input type="radio" name="colorTipoTitular" value="var(--green)">
+              <input type="radio" name="colorTipoTitular" value="#6ACF95">
             </label>
+
             <label class="cambiarColorNaranja"> Naranja
+              {{-- --orange: #FC8901; --}}
               <div></div>
-              <input type="radio" name="colorTipoTitular" value="var(--orange)">
+              <input type="radio" name="colorTipoTitular" value="#FC8901">
             </label>
+
             <label class="cambiarColorCeleste"> Celeste
+              {{-- --blue: #34BFD2; --}}
               <div></div>
-              <input type="radio" name="colorTipoTitular" value="var(--blue)">
+              <input type="radio" name="colorTipoTitular" value="#34BFD2">
             </label>
+
             <label class="cambiarColorBlanco"> Blanco
               <div></div>
               <input type="radio" name="colorTipoTitular" value="#ffffff">
             </label>
+
             <label class="cambiarColorNegro"> Negro
+              {{-- --black: #454545; --}}
               <div></div>
-              <input type="radio" name="colorTipoTitular" value="var(--black)">
+              <input type="radio" name="colorTipoTitular" value="#454545">
             </label>
           </div>
+
           <div class="colorFondoTitular" style="display: none;">
             <p>Cambiar color fondo:</p>
             <label class="cambiarColorTransparente"> Transparente
@@ -156,27 +167,28 @@
               <input type="radio" name="colorTipoSubtitular" value="#ffffff" checked>
             </label>
             <label class="cambiarColorNegro"> Negro
+              {{-- --black: #454545; --}}
               <div></div>
-              <input type="radio" name="colorTipoSubtitular" value="var(--black)">
+              <input type="radio" name="colorTipoSubtitular" value="#454545">
             </label>
           </div>
           <div class="colorFondoSubtitular" style="display: none;">
             <p>Cambiar color fondo:</p>
             <label class="cambiarColorMagenta"> Magenta
               <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="var(--magenta)" checked>
+              <input type="radio" name="colorFondoSubtitular" value="#AB2097" checked>
             </label>
             <label class="cambiarColorVerde"> Verde
               <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="var(--green)">
+              <input type="radio" name="colorFondoSubtitular" value="#6ACF95">
             </label>
             <label class="cambiarColorNaranja"> Naranja
               <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="var(--orange)">
+              <input type="radio" name="colorFondoSubtitular" value="#FC8901">
             </label>
             <label class="cambiarColorCeleste"> Celeste
               <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="var(--blue)">
+              <input type="radio" name="colorFondoSubtitular" value="#34BFD2">
             </label>
             <label class="cambiarColorBlanco"> Blanco
               <div></div>
@@ -184,7 +196,7 @@
             </label>
             <label class="cambiarColorNegro"> Negro
               <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="var(--black)">
+              <input type="radio" name="colorFondoSubtitular" value="#454545">
             </label>
             <label class="cambiarColorNegro"> Transparente
               <div></div>

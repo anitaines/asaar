@@ -9,8 +9,8 @@ window.onload = function(){
   // imagen para canvas:
   let imgCanvas = document.getElementById('imgCanvas');
 
-  // imagen Facebook layout preview:
-  // var canvasFacebook = document.getElementById("canvasFacebook");
+  // Facebook layout preview:
+  var canvasFacebook = document.getElementById("canvasFacebook");
 
 
 
@@ -43,11 +43,9 @@ window.onload = function(){
     if (imagenNoticiaCheckbox.firstElementChild.checked == true){
       document.querySelector(".admin .imagenesWrap").style.display ="block";
       imagenPrincipal.style.display = "block";
-      // canvasFacebook.style.backgroundImage = "url('/media/noticias/preloaded/03.jpeg')";
     } else {
       document.querySelector(".admin .imagenesWrap").style.display ="none";
       imagenPrincipal.style.display = "none";
-      // canvasFacebook.style.backgroundImage = "none";
     }
   }
 
@@ -61,10 +59,7 @@ window.onload = function(){
 
       // Canvas:
       imgCanvas.src = this.lastElementChild.value;
-      // insertar imagen elegida en preview canvas Facebook:
-      imgCanvas.onload = function(){
-        scaleToFill(this, canvasFacebook, ctxFacebook);
-      }
+      setCanvas();
     }
   }
 
@@ -85,10 +80,7 @@ window.onload = function(){
 
           // Render imagen en Canvas:
           imgCanvas.src = e.target.result;
-          // insertar imagen elegida en preview canvas Facebook:
-          imgCanvas.onload = function(){
-            scaleToFill(this, canvasFacebook, ctxFacebook);
-          }
+          setCanvas();
 
           // Crear thumbnail:
           var newRadio = `
@@ -105,10 +97,7 @@ window.onload = function(){
 
             // Canvas:
             imgCanvas.src = e.target.result;
-            // insertar imagen elegida en preview canvas Facebook:
-            imgCanvas.onload = function(){
-              scaleToFill(this, canvasFacebook, ctxFacebook);
-            }
+            setCanvas();
           }
           // Reset alert:
           document.querySelector(".alert").innerHTML = "";
@@ -135,16 +124,13 @@ window.onload = function(){
     if (logoAsaar.firstElementChild.checked == true){
       logoAsaarIframe.style.display ="inline";
       box1Iframe.style.justifyContent="space-between";
-
-      // Canvas:
-      // insertar logo en preview canvas Facebook:
-      // ctxFacebook.drawImage(logoAsaarIframe, 10, 10, 50, 50);
-
     } else {
       logoAsaarIframe.style.display ="none";
       box1Iframe.style.justifyContent="flex-end";
     }
     checkLayout();
+    // Canvas:
+    setCanvas();
   }
 
   // incluir calendario:
@@ -164,14 +150,20 @@ window.onload = function(){
       // completar mes:
       calendar.nextElementSibling.children[0].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_mes").firstElementChild.innerHTML = this.firstElementChild.value;
+        // Canvas:
+        setCanvas();
       }
       // completar día de la semana:
       calendar.nextElementSibling.children[1].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_dia").firstElementChild.innerHTML = this.firstElementChild.value;
+        // Canvas:
+        setCanvas();
       }
       // completar número:
       calendar.nextElementSibling.children[2].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_dia").lastElementChild.innerHTML = this.firstElementChild.value;
+        // Canvas:
+        setCanvas();
       }
 
     } else {
@@ -179,6 +171,8 @@ window.onload = function(){
       calendar.nextElementSibling.style.display ="none";
     }
     checkLayout();
+    // Canvas:
+    setCanvas();
   }
 
   // incluir titular sobre imagen:
@@ -190,27 +184,14 @@ window.onload = function(){
 
     document.querySelector(".colorTipoTitular").style.display = "block";
 
-
-// var texto = this.value;
-// var motherLines = texto.split("\n");
-// console.log(motherLines);
-// for (var i = 0; i < motherLines.length; i++) {
-//   getLines(ctxFacebook, motherLines[i], 500);
-// }
-
-// var textoTitular = this.value;
-// var lineasTitular = getMotherLines(ctxFacebook, textoTitular, 1060);
-// console.log(lineasTitular);
-
-
-
-
     // funcionalidad thumbnails colores tipografía:
     let opcionesColorTipo = document.querySelectorAll(".colorTipoTitular input");
     for (var i = 0; i < opcionesColorTipo.length; i++) {
       opcionesColorTipo[i].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color = this.value;
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.borderColor = this.value;
+        // Canvas:
+        setCanvas();
       }
     }
 
@@ -220,6 +201,8 @@ window.onload = function(){
     for (var i = 0; i < opcionesColorFondo.length; i++) {
       opcionesColorFondo[i].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor = this.value;
+        // Canvas:
+        setCanvas();
       }
     }
 
@@ -231,6 +214,8 @@ window.onload = function(){
       document.querySelector(".colorFondoTitular").style.display = "none";
     }
     checkLayout();
+    // Canvas:
+    setCanvas();
   }
 
   // incluir bajada titular sobre imagen:
@@ -248,6 +233,10 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color = this.value;
 
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.color = this.value;
+
+        // Canvas:
+        setCanvas();
+        console.log("cambio color tipo sub");
       }
     }
 
@@ -257,6 +246,9 @@ window.onload = function(){
     for (var i = 0; i < opcionesColorFondoSubtitular.length; i++) {
       opcionesColorFondoSubtitular[i].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor = this.value;
+        // Canvas:
+        setCanvas();
+        console.log("cambio color fondo sub");
       }
     }
 
@@ -268,6 +260,8 @@ window.onload = function(){
       document.querySelector(".colorFondoSubtitular").style.display = "none";
     }
     checkLayout();
+    // Canvas:
+    setCanvas();
   }
 
   // incluir detalle información sobre imagen:
@@ -305,6 +299,8 @@ window.onload = function(){
       document.querySelector(".colorFondoSubtitular").style.display = "none";
     }
     checkLayout();
+    // Canvas:
+    setCanvas();
   }
 
   // incluir resumen sobre imagen:
@@ -340,6 +336,8 @@ window.onload = function(){
       document.querySelector(".colorFondoSubtitular").style.display = "none";
     }
     checkLayout();
+    // Canvas:
+    setCanvas();
   }
 
   // párrafo noticia:
@@ -420,189 +418,270 @@ window.onload = function(){
   }
 
 
-
+  // CANVAS:
+  // - imagen facebook: 1200 x 1200 px
+  // - imagen twitter: 1024 x 512 px (rechequear)
+  // - imagen instagram: 1080 x 1080 px
 
 
   // CAPTURAR ELEMENTOS PARA CANVAS:
   // imagen fondo:
     // var imgCanvas = document.getElementById('imgCanvas');
 
-
-
   // CANVAS FACEBOOK:
-  var canvasFacebook = document.getElementById("canvasFacebook");
 
-  // poner la variable con let arriba de todo
   // acá arranca la función
   // la voy llamando en cada oninput
-  // primer paso: se resetea el canvas
-  if (canvasFacebook.getContext){
-    var ctxFacebook = canvasFacebook.getContext("2d");
+
+  // var canvasFacebook = document.getElementById("canvasFacebook");
+  // setCanvas()
+
+  function setCanvas(){
+
+    if (canvasFacebook.getContext){
+
+      var ctxFacebook = canvasFacebook.getContext("2d");
+
+      ctxFacebook.fillStyle = "#ffffff";
+      ctxFacebook.fillRect(0, 0, 1200, 1200);
+
+      // ctxFacebook.clearRect(0, 0, 1200, 1200);
+
+      // SETEAR VARIABLES:
+      var logoCanvas = logoAsaar.firstElementChild.checked;
+
+      var calendarioCanvas = calendar.firstElementChild.checked;
+
+      // var textoTitular = "TALLER DE PADRES";
+      var textoTitular = tituloImagen.value;
+      var lineasTitular = getMotherLines(ctxFacebook, textoTitular, 1060, "bold 70px 'Gidugu', sans-serif");
+      var hTitular = alturaTexto(lineasTitular, 80);
+
+      // var textoSubtitular = "Para padres de niños, adolescentes y adultos";
+      var textoSubtitular = subtituloImagen.value;
+      var lineasSubtitular = getMotherLines(ctxFacebook, textoSubtitular, 507, "bold 45px 'Montserrat', sans-serif");
+      var hSubtitular = alturaTexto(lineasSubtitular, 50);
+
+      // var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.";
+      var textoDetalle = detalleImagen.value;
+      var lineasDetalle = getMotherLines(ctxFacebook, textoDetalle, 507, "30px 'Montserrat', sans-serif");
+      var hDetalle = alturaTexto(lineasDetalle, 40);
+
+      // var textoResumen = "Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.";
+      var textoResumen = resumenImagen.value;
+      var lineasResumen = getMotherLines(ctxFacebook, textoResumen, 507, "30px 'Montserrat', sans-serif");
+      var hResumen = alturaTexto(lineasResumen, 40);
 
 
-
-    var logoCanvas = true;
-
-    var calendarioCanvas = true;
-
-    // var textoTitular = "TALLER DE PADRES";
-    var textoTitular = "";
-    var lineasTitular = getMotherLines(ctxFacebook, textoTitular, 1060, "bold 70px 'Gidugu', sans-serif");
-    // console.log(lineasTitular);
-    var hTitular = alturaTexto(lineasTitular, 80);
-    console.log("hTitular: " + hTitular);
-
-    // var textoSubtitular = "Para padres de niños, adolescentes y adultos";
-    var textoSubtitular = "";
-    var lineasSubtitular = getMotherLines(ctxFacebook, textoSubtitular, 507, "bold 45px 'Montserrat', sans-serif");
-    // console.log(lineasSubtitular);
-    var hSubtitular = alturaTexto(lineasSubtitular, 50);
-    console.log("hSubtitular: " + hSubtitular);
-
-    // var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.";
-    var textoDetalle = "";
-    var lineasDetalle = getMotherLines(ctxFacebook, textoDetalle, 507, "30px 'Montserrat', sans-serif");
-    // console.log(lineasDetalle);
-    var hDetalle = alturaTexto(lineasDetalle, 40);
-    console.log("hDetalle: " + hDetalle);
-
-    var textoResumen = "Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.";
-    // var textoResumen = "";
-    var lineasResumen = getMotherLines(ctxFacebook, textoResumen, 507, "30px 'Montserrat', sans-serif");
-    // console.log(lineasResumen);
-    var hResumen = alturaTexto(lineasResumen, 40);
-    console.log("hResumen: " + hResumen);
-
-    // OBTENER COORDENADAS PARA CADA ELEMENTO:
-
-    // var posY = 500;
-
-    // if ((logoCanvas || calendarioCanvas) && textoTitular && textoSubtitular && textoDetalle && textoResumen) {
-    //   var boxH = (80 * lines.length) + 60;
-    //   var posInicialYtitular =
-    // }
+      // SETEAR IMAGEN FONDO:
+      imgCanvas.src = imgCanvas.src;
+      imgCanvas.onload = function(){
+        scaleToFill(this, canvasFacebook, ctxFacebook);
+      // } //cierre onload, lo muevo al final de la función
 
 
-    // Coordenada inicial Titular:
-    // x siempre centrado con respecto al canvas:
-    // var posInicialXtitular = (canvasFacebook.width/2) - (ctxFacebook.measureText(text[i][ii]).width/2);
-    var factorXtitular = 0;
-
-if(hResumen > (hSubtitular + hDetalle)){
-var hBox2 = hResumen;
-} else {
-var hBox2 = hSubtitular + hDetalle;
-}
-console.log("hBox2: "+ hBox2);
-    if (logoCanvas || calendarioCanvas){
-      // var posInicialYtitular = ((canvasFacebook.height + 255 + hBox2)/2) - (hTitular/2);
-      var posInicialYtitular = ((1160 - 255 - hBox2)/2) + 255 - (hTitular/2);
-    } else {
-      var posInicialYtitular = ((1160 - hBox2)/2) - (hTitular/2);
-    }
-console.log("posInicialYtitular: " + posInicialYtitular);
-
-    // Coordenada inicial Subtitular:
-    // x centrado con respecto al canvas si NO está resúmen:
-    if (textoResumen){
-      // var posIniciaXsubtitular = ((canvasFacebook.width/2) + 8.66 + 527 + 8.66) - (ctxFacebook.measureText(text[i][ii]).width/2);
-      var factorXsubtitular = 8.66 + 527 + 8.66;
-    }else{
-      // var posInicialXsubtitular = (canvasFacebook.width/2) - (ctxFacebook.measureText(text[i][ii]).width/2);
-      var factorXsubtitular = 0;
-    }
-
-    // var posInicialYsubtitular = 500;
-    // if (logoCanvas || calendarioCanvas){
-      var posInicialYsubtitular = posInicialYtitular + hTitular;
-    // } else {
-    //   var posInicialYsubtitular = ((1160 - hTitular)/2) + hTitular - (hSubtitular/2);
-    // }
-
-    // Coordenada inicial Detalle:
-    // x centrado con respecto al canvas si NO está resúmen:
-    if (textoResumen){
-      var factorXdetalle = 8.66 + 527 + 8.66;
-    }else{
-      var factorXdetalle = 0;
-    }
-
-    var posInicialYdetalle = posInicialYsubtitular + hSubtitular;
-
-
-    // Coordenada inicial Resumen:
-    // x centrado con respecto al canvas si NO está subtitular y/o detalle:
-    if (textoSubtitular || textoDetalle){
-      var factorXresumen = 8.66 - 527 - 8.66;
-    }else{
-      var factorXresumen = 0;
-    }
-    console.log("factorXresumen: "+ factorXresumen);
-
-    var posInicialYresumen = posInicialYtitular + hTitular;
-
-
-    // IMPRIMIR TEXTOS:
-
-    // imprimirTexto (lineasTitular, "bold 70px 'Gidugu', sans-serif", 80, posInicialYtitular);
-    imprimirTexto2 (lineasTitular, "bold 70px 'Gidugu', sans-serif", 80, factorXtitular, posInicialYtitular);
-
-    // imprimirTexto (lineasSubtitular, "bold 45px 'Montserrat', sans-serif", 50, 500);
-    imprimirTexto2 (lineasSubtitular, "bold 45px 'Montserrat', sans-serif", 50, factorXsubtitular, posInicialYsubtitular);
-
-    // imprimirTexto (lineasDetalle, "30px 'Montserrat', sans-serif", 40, 500);
-    imprimirTexto2 (lineasDetalle, "30px 'Montserrat', sans-serif", 40, factorXdetalle, posInicialYdetalle);
-
-    // imprimirTexto (lineasResumen, "30px 'Montserrat', sans-serif", 40, 500);
-    imprimirTexto2 (lineasResumen, "30px 'Montserrat', sans-serif", 40, factorXresumen, posInicialYresumen);
-
-
-    // IMPRIMIR WEB EN EL FOOTER:
-    var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
-    ctxFacebook.font = "30px 'Montserrat', sans-serif";
-    ctxFacebook.fillStyle = "black";
-    posXweb = (canvasFacebook.width/2) - (ctxFacebook.measureText(webAsaar).width/2);
-    ctxFacebook.fillText(webAsaar, posXweb, 1160);
-
-    function imprimirTexto (text, font, lineHeight, y){
-      var posY = y;
-      var posX;
-      for (var i = 0; i < text.length; i++) {
-        for (var ii = 0; ii < text[i].length; ii++) {
-          ctxFacebook.font = font;
-          ctxFacebook.fillStyle = "#ab2097";
-          posX = (canvasFacebook.width/2) - (ctxFacebook.measureText(text[i][ii]).width/2);
-          posY = posY + lineHeight;
-          ctxFacebook.fillText(text[i][ii], posX, posY);
-        }
+      // IMPRIMIR LOGO:
+      if (logoCanvas){
+        let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
+        ctxFacebook.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
       }
+
+      // IMPRIMIR CALENDARIO:
+      if (calendarioCanvas){
+        ctxFacebook.rotate(3 * Math.PI / 180);
+        ctxFacebook.shadowBlur = 20;
+        ctxFacebook.shadowOffsetX = 10;
+        ctxFacebook.shadowOffsetY = 10;
+        ctxFacebook.shadowColor = "black";
+        ctxFacebook.fillStyle = "#fffadf";
+        ctxFacebook.fillRect(960, -10, 195, 195);
+
+        ctxFacebook.shadowBlur = 0;
+        ctxFacebook.shadowOffsetX = 0;
+        ctxFacebook.shadowOffsetY = 0;
+        ctxFacebook.shadowColor = "#000000";
+        ctxFacebook.fillStyle = "#f72929";
+        ctxFacebook.fillRect(964, -7, 188, 56);
+
+        var mesCalendario = calendar.nextElementSibling.children[0].firstElementChild.value;
+        ctxFacebook.font = "bold 28px Helvetica";
+        ctxFacebook.fillStyle = "#fffadf";
+        var mesPosX = 964 + ((188 - ctxFacebook.measureText(mesCalendario).width)/2);
+        ctxFacebook.fillText(mesCalendario, mesPosX, 32);
+
+        var diaCalendario = calendar.nextElementSibling.children[1].firstElementChild.value.split("").join(String.fromCharCode(8201));
+        ctxFacebook.font = "26px Helvetica";
+        ctxFacebook.fillStyle = "black";
+        var diaPosX = 964 + ((188 - ctxFacebook.measureText(diaCalendario).width)/2);
+        ctxFacebook.fillText(diaCalendario, diaPosX, 80);
+
+        var nroCalendario = calendar.nextElementSibling.children[2].firstElementChild.value;
+        ctxFacebook.font = "bold 80px Helvetica";
+        ctxFacebook.fillStyle = "black";
+        var nroPosX = 964 + ((188 - ctxFacebook.measureText(nroCalendario).width)/2);
+        ctxFacebook.fillText(nroCalendario, nroPosX, 160);
+
+        ctxFacebook.rotate(-3 * Math.PI / 180);
+      }
+
+
+      // OBTENER COORDENADAS PARA CADA TEXTO:
+      // Coordenada inicial TITULAR:
+      // x siempre centrado con respecto al canvas:
+      var factorXtitular = 0;
+      // y:
+      if(hResumen > (hSubtitular + hDetalle)){
+        var hBox2 = hResumen;
+      } else {
+        var hBox2 = hSubtitular + hDetalle;
+      }
+      if (logoCanvas || calendarioCanvas){
+        var posInicialYtitular = ((1160 - 255 - hBox2)/2) + 255 - (hTitular/2);
+      } else {
+        var posInicialYtitular = ((1160 - hBox2)/2) - (hTitular/2);
+      }
+      // Coordenada inicial SUBTITULAR:
+      // x centrado con respecto al canvas si NO está resúmen:
+      if (textoResumen){
+        var factorXsubtitular = 8.66 + 527 + 8.66;
+      }else{
+        var factorXsubtitular = 0;
+      }
+      // y:
+      var posInicialYsubtitular = posInicialYtitular + hTitular;
+      // Coordenada inicial DETALLE:
+      // x centrado con respecto al canvas si NO está resúmen:
+      if (textoResumen){
+        var factorXdetalle = 8.66 + 527 + 8.66;
+      }else{
+        var factorXdetalle = 0;
+      }
+      // y:
+      var posInicialYdetalle = posInicialYsubtitular + hSubtitular;
+      // Coordenada inicial RESUMEN:
+      // x centrado con respecto al canvas si NO está subtitular y/o detalle:
+      if (textoSubtitular || textoDetalle){
+        var factorXresumen = 8.66 - 527 - 20.66;
+      }else{
+        var factorXresumen = 0;
+      }
+      // y:
+      var posInicialYresumen = posInicialYtitular + hTitular;
+
+
+      // IMPRIMIR TEXTOS, RECUADROS, CAMBIAR COLORES:
+
+      // Titular:
+      var colorTipoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
+
+      var colorFondoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor;
+
+      if (textoTitular){
+      imprimirRecuadro(ctxFacebook, colorTipoTitular, colorFondoTitular, 70, 1080, hTitular, factorXtitular, posInicialYtitular);
+      }
+
+      imprimirTexto (ctxFacebook,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 80, factorXtitular, posInicialYtitular);
+
+      // Subtitular:
+      var colorTipoSubitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color;
+
+      var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
+
+      if (textoSubtitular || textoDetalle){
+      imprimirRecuadroRadius(ctxFacebook, colorFondoSubtitular, 45, factorXsubtitular, posInicialYsubtitular, 527, hSubtitular + hDetalle, 20);
+      }
+
+      imprimirTexto (ctxFacebook,lineasSubtitular, "bold 45px 'Montserrat', sans-serif", colorTipoSubitular, 50, factorXsubtitular, posInicialYsubtitular);
+
+      // Detalle:
+      if (textoDetalle){
+      // imprimirRecuadro(ctxFacebook, 45, 527, hDetalle, factorXdetalle, posInicialYdetalle);
+
+      // imprimirRecuadroRadius(ctxFacebook, 45, factorXdetalle, posInicialYdetalle, 527, hDetalle, 20);
+      }
+      imprimirTexto (ctxFacebook,lineasDetalle, "30px 'Montserrat', sans-serif", colorTipoSubitular, 40, factorXdetalle, posInicialYdetalle);
+
+      // Resumen:
+      if (textoResumen){
+      // imprimirRecuadro(ctxFacebook, 45, 527, hResumen, factorXresumen, posInicialYresumen);
+
+      imprimirRecuadroRadius(ctxFacebook, 45, factorXresumen, posInicialYresumen, 527, hResumen, 20);
+      }
+      imprimirTexto (ctxFacebook,lineasResumen, "30px 'Montserrat', sans-serif", "#ab2097", 40, factorXresumen, posInicialYresumen);
+
+      // IMPRIMIR WEB EN EL FOOTER:
+      var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
+      ctxFacebook.font = "30px 'Montserrat', sans-serif";
+      ctxFacebook.fillStyle = "black";
+      posXweb = (canvasFacebook.width/2) - (ctxFacebook.measureText(webAsaar).width/2);
+      ctxFacebook.fillText(webAsaar, posXweb, 1160);
+
+      // PASAR A IMAGEN:
+      // var imagen2 = canvasFacebook.toDataURL("image/png");
+      //
+      // document.getElementById('prueba').setAttribute("src", imagen2);
+
+    } //cierre onload imgCanvas
+
+      } else {
+        // canvas-unsupported code here
     }
+  } // cierre function setCanvas()
 
 
-    function imprimirTexto2 (text, font, lineHeight, xFactor, y){
+
+
+  // FUNCIONES CANVAS:
+
+    // function imprimirTexto (text, font, lineHeight, y){
+    //   var posY = y;
+    //   var posX;
+    //   for (var i = 0; i < text.length; i++) {
+    //     for (var ii = 0; ii < text[i].length; ii++) {
+    //       ctxFacebook.font = font;
+    //       ctxFacebook.fillStyle = "#ab2097";
+    //       posX = (canvasFacebook.width/2) - (ctxFacebook.measureText(text[i][ii]).width/2);
+    //       posY = posY + lineHeight;
+    //       ctxFacebook.fillText(text[i][ii], posX, posY);
+    //     }
+    //   }
+    // }
+
+  function imprimirTexto (context, text, font, color, lineHeight, xFactor, y){
       var posY = y - lineHeight;
       var posX;
       for (var i = 0; i < text.length; i++) {
         for (var ii = 0; ii < text[i].length; ii++) {
-          ctxFacebook.font = font;
-          ctxFacebook.fillStyle = "#ab2097";
-          // centrado x
-          // posX = (canvasFacebook.width/2) - (ctxFacebook.measureText(text[i][ii]).width/2);
-          posX = ((canvasFacebook.width - xFactor) /2) + xFactor - (ctxFacebook.measureText(text[i][ii]).width/2);
+          context.font = font;
+          // context.fillStyle = "#ab2097";
+          context.fillStyle = color;
+          posX = ((canvasFacebook.width - xFactor) /2) + xFactor - (context.measureText(text[i][ii]).width/2);
           posY = posY + lineHeight;
-          ctxFacebook.fillText(text[i][ii], posX, posY);
+          context.fillText(text[i][ii], posX, posY);
         }
       }
     }
 
 
-    alturaTexto(lineasTitular, 80);
-    // console.log(alturaTexto(lineasTitular, 80));
-    function alturaTexto (text, lineHeight){
+    // function anchoTexto(contexto, text){
+    //   var ancho = 0;
+    //   for (var i = 0; i < text.length; i++) {
+    //     for (var ii = 0; ii < text[i].length; ii++) {
+    //       // if (text[i][ii].length > 0){
+    //         if(contexto.measureText(text[i][ii]).width > ancho){
+    //           ancho = contexto.measureText(text[i][ii]).width;
+    //         }
+    //
+    //       // }
+    //     }
+    //   }
+    //   return ancho;
+    // }
+
+  function alturaTexto (text, lineHeight){
       var cantidadLineas = 0;
       for (var i = 0; i < text.length; i++) {
         for (var ii = 0; ii < text[i].length; ii++) {
-          // console.log("text i ii lentgth: " + text[i][ii].length);
           if (text[i][ii].length > 0){
             cantidadLineas = cantidadLineas + 1;
           }
@@ -617,80 +696,49 @@ console.log("posInicialYtitular: " + posInicialYtitular);
     }
 
 
-    // LOGO:
-    let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
-    ctxFacebook.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
-    // console.log(logoAsaarIframe.clientWidth);
-    // console.log(logoAsaarIframe.clientHeight);
+  function imprimirRecuadro(context, colorTipo, colorFondo, fontSize, width, height, xFactor, y){
+      var posY = y - fontSize - 20;
+      var posX;
 
-    // CALENDARIO:
+      posX = ((canvasFacebook.width - xFactor) /2) + xFactor - (width/2);
 
-    // let calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
-    // console.log(calendarioIframe.style);
-
-    // context.rotate(angle in radians);
-    ctxFacebook.rotate(3 * Math.PI / 180);
-    ctxFacebook.shadowBlur = 20;
-    ctxFacebook.shadowOffsetX = 10;
-    ctxFacebook.shadowOffsetY = 10;
-    ctxFacebook.shadowColor = "black";
-    ctxFacebook.fillStyle = "#fffadf";
-    // context.fillRect(x,y,width,height);
-    ctxFacebook.fillRect(960, -10, 195, 195);
-
-    // ctxFacebook.rotate(3 * Math.PI / 180);
-    ctxFacebook.shadowBlur = 0;
-    ctxFacebook.shadowOffsetX = 0;
-    ctxFacebook.shadowOffsetY = 0;
-    ctxFacebook.shadowColor = "#000000";
-    ctxFacebook.fillStyle = "#f72929";
-    // context.fillRect(x,y,width,height);
-    ctxFacebook.fillRect(964, -7, 188, 56);
-
-    var mesCalendario = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar_mes").firstElementChild.innerHTML;
-    ctxFacebook.font = "bold 28px Helvetica";
-    ctxFacebook.fillStyle = "#fffadf";
-    var mesPosX = 964 + ((188 - ctxFacebook.measureText(mesCalendario).width)/2);
-    ctxFacebook.fillText(mesCalendario, mesPosX, 32);
-
-    var diaCalendario = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar_dia").firstElementChild.innerHTML.split("").join(String.fromCharCode(8201));
-    ctxFacebook.font = "26px Helvetica";
-    ctxFacebook.fillStyle = "black";
-    var diaPosX = 964 + ((188 - ctxFacebook.measureText(diaCalendario).width)/2);
-    ctxFacebook.fillText(diaCalendario, diaPosX, 80);
-
-    var nroCalendario = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar_dia").lastElementChild.innerHTML;
-    ctxFacebook.font = "bold 80px Helvetica";
-    ctxFacebook.fillStyle = "black";
-    var nroPosX = 964 + ((188 - ctxFacebook.measureText(nroCalendario).width)/2);
-    ctxFacebook.fillText(nroCalendario, nroPosX, 160);
+      context.beginPath();
+      context.lineWidth = "4";
+      // context.lineWidth = lineWidth;
+      // context.strokeStyle = "#ab2097";
+      context.strokeStyle = colorTipo;
+      context.rect(posX, posY, width, height);
+      context.fillStyle = colorFondo;
+      context.stroke();
+      context.fill();
+    }
 
 
-// var titular_texto = "TALLER DE PADRES".split("").join(String.fromCharCode(8202));
+  function imprimirRecuadroRadius (context, colorFondo, fontSize, xFactor, y, width, height, radius){
+      var posY = y - fontSize - 20;
+      var posX;
 
-    // TITULAR CAJA:
-    // var div2 = document.querySelector(".div2");
-    // // console.log(div2.clientWidth);
-    // // console.log(div2.clientHeight);
-    // ctxFacebook.rotate(-3 * Math.PI / 180);
-    //
-    // ctxFacebook.beginPath();
-    // ctxFacebook.lineWidth = "4";
-    // ctxFacebook.strokeStyle = "#ab2097";
-    //
-    // var xPos = (canvasFacebook.width/2) - (div2.clientWidth/2);
-    // var yPos = (canvasFacebook.height/2) - (div2.clientHeight/2);
-    //
-    // ctxFacebook.rect(xPos,yPos, div2.clientWidth, div2.clientHeight);
-    // ctxFacebook.stroke();
+      posX = ((canvasFacebook.width - xFactor) /2) + xFactor - (width/2);
 
-    // TITULAR TEXTO:
+      if (width < 2 * radius) radius = width / 2;
+      if (height < 2 * radius) radius = height / 2;
+      context.beginPath();
+      context.moveTo(posX + radius, posY);
+      context.arcTo(posX + width, posY, posX + width, posY + height, radius);
+      context.arcTo(posX + width, posY + height, posX, posY + height, radius);
+      context.arcTo(posX, posY + height, posX, posY, radius);
+      context.arcTo(posX, posY, posX + width, posY, radius);
+      context.closePath();
+      context.fillStyle = colorFondo;
+      context.fill();
 
-    // var titular = "Taller de padres, Taller de madres, Taller de personas"
-    // var lineasTitular1 = getLines(ctxFacebook, titular, 1060);
-    // console.log(lineasTitular1);
+      // context.lineWidth = "4";
+      // // context.lineWidth = lineWidth;
+      // context.strokeStyle = "#ab2097";
+      // // context.strokeStyle = color;
+    }
 
-    function getMotherLines (ctx, text, maxWidth, font){
+  function getMotherLines (ctx, text, maxWidth, font){
       var motherLines = text.split("\n");
       var motherLinesResult = [];
       for (var i = 0; i < motherLines.length; i++) {
@@ -699,9 +747,7 @@ console.log("posInicialYtitular: " + posInicialYtitular);
       return motherLinesResult;
     }
 
-    function getLines(ctx, text, maxWidth, font) {
-      // var text = text.split("").join(String.fromCharCode(8202));
-
+  function getLines(ctx, text, maxWidth, font) {
       var words = text.split(" ");
       var lines = [];
       var currentLine = words[0];
@@ -718,77 +764,27 @@ console.log("posInicialYtitular: " + posInicialYtitular);
       }
       lines.push(currentLine);
       return lines;
+    } // cierre funcion getLines
 
-      // // SETEAR RECUADRO y/o FONDO RECUADRO:
-      // var boxH = (80 * lines.length) + 60;
-      // console.log(lines.length);
-      // console.log(boxH);
-      //
-      // ctxFacebook.rotate(-3 * Math.PI / 180);
-      //
-      // ctxFacebook.beginPath();
-      // ctxFacebook.lineWidth = "4";
-      // ctxFacebook.strokeStyle = "#ab2097";
-      //
-      // var xPos = (canvasFacebook.width/2) - (1080/2);
-      // var yPos = (480);
-      //
-      // ctxFacebook.rect(xPos,yPos, 1080, boxH);
-      // ctxFacebook.stroke();
-      //
-      // // IMPRIMIR TEXTO:
-      // var posX;
-      // var posY = 500;
-      // for (var i = 0; i < lines.length; i++) {
-      //   ctx.font = "bold 70px 'Gidugu', sans-serif";
-      //   ctx.fillStyle = "#ab2097";
-      //
-      //   posX = (canvasFacebook.width/2) - (ctxFacebook.measureText(lines[i]).width/2);
-      //
-      //   posY = posY + 80;
-      //
-      //   ctx.fillText(lines[i], posX, posY);
-      // }
-
-    } // cierre funcion
-
-  } else {
-    // canvas-unsupported code here
+  function scaleToFill(img, canvas, context){
+      // get the scale
+      var scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+      // get the top left position of the image
+      var x = (canvas.width / 2) - (img.width / 2) * scale;
+      var y = (canvas.height / 2) - (img.height / 2) * scale;
+      // context.globalCompositeOperation = "destination-over";
+      context.drawImage(img, x, y, img.width * scale, img.height * scale);
   }
 
 
-  // var image = document.getElementById("imgCanvas");
-  //
-  // image.onload = function(){
-  //   scaleToFill(this);
-  // }
-
-function scaleToFill(img, canvas, context){
-    // get the scale
-    var scale = Math.max(canvas.width / img.width, canvas.height / img.height);
-    // get the top left position of the image
-    var x = (canvas.width / 2) - (img.width / 2) * scale;
-    var y = (canvas.height / 2) - (img.height / 2) * scale;
-    context.drawImage(img, x, y, img.width * scale, img.height * scale);
-}
-
-
-
-
-
-
-  // ctxFacebook.font = "30px Arial";
-  // ctxFacebook.fillText("Hello World", 10, 50);
-  // ctx.font = "10px Arial";
-  // ctx.fillText("Hello", 10, 50);
-
+  // FUNCION CANVAS A IMAGEN:
   // canvasFacebook.onload = function(){
   // var imagen2 = canvasFacebook.toDataURL("image/png");
   // console.log(imagen2);
   // document.querySelector(".output").innerHTML += imagen2;
 
   // document.getElementById('prueba').setAttribute("src", imagen2);
-// }
+  // }
 
 
 

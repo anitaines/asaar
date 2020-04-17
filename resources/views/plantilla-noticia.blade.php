@@ -20,14 +20,14 @@
 
       <h3 class="h3_aspergerCEA" style="display:none;">Taller de Padres para Padres</h3>
       <h4 style="display:none;">Sábado 14 de Marzo de 16:30 a 18:30 hs.</h4>
-      {{-- <div class="img_container" style="display:none;"> --}}
-        <div class="img_container">
+      <div class="img_container" style="display:none;">
+        {{-- <div class="img_container"> --}}
         <div class="info_img_container">
           <div class="box1">
-            {{-- <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;"> --}}
-            <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina">
-            {{-- <div class="calendar" style="display:none;"> --}}
-              <div class="calendar">
+            <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;">
+            {{-- <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina"> --}}
+            <div class="calendar" style="display:none;">
+              {{-- <div class="calendar"> --}}
               <div class="calendar_mes">
                 <p>SEPTIEMBRE</p>
               </div>
@@ -37,28 +37,24 @@
               </div>
             </div>
           </div>
-          {{-- <div class="box2" style="display:none;"> --}}
-            <div class="box2">
-            <p>TALLER DE PADRES</p>
+          <div class="box2" style="display:none; background-color: transparent;">
+            {{-- <div class="box2"> --}}
+            <p style="color: #AB2097;">TALLER DE PADRES</p>
           </div>
           <div class="box3">
-            {{-- <div class="" style="display:none;"> --}}
-              <div class="">
+            <div class="" style="display:none;">
+              {{-- <div class=""> --}}
               <p>Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.</p>
             </div>
-            <div class="">
-              {{-- <p style="display:none;">Para padres de niños, adolescentes y adultos</p> --}}
-              <p>Para padres de niños, adolescentes y adultos</p>
-              {{-- <p style="display:none;">LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
-              Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p> --}}
-              <p>LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
+            <div class="" style="background-color: #AB2097;">
+              <p style="display:none; color: #ffffff;">Para padres de niños, adolescentes y adultos</p>
+              {{-- <p>Para padres de niños, adolescentes y adultos</p> --}}
+              <p style="display:none; color: #ffffff;">LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
               Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p>
+              {{-- <p>LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
+              Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p> --}}
             </div>
           </div>
-
-          {{-- <div class="box3">
-            <p>www.asperger.org.ar</p>
-          </div> --}}
 
         </div>
 
