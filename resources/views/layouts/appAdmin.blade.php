@@ -20,6 +20,8 @@
       <!-- Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700|Raleway:500,700&display=swap" rel="stylesheet">
 
+      <link href="https://fonts.googleapis.com/css2?family=Gidugu&display=swap" rel="stylesheet">
+
       <!-- Styles -->
       <link rel="stylesheet" href="/css/stylesResp.css">
 

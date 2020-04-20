@@ -1841,6 +1841,9 @@ line-height: 2;
 .admin .input .adminFormItem input:focus {
   outline: none;
 }
+.admin .imagenesWrap{
+  margin: auto;
+}
 .admin .imagenesWrap .imagenes {
   background-color: #ffffff;
   width: 90%;
@@ -1866,7 +1869,6 @@ line-height: 2;
 .admin .imagenesWrap .imagenes .imagenesOpcionCarga:hover{
   cursor: pointer;
 }
-
 .admin .imagenesWrap .imagenes p{
   margin-bottom: 0;
   margin-right: 5px;
@@ -1934,6 +1936,119 @@ line-height: 2;
   width: 80%;
   margin: auto;
   margin-bottom: 5px;
+}
+.admin .imagenesWrap .adminFormItem label{
+  width: auto;
+}
+/* .adminFormItem.form_item.form_item_checkbox{
+  margin-bottom: 5px;
+} */
+.admin .imagenesWrap .info_calendar{
+  /* display: flex; */
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+  padding-left: 54px;
+  /* background-color: #ffffff; */
+  border: 2px solid var(--magenta);
+  border-radius: 6px;
+}
+.admin .input .adminFormItem_textarea{
+  margin-bottom: 0px;
+}
+.admin .input .adminFormItem_textarea label{
+  /* line-height: 0px; */
+  width: 90%;
+}
+.admin .input .adminFormItem_textarea textarea{
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: inherit;
+  padding-left: 10px;
+}
+.admin .input .adminFormItem_textarea textarea:focus {
+  outline: none;
+}
+/* OPCIONES COLORES: */
+.admin .input .colorTipoTitular, .admin .input .colorFondoTitular, .admin .input .colorTipoSubtitular, .admin .input .colorFondoSubtitular, .admin .input .colorTipoResumen, .admin .input .colorFondoResumen{
+  width: 90%;
+  margin: auto;
+  border-radius: 6px;
+  border: 2px solid var(--magenta);
+  text-align: center;
+}
+.admin .input .colorTipoTitular p, .admin .input .colorFondoTitular p, .admin .input .colorTipoSubtitular p, .admin .input .colorFondoSubtitular p, .admin .input .colorTipoResumen p, .admin .input .colorFondoResumen p{
+
+}
+.admin .input .colorTipoTitular label, .admin .input .colorFondoTitular label, .admin .input .colorTipoSubtitular label, .admin .input .colorFondoSubtitular label, .admin .input .colorTipoResumen label, .admin .input .colorFondoResumen label{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 35%;
+}
+.admin .input .colorTipoTitular label div, .admin .input .colorFondoTitular label div, .admin .input .colorTipoSubtitular label div, .admin .input .colorFondoSubtitular label div, .admin .input .colorTipoResumen label div, .admin .input .colorFondoResumen label div{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  margin-left: 5px;
+}
+.admin .input .colorTipoTitular label div:hover, .admin .input .colorFondoTitular label div:hover, .admin .input .colorTipoSubtitular label div:hover, .admin .input .colorFondoSubtitular label div:hover, .admin .input .colorTipoResumen label div:hover, .admin .input .colorFondoResumen label div:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin .input .colorTipoTitular label input, .admin .input .colorFondoTitular label input, .admin .input .colorTipoSubtitular label input, .admin .input .colorFondoSubtitular label input, .admin .input .colorTipoResumen label input, .admin .input .colorFondoResumen label input{
+  display: none;
+}
+.admin .input .colorTipoTitular label input:checked ~ div, .admin .input .colorFondoTitular label input:checked ~ div, .admin .input .colorTipoSubtitular label input:checked ~ div, .admin .input .colorFondoSubtitular label input:checked ~ div {
+  border: 2px solid var(--black);
+}
+.admin .input .colorTipoResumen label input:checked ~ div, .admin .input .colorFondoResumen label input:checked ~ div {
+  border: 2px solid var(--black);
+}
+#content{
+width: 94%;
+margin: auto;
+margin-bottom: 15px;
+border: none;
+border-radius: 6px;
+font-size: inherit;
+padding-left: 10px;
+}
+#content:focus{
+  outline: none;
+}
+.admin .input .adminFormItem.imagenesAdicionales p:first-child{
+  width: 95%;
+  margin: auto;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 40px;
+  letter-spacing: 1px;
+}
+.admin .input .adminFormItem.imagenesAdicionales div{
+  width: 85%;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* overflow: hidden; */
+}
+.admin .input .adminFormItem.imagenesAdicionales div .alert{
+  text-align: center;
+  color: red;
+  font-style: italic;
+}
+.admin .input .adminFormItem.imagenesAdicionales div .remover{
+  background-color: var(--magenta);
+  text-align: center;
+  border-radius: 6px;
+  color: #ffffff;
+  line-height: 30px;
+}
+.admin .input .adminFormItem.imagenesAdicionales div .remover:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
 .admin .output{

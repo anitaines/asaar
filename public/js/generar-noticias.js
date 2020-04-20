@@ -178,7 +178,7 @@ window.onload = function(){
     let calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
     if (calendar.firstElementChild.checked == true){
       calendarioIframe.style.display ="flex";
-      calendar.nextElementSibling.style.display ="block";
+      calendar.parentElement.nextElementSibling.style.display ="flex";
 
       if (iframe.contentWindow.document.querySelector(".info_img_container .box1 img").style.display == "none"){
         iframe.contentWindow.document.querySelector(".info_img_container .box1").style.justifyContent="flex-end";
@@ -187,19 +187,19 @@ window.onload = function(){
       }
 
       // completar mes:
-      calendar.nextElementSibling.children[0].oninput = function(){
+      calendar.parentElement.nextElementSibling.children[0].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_mes").firstElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
         setCanvas();
       }
       // completar día de la semana:
-      calendar.nextElementSibling.children[1].oninput = function(){
+      calendar.parentElement.nextElementSibling.children[1].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_dia").firstElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
         setCanvas();
       }
       // completar número:
-      calendar.nextElementSibling.children[2].oninput = function(){
+      calendar.parentElement.nextElementSibling.children[2].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_dia").lastElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
         setCanvas();
@@ -207,7 +207,7 @@ window.onload = function(){
 
     } else {
       calendarioIframe.style.display ="none";
-      calendar.nextElementSibling.style.display ="none";
+      calendar.parentElement.nextElementSibling.style.display ="none";
     }
     checkLayout();
     // Canvas:
@@ -434,7 +434,7 @@ window.onload = function(){
           // Reset alert:
           document.getElementById(`${evt.target.id}`).parentElement.lastElementChild.innerHTML = "";
         }else{
-          document.getElementById(`${evt.target.id}`).parentElement.lastElementChild.innerHTML = files[0].name + " no es un archivo de imagen válido";
+          document.getElementById(`${evt.target.id}`).parentElement.lastElementChild.innerHTML = files[0].name + " <b>no es un archivo de imagen válido</b>";
         }
         };
       })(files[0]);
@@ -557,19 +557,19 @@ window.onload = function(){
         ctxFacebook.fillStyle = "#f72929";
         ctxFacebook.fillRect(964, -7, 188, 56);
 
-        var mesCalendario = calendar.nextElementSibling.children[0].firstElementChild.value;
+        var mesCalendario = calendar.parentElement.nextElementSibling.children[0].firstElementChild.value;
         ctxFacebook.font = "bold 28px Helvetica";
         ctxFacebook.fillStyle = "#fffadf";
         var mesPosX = 964 + ((188 - ctxFacebook.measureText(mesCalendario).width)/2);
         ctxFacebook.fillText(mesCalendario, mesPosX, 32);
 
-        var diaCalendario = calendar.nextElementSibling.children[1].firstElementChild.value.split("").join(String.fromCharCode(8201));
+        var diaCalendario = calendar.parentElement.nextElementSibling.children[1].firstElementChild.value.split("").join(String.fromCharCode(8201));
         ctxFacebook.font = "26px Helvetica";
         ctxFacebook.fillStyle = "black";
         var diaPosX = 964 + ((188 - ctxFacebook.measureText(diaCalendario).width)/2);
         ctxFacebook.fillText(diaCalendario, diaPosX, 80);
 
-        var nroCalendario = calendar.nextElementSibling.children[2].firstElementChild.value;
+        var nroCalendario = calendar.parentElement.nextElementSibling.children[2].firstElementChild.value;
         ctxFacebook.font = "bold 80px Helvetica";
         ctxFacebook.fillStyle = "black";
         var nroPosX = 964 + ((188 - ctxFacebook.measureText(nroCalendario).width)/2);

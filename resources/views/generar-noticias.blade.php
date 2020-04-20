@@ -35,7 +35,7 @@
           </label>
 
           <div class="imagenesWrap" style="display: none;">
-          <div class="imagenes">
+            <div class="imagenes">
             {{-- <p>Elegir imagen guardada:</p> --}}
             <div class="imagenesOpcionCarga">
               <p>Elegir imagen guardada</p>
@@ -88,238 +88,266 @@
             </label>
           </div>
 
-          <div class="imagenesOpcionCargaNueva">
+            <div class="imagenesOpcionCargaNueva">
             <p>Cargar nueva imagen ▼</p>
             <input type="file" id="files" name="files">
             <p class="alert"></p>
             <div id="uploadedImage"></div>
           </div>
 
-          <div class="adminFormItem form_item form_item_checkbox">
-            <label class="logoAsaar checkbox-label"> Incluir logo de la Asociación:
-              <input type="checkbox" name="logoAsaar" value="si">
-              <span class="checkbox-custom">✓</span>
-            </label>
-          </div>
+            <div class="adminFormItem form_item form_item_checkbox">
+              <label class="logoAsaar checkbox-label"> Incluir logo de la Asociación:
+                <input type="checkbox" name="logoAsaar" value="si">
+                <span class="checkbox-custom">✓</span>
+              </label>
+            </div>
 
-          <div class="adminFormItem form_item form_item_checkbox">
-          <label class="calendar checkbox-label"> Incluir calendario:
-            <input type="checkbox" name="calendar" value="si">
-            <span class="checkbox-custom">✓</span>
-          </label>
-          </div>
-          
-          <div class="info_calendar" style="display: none;">
-            <label> Mes:
-              <select class="" name="mes">
-                <option value="">Elegir:</option>
-                <option value="ENERO">ENERO</option>
-                <option value="FEBRERO">FEBRERO</option>
-                <option value="MARZO">MARZO</option>
-                <option value="ABRIL">ABRIL</option>
-                <option value="MAYO">MAYO</option>
-                <option value="JUNIO">JUNIO</option>
-                <option value="JULIO">JULIO</option>
-                <option value="AGOSTO">AGOSTO</option>
-                <option value="SEPTIEMBRE">SEPTIEMBRE</option>
-                <option value="OCTUBRE">OCTUBRE</option>
-                <option value="NOVIEMBRE">NOVIEMBRE</option>
-                <option value="DICIEMBRE">DICIEMBRE</option>
-              </select>
-            </label>
-            <label> Día de la semana:
-              <select class="" name="dia">
-                <option value="">Elegir:</option>
-                <option value="DOMINGO">DOMINGO</option>
-                <option value="LUNES">LUNES</option>
-                <option value="MARTES">MARTES</option>
-                <option value="MIÉRCOLES">MIÉRCOLES</option>
-                <option value="JUEVES">JUEVES</option>
-                <option value="VIERNES">VIERNES</option>
-                <option value="SÁBADO">SÁBADO</option>
-              </select>
-            </label>
-            <label> Número:
-              <select class="" name="numero">
-                <option value="">Elegir:</option>
-                @for ($i = 1; $i < 32; $i++)
-                  <option value="{{$i}}">{{$i}}</option>
-                @endfor
-              </select>
-            </label>
-          </div>
+            <div class="adminFormItem form_item form_item_checkbox">
+              <label class="calendar checkbox-label"> Incluir calendario:
+                <input type="checkbox" name="calendar" value="si">
+                <span class="checkbox-custom">✓</span>
+              </label>
+            </div>
 
-          <label class="tituloImagen">Titular en imagen:
-            <textarea  class="" name="tituloImagen" rows="5"></textarea>
-          </label>
-          <div class="colorTipoTitular" style="display: none;">
-            <p>Cambiar color tipografía:</p>
-            <label class="cambiarColorMagenta"> Magenta
-              {{-- --magenta: #ab2097; --}}
-              <div></div>
-              <input type="radio" name="colorTipoTitular" value="#AB2097" checked>
-            </label>
+            <div class="info_calendar" style="display: none;">
+              <label> Mes:
+                <select class="" name="mes">
+                  <option value="">Elegir:</option>
+                  <option value="ENERO">ENERO</option>
+                  <option value="FEBRERO">FEBRERO</option>
+                  <option value="MARZO">MARZO</option>
+                  <option value="ABRIL">ABRIL</option>
+                  <option value="MAYO">MAYO</option>
+                  <option value="JUNIO">JUNIO</option>
+                  <option value="JULIO">JULIO</option>
+                  <option value="AGOSTO">AGOSTO</option>
+                  <option value="SEPTIEMBRE">SEPTIEMBRE</option>
+                  <option value="OCTUBRE">OCTUBRE</option>
+                  <option value="NOVIEMBRE">NOVIEMBRE</option>
+                  <option value="DICIEMBRE">DICIEMBRE</option>
+                </select>
+              </label>
+              <label> Día de la semana:
+                <select class="" name="dia">
+                  <option value="">Elegir:</option>
+                  <option value="DOMINGO">DOMINGO</option>
+                  <option value="LUNES">LUNES</option>
+                  <option value="MARTES">MARTES</option>
+                  <option value="MIÉRCOLES">MIÉRCOLES</option>
+                  <option value="JUEVES">JUEVES</option>
+                  <option value="VIERNES">VIERNES</option>
+                  <option value="SÁBADO">SÁBADO</option>
+                </select>
+              </label>
+              <label> Número:
+                <select class="" name="numero">
+                  <option value="">Elegir:</option>
+                  @for ($i = 1; $i < 32; $i++)
+                    <option value="{{$i}}">{{$i}}</option>
+                  @endfor
+                </select>
+              </label>
+            </div>
 
-            <label class="cambiarColorVerde"> Verde
-              {{-- --green: #6ACF95; --}}
-              <div></div>
-              <input type="radio" name="colorTipoTitular" value="#6ACF95">
-            </label>
+            <div class="adminFormItem form_item  adminFormItem_textarea">
+              <label class="tituloImagen">Titular sobre imagen:
+                <textarea  class="" name="tituloImagen" rows="5"></textarea>
+              </label>
+            </div>
 
-            <label class="cambiarColorNaranja"> Naranja
-              {{-- --orange: #FC8901; --}}
-              <div></div>
-              <input type="radio" name="colorTipoTitular" value="#FC8901">
-            </label>
+            <div class="colorTipoTitular" style="display: none;">
+              <p>Color tipografía del titular:</p>
+              <label class="cambiarColorMagenta"> Magenta
+                {{-- --magenta: #ab2097; --}}
+                <input type="radio" name="colorTipoTitular" value="#AB2097" checked>
+                <div style="background-color: #AB2097;"></div>
+              </label>
 
-            <label class="cambiarColorCeleste"> Celeste
-              {{-- --blue: #34BFD2; --}}
-              <div></div>
-              <input type="radio" name="colorTipoTitular" value="#34BFD2">
-            </label>
+              <label class="cambiarColorVerde"> Verde
+                {{-- --green: #6ACF95; --}}
+                <input type="radio" name="colorTipoTitular" value="#6ACF95">
+                <div style="background-color: #6ACF95;"></div>
+              </label>
 
-            <label class="cambiarColorBlanco"> Blanco
-              <div></div>
-              <input type="radio" name="colorTipoTitular" value="#ffffff">
-            </label>
+              <label class="cambiarColorNaranja"> Naranja
+                {{-- --orange: #FC8901; --}}
+                <input type="radio" name="colorTipoTitular" value="#FC8901">
+                <div style="background-color: #FC8901;"></div>
+              </label>
 
-            <label class="cambiarColorNegro"> Negro
-              {{-- --black: #454545; --}}
-              <div></div>
-              <input type="radio" name="colorTipoTitular" value="#454545">
-            </label>
-          </div>
+              <label class="cambiarColorCeleste"> Cyan
+                {{-- --blue: #34BFD2; --}}
+                <input type="radio" name="colorTipoTitular" value="#34BFD2">
+                <div style="background-color: #34BFD2;"></div>
+              </label>
 
-          <div class="colorFondoTitular" style="display: none;">
-            <p>Cambiar color fondo:</p>
-            <label class="cambiarColorTransparente"> Transparente
-              <div></div>
-              <input type="radio" name="colorFondoTitulo" value="transparent" checked>
-            </label>
-            <label class="cambiarColorBlanco"> Blanco
-              <div></div>
-              <input type="radio" name="colorFondoTitulo" value="rgba(255, 255, 255, 0.5)">
-            </label>
-            <label class="cambiarColorNegro"> Negro
-              <div></div>
-              <input type="radio" name="colorFondoTitulo" value="rgba(69, 69, 69, 0.5)">
-            </label>
-          </div>
+              <label class="cambiarColorBlanco"> Blanco
+                <input type="radio" name="colorTipoTitular" value="#ffffff">
+                <div style="background-color: #ffffff;"></div>
+              </label>
 
-          <label class="subtituloImagen">Sub-titular en imagen:
-            <textarea  class="" name="subtituloImagen" rows="5"></textarea>
-          </label>
+              <label class="cambiarColorNegro"> Negro
+                {{-- --black: #454545; --}}
+                <input type="radio" name="colorTipoTitular" value="#454545">
+                <div style="background-color: #454545;"></div>
+              </label>
+            </div>
 
-          <label class="detalleImagen">Detalle en imagen:
-            <textarea  class="" name="detalleImagen" rows="5"></textarea>
-          </label>
+            <div class="colorFondoTitular" style="display: none;">
+              <p>Color fondo del titular:</p>
+              <label class="cambiarColorTransparente"> Sin color
+                <input type="radio" name="colorFondoTitulo" value="transparent" checked>
+                <div style="background-color: transparent;"></div>
+              </label>
 
-          <div class="colorTipoSubtitular" style="display: none;">
-            <p>Cambiar color tipografía:</p>
-            <label class="cambiarColorBlanco"> Blanco
-              <div></div>
-              <input type="radio" name="colorTipoSubtitular" value="#ffffff" checked>
-            </label>
-            <label class="cambiarColorNegro"> Negro
-              {{-- --black: #454545; --}}
-              <div></div>
-              <input type="radio" name="colorTipoSubtitular" value="#454545">
-            </label>
-          </div>
-          <div class="colorFondoSubtitular" style="display: none;">
-            <p>Cambiar color fondo:</p>
-            <label class="cambiarColorMagenta"> Magenta
-              <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="#AB2097" checked>
-            </label>
-            <label class="cambiarColorVerde"> Verde
-              <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="#6ACF95">
-            </label>
-            <label class="cambiarColorNaranja"> Naranja
-              <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="#FC8901">
-            </label>
-            <label class="cambiarColorCeleste"> Celeste
-              <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="#34BFD2">
-            </label>
-            <label class="cambiarColorBlanco"> Blanco
-              <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="#ffffff">
-            </label>
-            <label class="cambiarColorNegro"> Negro
-              <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="#454545">
-            </label>
-            <label class="cambiarColorNegro"> Transparente
-              <div></div>
-              <input type="radio" name="colorFondoSubtitular" value="transparent">
-            </label>
-          </div>
+              <label class="cambiarColorBlanco"> Blanco
+                <input type="radio" name="colorFondoTitulo" value="rgba(255, 255, 255, 0.5)">
+                <div style="background-color: rgba(255, 255, 255, 1);"></div>
+              </label>
 
-          <label class="resumenImagen">Resumen en imagen:
-            <textarea  class="" name="resumenImagen" rows="5"></textarea>
-          </label>
-          <div class="colorTipoResumen" style="display: none;">
-            <p>Cambiar color tipografía:</p>
-            <label class="naranja"> Naranja
-              {{-- darkorange --}}
-              <div></div>
-              <input type="radio" name="colorTipoResumen" value="rgb(255, 140, 0)" checked>
-            </label>
-            <label class="magenta"> Magenta
-              {{-- hotpink --}}
-              <div></div>
-              <input type="radio" name="colorTipoResumen" value="rgb(255, 105, 180)">
-            </label>
-            <label class="celeste"> Celeste
-              {{-- cyan --}}
-              <div></div>
-              <input type="radio" name="colorTipoResumen" value="rgb(0, 255, 255)">
-            </label>
-            <label class="verde"> Verde
-              {{-- mediumspringgreen --}}
-              <div></div>
-              <input type="radio" name="colorTipoResumen" value="rgb(0, 250, 154)">
-            </label>
-            <label class="blanco"> Blanco
-              <div></div>
-              <input type="radio" name="colorTipoResumen" value="#ffffff">
-            </label>
-            <label class="negro"> Negro
-              <div></div>
-              <input type="radio" name="colorTipoResumen" value="rgb(69, 69, 69)">
-            </label>
-          </div>
-          <div class="colorFondoResumen" style="display: none;">
-            <p>Cambiar color fondo:</p>
-            <label class="cambiarColorTransparente"> Transparente
-              <div></div>
-              <input type="radio" name="colorFondoResumen" value="transparent">
-            </label>
-            <label class="cambiarColorBlanco"> Blanco
-              <div></div>
-              <input type="radio" name="colorFondoResumen" value="rgba(255, 255, 255, 0.5)">
-            </label>
-            <label class="cambiarColorNegro"> Negro
-              <div></div>
-              <input type="radio" name="colorFondoResumen" value="rgba(69, 69, 69, 0.5)" checked>
-            </label>
-          </div>
+              <label class="cambiarColorNegro"> Negro
+                <input type="radio" name="colorFondoTitulo" value="rgba(69, 69, 69, 0.5)">
+                <div style="background-color: rgba(69, 69, 69, 1);"></div>
+              </label>
+            </div>
+
+            <div class="adminFormItem form_item adminFormItem_textarea">
+              <label class="subtituloImagen">Bajada de titular sobre imagen:
+                <textarea  class="" name="subtituloImagen" rows="5"></textarea>
+              </label>
+            </div>
+
+            <div class="adminFormItem form_item adminFormItem_textarea">
+              <label class="detalleImagen">Información adicional sobre imagen:
+                <textarea  class="" name="detalleImagen" rows="5"></textarea>
+              </label>
+            </div>
+
+            <div class="colorTipoSubtitular" style="display: none;">
+              <p>Color tipografía de bajada de titular e información adicional:</p>
+              <label class="cambiarColorBlanco"> Blanco
+                <input type="radio" name="colorTipoSubtitular" value="#ffffff" checked>
+                <div style="background-color: #ffffff;"></div>
+              </label>
+
+              <label class="cambiarColorNegro"> Negro
+                {{-- --black: #454545; --}}
+                <input type="radio" name="colorTipoSubtitular" value="#454545">
+                <div style="background-color: #454545;"></div>
+              </label>
+            </div>
+
+            <div class="colorFondoSubtitular" style="display: none;">
+              <p>Color fondo de bajada de titular e información adicional:</p>
+              <label class="cambiarColorMagenta"> Magenta
+                <input type="radio" name="colorFondoSubtitular" value="#AB2097" checked>
+                <div style="background-color: #AB2097;"></div>
+              </label>
+
+              <label class="cambiarColorVerde"> Verde
+                <input type="radio" name="colorFondoSubtitular" value="#6ACF95">
+                <div style="background-color: #6ACF95;"></div>
+              </label>
+
+              <label class="cambiarColorNaranja"> Naranja
+                <input type="radio" name="colorFondoSubtitular" value="#FC8901">
+                <div style="background-color: #FC8901;"></div>
+              </label>
+
+              <label class="cambiarColorCeleste"> Cyan
+                <input type="radio" name="colorFondoSubtitular" value="#34BFD2">
+                <div style="background-color: #34BFD2;"></div>
+              </label>
+
+              <label class="cambiarColorBlanco"> Blanco
+                <input type="radio" name="colorFondoSubtitular" value="#ffffff">
+                <div style="background-color: #ffffff;"></div>
+              </label>
+
+              <label class="cambiarColorNegro"> Negro
+                <input type="radio" name="colorFondoSubtitular" value="#454545">
+                <div style="background-color: #454545;"></div>
+              </label>
+
+              <label class="cambiarColorTransparente"> Sin color
+                <input type="radio" name="colorFondoSubtitular" value="transparent">
+                <div style="background-color: transparent;"></div>
+              </label>
+            </div>
+
+            <div class="adminFormItem form_item adminFormItem_textarea">
+              <label class="resumenImagen">Resumen sobre imagen:
+                <textarea  class="" name="resumenImagen" rows="5"></textarea>
+              </label>
+            </div>
+
+            <div class="colorTipoResumen" style="display: none;">
+              <p>Color tipografía de resumen:</p>
+              <label class="magenta"> Magenta
+                {{-- hotpink --}}
+                <input type="radio" name="colorTipoResumen" value="rgb(255, 105, 180)">
+                <div style="background-color: rgb(255, 105, 180);"></div>
+              </label>
+
+              <label class="verde"> Verde
+                {{-- mediumspringgreen --}}
+                <input type="radio" name="colorTipoResumen" value="rgb(0, 250, 154)">
+                <div style="background-color: rgb(0, 250, 154);"></div>
+              </label>
+
+              <label class="naranja"> Naranja
+                {{-- darkorange --}}
+                <input type="radio" name="colorTipoResumen" value="rgb(255, 140, 0)" checked>
+                <div style="background-color: rgb(255, 140, 0);"></div>
+              </label>
+
+              <label class="celeste"> Cyan
+                {{-- cyan --}}
+                <input type="radio" name="colorTipoResumen" value="rgb(0, 255, 255)">
+                <div style="background-color: rgb(0, 255, 255);"></div>
+              </label>
+
+              <label class="blanco"> Blanco
+                <input type="radio" name="colorTipoResumen" value="#ffffff">
+                <div style="background-color: #ffffff;"></div>
+              </label>
+
+              <label class="negro"> Negro
+                <input type="radio" name="colorTipoResumen" value="rgb(69, 69, 69)">
+                <div style="background-color: rgb(69, 69, 69);"></div>
+              </label>
+            </div>
+
+            <div class="colorFondoResumen" style="display: none;">
+              <p>Color fondo de resumen:</p>
+              <label class="cambiarColorTransparente"> Sin color
+                <input type="radio" name="colorFondoResumen" value="transparent">
+                <div style="background-color: transparent;"></div>
+              </label>
+
+              <label class="cambiarColorBlanco"> Blanco
+                <input type="radio" name="colorFondoResumen" value="rgba(255, 255, 255, 0.5)">
+                <div style="background-color: rgba(255, 255, 255, 1);"></div>
+              </label>
+
+              <label class="cambiarColorNegro"> Negro
+                <input type="radio" name="colorFondoResumen" value="rgba(69, 69, 69, 0.5)" checked>
+                <div style="background-color: rgba(69, 69, 69, 1);"></div>
+              </label>
+            </div>
 
           </div>
         </div>
 
         <div class="adminFormItem">
-          <label for="content">Contenido:</label>
+          <label for="content">4. Contenido de la noticia:</label>
           <textarea  class="" id="content" name="content" rows="5"></textarea>
         </div>
 
-        <div class="adminFormItem">
-          <p>Subir más imágenes</p>
+        <div class="adminFormItem imagenesAdicionales">
+          <p>5. Subir imágenes adicionales</p>
           <div class="">
-            <label for="filesPlus1">Imagen adicional 1</label>
+            <label for="filesPlus1">Imagen adicional 1:</label>
             <input type="file" id="filesPlus1" name="filesPlus1">
             <p class="remover" style="display:none;">Remover imagen</p>
             <div class=""></div>
@@ -327,7 +355,7 @@
           </div>
 
           <div class="">
-            <label for="filesPlus2">Imagen adicional 2</label>
+            <label for="filesPlus2">Imagen adicional 2:</label>
             <input type="file" id="filesPlus2" name="filesPlus2">
             <p class="remover" style="display:none;">Remover imagen</p>
             <div class=""></div>
@@ -335,7 +363,7 @@
           </div>
 
           <div class="">
-            <label for="filesPlus3">Imagen adicional 3</label>
+            <label for="filesPlus3">Imagen adicional 3:</label>
             <input type="file" id="filesPlus3" name="filesPlus3">
             <p class="remover" style="display:none;">Remover imagen</p>
             <div class=""></div>
