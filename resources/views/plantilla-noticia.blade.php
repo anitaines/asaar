@@ -42,9 +42,9 @@
             <p style="color: #AB2097;">TALLER DE PADRES</p>
           </div>
           <div class="box3">
-            <div class="" style="display:none;">
+            <div class="" style="display:none; background-color: rgba(69, 69, 69, 0.5);">
               {{-- <div class=""> --}}
-              <p>Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.</p>
+              <p style="color: rgb(255, 140, 0);">Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.</p>
             </div>
             <div class="" style="background-color: #AB2097;">
               <p style="display:none; color: #ffffff;">Para padres de niños, adolescentes y adultos</p>

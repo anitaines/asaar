@@ -12,49 +12,103 @@
 
   <main class="admin">
     <div class="input">
+
+      <h4>Ingresar la información:</h4>
+
       <form class="" action="/generar-noticias" method="post" enctype="multipart/form-data">
         @csrf
 
-        <label for="title">Título:</label>
-        <input id="title" type="text" name="title" value="">
+        <div class="adminFormItem">
+          <label for="title">1. Titular:</label>
+          <input id="title" type="text" name="title" value="">
+        </div>
 
-        <label for="subtitle">Sub-título:</label>
-        <input id="subtitle" type="text" name="subtitle" value="">
+        <div class="adminFormItem">
+          <label for="subtitle">2. Bajada titular:</label>
+          <input id="subtitle" type="text" name="subtitle" value="">
+        </div>
 
-        <label class="imagenNoticia"> Incluir una imagen principal:
-          <input type="checkbox" name="imagenNoticia" value="si">
-        </label>
+        <div class="adminFormItem form_item form_item_checkbox">
+          <label class="imagenNoticia checkbox-label">3. Incluir una imagen principal:
+            <input type="checkbox" name="imagenNoticia" value="si">
+            <span class="checkbox-custom">✓</span>
+          </label>
 
-        <div class="imagenesWrap" style="display: none;">
+          <div class="imagenesWrap" style="display: none;">
           <div class="imagenes">
-            <label class="imagen1"> Elegir imagen principal para noticia:
-              <div style="background-image: url('/media/noticias/preloaded/01.jpeg');" class=""></div>
+            {{-- <p>Elegir imagen guardada:</p> --}}
+            <div class="imagenesOpcionCarga">
+              <p>Elegir imagen guardada</p>
+              <p>▼</p>
+            </div>
+
+            <label class="imagen1">
               <input id="imagen1" type="radio" name="imagen" value="/media/noticias/preloaded/01.jpeg">
+              <div style="background-image: url('/media/noticias/preloaded/01.jpeg');" class=""></div>
             </label>
-            <label class="imagen2"> Elegir imagen principal para noticia:
-              <div style="background-image: url('/media/noticias/preloaded/02.jpg');" class=""></div>
+
+            <label class="imagen2">
               <input id="imagen2" type="radio" name="imagen" value="/media/noticias/preloaded/02.jpg">
+              <div style="background-image: url('/media/noticias/preloaded/02.jpg');" class=""></div>
             </label>
-            <label class="imagen3"> Elegir imagen principal para noticia:
-              <div style="background-image: url('/media/noticias/preloaded/03.jpeg');" class=""></div>
+
+            <label class="imagen3">
               <input id="imagen3" type="radio" name="imagen" value="/media/noticias/preloaded/03.jpeg" checked>
+              <div style="background-image: url('/media/noticias/preloaded/03.jpeg');" class=""></div>
+            </label>
+
+            <label class="imagen1">
+              <input id="imagen1" type="radio" name="imagen" value="/media/noticias/preloaded/01.jpeg">
+              <div style="background-image: url('/media/noticias/preloaded/01.jpeg');" class=""></div>
+            </label>
+
+            <label class="imagen2">
+              <input id="imagen2" type="radio" name="imagen" value="/media/noticias/preloaded/02.jpg">
+              <div style="background-image: url('/media/noticias/preloaded/02.jpg');" class=""></div>
+            </label>
+
+            <label class="imagen3">
+              <input id="imagen3" type="radio" name="imagen" value="/media/noticias/preloaded/03.jpeg">
+              <div style="background-image: url('/media/noticias/preloaded/03.jpeg');" class=""></div>
+            </label>
+
+            <label class="imagen1">
+              <input id="imagen1" type="radio" name="imagen" value="/media/noticias/preloaded/01.jpeg">
+              <div style="background-image: url('/media/noticias/preloaded/01.jpeg');" class=""></div>
+            </label>
+
+            <label class="imagen2">
+              <input id="imagen2" type="radio" name="imagen" value="/media/noticias/preloaded/02.jpg">
+              <div style="background-image: url('/media/noticias/preloaded/02.jpg');" class=""></div>
+            </label>
+
+            <label class="imagen3">
+              <input id="imagen3" type="radio" name="imagen" value="/media/noticias/preloaded/03.jpeg">
+              <div style="background-image: url('/media/noticias/preloaded/03.jpeg');" class=""></div>
             </label>
           </div>
 
-          {{-- <label class="" for="upload">Cargar imagen:</label>
-          <input class="" type="file" id="upload" name="image1" value= ""> --}}
+          <div class="imagenesOpcionCargaNueva">
+            <p>Cargar nueva imagen ▼</p>
+            <input type="file" id="files" name="files">
+            <p class="alert"></p>
+            <div id="uploadedImage"></div>
+          </div>
 
-          <input type="file" id="files" name="files">
-          <p class="alert"></p>
-          <div id="uploadedImage"></div>
+          <div class="adminFormItem form_item form_item_checkbox">
+            <label class="logoAsaar checkbox-label"> Incluir logo de la Asociación:
+              <input type="checkbox" name="logoAsaar" value="si">
+              <span class="checkbox-custom">✓</span>
+            </label>
+          </div>
 
-          <label class="logoAsaar"> Incluir logo de la Asociación:
-            <input type="checkbox" name="logoAsaar" value="si">
-          </label>
-
-          <label class="calendar"> Incluir calendario:
+          <div class="adminFormItem form_item form_item_checkbox">
+          <label class="calendar checkbox-label"> Incluir calendario:
             <input type="checkbox" name="calendar" value="si">
+            <span class="checkbox-custom">✓</span>
           </label>
+          </div>
+          
           <div class="info_calendar" style="display: none;">
             <label> Mes:
               <select class="" name="mes">
@@ -210,20 +264,24 @@
           <div class="colorTipoResumen" style="display: none;">
             <p>Cambiar color tipografía:</p>
             <label class="naranja"> Naranja
+              {{-- darkorange --}}
               <div></div>
-              <input type="radio" name="colorTipoResumen" value="darkorange" checked>
+              <input type="radio" name="colorTipoResumen" value="rgb(255, 140, 0)" checked>
             </label>
             <label class="magenta"> Magenta
+              {{-- hotpink --}}
               <div></div>
-              <input type="radio" name="colorTipoResumen" value="hotpink">
+              <input type="radio" name="colorTipoResumen" value="rgb(255, 105, 180)">
             </label>
             <label class="celeste"> Celeste
+              {{-- cyan --}}
               <div></div>
-              <input type="radio" name="colorTipoResumen" value="cyan">
+              <input type="radio" name="colorTipoResumen" value="rgb(0, 255, 255)">
             </label>
             <label class="verde"> Verde
+              {{-- mediumspringgreen --}}
               <div></div>
-              <input type="radio" name="colorTipoResumen" value="mediumspringgreen">
+              <input type="radio" name="colorTipoResumen" value="rgb(0, 250, 154)">
             </label>
             <label class="blanco"> Blanco
               <div></div>
@@ -231,7 +289,7 @@
             </label>
             <label class="negro"> Negro
               <div></div>
-              <input type="radio" name="colorTipoSubtitular" value="var(--black)">
+              <input type="radio" name="colorTipoResumen" value="rgb(69, 69, 69)">
             </label>
           </div>
           <div class="colorFondoResumen" style="display: none;">
@@ -251,43 +309,45 @@
           </div>
 
           </div>
-
-        <label for="content">Contenido:</label>
-        <textarea  class="" id="content" name="content" rows="5"></textarea>
-
-
-        <p>Subir más imágenes</p>
-        <div class="">
-          <label for="filesPlus1">Imagen adicional 1</label>
-          <input type="file" id="filesPlus1" name="filesPlus1">
-          <p class="remover" style="display:none;">Remover imagen</p>
-          <div class=""></div>
-          <p class="alert"></p>
         </div>
 
-        <div class="">
-          <label for="filesPlus2">Imagen adicional 2</label>
-          <input type="file" id="filesPlus2" name="filesPlus2">
-          <p class="remover" style="display:none;">Remover imagen</p>
-          <div class=""></div>
-          <p class="alert"></p>
+        <div class="adminFormItem">
+          <label for="content">Contenido:</label>
+          <textarea  class="" id="content" name="content" rows="5"></textarea>
         </div>
 
-        <div class="">
-          <label for="filesPlus3">Imagen adicional 3</label>
-          <input type="file" id="filesPlus3" name="filesPlus3">
-          <p class="remover" style="display:none;">Remover imagen</p>
-          <div class=""></div>
-          <p class="alert"></p>
+        <div class="adminFormItem">
+          <p>Subir más imágenes</p>
+          <div class="">
+            <label for="filesPlus1">Imagen adicional 1</label>
+            <input type="file" id="filesPlus1" name="filesPlus1">
+            <p class="remover" style="display:none;">Remover imagen</p>
+            <div class=""></div>
+            <p class="alert"></p>
+          </div>
+
+          <div class="">
+            <label for="filesPlus2">Imagen adicional 2</label>
+            <input type="file" id="filesPlus2" name="filesPlus2">
+            <p class="remover" style="display:none;">Remover imagen</p>
+            <div class=""></div>
+            <p class="alert"></p>
+          </div>
+
+          <div class="">
+            <label for="filesPlus3">Imagen adicional 3</label>
+            <input type="file" id="filesPlus3" name="filesPlus3">
+            <p class="remover" style="display:none;">Remover imagen</p>
+            <div class=""></div>
+            <p class="alert"></p>
+          </div>
         </div>
 
-
-
-        <div id="uploadedImagePlus">
-        </div>
-
+        {{-- <div id="uploadedImagePlus">
+        </div> --}}
+<p>6. Descargar imagen facebook</p>
         <button class="buton_newsletter_footer"  type="submit">
-          <p>Publicar</p>
+          <p>7. Publicar</p>
           <p>Procesando</p>
         </button>
 
@@ -298,50 +358,26 @@
     <div class="output">
 
       <div class="wrap_iframe">
+        <h4>Vista previa noticia:</h4>
         <iframe id="output_iframe" src="{{ url('/plantilla-noticia') }}"></iframe>
       </div>
 
-      <img id="imgCanvas" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;">
+      {{-- <img id="imgCanvas" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;"> --}}
 
-      <div class="forFacebook">
-        <div class="div1">
-          <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina">
-          {{-- <div class="div1_calendar">
-            <div class="div1_calendar_mes">
-              <p>SEPTIEMBRE</p>
-            </div>
-            <div class="div1_calendar_dia">
-              <p>DOMINGO</p>
-              <p>14</p>
-            </div>
-          </div> --}}
+      <div class="allCanvas">
+        <h4>Vista previa imagen para redes sociales:</h4>
+        <img id="imgCanvas" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;">
+
+        <div class="wrap_canvas">
+          <canvas id="canvasFacebook" width="1200px" height="1200px" style="border:1px solid #000000;"></canvas>
         </div>
-        <div class="div2">
-          <p>TALLER DE PADRES</p>
-        </div>
-        {{-- <div class="forFacebook_titular" style="border: 4px solid var(--magenta);">
-          prueba
-        </div> --}}
-        <div class="div3">
-          <div class="">
-            <p>Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.</p>
-          </div>
-          <div class="">
-            <p>Para padres de niños, adolescentes y adultos</p>
-            <p>LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
-            Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p>
-          </div>
-        </div>
-        <div class="div4">
-          <p>www.asperger.org.ar</p>
-        </div>
+        {{-- <p>fin prueba canvas</p> --}}
+
+        {{-- <img id="prueba" src="" alt="" style="display: none;"> --}}
+
+        <a id="link"><p>Descargar imagen</p></a>
+
       </div>
-
-      <canvas id="canvasFacebook" width="1200px" height="1200px" style="border:1px solid #000000;"></canvas>
-
-      {{-- <p>fin prueba canvas</p> --}}
-
-      {{-- <img id="prueba" src="" alt=""> --}}
 
     </div>
   </main>
