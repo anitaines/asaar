@@ -20,14 +20,13 @@
 
       <h3 class="h3_aspergerCEA" style="display:none;">Taller de Padres para Padres</h3>
       <h4 style="display:none;">Sábado 14 de Marzo de 16:30 a 18:30 hs.</h4>
-      <div class="img_container" style="display:none;">
-        {{-- <div class="img_container"> --}}
+      <div class="wrap_img">
+        <div class="img_container" style="display:none;"></div>
         <div class="info_img_container">
           <div class="box1">
             <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;">
-            {{-- <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina"> --}}
+
             <div class="calendar" style="display:none;">
-              {{-- <div class="calendar"> --}}
               <div class="calendar_mes">
                 <p>SEPTIEMBRE</p>
               </div>
@@ -38,27 +37,22 @@
             </div>
           </div>
           <div class="box2" style="display:none; background-color: transparent;">
-            {{-- <div class="box2"> --}}
             <p style="color: #AB2097;">TALLER DE PADRES</p>
           </div>
           <div class="box3">
             <div class="" style="display:none; background-color: rgba(69, 69, 69, 0.5);">
-              {{-- <div class=""> --}}
               <p style="color: rgb(255, 140, 0);">Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.</p>
             </div>
-            <div class="" style="background-color: #AB2097;">
+            <div class="" style="display:none; background-color: #AB2097;">
               <p style="display:none; color: #ffffff;">Para padres de niños, adolescentes y adultos</p>
-              {{-- <p>Para padres de niños, adolescentes y adultos</p> --}}
               <p style="display:none; color: #ffffff;">LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
               Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p>
-              {{-- <p>LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
-              Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p> --}}
             </div>
           </div>
 
         </div>
-
       </div>
+
 
       <p class="parrafo" style="display:none;">Inscribirse completando el formulario del siguiente enlace:<br>
       <a href="https://goo.gl/forms/5UssYYdEHoQJ8b262"  target="_blank" rel="noreferrer">https://goo.gl/forms/5UssYYdEHoQJ8b262</a><br>

@@ -1,39 +1,6 @@
 window.onload = function(){
-  var imagenesOpcionCarga = document.querySelector(".imagenesOpcionCarga");
-  imagenesOpcionCarga.onclick = function(){
-    if(imagenesOpcionCarga.lastElementChild.innerHTML == "▼"){
-      imagenesOpcionCarga.lastElementChild.innerHTML = "▲";
-      document.querySelector(".admin .imagenesWrap .imagenes").style.height = "350px";
-      document.querySelector(".admin .imagenesWrap .imagenes").style.overflow = "scroll";
-      var imagenesCargadas = document.querySelectorAll(".admin .imagenesWrap .imagenes label");
-      for (var i = 0; i < imagenesCargadas.length; i++) {
-        imagenesCargadas[i].style.display = "block";
-      }
-    } else {
-      imagenesOpcionCarga.lastElementChild.innerHTML = "▼";
-      document.querySelector(".admin .imagenesWrap .imagenes").style.height = "38px";
-      document.querySelector(".admin .imagenesWrap .imagenes").style.overflow = "hidden";
-      var imagenesCargadas = document.querySelectorAll(".admin .imagenesWrap .imagenes label");
-      for (var i = 0; i < imagenesCargadas.length; i++) {
-        imagenesCargadas[i].style.display = "none";
-      }
-    }
-  }
 
-  var imagenesOpcionCargaNueva = document.querySelector(".imagenesOpcionCargaNueva p");
-  imagenesOpcionCargaNueva.onclick = function(){
-    if (imagenesOpcionCargaNueva.innerHTML == "Cargar nueva imagen ▼"){
-      imagenesOpcionCargaNueva.innerHTML = "Cargar nueva imagen ▲"
-      imagenesOpcionCargaNueva.parentElement.style.height= "auto";
-      imagenesOpcionCargaNueva.parentElement.style.overflow= "unset";
-    } else {
-      imagenesOpcionCargaNueva.innerHTML = "Cargar nueva imagen ▼"
-      imagenesOpcionCargaNueva.parentElement.style.height= "38px";
-      imagenesOpcionCargaNueva.parentElement.style.overflow= "hidden";
-    }
-  }
-
-  // PREVIEW NOTICIA y CANVAS:
+  // PREVIEW y SETEO NOTICIA y CANVAS:
 
   // iframe layout preview:
   let iframe = document.getElementById("output_iframe");
@@ -85,6 +52,41 @@ window.onload = function(){
       imagenPrincipal.style.display = "none";
       // Canvas:
       setCanvas();
+    }
+  }
+
+  //funcionalidad opción de carga de imágenes:
+  var imagenesOpcionCarga = document.querySelector(".imagenesOpcionCarga");
+  imagenesOpcionCarga.onclick = function(){
+    if(imagenesOpcionCarga.lastElementChild.innerHTML == "▼"){
+      imagenesOpcionCarga.lastElementChild.innerHTML = "▲";
+      document.querySelector(".admin .imagenesWrap .imagenes").style.height = "350px";
+      document.querySelector(".admin .imagenesWrap .imagenes").style.overflow = "scroll";
+      var imagenesCargadas = document.querySelectorAll(".admin .imagenesWrap .imagenes label");
+      for (var i = 0; i < imagenesCargadas.length; i++) {
+        imagenesCargadas[i].style.display = "block";
+      }
+    } else {
+      imagenesOpcionCarga.lastElementChild.innerHTML = "▼";
+      document.querySelector(".admin .imagenesWrap .imagenes").style.height = "38px";
+      document.querySelector(".admin .imagenesWrap .imagenes").style.overflow = "hidden";
+      var imagenesCargadas = document.querySelectorAll(".admin .imagenesWrap .imagenes label");
+      for (var i = 0; i < imagenesCargadas.length; i++) {
+        imagenesCargadas[i].style.display = "none";
+      }
+    }
+  }
+
+  var imagenesOpcionCargaNueva = document.querySelector(".imagenesOpcionCargaNueva p");
+  imagenesOpcionCargaNueva.onclick = function(){
+    if (imagenesOpcionCargaNueva.innerHTML == "Cargar nueva imagen ▼"){
+      imagenesOpcionCargaNueva.innerHTML = "Cargar nueva imagen ▲"
+      imagenesOpcionCargaNueva.parentElement.style.height= "auto";
+      imagenesOpcionCargaNueva.parentElement.style.overflow= "unset";
+    } else {
+      imagenesOpcionCargaNueva.innerHTML = "Cargar nueva imagen ▼"
+      imagenesOpcionCargaNueva.parentElement.style.height= "38px";
+      imagenesOpcionCargaNueva.parentElement.style.overflow= "hidden";
     }
   }
 
@@ -155,6 +157,17 @@ window.onload = function(){
 
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
+  // filtro imagen principal:
+
+  let filtroImagen = document.querySelectorAll(".filtroImagen input");
+  for (var i = 0; i < filtroImagen.length; i++) {
+    filtroImagen[i].oninput = function(){
+      imagenPrincipal.style.filter = this.value;
+      // Canvas:
+      setCanvas();
+    }
+  }
+
   // incluir logo AsAAr:
   let logoAsaar = document.querySelector(".logoAsaar");
   logoAsaar.oninput = function(){
@@ -221,6 +234,22 @@ window.onload = function(){
     iframe.contentWindow.document.querySelector(".info_img_container .box2").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box2 p").innerHTML = this.value.replace(/\n/g, "<br>");
 
+    document.querySelector(".recuadroTitular").style.display = "block";
+    // funcionalidad opción recuadro:
+    let recuadroTitular = document.querySelector(".recuadroTitular");
+    recuadroTitular.oninput = function(){
+      if (recuadroTitular.firstElementChild.firstElementChild.checked == true){
+        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "4px solid var(--magenta)";
+        // Canvas:
+        // setCanvas();
+      } else {
+        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "0px solid var(--magenta)";
+        // Canvas:
+        // setCanvas();
+      }
+    }
+
+
     document.querySelector(".colorTipoTitular").style.display = "block";
 
     // funcionalidad thumbnails colores tipografía:
@@ -251,6 +280,8 @@ window.onload = function(){
       document.querySelector(".colorTipoTitular").style.display = "none";
 
       document.querySelector(".colorFondoTitular").style.display = "none";
+
+      document.querySelector(".recuadroTitular").style.display = "none";
     }
     checkLayout();
     // Canvas:
@@ -261,6 +292,7 @@ window.onload = function(){
   var subtituloImagen = document.querySelector(".subtituloImagen textarea");
   subtituloImagen.oninput = function(){
     if (this.value.length > 0){
+    iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").innerHTML = this.value.replace(/\n/g, "<br>");
 
@@ -291,6 +323,8 @@ window.onload = function(){
 
   } else {
     if (this.value.length <= 0 && detalleImagen.value <= 0){
+      iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.display = "none";
+
       iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.display = "none";
 
       document.querySelector(".colorTipoSubtitular").style.display = "none";
@@ -309,6 +343,7 @@ window.onload = function(){
   var detalleImagen = document.querySelector(".detalleImagen textarea");
   detalleImagen.oninput = function(){
     if (this.value.length > 0){
+    iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").innerHTML = this.value.replace(/\n/g, "<br>");
 
@@ -339,6 +374,8 @@ window.onload = function(){
 
     } else {
       if (this.value.length <= 0 && subtituloImagen.value <= 0){
+      iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.display = "none";
+
       iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.display = "none";
 
       document.querySelector(".colorTipoSubtitular").style.display = "none";
@@ -529,8 +566,9 @@ window.onload = function(){
 
       // SETEAR IMAGEN FONDO:
       imgCanvas.src = imgCanvas.src;
+      let filtro = imagenPrincipal.style.filter;
       imgCanvas.onload = function(){
-        scaleToFill(this, canvasFacebook, ctxFacebook);
+        scaleToFill(this, canvasFacebook, ctxFacebook, filtro);
       // } //cierre onload, lo muevo al final de la función
 
 
@@ -841,14 +879,15 @@ window.onload = function(){
       return lines;
     } // cierre funcion getLines
 
-  function scaleToFill(img, canvas, context){
+  function scaleToFill(img, canvas, context, filter){
       // get the scale
       var scale = Math.max(canvas.width / img.width, canvas.height / img.height);
       // get the top left position of the image
       var x = (canvas.width / 2) - (img.width / 2) * scale;
       var y = (canvas.height / 2) - (img.height / 2) * scale;
       // context.globalCompositeOperation = "destination-over";
-      context.filter = 'grayscale(100%)';
+      // context.filter = 'grayscale(100%)';
+      context.filter = filter;
       context.drawImage(img, x, y, img.width * scale, img.height * scale);
       context.filter = 'none';
   }

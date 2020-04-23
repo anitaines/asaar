@@ -88,28 +88,44 @@
             </label>
           </div>
 
-            <div class="imagenesOpcionCargaNueva">
+          <div class="imagenesOpcionCargaNueva">
             <p>Cargar nueva imagen ▼</p>
             <input type="file" id="files" name="files">
             <p class="alert"></p>
             <div id="uploadedImage"></div>
           </div>
 
-            <div class="adminFormItem form_item form_item_checkbox">
+          <div class="filtroImagen">
+            <p>Filtro imagen:</p>
+            <label class=""> Ninguno
+              <input type="radio" name="filtroImagen" value="none" checked>
+              <div>✓</div>
+            </label>
+            <label class=""> Blanco y negro
+              <input type="radio" name="filtroImagen" value="grayscale(100%)">
+              <div>✓</div>
+            </label>
+            <label class=""> Fuera de foco
+              <input type="radio" name="filtroImagen" value="blur(5px)">
+              <div>✓</div>
+            </label>
+          </div>
+
+          <div class="adminFormItem form_item form_item_checkbox">
               <label class="logoAsaar checkbox-label"> Incluir logo de la Asociación:
                 <input type="checkbox" name="logoAsaar" value="si">
                 <span class="checkbox-custom">✓</span>
               </label>
-            </div>
+          </div>
 
-            <div class="adminFormItem form_item form_item_checkbox">
+          <div class="adminFormItem form_item form_item_checkbox">
               <label class="calendar checkbox-label"> Incluir calendario:
                 <input type="checkbox" name="calendar" value="si">
                 <span class="checkbox-custom">✓</span>
               </label>
-            </div>
+          </div>
 
-            <div class="info_calendar" style="display: none;">
+          <div class="info_calendar" style="display: none;">
               <label> Mes:
                 <select class="" name="mes">
                   <option value="">Elegir:</option>
@@ -147,7 +163,7 @@
                   @endfor
                 </select>
               </label>
-            </div>
+          </div>
 
             <div class="adminFormItem form_item  adminFormItem_textarea">
               <label class="tituloImagen">Titular sobre imagen:
@@ -209,6 +225,13 @@
                 <input type="radio" name="colorFondoTitulo" value="rgba(69, 69, 69, 0.5)">
                 <div style="background-color: rgba(69, 69, 69, 1);"></div>
               </label>
+            </div>
+
+            <div class="recuadroTitular form_item_checkbox" style="display: none;">
+                <label class="recuadro checkbox-label"> Recuadro de titular:
+                  <input type="checkbox" name="recuadro" value="si" checked>
+                  <span class="checkbox-custom">✓</span>
+                </label>
             </div>
 
             <div class="adminFormItem form_item adminFormItem_textarea">
@@ -371,13 +394,31 @@
           </div>
         </div>
 
-        {{-- <div id="uploadedImagePlus">
-        </div> --}}
-<p>6. Descargar imagen facebook</p>
-        <button class="buton_newsletter_footer"  type="submit">
-          <p>7. Publicar</p>
+        <div class="downloadCanvas">
+          <a id="link">
+            <p>6. Descargar imagen 1200x1200px</p>
+            <p>(Facebook/Instagram)</p>
+          </a>
+        </div>
+
+        <div class="downloadCanvas">
+          <a>
+            <p>7. Descargar imagen 1024x512px</p>
+            <p>(Twitter)</p>
+          </a>
+        </div>
+
+        {{-- <button class="buton_newsletter_footer"  type="submit">
+          <p>8. Publicar noticia</p>
           <p>Procesando</p>
-        </button>
+        </button> --}}
+
+        <div class="downloadCanvas uploadNews">
+          <button class=""  type="submit" disabled>
+            <p>8. Publicar noticia</p>
+            {{-- <p>Procesando</p> --}}
+          </button>
+        </div>
 
       </form>
 
@@ -390,21 +431,26 @@
         <iframe id="output_iframe" src="{{ url('/plantilla-noticia') }}"></iframe>
       </div>
 
-      {{-- <img id="imgCanvas" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;"> --}}
-
       <div class="allCanvas">
         <h4>Vista previa imagen para redes sociales:</h4>
         <img id="imgCanvas" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;">
 
-        <div class="wrap_canvas">
-          <canvas id="canvasFacebook" width="1200px" height="1200px" style="border:1px solid #000000;"></canvas>
+        <div class="container_canvas">
+
+          <p>Imagen 1200 x 1200 px ( por ejemplo, para usar en Facebook o Instagram):</p>
+          <div class="wrap_canvas">
+            <canvas id="canvasFacebook" width="1200px" height="1200px"></canvas>
+          </div>
+
+          <p>Imagen 1024 x 512 px (por ejemplo, para usar en Twitter):</p>
+          <div class="wrap_canvas">
+            <canvas id="canvasTwitter" width="1024px" height="512px" style="border:1px solid #000000;"></canvas>
+          </div>
+
+          {{-- <img id="prueba" src="" alt="" style="display: none;"> --}}
+
+          {{-- <a id="link"><p>Descargar imagen</p></a> --}}
         </div>
-        {{-- <p>fin prueba canvas</p> --}}
-
-        {{-- <img id="prueba" src="" alt="" style="display: none;"> --}}
-
-        <a id="link"><p>Descargar imagen</p></a>
-
       </div>
 
     </div>
