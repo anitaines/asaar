@@ -1697,6 +1697,7 @@ footer{
   width: 95%;
   margin: auto;
   flex-wrap: wrap;
+  flex-direction: column-reverse;
   overflow: hidden;
 }
 .main_detalle_noticias .wrap_img .info_img_container .box3 div:first-child{
@@ -1736,6 +1737,7 @@ line-height: 2;
 .main_detalle_noticias .imagenesAdicionales{
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 /* .main_detalle_noticias .imagenesAdicionales .filesPlus1, .main_detalle_noticias .imagenesAdicionales .filesPlus2, .main_detalle_noticias .imagenesAdicionales .filesPlus3{
 
@@ -2183,9 +2185,9 @@ padding-left: 10px;
   height: 74vh;
   /* overflow: scroll; */
   overflow-y: scroll;
-  overflow-x: hidden;
+  /* overflow-x: hidden; SACAR!!!!!*/
 }
-.admin .output .wrap_canvas {
+.admin .output .wrapCanvasFacebook {
   /* width: 635px; */
   /* width: 45%; */
   /* height: 1700px; */
@@ -2206,6 +2208,33 @@ padding-left: 10px;
   transform: scale(0.45); */
   -webkit-transform: scale(0.4);
   transform: scale(0.4);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  /* width: 48%;
+  height: 28%; */
+}
+.admin .output .wrapCanvasTwitter {
+  /* width: 635px; */
+  /* width: 45%; */
+  /* height: 1700px; */
+  /* overflow: hidden; */
+
+  /* width: 510px;
+  height: 510px; */
+
+  width: 490px;
+  height: 310px;
+}
+#canvasTwitter{
+  border: 3px solid var(--black);
+  /* width: 100% !important;
+  height: 100% !important;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5); */
+  /* -webkit-transform: scale(0.45);
+  transform: scale(0.45); */
+  -webkit-transform: scale(0.375);
+  transform: scale(0.375);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
   /* width: 48%;
@@ -2480,7 +2509,10 @@ padding-left: 10px;
   /* ************ DETALLE NOTICIA SECTION - TABLET ************ */
 
   /* imagen noticia */
-  .main_detalle_noticias .img_container{
+  .main_detalle_noticias .wrap_img{
+    height: 537px;
+  }
+  .main_detalle_noticias .wrap_img .img_container{
     height: 537px;
   }
   .main_detalle_noticias .wrap_img .info_img_container{
@@ -2515,6 +2547,7 @@ padding-left: 10px;
   }
   .main_detalle_noticias .wrap_img .info_img_container .box3{
     flex-wrap: nowrap;
+    flex-direction: row;
   }
   .main_detalle_noticias .wrap_img .info_img_container .box3 div:first-child{
     width: 49%;

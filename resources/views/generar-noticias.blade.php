@@ -395,14 +395,14 @@
         </div>
 
         <div class="downloadCanvas">
-          <a id="link">
+          <a id="linkFacebook">
             <p>6. Descargar imagen 1200x1200px</p>
             <p>(Facebook/Instagram)</p>
           </a>
         </div>
 
         <div class="downloadCanvas">
-          <a>
+          <a id="linkTwitter">
             <p>7. Descargar imagen 1024x512px</p>
             <p>(Twitter)</p>
           </a>
@@ -433,18 +433,23 @@
 
       <div class="allCanvas">
         <h4>Vista previa imagen para redes sociales:</h4>
-        <img id="imgCanvas" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;">
+
+        <img id="imgCanvasFacebook" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;">
+        <img id="imgCanvasTwitter" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;">
 
         <div class="container_canvas">
 
           <p>Imagen 1200 x 1200 px ( por ejemplo, para usar en Facebook o Instagram):</p>
-          <div class="wrap_canvas">
+          <div class="wrapCanvasFacebook">
             <canvas id="canvasFacebook" width="1200px" height="1200px"></canvas>
           </div>
 
-          <p>Imagen 1024 x 512 px (por ejemplo, para usar en Twitter):</p>
-          <div class="wrap_canvas">
-            <canvas id="canvasTwitter" width="1024px" height="512px" style="border:1px solid #000000;"></canvas>
+          {{-- <p>Imagen 1024 x 512 px (por ejemplo, para usar en Twitter):</p> --}}
+          <p>Imagen 1280 x 640 px (por ejemplo, para usar en Twitter):</p>
+          {{-- 1024 - 1280 125%
+          512 - 640 --}}
+          <div class="wrapCanvasTwitter">
+            <canvas id="canvasTwitter" width="1280px" height="640px"></canvas>
           </div>
 
           {{-- <img id="prueba" src="" alt="" style="display: none;"> --}}

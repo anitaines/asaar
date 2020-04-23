@@ -9,12 +9,16 @@ window.onload = function(){
   let imagenPrincipal = iframe.contentWindow.document.querySelector(".img_container");
 
   // imagen para canvas:
-  let imgCanvas = document.getElementById('imgCanvas');
+  // let imgCanvas = document.getElementById('imgCanvas');
+  let imgCanvasFacebook = document.getElementById('imgCanvasFacebook');
+  let imgCanvasTwitter = document.getElementById('imgCanvasTwitter');
 
   // Facebook layout preview:
   var canvasFacebook = document.getElementById("canvasFacebook");
+  // console.log(canvasFacebook);
 
-
+  var canvasTwitter = document.getElementById("canvasTwitter");
+  // console.log(canvasTwitter);
 
   // setear titular noticia:
   let inputTitulo = document.getElementById("title");
@@ -46,12 +50,14 @@ window.onload = function(){
       document.querySelector(".admin .imagenesWrap").style.display ="block";
       imagenPrincipal.style.display = "block";
       // Canvas:
-      setCanvas();
+      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+      setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
     } else {
       document.querySelector(".admin .imagenesWrap").style.display ="none";
       imagenPrincipal.style.display = "none";
       // Canvas:
-      setCanvas();
+      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+      setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
     }
   }
 
@@ -99,8 +105,11 @@ window.onload = function(){
       imagenPrincipal.style.backgroundImage = "url(" + this.firstElementChild.value + ")";
 
       // Canvas:
-      imgCanvas.src = this.firstElementChild.value;
-      setCanvas();
+      // imgCanvas.src = this.firstElementChild.value;
+      imgCanvasFacebook.src = this.firstElementChild.value;
+      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+      imgCanvasTwitter.src = this.firstElementChild.value;
+      setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
     }
   }
 
@@ -120,8 +129,11 @@ window.onload = function(){
           imagenPrincipal.style.backgroundImage = "url(" + e.target.result + ")";
 
           // Render imagen en Canvas:
-          imgCanvas.src = e.target.result;
-          setCanvas();
+          // imgCanvas.src = e.target.result;
+          imgCanvasFacebook.src = e.target.result;
+          setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+          imgCanvasTwitter.src = e.target.result;
+          setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
 
           // Crear thumbnail:
           var newRadio = `
@@ -137,8 +149,11 @@ window.onload = function(){
             imagenPrincipal.style.backgroundImage = "url(" + e.target.result + ")";
 
             // Canvas:
-            imgCanvas.src = e.target.result;
-            setCanvas();
+            // imgCanvas.src = e.target.result;
+            imgCanvasFacebook.src = e.target.result;
+            setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+            imgCanvasTwitter.src = e.target.result;
+            setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
           }
           // Reset alert:
           document.querySelector(".alert").innerHTML = "";
@@ -164,7 +179,8 @@ window.onload = function(){
     filtroImagen[i].oninput = function(){
       imagenPrincipal.style.filter = this.value;
       // Canvas:
-      setCanvas();
+      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+      setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
     }
   }
 
@@ -182,7 +198,8 @@ window.onload = function(){
     }
     checkLayout();
     // Canvas:
-    setCanvas();
+    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // incluir calendario:
@@ -203,19 +220,23 @@ window.onload = function(){
       calendar.parentElement.nextElementSibling.children[0].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_mes").firstElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
       // completar día de la semana:
       calendar.parentElement.nextElementSibling.children[1].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_dia").firstElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
+
       // completar número:
       calendar.parentElement.nextElementSibling.children[2].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_dia").lastElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
 
     } else {
@@ -224,7 +245,8 @@ window.onload = function(){
     }
     checkLayout();
     // Canvas:
-    setCanvas();
+    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // incluir titular sobre imagen:
@@ -239,13 +261,15 @@ window.onload = function(){
     let recuadroTitular = document.querySelector(".recuadroTitular");
     recuadroTitular.oninput = function(){
       if (recuadroTitular.firstElementChild.firstElementChild.checked == true){
-        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "4px solid var(--magenta)";
+        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "4px solid " + iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
         // Canvas:
-        // setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       } else {
-        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "0px solid var(--magenta)";
+        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "0px solid " + iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
         // Canvas:
-        // setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -259,7 +283,8 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color = this.value;
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.borderColor = this.value;
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -270,7 +295,8 @@ window.onload = function(){
       opcionesColorFondo[i].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor = this.value;
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -285,7 +311,8 @@ window.onload = function(){
     }
     checkLayout();
     // Canvas:
-    setCanvas();
+    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // incluir bajada titular sobre imagen:
@@ -306,7 +333,8 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.color = this.value;
 
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -317,7 +345,8 @@ window.onload = function(){
       opcionesColorFondoSubtitular[i].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor = this.value;
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -336,7 +365,8 @@ window.onload = function(){
     }
     checkLayout();
     // Canvas:
-    setCanvas();
+    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // incluir detalle información sobre imagen:
@@ -357,7 +387,8 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.color = this.value;
 
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -368,7 +399,8 @@ window.onload = function(){
       opcionesColorFondoSubtitular[i].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor = this.value;
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -387,7 +419,8 @@ window.onload = function(){
     }
     checkLayout();
     // Canvas:
-    setCanvas();
+    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // incluir resumen sobre imagen:
@@ -404,7 +437,8 @@ window.onload = function(){
       opcionesColorTipoResumen[i].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color = this.value;
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -415,7 +449,8 @@ window.onload = function(){
       opcionesColorFondoResumen[i].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor = this.value;
         // Canvas:
-        setCanvas();
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -428,7 +463,8 @@ window.onload = function(){
     }
     checkLayout();
     // Canvas:
-    setCanvas();
+    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // párrafo noticia:
@@ -527,93 +563,91 @@ window.onload = function(){
   // var canvasFacebook = document.getElementById("canvasFacebook");
   // setCanvas()
 
-  function setCanvas(){
+  function setCanvasFacebook(canvas, imagen){
 
-    if (canvasFacebook.getContext){
+    if (canvas.getContext){
 
-      var ctxFacebook = canvasFacebook.getContext("2d");
+      var ctx = canvas.getContext("2d");
 
-      ctxFacebook.fillStyle = "#ffffff";
-      ctxFacebook.fillRect(0, 0, 1200, 1200);
-
-      // ctxFacebook.clearRect(0, 0, 1200, 1200);
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // SETEAR VARIABLES:
       var logoCanvas = logoAsaar.firstElementChild.checked;
 
       var calendarioCanvas = calendar.firstElementChild.checked;
 
-      // var textoTitular = "TALLER DE PADRES";
       var textoTitular = tituloImagen.value;
-      var lineasTitular = getMotherLines(ctxFacebook, textoTitular, 1060, "bold 70px 'Gidugu', sans-serif");
-      var hTitular = alturaTexto(lineasTitular, 80);
+      var lineasTitular = getMotherLines(ctx, textoTitular, 1060, "bold 70px 'Gidugu', sans-serif");
+      // var hTitular = alturaTexto(lineasTitular, 80);
+      var hTitular = alturaTexto(lineasTitular, 45);
 
-      // var textoSubtitular = "Para padres de niños, adolescentes y adultos";
       var textoSubtitular = subtituloImagen.value;
-      var lineasSubtitular = getMotherLines(ctxFacebook, textoSubtitular, 507, "bold 45px 'Montserrat', sans-serif");
-      var hSubtitular = alturaTexto(lineasSubtitular, 50);
+      var lineasSubtitular = getMotherLines(ctx, textoSubtitular, 507, "bold 35px 'Montserrat', sans-serif");
+      // var hSubtitular = alturaTexto(lineasSubtitular, 50);
+      var hSubtitular = alturaTexto(lineasSubtitular, 45);
 
-      // var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.";
       var textoDetalle = detalleImagen.value;
-      var lineasDetalle = getMotherLines(ctxFacebook, textoDetalle, 507, "30px 'Montserrat', sans-serif");
+      var lineasDetalle = getMotherLines(ctx, textoDetalle, 507, "30px 'Montserrat', sans-serif");
       var hDetalle = alturaTexto(lineasDetalle, 40);
 
-      // var textoResumen = "Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.";
       var textoResumen = resumenImagen.value;
-      var lineasResumen = getMotherLines(ctxFacebook, textoResumen, 507, "30px 'Montserrat', sans-serif");
+      var lineasResumen = getMotherLines(ctx, textoResumen, 507, "30px 'Montserrat', sans-serif");
       var hResumen = alturaTexto(lineasResumen, 40);
 
 
       // SETEAR IMAGEN FONDO:
-      imgCanvas.src = imgCanvas.src;
-      let filtro = imagenPrincipal.style.filter;
-      imgCanvas.onload = function(){
-        scaleToFill(this, canvasFacebook, ctxFacebook, filtro);
-      // } //cierre onload, lo muevo al final de la función
+      // imgCanvas.src = imgCanvas.src;
+      imagen.src = imagen.src;
 
+      let filtro = imagenPrincipal.style.filter;
+      imagen.onload = function(){
+
+        scaleToFill(this, canvas, ctx, filtro);
+      // } //cierre onload, lo muevo al final de la función
 
       // IMPRIMIR LOGO:
       if (logoCanvas){
         let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
-        ctxFacebook.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
+        ctx.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
       }
 
       // IMPRIMIR CALENDARIO:
       if (calendarioCanvas){
-        ctxFacebook.rotate(3 * Math.PI / 180);
-        ctxFacebook.shadowBlur = 20;
-        ctxFacebook.shadowOffsetX = 10;
-        ctxFacebook.shadowOffsetY = 10;
-        ctxFacebook.shadowColor = "black";
-        ctxFacebook.fillStyle = "#fffadf";
-        ctxFacebook.fillRect(960, -10, 195, 195);
+        ctx.rotate(3 * Math.PI / 180);
+        ctx.shadowBlur = 20;
+        ctx.shadowOffsetX = 10;
+        ctx.shadowOffsetY = 10;
+        ctx.shadowColor = "black";
+        ctx.fillStyle = "#fffadf";
+        ctx.fillRect(960, -10, 195, 195);
 
-        ctxFacebook.shadowBlur = 0;
-        ctxFacebook.shadowOffsetX = 0;
-        ctxFacebook.shadowOffsetY = 0;
-        ctxFacebook.shadowColor = "#000000";
-        ctxFacebook.fillStyle = "#f72929";
-        ctxFacebook.fillRect(964, -7, 188, 56);
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.shadowColor = "#000000";
+        ctx.fillStyle = "#f72929";
+        ctx.fillRect(964, -7, 188, 56);
 
         var mesCalendario = calendar.parentElement.nextElementSibling.children[0].firstElementChild.value;
-        ctxFacebook.font = "bold 28px Helvetica";
-        ctxFacebook.fillStyle = "#fffadf";
-        var mesPosX = 964 + ((188 - ctxFacebook.measureText(mesCalendario).width)/2);
-        ctxFacebook.fillText(mesCalendario, mesPosX, 32);
+        ctx.font = "bold 28px Helvetica";
+        ctx.fillStyle = "#fffadf";
+        var mesPosX = 964 + ((188 - ctx.measureText(mesCalendario).width)/2);
+        ctx.fillText(mesCalendario, mesPosX, 32);
 
         var diaCalendario = calendar.parentElement.nextElementSibling.children[1].firstElementChild.value.split("").join(String.fromCharCode(8201));
-        ctxFacebook.font = "26px Helvetica";
-        ctxFacebook.fillStyle = "black";
-        var diaPosX = 964 + ((188 - ctxFacebook.measureText(diaCalendario).width)/2);
-        ctxFacebook.fillText(diaCalendario, diaPosX, 80);
+        ctx.font = "26px Helvetica";
+        ctx.fillStyle = "black";
+        var diaPosX = 964 + ((188 - ctx.measureText(diaCalendario).width)/2);
+        ctx.fillText(diaCalendario, diaPosX, 80);
 
         var nroCalendario = calendar.parentElement.nextElementSibling.children[2].firstElementChild.value;
-        ctxFacebook.font = "bold 80px Helvetica";
-        ctxFacebook.fillStyle = "black";
-        var nroPosX = 964 + ((188 - ctxFacebook.measureText(nroCalendario).width)/2);
-        ctxFacebook.fillText(nroCalendario, nroPosX, 160);
+        ctx.font = "bold 80px Helvetica";
+        ctx.fillStyle = "black";
+        var nroPosX = 964 + ((188 - ctx.measureText(nroCalendario).width)/2);
+        ctx.fillText(nroCalendario, nroPosX, 160);
 
-        ctxFacebook.rotate(-3 * Math.PI / 180);
+        ctx.rotate(-3 * Math.PI / 180);
       }
 
 
@@ -668,11 +702,16 @@ window.onload = function(){
 
       var colorFondoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor;
 
-      if (textoTitular){
-      imprimirRecuadro(ctxFacebook, colorTipoTitular, colorFondoTitular, 70, 1080, hTitular, factorXtitular, posInicialYtitular);
+      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == true){
+      imprimirRecuadro(canvas, ctx, colorTipoTitular, colorFondoTitular, 70, 1080, hTitular, factorXtitular, posInicialYtitular);
+    } else {
+      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == false){
+      imprimirRecuadro(canvas, ctx, "transparent", colorFondoTitular, 70, 1080, hTitular, factorXtitular, posInicialYtitular);
       }
+    }
 
-      imprimirTexto (ctxFacebook,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 80, factorXtitular, posInicialYtitular);
+      // imprimirTexto (ctxFacebook,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 80, factorXtitular, posInicialYtitular);
+      imprimirTexto (canvas, ctx,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 45, factorXtitular, posInicialYtitular-25);
 
       // Subtitular:
       var colorTipoSubitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color;
@@ -680,10 +719,11 @@ window.onload = function(){
       var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
 
       if (textoSubtitular || textoDetalle){
-      imprimirRecuadroRadius(ctxFacebook, colorFondoSubtitular, 45, factorXsubtitular, posInicialYsubtitular, 527, hSubtitular + hDetalle, 20);
+      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, 45, factorXsubtitular, posInicialYsubtitular, 527, hSubtitular + hDetalle, 20);
       }
 
-      imprimirTexto (ctxFacebook,lineasSubtitular, "bold 45px 'Montserrat', sans-serif", colorTipoSubitular, 50, factorXsubtitular, posInicialYsubtitular);
+      // imprimirTexto (ctxFacebook,lineasSubtitular, "bold 45px 'Montserrat', sans-serif", colorTipoSubitular, 50, factorXsubtitular, posInicialYsubtitular);
+      imprimirTexto (canvas, ctx,lineasSubtitular, "bold 35px 'Montserrat', sans-serif", colorTipoSubitular, 45, factorXsubtitular, posInicialYsubtitular);
 
       // Detalle:
       if (textoDetalle){
@@ -691,7 +731,7 @@ window.onload = function(){
 
       // imprimirRecuadroRadius(ctxFacebook, 45, factorXdetalle, posInicialYdetalle, 527, hDetalle, 20);
       }
-      imprimirTexto (ctxFacebook,lineasDetalle, "30px 'Montserrat', sans-serif", colorTipoSubitular, 40, factorXdetalle, posInicialYdetalle);
+      imprimirTexto (canvas, ctx,lineasDetalle, "30px 'Montserrat', sans-serif", colorTipoSubitular, 40, factorXdetalle, posInicialYdetalle);
 
       // Resumen:
       var colorTipoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color;
@@ -701,16 +741,16 @@ window.onload = function(){
       if (textoResumen){
       // imprimirRecuadro(ctxFacebook, 45, 527, hResumen, factorXresumen, posInicialYresumen);
 
-      imprimirRecuadroRadius(ctxFacebook, colorFondoResumen, 45, factorXresumen, posInicialYresumen, 527, hResumen, 20);
+      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, 45, factorXresumen, posInicialYresumen, 527, hResumen, 20);
       }
-      imprimirTexto (ctxFacebook,lineasResumen, "30px 'Montserrat', sans-serif", colorTipoResumen, 40, factorXresumen, posInicialYresumen);
+      imprimirTexto (canvas, ctx,lineasResumen, "30px 'Montserrat', sans-serif", colorTipoResumen, 40, factorXresumen, posInicialYresumen);
 
       // IMPRIMIR WEB EN EL FOOTER:
       var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
-      ctxFacebook.font = "30px 'Montserrat', sans-serif";
-      ctxFacebook.fillStyle = "black";
-      posXweb = (canvasFacebook.width/2) - (ctxFacebook.measureText(webAsaar).width/2);
-      ctxFacebook.fillText(webAsaar, posXweb, 1160);
+      ctx.font = "30px 'Montserrat', sans-serif";
+      ctx.fillStyle = "black";
+      posXweb = (canvas.width/2) - (ctx.measureText(webAsaar).width/2);
+      ctx.fillText(webAsaar, posXweb, 1160);
 
       // PASAR A IMAGEN:
       // var imagen2 = canvasFacebook.toDataURL("image/png");
@@ -724,6 +764,219 @@ window.onload = function(){
     }
   } // cierre function setCanvas()
 
+
+  function setCanvasTwitter(canvas, imagen){
+
+    if (canvas.getContext){
+
+      var ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // SETEAR VARIABLES:
+      var logoCanvas = logoAsaar.firstElementChild.checked;
+
+      var calendarioCanvas = calendar.firstElementChild.checked;
+
+      var textoTitular = tituloImagen.value;
+      // var lineasTitular = getMotherLines(ctx, textoTitular, 1060, "bold 70px 'Gidugu', sans-serif");
+      var lineasTitular = getMotherLines(ctx, textoTitular, 1130, "bold 70px 'Gidugu', sans-serif");
+      // var hTitular = alturaTexto(lineasTitular, 80);
+      var hTitular = alturaTexto(lineasTitular, 45);
+
+      var textoSubtitular = subtituloImagen.value;
+      // var lineasSubtitular = getMotherLines(ctxFacebook, textoSubtitular, 507, "bold 45px 'Montserrat', sans-serif");
+      var lineasSubtitular = getMotherLines(ctx, textoSubtitular, 540, "bold 35px 'Montserrat', sans-serif");
+      // var hSubtitular = alturaTexto(lineasSubtitular, 50);
+      var hSubtitular = alturaTexto(lineasSubtitular, 45);
+
+      var textoDetalle = detalleImagen.value;
+      var lineasDetalle = getMotherLines(ctx, textoDetalle, 540, "30px 'Montserrat', sans-serif");
+      var hDetalle = alturaTexto(lineasDetalle, 40);
+
+      var textoResumen = resumenImagen.value;
+      var lineasResumen = getMotherLines(ctx, textoResumen, 540, "30px 'Montserrat', sans-serif");
+      var hResumen = alturaTexto(lineasResumen, 40);
+
+
+      // SETEAR IMAGEN FONDO:
+      // imgCanvas.src = imgCanvas.src;
+      imagen.src = imagen.src;
+
+      let filtro = imagenPrincipal.style.filter;
+      imagen.onload = function(){
+
+        scaleToFill(this, canvas, ctx, filtro);
+      // } //cierre onload, lo muevo al final de la función
+
+      // IMPRIMIR LOGO:
+      if (logoCanvas){
+        let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
+        ctx.drawImage(logoAsaarIframe, 30, 30, 195, 112);
+      }
+
+      // IMPRIMIR CALENDARIO:
+      if (calendarioCanvas){
+        ctx.rotate(3 * Math.PI / 180);
+        ctx.shadowBlur = 20;
+        ctx.shadowOffsetX = 10;
+        ctx.shadowOffsetY = 10;
+        ctx.shadowColor = "black";
+        ctx.fillStyle = "#fffadf";
+        // ctx.fillRect(960, -10, 195, 195);
+        ctx.fillRect(960, -10, 112, 112);
+
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.shadowColor = "#000000";
+        ctx.fillStyle = "#f72929";
+        ctx.fillRect(964, -7, 188, 56);
+
+        var mesCalendario = calendar.parentElement.nextElementSibling.children[0].firstElementChild.value;
+        ctx.font = "bold 28px Helvetica";
+        ctx.fillStyle = "#fffadf";
+        var mesPosX = 964 + ((188 - ctx.measureText(mesCalendario).width)/2);
+        ctx.fillText(mesCalendario, mesPosX, 32);
+
+        var diaCalendario = calendar.parentElement.nextElementSibling.children[1].firstElementChild.value.split("").join(String.fromCharCode(8201));
+        ctx.font = "26px Helvetica";
+        ctx.fillStyle = "black";
+        var diaPosX = 964 + ((188 - ctx.measureText(diaCalendario).width)/2);
+        ctx.fillText(diaCalendario, diaPosX, 80);
+
+        var nroCalendario = calendar.parentElement.nextElementSibling.children[2].firstElementChild.value;
+        ctx.font = "bold 80px Helvetica";
+        ctx.fillStyle = "black";
+        var nroPosX = 964 + ((188 - ctx.measureText(nroCalendario).width)/2);
+        ctx.fillText(nroCalendario, nroPosX, 160);
+
+        ctx.rotate(-3 * Math.PI / 180);
+      }
+
+
+      // OBTENER COORDENADAS PARA CADA TEXTO:
+      // Coordenada inicial TITULAR:
+      // x siempre centrado con respecto al canvas:
+      var factorXtitular = 0;
+      // y:
+      if(hResumen > (hSubtitular + hDetalle)){
+        var hBox2 = hResumen;
+      } else {
+        var hBox2 = hSubtitular + hDetalle;
+      }
+      if (logoCanvas || calendarioCanvas){
+        var posInicialYtitular = ((1160 - 255 - hBox2)/2) + 255 - (hTitular/2);
+      } else {
+        var posInicialYtitular = ((1160 - hBox2)/2) - (hTitular/2);
+      }
+      // Coordenada inicial SUBTITULAR:
+      // x centrado con respecto al canvas si NO está resúmen:
+      if (textoResumen){
+        var factorXsubtitular = 8.66 + 527 + 8.66;
+      }else{
+        var factorXsubtitular = 0;
+      }
+      // y:
+      var posInicialYsubtitular = posInicialYtitular + hTitular;
+      // Coordenada inicial DETALLE:
+      // x centrado con respecto al canvas si NO está resúmen:
+      if (textoResumen){
+        var factorXdetalle = 8.66 + 527 + 8.66;
+      }else{
+        var factorXdetalle = 0;
+      }
+      // y:
+      var posInicialYdetalle = posInicialYsubtitular + hSubtitular;
+      // Coordenada inicial RESUMEN:
+      // x centrado con respecto al canvas si NO está subtitular y/o detalle:
+      if (textoSubtitular || textoDetalle){
+        var factorXresumen = 8.66 - 527 - 20.66;
+      }else{
+        var factorXresumen = 0;
+      }
+      // y:
+      var posInicialYresumen = posInicialYtitular + hTitular;
+
+
+      // IMPRIMIR TEXTOS, RECUADROS, CAMBIAR COLORES:
+
+      // Titular:
+      var colorTipoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
+
+      var colorFondoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor;
+
+      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == true){
+      imprimirRecuadro(canvas, ctx, colorTipoTitular, colorFondoTitular, 70, 1080, hTitular, factorXtitular, posInicialYtitular);
+    } else {
+      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == false){
+      imprimirRecuadro(canvas, ctx, "transparent", colorFondoTitular, 70, 1080, hTitular, factorXtitular, posInicialYtitular);
+      }
+    }
+
+      // imprimirTexto (ctxFacebook,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 80, factorXtitular, posInicialYtitular);
+      imprimirTexto (canvas, ctx,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 45, factorXtitular, posInicialYtitular-25);
+
+      // Subtitular:
+      var colorTipoSubitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color;
+
+      var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
+
+      if (textoSubtitular || textoDetalle){
+      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, 45, factorXsubtitular, posInicialYsubtitular, 527, hSubtitular + hDetalle, 20);
+      }
+
+      // imprimirTexto (ctxFacebook,lineasSubtitular, "bold 45px 'Montserrat', sans-serif", colorTipoSubitular, 50, factorXsubtitular, posInicialYsubtitular);
+      imprimirTexto (canvas, ctx,lineasSubtitular, "bold 35px 'Montserrat', sans-serif", colorTipoSubitular, 45, factorXsubtitular, posInicialYsubtitular);
+
+      // Detalle:
+      if (textoDetalle){
+      // imprimirRecuadro(ctxFacebook, 45, 527, hDetalle, factorXdetalle, posInicialYdetalle);
+
+      // imprimirRecuadroRadius(ctxFacebook, 45, factorXdetalle, posInicialYdetalle, 527, hDetalle, 20);
+      }
+      imprimirTexto (canvas, ctx,lineasDetalle, "30px 'Montserrat', sans-serif", colorTipoSubitular, 40, factorXdetalle, posInicialYdetalle);
+
+      // Resumen:
+      var colorTipoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color;
+
+      var colorFondoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor;
+
+      if (textoResumen){
+      // imprimirRecuadro(ctxFacebook, 45, 527, hResumen, factorXresumen, posInicialYresumen);
+
+      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, 45, factorXresumen, posInicialYresumen, 527, hResumen, 20);
+      }
+      imprimirTexto (canvas, ctx,lineasResumen, "30px 'Montserrat', sans-serif", colorTipoResumen, 40, factorXresumen, posInicialYresumen);
+
+      // IMPRIMIR WEB EN EL FOOTER:
+      var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
+      ctx.font = "30px 'Montserrat', sans-serif";
+      ctx.fillStyle = "black";
+      posXweb = (canvas.width/2) - (ctx.measureText(webAsaar).width/2);
+      ctx.fillText(webAsaar, posXweb, 1160);
+
+      // PASAR A IMAGEN:
+      // var imagen2 = canvasFacebook.toDataURL("image/png");
+
+      // document.getElementById('prueba').setAttribute("src", imagen2);
+
+    } //cierre onload imgCanvas
+
+      } else {
+        // canvas-unsupported code here
+    }
+  } // cierre function setCanvas()
+
+
+
+
+
+
+
+
+
 //   var descargar_canvas = document.querySelector(".descargar_canvas");
 //   descargar_canvas.onclick = function(){
 //     // var imagen2 = canvasFacebook.toDataURL("image/png");
@@ -736,10 +989,17 @@ window.onload = function(){
 // var image = canvasFacebook.toDataURL("image/png").replace("image/png", "image/octet-stream"); //Convert image to 'octet-stream' (Just a download, really)
 // window.location.href = image;
 //   }
-  var link = document.getElementById('link');
-  link.onclick = function(){
-    link.setAttribute('download', 'imagenFacebook.png');
-    link.setAttribute('href', canvasFacebook.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+  var linkFacebook = document.getElementById('linkFacebook');
+  linkFacebook.onclick = function(){
+    linkFacebook.setAttribute('download', 'imagenFacebook.png');
+    linkFacebook.setAttribute('href', canvasFacebook.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+    // link.click();
+  }
+
+  var linkTwitter = document.getElementById('linkTwitter');
+  linkTwitter.onclick = function(){
+    linkTwitter.setAttribute('download', 'imagenTwitter.png');
+    linkTwitter.setAttribute('href', canvasTwitter.toDataURL("image/png").replace("image/png", "image/octet-stream"));
     // link.click();
   }
 
@@ -760,7 +1020,7 @@ window.onload = function(){
     //   }
     // }
 
-  function imprimirTexto (context, text, font, color, lineHeight, xFactor, y){
+  function imprimirTexto (canvas, context, text, font, color, lineHeight, xFactor, y){
       var posY = y - lineHeight;
       var posX;
       for (var i = 0; i < text.length; i++) {
@@ -768,7 +1028,7 @@ window.onload = function(){
           context.font = font;
           // context.fillStyle = "#ab2097";
           context.fillStyle = color;
-          posX = ((canvasFacebook.width - xFactor) /2) + xFactor - (context.measureText(text[i][ii]).width/2);
+          posX = ((canvas.width - xFactor) /2) + xFactor - (context.measureText(text[i][ii]).width/2);
           posY = posY + lineHeight;
           context.fillText(text[i][ii], posX, posY);
         }
@@ -809,16 +1069,14 @@ window.onload = function(){
     }
 
 
-  function imprimirRecuadro(context, colorTipo, colorFondo, fontSize, width, height, xFactor, y){
+  function imprimirRecuadro(canvas, context, colorTipo, colorFondo, fontSize, width, height, xFactor, y){
       var posY = y - fontSize - 20;
       var posX;
 
-      posX = ((canvasFacebook.width - xFactor) /2) + xFactor - (width/2);
+      posX = ((canvas.width - xFactor) /2) + xFactor - (width/2);
 
       context.beginPath();
       context.lineWidth = "4";
-      // context.lineWidth = lineWidth;
-      // context.strokeStyle = "#ab2097";
       context.strokeStyle = colorTipo;
       context.rect(posX, posY, width, height);
       context.fillStyle = colorFondo;
@@ -827,11 +1085,11 @@ window.onload = function(){
     }
 
 
-  function imprimirRecuadroRadius (context, colorFondo, fontSize, xFactor, y, width, height, radius){
+  function imprimirRecuadroRadius (canvas, context, colorFondo, fontSize, xFactor, y, width, height, radius){
       var posY = y - fontSize - 20;
       var posX;
 
-      posX = ((canvasFacebook.width - xFactor) /2) + xFactor - (width/2);
+      posX = ((canvas.width - xFactor) /2) + xFactor - (width/2);
 
       if (width < 2 * radius) radius = width / 2;
       if (height < 2 * radius) radius = height / 2;
