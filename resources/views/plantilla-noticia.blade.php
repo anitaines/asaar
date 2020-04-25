@@ -20,6 +20,9 @@
 
       <h3 class="h3_aspergerCEA" style="display:none;">Taller de Padres para Padres</h3>
       <h4 style="display:none;">Sábado 14 de Marzo de 16:30 a 18:30 hs.</h4>
+      <div class="box0" style="display:none;">
+        <img src="/media/logos/logoVertical.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;">
+      </div>
       <div class="wrap_img">
         <div class="img_container" style="display:none;"></div>
         <div class="info_img_container">
@@ -40,7 +43,7 @@
             <p style="color: #AB2097;">TALLER DE PADRES</p>
           </div>
           <div class="box3">
-            <div class="" style="display:none; background-color: rgba(69, 69, 69, 0.5);">
+            <div class="" style="display:none; background-color: rgba(69, 69, 69, 0.9);">
               <p style="color: rgb(255, 140, 0);">Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.</p>
             </div>
             <div class="" style="display:none; background-color: #AB2097;">

@@ -577,28 +577,49 @@ window.onload = function(){
 
       var calendarioCanvas = calendar.firstElementChild.checked;
 
+      // TITULAR:
       // var textoTitular = tituloImagen.value;
       var textoTitular = "TALLER DE PADRES";
-      // var lineasTitular = getMotherLines(ctx, textoTitular, 1060, "bold 70px 'Gidugu', sans-serif");
-      // var hTitular = alturaTexto(lineasTitular, 45);
-      var lineasTitular = getMotherLines(ctx, textoTitular, 1060, "bold 90px 'Gidugu', sans-serif");
-      var hTitular = alturaTexto(lineasTitular, 65);
+      var maxWidthTitular = 1060;
+      var maxWidthTitularRecuadro = maxWidthTitular + 20;
+      var fontSizeTitular = 120;
+      var fontTitular = "bold " + fontSizeTitular + "px 'Gidugu', sans-serif";
+      var lineHeightTitular = 75;
+      var lineasTitular = getMotherLines(ctx, textoTitular, maxWidthTitular, fontTitular);
+      var hTitular = alturaTexto(lineasTitular, lineHeightTitular);
 
+      // SUBTITULAR:
       // var textoSubtitular = subtituloImagen.value;
       var textoSubtitular = "Para padres de niños, adolescentes y adultos";
-      var lineasSubtitular = getMotherLines(ctx, textoSubtitular, 507, "bold 35px 'Montserrat', sans-serif");
-      // var hSubtitular = alturaTexto(lineasSubtitular, 50);
-      var hSubtitular = alturaTexto(lineasSubtitular, 45);
+      var maxWidthSubtitular = 507;
+      var maxWidthSubtitularRecuadro = maxWidthSubtitular + 20;
+      var fontSizeSubtitular = 43;
+      var fontSubtitular = "bold " + fontSizeSubtitular + "px 'Montserrat', sans-serif";
+      var lineHeightSubtitular = 53;
+      var lineasSubtitular = getMotherLines(ctx, textoSubtitular, maxWidthSubtitular,fontSubtitular);
+      var hSubtitular = alturaTexto(lineasSubtitular, lineHeightSubtitular);
 
+      // DETALLE
       // var textoDetalle = detalleImagen.value;
-      var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.Bono contribución $100. Inscripción en https:/ /goo.gl/forms/5UssYYdEHoQJ8b262"
-      var lineasDetalle = getMotherLines(ctx, textoDetalle, 507, "30px 'Montserrat', sans-serif");
-      var hDetalle = alturaTexto(lineasDetalle, 40);
+      var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.Bono contribución $100. Inscripción en https:/ /goo.gl/forms/5UssYYdEHoQJ8b262";
+      var maxWidthDetalle = 507;
+      var maxWidthDetalleRecuadro = maxWidthDetalle + 20;
+      var fontSizeDetalle = 38;
+      var fontDetalle = fontSizeDetalle + "px 'Montserrat', sans-serif";
+      var lineHeightDetalle = 48;
+      var lineasDetalle = getMotherLines(ctx, textoDetalle, maxWidthDetalle, fontDetalle);
+      var hDetalle = alturaTexto(lineasDetalle, lineHeightDetalle);
 
+      // RESUMEN
       // var textoResumen = resumenImagen.value;
       var textoResumen = "Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger"
-      var lineasResumen = getMotherLines(ctx, textoResumen, 507, "30px 'Montserrat', sans-serif");
-      var hResumen = alturaTexto(lineasResumen, 40);
+      var maxWidthResumen = 507;
+      var maxWidthResumenRecuadro = maxWidthResumen + 20;
+      var fontSizeResumen = 38;
+      var fontResumen = fontSizeResumen + "px 'Montserrat', sans-serif";
+      var lineHeightResumen = 48;
+      var lineasResumen = getMotherLines(ctx, textoResumen, maxWidthResumen, fontResumen);
+      var hResumen = alturaTexto(lineasResumen, lineHeightResumen);
 
 
       // SETEAR IMAGEN FONDO:
@@ -610,6 +631,101 @@ window.onload = function(){
 
         scaleToFill(this, canvas, ctx, filtro);
       // } //cierre onload, lo muevo al final de la función
+
+
+      // OBTENER COORDENADAS PARA CADA TEXTO:
+      // Coordenada inicial TITULAR:
+      // x siempre centrado con respecto al canvas:
+      var factorXtitular = 0;
+      // y:
+      if(hResumen > (hSubtitular + hDetalle)){
+        var hBox2 = hResumen;
+      } else {
+        var hBox2 = hSubtitular + hDetalle;
+      }
+      if (logoCanvas || calendarioCanvas){
+        var posInicialYtitular = ((1170 - 255 - hBox2)/2) + 255 + lineHeightTitular - (hTitular/2);
+      } else {
+        var posInicialYtitular = ((1170 - hBox2)/2) + lineHeightTitular - (hTitular/2);
+      }
+      // Coordenada inicial SUBTITULAR:
+      // x centrado con respecto al canvas si NO está resúmen:
+      if (textoResumen){
+        var factorXsubtitular = 8.66 + 527 + 8.66;
+      }else{
+        var factorXsubtitular = 0;
+      }
+      // y:
+      var posInicialYsubtitular = posInicialYtitular + hTitular -30;
+      // Coordenada inicial DETALLE:
+      // x centrado con respecto al canvas si NO está resúmen:
+      if (textoResumen){
+        var factorXdetalle = 8.66 + 527 + 8.66;
+      }else{
+        var factorXdetalle = 0;
+      }
+      // y:
+      var posInicialYdetalle = posInicialYsubtitular + hSubtitular;
+      // Coordenada inicial RESUMEN:
+      // x centrado con respecto al canvas si NO está subtitular y/o detalle:
+      if (textoSubtitular || textoDetalle){
+        var factorXresumen = 8.66 - 527 - 20.66;
+      }else{
+        var factorXresumen = 0;
+      }
+      // y:
+      var posInicialYresumen = posInicialYtitular + hTitular -35;
+
+
+      // IMPRIMIR TEXTOS, RECUADROS, CAMBIAR COLORES:
+
+      // IMPRIMIR WEB EN EL FOOTER:
+      ctx.fillStyle = "#6ACF95";
+      ctx.fillRect(0, 1155, 1200, 45);
+      var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
+      ctx.font = "bold 30px 'Montserrat', sans-serif";
+      ctx.fillStyle = "#454545";
+      var posXweb = (canvas.width/2) - (ctx.measureText(webAsaar).width/2);
+      ctx.fillText(webAsaar, posXweb, 1185);
+
+      // Titular:
+      var colorTipoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
+
+      var colorFondoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor;
+
+      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == true){
+      imprimirRecuadro(canvas, ctx, colorTipoTitular, colorFondoTitular, fontSizeTitular, maxWidthTitularRecuadro, hTitular, factorXtitular, posInicialYtitular);
+      } else {
+        if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == false){
+        imprimirRecuadro(canvas, ctx, "transparent", colorFondoTitular, fontSizeTitular, maxWidthTitularRecuadro, hTitular, factorXtitular, posInicialYtitular);
+        }
+      }
+
+      imprimirTexto (canvas, ctx, lineasTitular, fontTitular, colorTipoTitular, lineHeightTitular, factorXtitular, posInicialYtitular-45);
+
+      // Subtitular:
+      var colorTipoSubitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color;
+
+      var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
+
+      if (textoSubtitular || textoDetalle){
+      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, fontSizeSubtitular, factorXsubtitular, posInicialYsubtitular, maxWidthSubtitularRecuadro, hSubtitular + hDetalle, 10);
+      }
+
+      imprimirTexto (canvas, ctx,lineasSubtitular, fontSubtitular, colorTipoSubitular, lineHeightSubtitular, factorXsubtitular, posInicialYsubtitular);
+
+      // Detalle:
+      imprimirTexto (canvas, ctx,lineasDetalle, fontDetalle, colorTipoSubitular, lineHeightDetalle, factorXdetalle, posInicialYdetalle);
+
+      // Resumen:
+      var colorTipoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color;
+
+      var colorFondoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor;
+
+      if (textoResumen){
+      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, fontSizeResumen, factorXresumen, posInicialYresumen, maxWidthResumenRecuadro, hResumen, 10);
+      }
+      imprimirTexto (canvas, ctx,lineasResumen, fontResumen, colorTipoResumen, lineHeightResumen, factorXresumen, posInicialYresumen);
 
       // IMPRIMIR LOGO:
       if (logoCanvas){
@@ -655,113 +771,6 @@ window.onload = function(){
         ctx.rotate(-3 * Math.PI / 180);
       }
 
-
-      // OBTENER COORDENADAS PARA CADA TEXTO:
-      // Coordenada inicial TITULAR:
-      // x siempre centrado con respecto al canvas:
-      var factorXtitular = 0;
-      // y:
-      if(hResumen > (hSubtitular + hDetalle)){
-        var hBox2 = hResumen;
-      } else {
-        var hBox2 = hSubtitular + hDetalle;
-      }
-      if (logoCanvas || calendarioCanvas){
-        var posInicialYtitular = ((1160 - 255 - hBox2)/2) + 255 - (hTitular/2);
-      } else {
-        var posInicialYtitular = ((1160 - hBox2)/2) - (hTitular/2);
-      }
-      // Coordenada inicial SUBTITULAR:
-      // x centrado con respecto al canvas si NO está resúmen:
-      if (textoResumen){
-        var factorXsubtitular = 8.66 + 527 + 8.66;
-      }else{
-        var factorXsubtitular = 0;
-      }
-      // y:
-      var posInicialYsubtitular = posInicialYtitular + hTitular;
-      // Coordenada inicial DETALLE:
-      // x centrado con respecto al canvas si NO está resúmen:
-      if (textoResumen){
-        var factorXdetalle = 8.66 + 527 + 8.66;
-      }else{
-        var factorXdetalle = 0;
-      }
-      // y:
-      var posInicialYdetalle = posInicialYsubtitular + hSubtitular;
-      // Coordenada inicial RESUMEN:
-      // x centrado con respecto al canvas si NO está subtitular y/o detalle:
-      if (textoSubtitular || textoDetalle){
-        var factorXresumen = 8.66 - 527 - 20.66;
-      }else{
-        var factorXresumen = 0;
-      }
-      // y:
-      var posInicialYresumen = posInicialYtitular + hTitular;
-
-
-      // IMPRIMIR TEXTOS, RECUADROS, CAMBIAR COLORES:
-
-      // Titular:
-      var colorTipoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
-
-      var colorFondoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor;
-
-      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == true){
-      imprimirRecuadro(canvas, ctx, colorTipoTitular, colorFondoTitular, 70, 1080, hTitular, factorXtitular, posInicialYtitular);
-    } else {
-      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == false){
-      imprimirRecuadro(canvas, ctx, "transparent", colorFondoTitular, 70, 1080, hTitular, factorXtitular, posInicialYtitular);
-      }
-    }
-
-      // imprimirTexto (ctxFacebook,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 80, factorXtitular, posInicialYtitular);
-      imprimirTexto (canvas, ctx,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 45, factorXtitular, posInicialYtitular-25);
-
-      // Subtitular:
-      var colorTipoSubitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color;
-
-      var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
-
-      if (textoSubtitular || textoDetalle){
-      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, 45, factorXsubtitular, posInicialYsubtitular, 527, hSubtitular + hDetalle, 10);
-      }
-
-      // imprimirTexto (ctxFacebook,lineasSubtitular, "bold 45px 'Montserrat', sans-serif", colorTipoSubitular, 50, factorXsubtitular, posInicialYsubtitular);
-      imprimirTexto (canvas, ctx,lineasSubtitular, "bold 35px 'Montserrat', sans-serif", colorTipoSubitular, 45, factorXsubtitular, posInicialYsubtitular);
-
-      // Detalle:
-      if (textoDetalle){
-      // imprimirRecuadro(ctxFacebook, 45, 527, hDetalle, factorXdetalle, posInicialYdetalle);
-
-      // imprimirRecuadroRadius(ctxFacebook, 45, factorXdetalle, posInicialYdetalle, 527, hDetalle, 20);
-      }
-      imprimirTexto (canvas, ctx,lineasDetalle, "30px 'Montserrat', sans-serif", colorTipoSubitular, 40, factorXdetalle, posInicialYdetalle);
-
-      // Resumen:
-      var colorTipoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color;
-
-      var colorFondoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor;
-
-      if (textoResumen){
-      // imprimirRecuadro(ctxFacebook, 45, 527, hResumen, factorXresumen, posInicialYresumen);
-
-      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, 45, factorXresumen, posInicialYresumen, 527, hResumen, 10);
-      }
-      imprimirTexto (canvas, ctx,lineasResumen, "30px 'Montserrat', sans-serif", colorTipoResumen, 40, factorXresumen, posInicialYresumen);
-
-      // IMPRIMIR WEB EN EL FOOTER:
-      var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
-      ctx.font = "30px 'Montserrat', sans-serif";
-      ctx.fillStyle = "black";
-      posXweb = (canvas.width/2) - (ctx.measureText(webAsaar).width/2);
-      ctx.fillText(webAsaar, posXweb, 1160);
-
-      // PASAR A IMAGEN:
-      // var imagen2 = canvasFacebook.toDataURL("image/png");
-
-      // document.getElementById('prueba').setAttribute("src", imagen2);
-
     } //cierre onload imgCanvas
 
       } else {
@@ -784,30 +793,52 @@ window.onload = function(){
 
       var calendarioCanvas = calendar.firstElementChild.checked;
 
-      var textoTitular = tituloImagen.value;
-      // var lineasTitular = getMotherLines(ctx, textoTitular, 1060, "bold 70px 'Gidugu', sans-serif");
-      var lineasTitular = getMotherLines(ctx, textoTitular, 1130, "bold 55px 'Gidugu', sans-serif");
-      // var hTitular = alturaTexto(lineasTitular, 80);
-      var hTitular = alturaTexto(lineasTitular, 40);
+      // TITULAR:
+      // var textoTitular = tituloImagen.value;
+      var textoTitular = "TALLER DE PADRES";
+      var maxWidthTitular = 1060;
+      var maxWidthTitularRecuadro = maxWidthTitular + 20;
+      var fontSizeTitular = 120;
+      var fontTitular = "bold " + fontSizeTitular + "px 'Gidugu', sans-serif";
+      var lineHeightTitular = 75;
+      var lineasTitular = getMotherLines(ctx, textoTitular, maxWidthTitular, fontTitular);
+      var hTitular = alturaTexto(lineasTitular, lineHeightTitular);
 
-      var textoSubtitular = subtituloImagen.value;
-      // var lineasSubtitular = getMotherLines(ctxFacebook, textoSubtitular, 507, "bold 45px 'Montserrat', sans-serif");
-      var lineasSubtitular = getMotherLines(ctx, textoSubtitular, 540, "bold 25px 'Montserrat', sans-serif");
-      // var hSubtitular = alturaTexto(lineasSubtitular, 50);
-      var hSubtitular = alturaTexto(lineasSubtitular, 35);
+      // SUBTITULAR:
+      // var textoSubtitular = subtituloImagen.value;
+      // var textoSubtitular = "Para padres de niños, adolescentes y adultos";
+      var textoSubtitular = "Para padres de niños";
+      var maxWidthSubtitular = 507;
+      var maxWidthSubtitularRecuadro = maxWidthSubtitular + 20;
+      var fontSizeSubtitular = 43;
+      var fontSubtitular = "bold " + fontSizeSubtitular + "px 'Montserrat', sans-serif";
+      var lineHeightSubtitular = 53;
+      var lineasSubtitular = getMotherLines(ctx, textoSubtitular, maxWidthSubtitular,fontSubtitular);
+      var hSubtitular = alturaTexto(lineasSubtitular, lineHeightSubtitular);
 
-      var textoDetalle = detalleImagen.value;
-      var lineasDetalle = getMotherLines(ctx, textoDetalle, 540, "20px 'Montserrat', sans-serif");
-      // var hDetalle = alturaTexto(lineasDetalle, 30);
-      if (detalleImagen.value.length > 0){
-        var hDetalle = alturaTexto(lineasDetalle, 30)-20;
-      }else{
-        var hDetalle = alturaTexto(lineasDetalle, 30);
-      }
+      // DETALLE
+      // var textoDetalle = detalleImagen.value;
+      // var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.Bono contribución $100. Inscripción en https:/ /goo.gl/forms/5UssYYdEHoQJ8b262";
+      var textoDetalle = "LEOPOLDO MARECHAL";
+      var maxWidthDetalle = 507;
+      var maxWidthDetalleRecuadro = maxWidthDetalle + 20;
+      var fontSizeDetalle = 38;
+      var fontDetalle = fontSizeDetalle + "px 'Montserrat', sans-serif";
+      var lineHeightDetalle = 48;
+      var lineasDetalle = getMotherLines(ctx, textoDetalle, maxWidthDetalle, fontDetalle);
+      var hDetalle = alturaTexto(lineasDetalle, lineHeightDetalle);
 
-      var textoResumen = resumenImagen.value;
-      var lineasResumen = getMotherLines(ctx, textoResumen, 540, "20px 'Montserrat', sans-serif");
-      var hResumen = alturaTexto(lineasResumen, 30);
+      // RESUMEN
+      // var textoResumen = resumenImagen.value;
+      // var textoResumen = "Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger";
+      var textoResumen = "Encuentro de padres";
+      var maxWidthResumen = 507;
+      var maxWidthResumenRecuadro = maxWidthResumen + 20;
+      var fontSizeResumen = 38;
+      var fontResumen = fontSizeResumen + "px 'Montserrat', sans-serif";
+      var lineHeightResumen = 48;
+      var lineasResumen = getMotherLines(ctx, textoResumen, maxWidthResumen, fontResumen);
+      var hResumen = alturaTexto(lineasResumen, lineHeightResumen);
 
 
       // SETEAR IMAGEN FONDO:
@@ -820,10 +851,120 @@ window.onload = function(){
         scaleToFill(this, canvas, ctx, filtro);
       // } //cierre onload, lo muevo al final de la función
 
+
+      // OBTENER COORDENADAS PARA CADA TEXTO:
+      // Coordenada inicial TITULAR:
+      // x siempre centrado con respecto al canvas:
+      if (logoCanvas || calendarioCanvas){
+        var factorXtitular = 20 -200;
+        // 20 es el margen izq, 200 es el espacio del logo
+      } else {
+        var factorXtitular = 0;
+      }
+      // y:
+      if(hResumen > (hSubtitular + hDetalle)){
+        var hBox2 = hResumen;
+      } else {
+        var hBox2 = hSubtitular + hDetalle;
+      }
+      // if (logoCanvas || calendarioCanvas){
+      //   var posInicialYtitular = ((1170 - 255 - hBox2)/2) + 255 + lineHeightTitular - (hTitular/2);
+      // } else {
+        var posInicialYtitular = ((620 - hBox2)/2) + lineHeightTitular - (hTitular/2);
+      // }
+      // Coordenada inicial SUBTITULAR:
+      // x centrado con respecto al canvas si NO está resúmen:
+
+
+
+      if ((logoCanvas || calendarioCanvas) && textoResumen){
+        var factorXsubtitular = 20 - 200 + 8.66 + 527 + 8.66;
+        // 20 es el margen izq, 200 es el espacio del logo
+      } else {
+        if ((logoCanvas || calendarioCanvas) && textoResumen.length == 0) {
+          var factorXsubtitular = 20 - 200;
+        } else {
+        var factorXsubtitular = 0;
+        }
+      }
+
+
+      // y:
+      var posInicialYsubtitular = posInicialYtitular + hTitular -30;
+      // Coordenada inicial DETALLE:
+      // x centrado con respecto al canvas si NO está resúmen:
+      if (textoResumen){
+        var factorXdetalle = 8.66 + 527 + 8.66;
+      }else{
+        var factorXdetalle = 0;
+      }
+      // y:
+      var posInicialYdetalle = posInicialYsubtitular + hSubtitular;
+      // Coordenada inicial RESUMEN:
+      // x centrado con respecto al canvas si NO está subtitular y/o detalle:
+      if (textoSubtitular || textoDetalle){
+        var factorXresumen = 8.66 - 527 - 20.66;
+      }else{
+        var factorXresumen = 0;
+      }
+      // y:
+      var posInicialYresumen = posInicialYtitular + hTitular -35;
+
+
+      // IMPRIMIR TEXTOS, RECUADROS, CAMBIAR COLORES:
+
+      // IMPRIMIR WEB EN EL FOOTER:
+      ctx.fillStyle = "#6ACF95";
+      ctx.fillRect(0, 1155, 1200, 45);
+      var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
+      ctx.font = "bold 30px 'Montserrat', sans-serif";
+      ctx.fillStyle = "#454545";
+      var posXweb = (canvas.width/2) - (ctx.measureText(webAsaar).width/2);
+      ctx.fillText(webAsaar, posXweb, 1185);
+
+      // Titular:
+      var colorTipoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
+
+      var colorFondoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor;
+
+      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == true){
+      imprimirRecuadro(canvas, ctx, colorTipoTitular, colorFondoTitular, fontSizeTitular, maxWidthTitularRecuadro, hTitular, factorXtitular, posInicialYtitular);
+      } else {
+        if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == false){
+        imprimirRecuadro(canvas, ctx, "transparent", colorFondoTitular, fontSizeTitular, maxWidthTitularRecuadro, hTitular, factorXtitular, posInicialYtitular);
+        }
+      }
+
+      imprimirTexto (canvas, ctx, lineasTitular, fontTitular, colorTipoTitular, lineHeightTitular, factorXtitular, posInicialYtitular-45);
+
+      // Subtitular:
+      var colorTipoSubitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color;
+
+      var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
+
+      if (textoSubtitular || textoDetalle){
+      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, fontSizeSubtitular, factorXsubtitular, posInicialYsubtitular, maxWidthSubtitularRecuadro, hSubtitular + hDetalle, 10);
+      }
+
+      imprimirTexto (canvas, ctx,lineasSubtitular, fontSubtitular, colorTipoSubitular, lineHeightSubtitular, factorXsubtitular, posInicialYsubtitular);
+
+      // Detalle:
+      imprimirTexto (canvas, ctx,lineasDetalle, fontDetalle, colorTipoSubitular, lineHeightDetalle, factorXdetalle, posInicialYdetalle);
+
+      // Resumen:
+      var colorTipoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color;
+
+      var colorFondoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor;
+
+      if (textoResumen){
+      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, fontSizeResumen, factorXresumen, posInicialYresumen, maxWidthResumenRecuadro, hResumen, 10);
+      }
+      imprimirTexto (canvas, ctx,lineasResumen, fontResumen, colorTipoResumen, lineHeightResumen, factorXresumen, posInicialYresumen);
+
       // IMPRIMIR LOGO:
       if (logoCanvas){
-        let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
-        ctx.drawImage(logoAsaarIframe, 30, 30, 195, 112);
+        let logoAsaarIframe = iframe.contentWindow.document.querySelector(".box0 img");
+        ctx.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
       }
 
       // IMPRIMIR CALENDARIO:
@@ -834,8 +975,7 @@ window.onload = function(){
         ctx.shadowOffsetY = 10;
         ctx.shadowColor = "black";
         ctx.fillStyle = "#fffadf";
-        // ctx.fillRect(960, -10, 195, 195);
-        ctx.fillRect(1088, -40, 162, 142);
+        ctx.fillRect(960, -10, 195, 195);
 
         ctx.shadowBlur = 0;
         ctx.shadowOffsetX = 0;
@@ -864,125 +1004,6 @@ window.onload = function(){
 
         ctx.rotate(-3 * Math.PI / 180);
       }
-
-
-      // OBTENER COORDENADAS PARA CADA TEXTO:
-      // Coordenada inicial TITULAR:
-      // x siempre centrado con respecto al canvas:
-      var factorXtitular = 0;
-      // y:
-      if(hResumen > (hSubtitular + hDetalle)){
-        var hBox2 = hResumen;
-      } else {
-        var hBox2 = hSubtitular + hDetalle;
-      }
-
-      // if (logoCanvas || calendarioCanvas){
-      //   var posInicialYtitular = ((620 - 172 - hBox2)/2) + 172 - (hTitular/2);
-      // } else {
-      //   var posInicialYtitular = ((620 - hBox2)/2) - (hTitular/2);
-      // }
-
-      if (logoCanvas == false && calendarioCanvas == false  && hBox2 <= 0){
-        var posInicialYtitular = (620/2) - (hTitular/2);
-      } else {
-        if ((logoCanvas || calendarioCanvas) && hBox2 <= 0){
-          var posInicialYtitular = ((620 - 172)/2) + 172 - (hTitular/2);
-        } else {
-            var posInicialYtitular = 172 + 80;
-        }
-      }
-
-      // Coordenada inicial SUBTITULAR:
-      // x centrado con respecto al canvas si NO está resúmen:
-      if (textoResumen){
-        var factorXsubtitular = 8.66 + 560 + 8.66;
-      }else{
-        var factorXsubtitular = 0;
-      }
-      // y:
-      var posInicialYsubtitular = posInicialYtitular + hTitular;
-      // Coordenada inicial DETALLE:
-      // x centrado con respecto al canvas si NO está resúmen:
-      if (textoResumen){
-        var factorXdetalle = 8.66 + 560 + 8.66;
-      }else{
-        var factorXdetalle = 0;
-      }
-      // y:
-      var posInicialYdetalle = posInicialYsubtitular + hSubtitular -20;
-      // Coordenada inicial RESUMEN:
-      // x centrado con respecto al canvas si NO está subtitular y/o detalle:
-      if (textoSubtitular || textoDetalle){
-        var factorXresumen = 8.66 - 560 - 20.66;
-      }else{
-        var factorXresumen = 0;
-      }
-      // y:
-      var posInicialYresumen = posInicialYtitular + hTitular;
-
-
-      // IMPRIMIR TEXTOS, RECUADROS, CAMBIAR COLORES:
-
-      // Titular:
-      var colorTipoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
-
-      var colorFondoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor;
-
-      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == true){
-      imprimirRecuadro(canvas, ctx, colorTipoTitular, colorFondoTitular, 55, 1150, hTitular, factorXtitular, posInicialYtitular);
-    } else {
-      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == false){
-      imprimirRecuadro(canvas, ctx, "transparent", colorFondoTitular, 55, 1150, hTitular, factorXtitular, posInicialYtitular);
-      }
-    }
-
-      // imprimirTexto (ctxFacebook,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 80, factorXtitular, posInicialYtitular);
-      imprimirTexto (canvas, ctx,lineasTitular, "bold 55px 'Gidugu', sans-serif", colorTipoTitular, 40, factorXtitular, posInicialYtitular-25);
-
-      // Subtitular:
-      var colorTipoSubitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color;
-
-      var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
-
-      if (textoSubtitular || textoDetalle){
-      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, 35, factorXsubtitular, posInicialYsubtitular, 547, hSubtitular + hDetalle, 10);
-      }
-
-      // imprimirTexto (ctxFacebook,lineasSubtitular, "bold 45px 'Montserrat', sans-serif", colorTipoSubitular, 50, factorXsubtitular, posInicialYsubtitular);
-      imprimirTexto (canvas, ctx,lineasSubtitular, "bold 25px 'Montserrat', sans-serif", colorTipoSubitular, 35, factorXsubtitular, posInicialYsubtitular);
-
-      // Detalle:
-      if (textoDetalle){
-      // imprimirRecuadro(ctxFacebook, 45, 527, hDetalle, factorXdetalle, posInicialYdetalle);
-
-      // imprimirRecuadroRadius(ctxFacebook, 45, factorXdetalle, posInicialYdetalle, 527, hDetalle, 20);
-      }
-      imprimirTexto (canvas, ctx,lineasDetalle, "20px 'Montserrat', sans-serif", colorTipoSubitular, 30, factorXdetalle, posInicialYdetalle);
-
-      // Resumen:
-      var colorTipoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color;
-
-      var colorFondoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor;
-
-      if (textoResumen){
-      // imprimirRecuadro(ctxFacebook, 45, 527, hResumen, factorXresumen, posInicialYresumen);
-
-      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, 35, factorXresumen, posInicialYresumen, 547, hResumen, 10);
-      }
-      imprimirTexto (canvas, ctx,lineasResumen, "20px 'Montserrat', sans-serif", colorTipoResumen, 30, factorXresumen, posInicialYresumen);
-
-      // IMPRIMIR WEB EN EL FOOTER:
-      var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
-      ctx.font = "15px 'Montserrat', sans-serif";
-      ctx.fillStyle = "black";
-      posXweb = (canvas.width/2) - (ctx.measureText(webAsaar).width/2);
-      ctx.fillText(webAsaar, posXweb, 620);
-
-      // PASAR A IMAGEN:
-      // var imagen2 = canvasFacebook.toDataURL("image/png");
-
-      // document.getElementById('prueba').setAttribute("src", imagen2);
 
     } //cierre onload imgCanvas
 

@@ -217,12 +217,12 @@
               </label>
 
               <label class="cambiarColorBlanco"> Blanco
-                <input type="radio" name="colorFondoTitulo" value="rgba(255, 255, 255, 0.5)">
+                <input type="radio" name="colorFondoTitulo" value="rgba(255, 255, 255, 0.9)">
                 <div style="background-color: rgba(255, 255, 255, 1);"></div>
               </label>
 
               <label class="cambiarColorNegro"> Negro
-                <input type="radio" name="colorFondoTitulo" value="rgba(69, 69, 69, 0.5)">
+                <input type="radio" name="colorFondoTitulo" value="rgba(69, 69, 69, 0.9)">
                 <div style="background-color: rgba(69, 69, 69, 1);"></div>
               </label>
             </div>
@@ -349,12 +349,12 @@
               </label>
 
               <label class="cambiarColorBlanco"> Blanco
-                <input type="radio" name="colorFondoResumen" value="rgba(255, 255, 255, 0.5)">
+                <input type="radio" name="colorFondoResumen" value="rgba(255, 255, 255, 0.9)">
                 <div style="background-color: rgba(255, 255, 255, 1);"></div>
               </label>
 
               <label class="cambiarColorNegro"> Negro
-                <input type="radio" name="colorFondoResumen" value="rgba(69, 69, 69, 0.5)" checked>
+                <input type="radio" name="colorFondoResumen" value="rgba(69, 69, 69, 0.9)" checked>
                 <div style="background-color: rgba(69, 69, 69, 1);"></div>
               </label>
             </div>
