@@ -577,21 +577,26 @@ window.onload = function(){
 
       var calendarioCanvas = calendar.firstElementChild.checked;
 
-      var textoTitular = tituloImagen.value;
-      var lineasTitular = getMotherLines(ctx, textoTitular, 1060, "bold 70px 'Gidugu', sans-serif");
-      // var hTitular = alturaTexto(lineasTitular, 80);
-      var hTitular = alturaTexto(lineasTitular, 45);
+      // var textoTitular = tituloImagen.value;
+      var textoTitular = "TALLER DE PADRES";
+      // var lineasTitular = getMotherLines(ctx, textoTitular, 1060, "bold 70px 'Gidugu', sans-serif");
+      // var hTitular = alturaTexto(lineasTitular, 45);
+      var lineasTitular = getMotherLines(ctx, textoTitular, 1060, "bold 90px 'Gidugu', sans-serif");
+      var hTitular = alturaTexto(lineasTitular, 65);
 
-      var textoSubtitular = subtituloImagen.value;
+      // var textoSubtitular = subtituloImagen.value;
+      var textoSubtitular = "Para padres de niños, adolescentes y adultos";
       var lineasSubtitular = getMotherLines(ctx, textoSubtitular, 507, "bold 35px 'Montserrat', sans-serif");
       // var hSubtitular = alturaTexto(lineasSubtitular, 50);
       var hSubtitular = alturaTexto(lineasSubtitular, 45);
 
-      var textoDetalle = detalleImagen.value;
+      // var textoDetalle = detalleImagen.value;
+      var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.Bono contribución $100. Inscripción en https:/ /goo.gl/forms/5UssYYdEHoQJ8b262"
       var lineasDetalle = getMotherLines(ctx, textoDetalle, 507, "30px 'Montserrat', sans-serif");
       var hDetalle = alturaTexto(lineasDetalle, 40);
 
-      var textoResumen = resumenImagen.value;
+      // var textoResumen = resumenImagen.value;
+      var textoResumen = "Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger"
       var lineasResumen = getMotherLines(ctx, textoResumen, 507, "30px 'Montserrat', sans-serif");
       var hResumen = alturaTexto(lineasResumen, 40);
 
@@ -719,7 +724,7 @@ window.onload = function(){
       var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
 
       if (textoSubtitular || textoDetalle){
-      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, 45, factorXsubtitular, posInicialYsubtitular, 527, hSubtitular + hDetalle, 20);
+      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, 45, factorXsubtitular, posInicialYsubtitular, 527, hSubtitular + hDetalle, 10);
       }
 
       // imprimirTexto (ctxFacebook,lineasSubtitular, "bold 45px 'Montserrat', sans-serif", colorTipoSubitular, 50, factorXsubtitular, posInicialYsubtitular);
@@ -741,7 +746,7 @@ window.onload = function(){
       if (textoResumen){
       // imprimirRecuadro(ctxFacebook, 45, 527, hResumen, factorXresumen, posInicialYresumen);
 
-      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, 45, factorXresumen, posInicialYresumen, 527, hResumen, 20);
+      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, 45, factorXresumen, posInicialYresumen, 527, hResumen, 10);
       }
       imprimirTexto (canvas, ctx,lineasResumen, "30px 'Montserrat', sans-serif", colorTipoResumen, 40, factorXresumen, posInicialYresumen);
 
@@ -781,23 +786,28 @@ window.onload = function(){
 
       var textoTitular = tituloImagen.value;
       // var lineasTitular = getMotherLines(ctx, textoTitular, 1060, "bold 70px 'Gidugu', sans-serif");
-      var lineasTitular = getMotherLines(ctx, textoTitular, 1130, "bold 70px 'Gidugu', sans-serif");
+      var lineasTitular = getMotherLines(ctx, textoTitular, 1130, "bold 55px 'Gidugu', sans-serif");
       // var hTitular = alturaTexto(lineasTitular, 80);
-      var hTitular = alturaTexto(lineasTitular, 45);
+      var hTitular = alturaTexto(lineasTitular, 40);
 
       var textoSubtitular = subtituloImagen.value;
       // var lineasSubtitular = getMotherLines(ctxFacebook, textoSubtitular, 507, "bold 45px 'Montserrat', sans-serif");
-      var lineasSubtitular = getMotherLines(ctx, textoSubtitular, 540, "bold 35px 'Montserrat', sans-serif");
+      var lineasSubtitular = getMotherLines(ctx, textoSubtitular, 540, "bold 25px 'Montserrat', sans-serif");
       // var hSubtitular = alturaTexto(lineasSubtitular, 50);
-      var hSubtitular = alturaTexto(lineasSubtitular, 45);
+      var hSubtitular = alturaTexto(lineasSubtitular, 35);
 
       var textoDetalle = detalleImagen.value;
-      var lineasDetalle = getMotherLines(ctx, textoDetalle, 540, "30px 'Montserrat', sans-serif");
-      var hDetalle = alturaTexto(lineasDetalle, 40);
+      var lineasDetalle = getMotherLines(ctx, textoDetalle, 540, "20px 'Montserrat', sans-serif");
+      // var hDetalle = alturaTexto(lineasDetalle, 30);
+      if (detalleImagen.value.length > 0){
+        var hDetalle = alturaTexto(lineasDetalle, 30)-20;
+      }else{
+        var hDetalle = alturaTexto(lineasDetalle, 30);
+      }
 
       var textoResumen = resumenImagen.value;
-      var lineasResumen = getMotherLines(ctx, textoResumen, 540, "30px 'Montserrat', sans-serif");
-      var hResumen = alturaTexto(lineasResumen, 40);
+      var lineasResumen = getMotherLines(ctx, textoResumen, 540, "20px 'Montserrat', sans-serif");
+      var hResumen = alturaTexto(lineasResumen, 30);
 
 
       // SETEAR IMAGEN FONDO:
@@ -825,7 +835,7 @@ window.onload = function(){
         ctx.shadowColor = "black";
         ctx.fillStyle = "#fffadf";
         // ctx.fillRect(960, -10, 195, 195);
-        ctx.fillRect(960, -10, 112, 112);
+        ctx.fillRect(1088, -40, 162, 142);
 
         ctx.shadowBlur = 0;
         ctx.shadowOffsetX = 0;
@@ -866,15 +876,27 @@ window.onload = function(){
       } else {
         var hBox2 = hSubtitular + hDetalle;
       }
-      if (logoCanvas || calendarioCanvas){
-        var posInicialYtitular = ((1160 - 255 - hBox2)/2) + 255 - (hTitular/2);
+
+      // if (logoCanvas || calendarioCanvas){
+      //   var posInicialYtitular = ((620 - 172 - hBox2)/2) + 172 - (hTitular/2);
+      // } else {
+      //   var posInicialYtitular = ((620 - hBox2)/2) - (hTitular/2);
+      // }
+
+      if (logoCanvas == false && calendarioCanvas == false  && hBox2 <= 0){
+        var posInicialYtitular = (620/2) - (hTitular/2);
       } else {
-        var posInicialYtitular = ((1160 - hBox2)/2) - (hTitular/2);
+        if ((logoCanvas || calendarioCanvas) && hBox2 <= 0){
+          var posInicialYtitular = ((620 - 172)/2) + 172 - (hTitular/2);
+        } else {
+            var posInicialYtitular = 172 + 80;
+        }
       }
+
       // Coordenada inicial SUBTITULAR:
       // x centrado con respecto al canvas si NO está resúmen:
       if (textoResumen){
-        var factorXsubtitular = 8.66 + 527 + 8.66;
+        var factorXsubtitular = 8.66 + 560 + 8.66;
       }else{
         var factorXsubtitular = 0;
       }
@@ -883,16 +905,16 @@ window.onload = function(){
       // Coordenada inicial DETALLE:
       // x centrado con respecto al canvas si NO está resúmen:
       if (textoResumen){
-        var factorXdetalle = 8.66 + 527 + 8.66;
+        var factorXdetalle = 8.66 + 560 + 8.66;
       }else{
         var factorXdetalle = 0;
       }
       // y:
-      var posInicialYdetalle = posInicialYsubtitular + hSubtitular;
+      var posInicialYdetalle = posInicialYsubtitular + hSubtitular -20;
       // Coordenada inicial RESUMEN:
       // x centrado con respecto al canvas si NO está subtitular y/o detalle:
       if (textoSubtitular || textoDetalle){
-        var factorXresumen = 8.66 - 527 - 20.66;
+        var factorXresumen = 8.66 - 560 - 20.66;
       }else{
         var factorXresumen = 0;
       }
@@ -908,15 +930,15 @@ window.onload = function(){
       var colorFondoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor;
 
       if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == true){
-      imprimirRecuadro(canvas, ctx, colorTipoTitular, colorFondoTitular, 70, 1080, hTitular, factorXtitular, posInicialYtitular);
+      imprimirRecuadro(canvas, ctx, colorTipoTitular, colorFondoTitular, 55, 1150, hTitular, factorXtitular, posInicialYtitular);
     } else {
       if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == false){
-      imprimirRecuadro(canvas, ctx, "transparent", colorFondoTitular, 70, 1080, hTitular, factorXtitular, posInicialYtitular);
+      imprimirRecuadro(canvas, ctx, "transparent", colorFondoTitular, 55, 1150, hTitular, factorXtitular, posInicialYtitular);
       }
     }
 
       // imprimirTexto (ctxFacebook,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 80, factorXtitular, posInicialYtitular);
-      imprimirTexto (canvas, ctx,lineasTitular, "bold 70px 'Gidugu', sans-serif", colorTipoTitular, 45, factorXtitular, posInicialYtitular-25);
+      imprimirTexto (canvas, ctx,lineasTitular, "bold 55px 'Gidugu', sans-serif", colorTipoTitular, 40, factorXtitular, posInicialYtitular-25);
 
       // Subtitular:
       var colorTipoSubitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color;
@@ -924,11 +946,11 @@ window.onload = function(){
       var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
 
       if (textoSubtitular || textoDetalle){
-      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, 45, factorXsubtitular, posInicialYsubtitular, 527, hSubtitular + hDetalle, 20);
+      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, 35, factorXsubtitular, posInicialYsubtitular, 547, hSubtitular + hDetalle, 10);
       }
 
       // imprimirTexto (ctxFacebook,lineasSubtitular, "bold 45px 'Montserrat', sans-serif", colorTipoSubitular, 50, factorXsubtitular, posInicialYsubtitular);
-      imprimirTexto (canvas, ctx,lineasSubtitular, "bold 35px 'Montserrat', sans-serif", colorTipoSubitular, 45, factorXsubtitular, posInicialYsubtitular);
+      imprimirTexto (canvas, ctx,lineasSubtitular, "bold 25px 'Montserrat', sans-serif", colorTipoSubitular, 35, factorXsubtitular, posInicialYsubtitular);
 
       // Detalle:
       if (textoDetalle){
@@ -936,7 +958,7 @@ window.onload = function(){
 
       // imprimirRecuadroRadius(ctxFacebook, 45, factorXdetalle, posInicialYdetalle, 527, hDetalle, 20);
       }
-      imprimirTexto (canvas, ctx,lineasDetalle, "30px 'Montserrat', sans-serif", colorTipoSubitular, 40, factorXdetalle, posInicialYdetalle);
+      imprimirTexto (canvas, ctx,lineasDetalle, "20px 'Montserrat', sans-serif", colorTipoSubitular, 30, factorXdetalle, posInicialYdetalle);
 
       // Resumen:
       var colorTipoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color;
@@ -946,16 +968,16 @@ window.onload = function(){
       if (textoResumen){
       // imprimirRecuadro(ctxFacebook, 45, 527, hResumen, factorXresumen, posInicialYresumen);
 
-      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, 45, factorXresumen, posInicialYresumen, 527, hResumen, 20);
+      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, 35, factorXresumen, posInicialYresumen, 547, hResumen, 10);
       }
-      imprimirTexto (canvas, ctx,lineasResumen, "30px 'Montserrat', sans-serif", colorTipoResumen, 40, factorXresumen, posInicialYresumen);
+      imprimirTexto (canvas, ctx,lineasResumen, "20px 'Montserrat', sans-serif", colorTipoResumen, 30, factorXresumen, posInicialYresumen);
 
       // IMPRIMIR WEB EN EL FOOTER:
       var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
-      ctx.font = "30px 'Montserrat', sans-serif";
+      ctx.font = "15px 'Montserrat', sans-serif";
       ctx.fillStyle = "black";
       posXweb = (canvas.width/2) - (ctx.measureText(webAsaar).width/2);
-      ctx.fillText(webAsaar, posXweb, 1160);
+      ctx.fillText(webAsaar, posXweb, 620);
 
       // PASAR A IMAGEN:
       // var imagen2 = canvasFacebook.toDataURL("image/png");

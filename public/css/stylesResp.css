@@ -2185,7 +2185,7 @@ padding-left: 10px;
   height: 74vh;
   /* overflow: scroll; */
   overflow-y: scroll;
-  /* overflow-x: hidden; SACAR!!!!!*/
+  overflow-x: hidden;
 }
 .admin .output .wrapCanvasFacebook {
   /* width: 635px; */
