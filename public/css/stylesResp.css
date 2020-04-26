@@ -1730,6 +1730,21 @@ footer{
   line-height: 1.5;
   margin: 5px 10px;
 }
+.main_detalle_noticias .wrap_img .info_img_container .box4{
+  width: 100%;
+  color: #f72929;
+  font-size: 90px;
+  font-weight: bold;
+  text-align: center;
+  transform: rotate(-15deg);
+  position: absolute;
+  z-index: 500;
+  top: 40%;
+  line-height: 1;
+}
+.main_detalle_noticias .wrap_img .info_img_container .box4 p{
+  line-height: 1;
+}
 /* fin imagen noticia */
 .main_detalle_noticias p{
 line-height: 2;
@@ -1824,8 +1839,29 @@ line-height: 2;
 }
 .admin .input form{
   height: 74vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
+/* SCROLLBAR */
+/* width */
+.admin .input form::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.admin .input form::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.admin .input form::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.admin .input form::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* FIN SCROLLBAR */
 .admin .input .adminFormItem{
   width: 100%;
   display: flex;

@@ -11,7 +11,7 @@ window.onload = function(){
   // imagen para canvas:
   // let imgCanvas = document.getElementById('imgCanvas');
   let imgCanvasFacebook = document.getElementById('imgCanvasFacebook');
-  let imgCanvasTwitter = document.getElementById('imgCanvasTwitter');
+  // let imgCanvasTwitter = document.getElementById('imgCanvasTwitter');
 
   // Facebook layout preview:
   var canvasFacebook = document.getElementById("canvasFacebook");
@@ -51,13 +51,13 @@ window.onload = function(){
       imagenPrincipal.style.display = "block";
       // Canvas:
       setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-      setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+      // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
     } else {
       document.querySelector(".admin .imagenesWrap").style.display ="none";
       imagenPrincipal.style.display = "none";
       // Canvas:
       setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-      setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+      // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
     }
   }
 
@@ -108,8 +108,8 @@ window.onload = function(){
       // imgCanvas.src = this.firstElementChild.value;
       imgCanvasFacebook.src = this.firstElementChild.value;
       setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-      imgCanvasTwitter.src = this.firstElementChild.value;
-      setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+      // imgCanvasTwitter.src = this.firstElementChild.value;
+      // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
     }
   }
 
@@ -132,8 +132,8 @@ window.onload = function(){
           // imgCanvas.src = e.target.result;
           imgCanvasFacebook.src = e.target.result;
           setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-          imgCanvasTwitter.src = e.target.result;
-          setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+          // imgCanvasTwitter.src = e.target.result;
+          // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
 
           // Crear thumbnail:
           var newRadio = `
@@ -152,8 +152,8 @@ window.onload = function(){
             // imgCanvas.src = e.target.result;
             imgCanvasFacebook.src = e.target.result;
             setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-            imgCanvasTwitter.src = e.target.result;
-            setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+            // imgCanvasTwitter.src = e.target.result;
+            // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
           }
           // Reset alert:
           document.querySelector(".alert").innerHTML = "";
@@ -180,7 +180,7 @@ window.onload = function(){
       imagenPrincipal.style.filter = this.value;
       // Canvas:
       setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-      setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+      // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
     }
   }
 
@@ -199,7 +199,7 @@ window.onload = function(){
     checkLayout();
     // Canvas:
     setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // incluir calendario:
@@ -221,14 +221,14 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_mes").firstElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
       // completar día de la semana:
       calendar.parentElement.nextElementSibling.children[1].oninput = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_dia").firstElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
 
       // completar número:
@@ -236,7 +236,7 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_dia").lastElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
 
     } else {
@@ -246,7 +246,7 @@ window.onload = function(){
     checkLayout();
     // Canvas:
     setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // incluir titular sobre imagen:
@@ -264,12 +264,12 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "4px solid " + iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       } else {
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "0px solid " + iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -284,7 +284,7 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.borderColor = this.value;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -296,7 +296,7 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor = this.value;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -312,7 +312,7 @@ window.onload = function(){
     checkLayout();
     // Canvas:
     setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // incluir bajada titular sobre imagen:
@@ -334,7 +334,7 @@ window.onload = function(){
 
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -346,7 +346,7 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor = this.value;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -366,7 +366,7 @@ window.onload = function(){
     checkLayout();
     // Canvas:
     setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // incluir detalle información sobre imagen:
@@ -388,7 +388,7 @@ window.onload = function(){
 
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -400,7 +400,7 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor = this.value;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -420,7 +420,7 @@ window.onload = function(){
     checkLayout();
     // Canvas:
     setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
 
   // incluir resumen sobre imagen:
@@ -438,7 +438,7 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color = this.value;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -450,7 +450,7 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor = this.value;
         // Canvas:
         setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
 
@@ -464,8 +464,25 @@ window.onload = function(){
     checkLayout();
     // Canvas:
     setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
   }
+
+
+  // incluir mensaje de rectificación sobre imagen:
+  var rectificacionImagen = document.querySelector(".rectificacionImagen textarea");
+  rectificacionImagen.oninput = function(){
+    if (this.value.length > 0){
+      iframe.contentWindow.document.querySelector(".info_img_container .box4").style.display = "block";
+      iframe.contentWindow.document.querySelector(".info_img_container .box4 p").innerHTML = this.value.replace(/\n/g, "<br>");
+      // Canvas:
+      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+    } else {
+      iframe.contentWindow.document.querySelector(".info_img_container .box4").style.display = "none";
+      // Canvas:
+      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+    }
+  }
+
 
   // párrafo noticia:
   var parrafo = iframe.contentWindow.document.querySelector(".parrafo");
@@ -474,6 +491,7 @@ window.onload = function(){
     parrafo.style.display = "block";
     parrafo.innerHTML = this.value.replace(/\n/g, "<br>");
   }
+
 
   // cargar imagenes secundarias:
   function handleFilePlus(evt) {
@@ -525,6 +543,7 @@ window.onload = function(){
 
   document.getElementById('filesPlus3').addEventListener('change', handleFilePlus, false);
 
+
   // remover imágenes secundarias:
   var remover = document.querySelectorAll(".remover");
   for (var i = 0; i < remover.length; i++) {
@@ -543,6 +562,39 @@ window.onload = function(){
       this.style.display="none";
     }
   }
+
+
+  // FUNCIONES:
+
+  function checkLayout(){
+
+    var infoImgContainerIframe = iframe.contentWindow.document.querySelector(".info_img_container");
+
+    var boxUnoIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1");
+    var logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
+    var calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
+
+    var boxDosIframe = iframe.contentWindow.document.querySelector(".info_img_container .box2");
+
+    var subtituloImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child");
+    var detalleImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child");
+    var resumenImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child");
+
+    // empieza chequeo:
+    if(
+      (logoAsaarIframe.style.display == "inline" || calendarioIframe.style.display == "flex") &&
+      boxDosIframe.style.display == "none" &&
+      resumenImagenIframe.style.display == "none" &&
+      subtituloImagenIframe.style.display == "none" &&
+      detalleImagenIframe.style.display == "none"
+      ){
+      infoImgContainerIframe.style.alignContent="space-between";
+      boxUnoIframe.style.marginTop="20px";
+      } else {
+        infoImgContainerIframe.style.alignContent="space-evenly";
+        boxUnoIframe.style.marginTop="0px";
+      }
+    }
 
 
   // CANVAS:
@@ -578,8 +630,8 @@ window.onload = function(){
       var calendarioCanvas = calendar.firstElementChild.checked;
 
       // TITULAR:
-      // var textoTitular = tituloImagen.value;
-      var textoTitular = "TALLER DE PADRES";
+      var textoTitular = tituloImagen.value;
+      // var textoTitular = "TALLER DE PADRES";
       var maxWidthTitular = 1060;
       var maxWidthTitularRecuadro = maxWidthTitular + 20;
       var fontSizeTitular = 120;
@@ -589,8 +641,8 @@ window.onload = function(){
       var hTitular = alturaTexto(lineasTitular, lineHeightTitular);
 
       // SUBTITULAR:
-      // var textoSubtitular = subtituloImagen.value;
-      var textoSubtitular = "Para padres de niños, adolescentes y adultos";
+      var textoSubtitular = subtituloImagen.value;
+      // var textoSubtitular = "Para padres de niños, adolescentes y adultos";
       var maxWidthSubtitular = 507;
       var maxWidthSubtitularRecuadro = maxWidthSubtitular + 20;
       var fontSizeSubtitular = 43;
@@ -600,8 +652,8 @@ window.onload = function(){
       var hSubtitular = alturaTexto(lineasSubtitular, lineHeightSubtitular);
 
       // DETALLE
-      // var textoDetalle = detalleImagen.value;
-      var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.Bono contribución $100. Inscripción en https:/ /goo.gl/forms/5UssYYdEHoQJ8b262";
+      var textoDetalle = detalleImagen.value;
+      // var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.Bono contribución $100. Inscripción en https:/ /goo.gl/forms/5UssYYdEHoQJ8b262";
       var maxWidthDetalle = 507;
       var maxWidthDetalleRecuadro = maxWidthDetalle + 20;
       var fontSizeDetalle = 38;
@@ -611,8 +663,8 @@ window.onload = function(){
       var hDetalle = alturaTexto(lineasDetalle, lineHeightDetalle);
 
       // RESUMEN
-      // var textoResumen = resumenImagen.value;
-      var textoResumen = "Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger"
+      var textoResumen = resumenImagen.value;
+      // var textoResumen = "Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger"
       var maxWidthResumen = 507;
       var maxWidthResumenRecuadro = maxWidthResumen + 20;
       var fontSizeResumen = 38;
@@ -620,6 +672,16 @@ window.onload = function(){
       var lineHeightResumen = 48;
       var lineasResumen = getMotherLines(ctx, textoResumen, maxWidthResumen, fontResumen);
       var hResumen = alturaTexto(lineasResumen, lineHeightResumen);
+
+      // RECTIFICACION
+      var textoRectificacion = rectificacionImagen.value;
+      // var textoRectificacion = "SUSPENDIDO";
+      var maxWidthRectificacion = 1200;
+      var fontSizeRectificacion = 150;
+      var fontRectificacion = "bold " + fontSizeRectificacion + "px 'Montserrat', sans-serif";
+      var lineHeightRectificacion = 160;
+      var lineasRectificacion = getMotherLines(ctx, textoRectificacion, maxWidthRectificacion, fontRectificacion);
+      var hRectificacion = alturaTexto(lineasRectificacion, lineHeightRectificacion);
 
 
       // SETEAR IMAGEN FONDO:
@@ -771,239 +833,14 @@ window.onload = function(){
         ctx.rotate(-3 * Math.PI / 180);
       }
 
-    } //cierre onload imgCanvas
+      // IMPRIMIR RECTIFICACION:
+      ctx.rotate(-45 * Math.PI / 180);
 
-      } else {
-        // canvas-unsupported code here
-    }
-  } // cierre function setCanvas()
+      var posInicialYrectificacion = (1800/2) - (hRectificacion/2) + (lineHeightRectificacion/2);
 
+      imprimirTexto (canvas, ctx, lineasRectificacion, fontRectificacion, "#f72929", lineHeightRectificacion, -1200, posInicialYrectificacion);
 
-  function setCanvasTwitter(canvas, imagen){
-
-    if (canvas.getContext){
-
-      var ctx = canvas.getContext("2d");
-
-      ctx.fillStyle = "#ffffff";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // SETEAR VARIABLES:
-      var logoCanvas = logoAsaar.firstElementChild.checked;
-
-      var calendarioCanvas = calendar.firstElementChild.checked;
-
-      // TITULAR:
-      // var textoTitular = tituloImagen.value;
-      var textoTitular = "TALLER DE PADRES";
-      var maxWidthTitular = 1060;
-      var maxWidthTitularRecuadro = maxWidthTitular + 20;
-      var fontSizeTitular = 120;
-      var fontTitular = "bold " + fontSizeTitular + "px 'Gidugu', sans-serif";
-      var lineHeightTitular = 75;
-      var lineasTitular = getMotherLines(ctx, textoTitular, maxWidthTitular, fontTitular);
-      var hTitular = alturaTexto(lineasTitular, lineHeightTitular);
-
-      // SUBTITULAR:
-      // var textoSubtitular = subtituloImagen.value;
-      // var textoSubtitular = "Para padres de niños, adolescentes y adultos";
-      var textoSubtitular = "Para padres de niños";
-      var maxWidthSubtitular = 507;
-      var maxWidthSubtitularRecuadro = maxWidthSubtitular + 20;
-      var fontSizeSubtitular = 43;
-      var fontSubtitular = "bold " + fontSizeSubtitular + "px 'Montserrat', sans-serif";
-      var lineHeightSubtitular = 53;
-      var lineasSubtitular = getMotherLines(ctx, textoSubtitular, maxWidthSubtitular,fontSubtitular);
-      var hSubtitular = alturaTexto(lineasSubtitular, lineHeightSubtitular);
-
-      // DETALLE
-      // var textoDetalle = detalleImagen.value;
-      // var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.Bono contribución $100. Inscripción en https:/ /goo.gl/forms/5UssYYdEHoQJ8b262";
-      var textoDetalle = "LEOPOLDO MARECHAL";
-      var maxWidthDetalle = 507;
-      var maxWidthDetalleRecuadro = maxWidthDetalle + 20;
-      var fontSizeDetalle = 38;
-      var fontDetalle = fontSizeDetalle + "px 'Montserrat', sans-serif";
-      var lineHeightDetalle = 48;
-      var lineasDetalle = getMotherLines(ctx, textoDetalle, maxWidthDetalle, fontDetalle);
-      var hDetalle = alturaTexto(lineasDetalle, lineHeightDetalle);
-
-      // RESUMEN
-      // var textoResumen = resumenImagen.value;
-      // var textoResumen = "Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger";
-      var textoResumen = "Encuentro de padres";
-      var maxWidthResumen = 507;
-      var maxWidthResumenRecuadro = maxWidthResumen + 20;
-      var fontSizeResumen = 38;
-      var fontResumen = fontSizeResumen + "px 'Montserrat', sans-serif";
-      var lineHeightResumen = 48;
-      var lineasResumen = getMotherLines(ctx, textoResumen, maxWidthResumen, fontResumen);
-      var hResumen = alturaTexto(lineasResumen, lineHeightResumen);
-
-
-      // SETEAR IMAGEN FONDO:
-      // imgCanvas.src = imgCanvas.src;
-      imagen.src = imagen.src;
-
-      let filtro = imagenPrincipal.style.filter;
-      imagen.onload = function(){
-
-        scaleToFill(this, canvas, ctx, filtro);
-      // } //cierre onload, lo muevo al final de la función
-
-
-      // OBTENER COORDENADAS PARA CADA TEXTO:
-      // Coordenada inicial TITULAR:
-      // x siempre centrado con respecto al canvas:
-      if (logoCanvas || calendarioCanvas){
-        var factorXtitular = 20 -200;
-        // 20 es el margen izq, 200 es el espacio del logo
-      } else {
-        var factorXtitular = 0;
-      }
-      // y:
-      if(hResumen > (hSubtitular + hDetalle)){
-        var hBox2 = hResumen;
-      } else {
-        var hBox2 = hSubtitular + hDetalle;
-      }
-      // if (logoCanvas || calendarioCanvas){
-      //   var posInicialYtitular = ((1170 - 255 - hBox2)/2) + 255 + lineHeightTitular - (hTitular/2);
-      // } else {
-        var posInicialYtitular = ((620 - hBox2)/2) + lineHeightTitular - (hTitular/2);
-      // }
-      // Coordenada inicial SUBTITULAR:
-      // x centrado con respecto al canvas si NO está resúmen:
-
-
-
-      if ((logoCanvas || calendarioCanvas) && textoResumen){
-        var factorXsubtitular = 20 - 200 + 8.66 + 527 + 8.66;
-        // 20 es el margen izq, 200 es el espacio del logo
-      } else {
-        if ((logoCanvas || calendarioCanvas) && textoResumen.length == 0) {
-          var factorXsubtitular = 20 - 200;
-        } else {
-        var factorXsubtitular = 0;
-        }
-      }
-
-
-      // y:
-      var posInicialYsubtitular = posInicialYtitular + hTitular -30;
-      // Coordenada inicial DETALLE:
-      // x centrado con respecto al canvas si NO está resúmen:
-      if (textoResumen){
-        var factorXdetalle = 8.66 + 527 + 8.66;
-      }else{
-        var factorXdetalle = 0;
-      }
-      // y:
-      var posInicialYdetalle = posInicialYsubtitular + hSubtitular;
-      // Coordenada inicial RESUMEN:
-      // x centrado con respecto al canvas si NO está subtitular y/o detalle:
-      if (textoSubtitular || textoDetalle){
-        var factorXresumen = 8.66 - 527 - 20.66;
-      }else{
-        var factorXresumen = 0;
-      }
-      // y:
-      var posInicialYresumen = posInicialYtitular + hTitular -35;
-
-
-      // IMPRIMIR TEXTOS, RECUADROS, CAMBIAR COLORES:
-
-      // IMPRIMIR WEB EN EL FOOTER:
-      ctx.fillStyle = "#6ACF95";
-      ctx.fillRect(0, 1155, 1200, 45);
-      var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
-      ctx.font = "bold 30px 'Montserrat', sans-serif";
-      ctx.fillStyle = "#454545";
-      var posXweb = (canvas.width/2) - (ctx.measureText(webAsaar).width/2);
-      ctx.fillText(webAsaar, posXweb, 1185);
-
-      // Titular:
-      var colorTipoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
-
-      var colorFondoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor;
-
-      if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == true){
-      imprimirRecuadro(canvas, ctx, colorTipoTitular, colorFondoTitular, fontSizeTitular, maxWidthTitularRecuadro, hTitular, factorXtitular, posInicialYtitular);
-      } else {
-        if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == false){
-        imprimirRecuadro(canvas, ctx, "transparent", colorFondoTitular, fontSizeTitular, maxWidthTitularRecuadro, hTitular, factorXtitular, posInicialYtitular);
-        }
-      }
-
-      imprimirTexto (canvas, ctx, lineasTitular, fontTitular, colorTipoTitular, lineHeightTitular, factorXtitular, posInicialYtitular-45);
-
-      // Subtitular:
-      var colorTipoSubitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color;
-
-      var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
-
-      if (textoSubtitular || textoDetalle){
-      imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, fontSizeSubtitular, factorXsubtitular, posInicialYsubtitular, maxWidthSubtitularRecuadro, hSubtitular + hDetalle, 10);
-      }
-
-      imprimirTexto (canvas, ctx,lineasSubtitular, fontSubtitular, colorTipoSubitular, lineHeightSubtitular, factorXsubtitular, posInicialYsubtitular);
-
-      // Detalle:
-      imprimirTexto (canvas, ctx,lineasDetalle, fontDetalle, colorTipoSubitular, lineHeightDetalle, factorXdetalle, posInicialYdetalle);
-
-      // Resumen:
-      var colorTipoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color;
-
-      var colorFondoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor;
-
-      if (textoResumen){
-      imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, fontSizeResumen, factorXresumen, posInicialYresumen, maxWidthResumenRecuadro, hResumen, 10);
-      }
-      imprimirTexto (canvas, ctx,lineasResumen, fontResumen, colorTipoResumen, lineHeightResumen, factorXresumen, posInicialYresumen);
-
-      // IMPRIMIR LOGO:
-      if (logoCanvas){
-        let logoAsaarIframe = iframe.contentWindow.document.querySelector(".box0 img");
-        ctx.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
-      }
-
-      // IMPRIMIR CALENDARIO:
-      if (calendarioCanvas){
-        ctx.rotate(3 * Math.PI / 180);
-        ctx.shadowBlur = 20;
-        ctx.shadowOffsetX = 10;
-        ctx.shadowOffsetY = 10;
-        ctx.shadowColor = "black";
-        ctx.fillStyle = "#fffadf";
-        ctx.fillRect(960, -10, 195, 195);
-
-        ctx.shadowBlur = 0;
-        ctx.shadowOffsetX = 0;
-        ctx.shadowOffsetY = 0;
-        ctx.shadowColor = "#000000";
-        ctx.fillStyle = "#f72929";
-        ctx.fillRect(964, -7, 188, 56);
-
-        var mesCalendario = calendar.parentElement.nextElementSibling.children[0].firstElementChild.value;
-        ctx.font = "bold 28px Helvetica";
-        ctx.fillStyle = "#fffadf";
-        var mesPosX = 964 + ((188 - ctx.measureText(mesCalendario).width)/2);
-        ctx.fillText(mesCalendario, mesPosX, 32);
-
-        var diaCalendario = calendar.parentElement.nextElementSibling.children[1].firstElementChild.value.split("").join(String.fromCharCode(8201));
-        ctx.font = "26px Helvetica";
-        ctx.fillStyle = "black";
-        var diaPosX = 964 + ((188 - ctx.measureText(diaCalendario).width)/2);
-        ctx.fillText(diaCalendario, diaPosX, 80);
-
-        var nroCalendario = calendar.parentElement.nextElementSibling.children[2].firstElementChild.value;
-        ctx.font = "bold 80px Helvetica";
-        ctx.fillStyle = "black";
-        var nroPosX = 964 + ((188 - ctx.measureText(nroCalendario).width)/2);
-        ctx.fillText(nroCalendario, nroPosX, 160);
-
-        ctx.rotate(-3 * Math.PI / 180);
-      }
+      ctx.rotate(45 * Math.PI / 180);
 
     } //cierre onload imgCanvas
 
@@ -1011,6 +848,240 @@ window.onload = function(){
         // canvas-unsupported code here
     }
   } // cierre function setCanvas()
+
+
+  // function setCanvasTwitter(canvas, imagen){
+  //
+  //   if (canvas.getContext){
+  //
+  //     var ctx = canvas.getContext("2d");
+  //
+  //     ctx.fillStyle = "#ffffff";
+  //     ctx.fillRect(0, 0, canvas.width, canvas.height);
+  //
+  //     // SETEAR VARIABLES:
+  //     var logoCanvas = logoAsaar.firstElementChild.checked;
+  //
+  //     var calendarioCanvas = calendar.firstElementChild.checked;
+  //
+  //     // TITULAR:
+  //     // var textoTitular = tituloImagen.value;
+  //     var textoTitular = "TALLER DE PADRES";
+  //     var maxWidthTitular = 1060;
+  //     var maxWidthTitularRecuadro = maxWidthTitular + 20;
+  //     var fontSizeTitular = 120;
+  //     var fontTitular = "bold " + fontSizeTitular + "px 'Gidugu', sans-serif";
+  //     var lineHeightTitular = 75;
+  //     var lineasTitular = getMotherLines(ctx, textoTitular, maxWidthTitular, fontTitular);
+  //     var hTitular = alturaTexto(lineasTitular, lineHeightTitular);
+  //
+  //     // SUBTITULAR:
+  //     // var textoSubtitular = subtituloImagen.value;
+  //     // var textoSubtitular = "Para padres de niños, adolescentes y adultos";
+  //     var textoSubtitular = "Para padres de niños";
+  //     var maxWidthSubtitular = 507;
+  //     var maxWidthSubtitularRecuadro = maxWidthSubtitular + 20;
+  //     var fontSizeSubtitular = 43;
+  //     var fontSubtitular = "bold " + fontSizeSubtitular + "px 'Montserrat', sans-serif";
+  //     var lineHeightSubtitular = 53;
+  //     var lineasSubtitular = getMotherLines(ctx, textoSubtitular, maxWidthSubtitular,fontSubtitular);
+  //     var hSubtitular = alturaTexto(lineasSubtitular, lineHeightSubtitular);
+  //
+  //     // DETALLE
+  //     // var textoDetalle = detalleImagen.value;
+  //     // var textoDetalle = "LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.Bono contribución $100. Inscripción en https:/ /goo.gl/forms/5UssYYdEHoQJ8b262";
+  //     var textoDetalle = "LEOPOLDO MARECHAL";
+  //     var maxWidthDetalle = 507;
+  //     var maxWidthDetalleRecuadro = maxWidthDetalle + 20;
+  //     var fontSizeDetalle = 38;
+  //     var fontDetalle = fontSizeDetalle + "px 'Montserrat', sans-serif";
+  //     var lineHeightDetalle = 48;
+  //     var lineasDetalle = getMotherLines(ctx, textoDetalle, maxWidthDetalle, fontDetalle);
+  //     var hDetalle = alturaTexto(lineasDetalle, lineHeightDetalle);
+  //
+  //     // RESUMEN
+  //     // var textoResumen = resumenImagen.value;
+  //     // var textoResumen = "Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger";
+  //     var textoResumen = "Encuentro de padres";
+  //     var maxWidthResumen = 507;
+  //     var maxWidthResumenRecuadro = maxWidthResumen + 20;
+  //     var fontSizeResumen = 38;
+  //     var fontResumen = fontSizeResumen + "px 'Montserrat', sans-serif";
+  //     var lineHeightResumen = 48;
+  //     var lineasResumen = getMotherLines(ctx, textoResumen, maxWidthResumen, fontResumen);
+  //     var hResumen = alturaTexto(lineasResumen, lineHeightResumen);
+  //
+  //
+  //     // SETEAR IMAGEN FONDO:
+  //     // imgCanvas.src = imgCanvas.src;
+  //     imagen.src = imagen.src;
+  //
+  //     let filtro = imagenPrincipal.style.filter;
+  //     imagen.onload = function(){
+  //
+  //       scaleToFill(this, canvas, ctx, filtro);
+  //     // } //cierre onload, lo muevo al final de la función
+  //
+  //
+  //     // OBTENER COORDENADAS PARA CADA TEXTO:
+  //     // Coordenada inicial TITULAR:
+  //     // x siempre centrado con respecto al canvas:
+  //     if (logoCanvas || calendarioCanvas){
+  //       var factorXtitular = 20 -200;
+  //       // 20 es el margen izq, 200 es el espacio del logo
+  //     } else {
+  //       var factorXtitular = 0;
+  //     }
+  //     // y:
+  //     if(hResumen > (hSubtitular + hDetalle)){
+  //       var hBox2 = hResumen;
+  //     } else {
+  //       var hBox2 = hSubtitular + hDetalle;
+  //     }
+  //     // if (logoCanvas || calendarioCanvas){
+  //     //   var posInicialYtitular = ((1170 - 255 - hBox2)/2) + 255 + lineHeightTitular - (hTitular/2);
+  //     // } else {
+  //       var posInicialYtitular = ((620 - hBox2)/2) + lineHeightTitular - (hTitular/2);
+  //     // }
+  //     // Coordenada inicial SUBTITULAR:
+  //     // x centrado con respecto al canvas si NO está resúmen:
+  //
+  //
+  //
+  //     if ((logoCanvas || calendarioCanvas) && textoResumen){
+  //       var factorXsubtitular = 20 - 200 + 8.66 + 527 + 8.66;
+  //       // 20 es el margen izq, 200 es el espacio del logo
+  //     } else {
+  //       if ((logoCanvas || calendarioCanvas) && textoResumen.length == 0) {
+  //         var factorXsubtitular = 20 - 200;
+  //       } else {
+  //       var factorXsubtitular = 0;
+  //       }
+  //     }
+  //
+  //
+  //     // y:
+  //     var posInicialYsubtitular = posInicialYtitular + hTitular -30;
+  //     // Coordenada inicial DETALLE:
+  //     // x centrado con respecto al canvas si NO está resúmen:
+  //     if (textoResumen){
+  //       var factorXdetalle = 8.66 + 527 + 8.66;
+  //     }else{
+  //       var factorXdetalle = 0;
+  //     }
+  //     // y:
+  //     var posInicialYdetalle = posInicialYsubtitular + hSubtitular;
+  //     // Coordenada inicial RESUMEN:
+  //     // x centrado con respecto al canvas si NO está subtitular y/o detalle:
+  //     if (textoSubtitular || textoDetalle){
+  //       var factorXresumen = 8.66 - 527 - 20.66;
+  //     }else{
+  //       var factorXresumen = 0;
+  //     }
+  //     // y:
+  //     var posInicialYresumen = posInicialYtitular + hTitular -35;
+  //
+  //
+  //     // IMPRIMIR TEXTOS, RECUADROS, CAMBIAR COLORES:
+  //
+  //     // IMPRIMIR WEB EN EL FOOTER:
+  //     ctx.fillStyle = "#6ACF95";
+  //     ctx.fillRect(0, 1155, 1200, 45);
+  //     var webAsaar = "www.asperger.org.ar".split("").join(String.fromCharCode(8202));
+  //     ctx.font = "bold 30px 'Montserrat', sans-serif";
+  //     ctx.fillStyle = "#454545";
+  //     var posXweb = (canvas.width/2) - (ctx.measureText(webAsaar).width/2);
+  //     ctx.fillText(webAsaar, posXweb, 1185);
+  //
+  //     // Titular:
+  //     var colorTipoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
+  //
+  //     var colorFondoTitular = iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor;
+  //
+  //     if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == true){
+  //     imprimirRecuadro(canvas, ctx, colorTipoTitular, colorFondoTitular, fontSizeTitular, maxWidthTitularRecuadro, hTitular, factorXtitular, posInicialYtitular);
+  //     } else {
+  //       if (textoTitular && document.querySelector(".recuadroTitular").firstElementChild.firstElementChild.checked == false){
+  //       imprimirRecuadro(canvas, ctx, "transparent", colorFondoTitular, fontSizeTitular, maxWidthTitularRecuadro, hTitular, factorXtitular, posInicialYtitular);
+  //       }
+  //     }
+  //
+  //     imprimirTexto (canvas, ctx, lineasTitular, fontTitular, colorTipoTitular, lineHeightTitular, factorXtitular, posInicialYtitular-45);
+  //
+  //     // Subtitular:
+  //     var colorTipoSubitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color;
+  //
+  //     var colorFondoSubtitular = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor;
+  //
+  //     if (textoSubtitular || textoDetalle){
+  //     imprimirRecuadroRadius(canvas, ctx, colorFondoSubtitular, fontSizeSubtitular, factorXsubtitular, posInicialYsubtitular, maxWidthSubtitularRecuadro, hSubtitular + hDetalle, 10);
+  //     }
+  //
+  //     imprimirTexto (canvas, ctx,lineasSubtitular, fontSubtitular, colorTipoSubitular, lineHeightSubtitular, factorXsubtitular, posInicialYsubtitular);
+  //
+  //     // Detalle:
+  //     imprimirTexto (canvas, ctx,lineasDetalle, fontDetalle, colorTipoSubitular, lineHeightDetalle, factorXdetalle, posInicialYdetalle);
+  //
+  //     // Resumen:
+  //     var colorTipoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color;
+  //
+  //     var colorFondoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor;
+  //
+  //     if (textoResumen){
+  //     imprimirRecuadroRadius(canvas, ctx, colorFondoResumen, fontSizeResumen, factorXresumen, posInicialYresumen, maxWidthResumenRecuadro, hResumen, 10);
+  //     }
+  //     imprimirTexto (canvas, ctx,lineasResumen, fontResumen, colorTipoResumen, lineHeightResumen, factorXresumen, posInicialYresumen);
+  //
+  //     // IMPRIMIR LOGO:
+  //     if (logoCanvas){
+  //       let logoAsaarIframe = iframe.contentWindow.document.querySelector(".box0 img");
+  //       ctx.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
+  //     }
+  //
+  //     // IMPRIMIR CALENDARIO:
+  //     if (calendarioCanvas){
+  //       ctx.rotate(3 * Math.PI / 180);
+  //       ctx.shadowBlur = 20;
+  //       ctx.shadowOffsetX = 10;
+  //       ctx.shadowOffsetY = 10;
+  //       ctx.shadowColor = "black";
+  //       ctx.fillStyle = "#fffadf";
+  //       ctx.fillRect(960, -10, 195, 195);
+  //
+  //       ctx.shadowBlur = 0;
+  //       ctx.shadowOffsetX = 0;
+  //       ctx.shadowOffsetY = 0;
+  //       ctx.shadowColor = "#000000";
+  //       ctx.fillStyle = "#f72929";
+  //       ctx.fillRect(964, -7, 188, 56);
+  //
+  //       var mesCalendario = calendar.parentElement.nextElementSibling.children[0].firstElementChild.value;
+  //       ctx.font = "bold 28px Helvetica";
+  //       ctx.fillStyle = "#fffadf";
+  //       var mesPosX = 964 + ((188 - ctx.measureText(mesCalendario).width)/2);
+  //       ctx.fillText(mesCalendario, mesPosX, 32);
+  //
+  //       var diaCalendario = calendar.parentElement.nextElementSibling.children[1].firstElementChild.value.split("").join(String.fromCharCode(8201));
+  //       ctx.font = "26px Helvetica";
+  //       ctx.fillStyle = "black";
+  //       var diaPosX = 964 + ((188 - ctx.measureText(diaCalendario).width)/2);
+  //       ctx.fillText(diaCalendario, diaPosX, 80);
+  //
+  //       var nroCalendario = calendar.parentElement.nextElementSibling.children[2].firstElementChild.value;
+  //       ctx.font = "bold 80px Helvetica";
+  //       ctx.fillStyle = "black";
+  //       var nroPosX = 964 + ((188 - ctx.measureText(nroCalendario).width)/2);
+  //       ctx.fillText(nroCalendario, nroPosX, 160);
+  //
+  //       ctx.rotate(-3 * Math.PI / 180);
+  //     }
+  //
+  //   } //cierre onload imgCanvas
+  //
+  //     } else {
+  //       // canvas-unsupported code here
+  //   }
+  // } // cierre function setCanvas()
 
 
 
@@ -1039,12 +1110,12 @@ window.onload = function(){
     // link.click();
   }
 
-  var linkTwitter = document.getElementById('linkTwitter');
-  linkTwitter.onclick = function(){
-    linkTwitter.setAttribute('download', 'imagenTwitter.png');
-    linkTwitter.setAttribute('href', canvasTwitter.toDataURL("image/png").replace("image/png", "image/octet-stream"));
-    // link.click();
-  }
+  // var linkTwitter = document.getElementById('linkTwitter');
+  // linkTwitter.onclick = function(){
+  //   linkTwitter.setAttribute('download', 'imagenTwitter.png');
+  //   linkTwitter.setAttribute('href', canvasTwitter.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+  //   // link.click();
+  // }
 
 
   // FUNCIONES CANVAS:
@@ -1206,34 +1277,6 @@ window.onload = function(){
 
 
 
-  function checkLayout(){
 
-    var infoImgContainerIframe = iframe.contentWindow.document.querySelector(".info_img_container");
-
-    var boxUnoIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1");
-    var logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
-    var calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
-
-    var boxDosIframe = iframe.contentWindow.document.querySelector(".info_img_container .box2");
-
-    var subtituloImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child");
-    var detalleImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child");
-    var resumenImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child");
-
-    // empieza chequeo:
-    if(
-      (logoAsaarIframe.style.display == "inline" || calendarioIframe.style.display == "flex") &&
-      boxDosIframe.style.display == "none" &&
-      resumenImagenIframe.style.display == "none" &&
-      subtituloImagenIframe.style.display == "none" &&
-      detalleImagenIframe.style.display == "none"
-      ){
-      infoImgContainerIframe.style.alignContent="space-between";
-      boxUnoIframe.style.marginTop="20px";
-      } else {
-        infoImgContainerIframe.style.alignContent="space-evenly";
-        boxUnoIframe.style.marginTop="0px";
-      }
-    }
 
 } // fin onload

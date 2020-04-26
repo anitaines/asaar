@@ -20,14 +20,13 @@
 
       <h3 class="h3_aspergerCEA" style="display:none;">Taller de Padres para Padres</h3>
       <h4 style="display:none;">Sábado 14 de Marzo de 16:30 a 18:30 hs.</h4>
-      <div class="box0" style="display:none;">
-        <img src="/media/logos/logoVertical.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;">
-      </div>
+
       <div class="wrap_img">
         <div class="img_container" style="display:none;"></div>
         <div class="info_img_container">
           <div class="box1">
             <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;">
+            {{-- <img src="/media/logos/logoFull.png" alt="Logotipo Asociación Asperger Argentina" style="display:none;"> --}}
 
             <div class="calendar" style="display:none;">
               <div class="calendar_mes">
@@ -51,6 +50,9 @@
               <p style="display:none; color: #ffffff;">LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
               Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p>
             </div>
+          </div>
+          <div class="box4" style="display:none;">
+            <p></p>
           </div>
 
         </div>

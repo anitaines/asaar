@@ -15,7 +15,7 @@
 
       <h4>Ingresar la información:</h4>
 
-      <form class="" action="/generar-noticias" method="post" enctype="multipart/form-data">
+      <form class="" action="/generar-noticias" method="post" enctype="multipart/form-data" autocomplete="off">
         @csrf
 
         <div class="adminFormItem">
@@ -359,6 +359,12 @@
               </label>
             </div>
 
+            <div class="adminFormItem form_item adminFormItem_textarea">
+              <label class="rectificacionImagen">Mensaje de rectificación sobre imagen:
+                <textarea  class="" name="rectificacionImagen" rows="5"></textarea>
+              </label>
+            </div>
+
           </div>
         </div>
 
@@ -396,17 +402,17 @@
 
         <div class="downloadCanvas">
           <a id="linkFacebook">
-            <p>6. Descargar imagen 1200x1200px</p>
-            <p>(Facebook/Instagram)</p>
+            <p>6. Descargar imagen para</p>
+            <p>redes sociales</p>
           </a>
         </div>
 
-        <div class="downloadCanvas">
+        {{-- <div class="downloadCanvas">
           <a id="linkTwitter">
             <p>7. Descargar imagen 1024x512px</p>
             <p>(Twitter)</p>
           </a>
-        </div>
+        </div> --}}
 
         {{-- <button class="buton_newsletter_footer"  type="submit">
           <p>8. Publicar noticia</p>
@@ -415,7 +421,7 @@
 
         <div class="downloadCanvas uploadNews">
           <button class=""  type="submit" disabled>
-            <p>8. Publicar noticia</p>
+            <p>7. Publicar noticia</p>
             {{-- <p>Procesando</p> --}}
           </button>
         </div>
@@ -435,22 +441,20 @@
         <h4>Vista previa imagen para redes sociales:</h4>
 
         <img id="imgCanvasFacebook" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;">
-        <img id="imgCanvasTwitter" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;">
+        {{-- <img id="imgCanvasTwitter" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;"> --}}
 
         <div class="container_canvas">
 
-          <p>Imagen 1200 x 1200 px ( por ejemplo, para usar en Facebook o Instagram):</p>
+          {{-- <p>Imagen 1200 x 1200 px ( por ejemplo, para usar en Facebook o Instagram):</p> --}}
           <div class="wrapCanvasFacebook">
             <canvas id="canvasFacebook" width="1200px" height="1200px"></canvas>
           </div>
 
           {{-- <p>Imagen 1024 x 512 px (por ejemplo, para usar en Twitter):</p> --}}
-          <p>Imagen 1280 x 640 px (por ejemplo, para usar en Twitter):</p>
-          {{-- 1024 - 1280 125%
-          512 - 640 --}}
+          {{-- <p>Imagen 1280 x 640 px (por ejemplo, para usar en Twitter):</p
           <div class="wrapCanvasTwitter">
             <canvas id="canvasTwitter" width="1280px" height="640px"></canvas>
-          </div>
+          </div> --}}
 
           {{-- <img id="prueba" src="" alt="" style="display: none;"> --}}
 
