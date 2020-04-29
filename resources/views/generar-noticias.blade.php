@@ -83,8 +83,8 @@
             </label>
 
             <label class="imagen3">
-              <input id="imagen3" type="radio" name="imagen" value="/media/noticias/preloaded/03.jpeg">
-              <div style="background-image: url('/media/noticias/preloaded/03.jpeg');" class=""></div>
+              <input id="imagen3" type="radio" name="imagen" value="/media/noticias/preloaded/Ali.jpg">
+              <div style="background-image: url('/media/noticias/preloaded/Ali.jpg');" class=""></div>
             </label>
           </div>
 
