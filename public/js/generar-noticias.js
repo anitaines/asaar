@@ -137,9 +137,9 @@ window.onload = function(){
 
           // Crear thumbnail:
           var newRadio = `
-              <label class="imagen3">
+              <label class="imagenLabel">
                 <div style="background-image: url('${e.target.result}');" class=""></div>
-                <input id="imagen3" type="radio" name="imagen" value="${e.target.result}" checked>
+                <input type="radio" name="imagen" value="${e.target.result}" checked>
               </label>
                   `;
           document.getElementById('uploadedImage').innerHTML = newRadio;

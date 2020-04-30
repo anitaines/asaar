@@ -1950,7 +1950,7 @@ line-height: 2;
 .admin .imagenesWrap .imagenes label input:checked ~ div{
   border: 2px solid var(--black);
 }
-.admin .imagen1 div, .admin .imagen2 div, .admin .imagen3 div{
+.admin .imagenLabel div{
   /* height: 150px;
   width: 250px; */
   height: 120px;
@@ -1963,7 +1963,7 @@ line-height: 2;
   /* margin: 5px; */
 }
 
-.admin .imagen1 input, .admin .imagen2 input, .admin .imagen3 input{
+.admin .imagenLabel input{
   display: none;
 }
 .admin .imagenesWrap .imagenesOpcionCargaNueva{

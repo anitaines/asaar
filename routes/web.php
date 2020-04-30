@@ -51,6 +51,10 @@ Route::get('/plantilla-noticia', function () {
     return view('plantilla-noticia');
 });
 // CREAR CONTROLADORES Y AUTH EN ESTE LINK:
-Route::get('/generar-noticias', function () {
-    return view('generar-noticias');
-});
+// Route::get('/generar-noticias', function () {
+//     return view('generar-noticias');
+// });
+
+Route::get('/generar-noticias', 'ReleaseController@create'); //falta auth
+
+Route::post('/generar-noticias', 'ReleaseController@store'); //falta auth

@@ -41,51 +41,14 @@
               <p>Elegir imagen guardada</p>
               <p>▼</p>
             </div>
+            {{-- ME FALTA EL INPUT CHECKED --}}
+            @foreach ($imagenes as $key => $value)
+              <label class="imagenLabel">
+                <input type="radio" name="imagen" value="/media/noticias/preloaded/{{$value->name}}">
+                <div style="background-image: url('/media/noticias/preloaded/{{$value->name}}');" class=""></div>
+              </label>
+            @endforeach
 
-            <label class="imagen1">
-              <input id="imagen1" type="radio" name="imagen" value="/media/noticias/preloaded/01.jpeg">
-              <div style="background-image: url('/media/noticias/preloaded/01.jpeg');" class=""></div>
-            </label>
-
-            <label class="imagen2">
-              <input id="imagen2" type="radio" name="imagen" value="/media/noticias/preloaded/02.jpg">
-              <div style="background-image: url('/media/noticias/preloaded/02.jpg');" class=""></div>
-            </label>
-
-            <label class="imagen3">
-              <input id="imagen3" type="radio" name="imagen" value="/media/noticias/preloaded/03.jpeg" checked>
-              <div style="background-image: url('/media/noticias/preloaded/03.jpeg');" class=""></div>
-            </label>
-
-            <label class="imagen1">
-              <input id="imagen1" type="radio" name="imagen" value="/media/noticias/preloaded/01.jpeg">
-              <div style="background-image: url('/media/noticias/preloaded/01.jpeg');" class=""></div>
-            </label>
-
-            <label class="imagen2">
-              <input id="imagen2" type="radio" name="imagen" value="/media/noticias/preloaded/02.jpg">
-              <div style="background-image: url('/media/noticias/preloaded/02.jpg');" class=""></div>
-            </label>
-
-            <label class="imagen3">
-              <input id="imagen3" type="radio" name="imagen" value="/media/noticias/preloaded/03.jpeg">
-              <div style="background-image: url('/media/noticias/preloaded/03.jpeg');" class=""></div>
-            </label>
-
-            <label class="imagen1">
-              <input id="imagen1" type="radio" name="imagen" value="/media/noticias/preloaded/01.jpeg">
-              <div style="background-image: url('/media/noticias/preloaded/01.jpeg');" class=""></div>
-            </label>
-
-            <label class="imagen2">
-              <input id="imagen2" type="radio" name="imagen" value="/media/noticias/preloaded/02.jpg">
-              <div style="background-image: url('/media/noticias/preloaded/02.jpg');" class=""></div>
-            </label>
-
-            <label class="imagen3">
-              <input id="imagen3" type="radio" name="imagen" value="/media/noticias/preloaded/Ali.jpg">
-              <div style="background-image: url('/media/noticias/preloaded/Ali.jpg');" class=""></div>
-            </label>
           </div>
 
           <div class="imagenesOpcionCargaNueva">
@@ -129,30 +92,17 @@
               <label> Mes:
                 <select class="" name="mes">
                   <option value="">Elegir:</option>
-                  <option value="ENERO">ENERO</option>
-                  <option value="FEBRERO">FEBRERO</option>
-                  <option value="MARZO">MARZO</option>
-                  <option value="ABRIL">ABRIL</option>
-                  <option value="MAYO">MAYO</option>
-                  <option value="JUNIO">JUNIO</option>
-                  <option value="JULIO">JULIO</option>
-                  <option value="AGOSTO">AGOSTO</option>
-                  <option value="SEPTIEMBRE">SEPTIEMBRE</option>
-                  <option value="OCTUBRE">OCTUBRE</option>
-                  <option value="NOVIEMBRE">NOVIEMBRE</option>
-                  <option value="DICIEMBRE">DICIEMBRE</option>
+                  @for ($i = 0; $i < count($mes); $i++)
+                    <option value="{{$mes[$i]}}">{{$mes[$i]}}</option>
+                  @endfor
                 </select>
               </label>
               <label> Día de la semana:
                 <select class="" name="dia">
                   <option value="">Elegir:</option>
-                  <option value="DOMINGO">DOMINGO</option>
-                  <option value="LUNES">LUNES</option>
-                  <option value="MARTES">MARTES</option>
-                  <option value="MIÉRCOLES">MIÉRCOLES</option>
-                  <option value="JUEVES">JUEVES</option>
-                  <option value="VIERNES">VIERNES</option>
-                  <option value="SÁBADO">SÁBADO</option>
+                  @for ($i = 0; $i < count($diaSemana); $i++)
+                    <option value="{{$diaSemana[$i]}}">{{$diaSemana[$i]}}</option>
+                  @endfor
                 </select>
               </label>
               <label> Número:
@@ -173,58 +123,30 @@
 
             <div class="colorTipoTitular" style="display: none;">
               <p>Color tipografía del titular:</p>
-              <label class="cambiarColorMagenta"> Magenta
-                {{-- --magenta: #ab2097; --}}
-                <input type="radio" name="colorTipoTitular" value="#AB2097" checked>
-                <div style="background-color: #AB2097;"></div>
-              </label>
-
-              <label class="cambiarColorVerde"> Verde
-                {{-- --green: #6ACF95; --}}
-                <input type="radio" name="colorTipoTitular" value="#6ACF95">
-                <div style="background-color: #6ACF95;"></div>
-              </label>
-
-              <label class="cambiarColorNaranja"> Naranja
-                {{-- --orange: #FC8901; --}}
-                <input type="radio" name="colorTipoTitular" value="#FC8901">
-                <div style="background-color: #FC8901;"></div>
-              </label>
-
-              <label class="cambiarColorCeleste"> Cyan
-                {{-- --blue: #34BFD2; --}}
-                <input type="radio" name="colorTipoTitular" value="#34BFD2">
-                <div style="background-color: #34BFD2;"></div>
-              </label>
-
-              <label class="cambiarColorBlanco"> Blanco
-                <input type="radio" name="colorTipoTitular" value="#ffffff">
-                <div style="background-color: #ffffff;"></div>
-              </label>
-
-              <label class="cambiarColorNegro"> Negro
-                {{-- --black: #454545; --}}
-                <input type="radio" name="colorTipoTitular" value="#454545">
-                <div style="background-color: #454545;"></div>
-              </label>
+              @foreach ($colorTipoTitular as $key => $value)
+                <label> {{$key}}
+                @if ($loop->first)
+                  <input type="radio" name="colorTipoTitular" value="{{$value}}" checked>
+                @else
+                  <input type="radio" name="colorTipoTitular" value="{{$value}}">
+                @endif
+                  <div style="background-color: {{$value}};"></div>
+                </label>
+              @endforeach
             </div>
 
             <div class="colorFondoTitular" style="display: none;">
               <p>Color fondo del titular:</p>
-              <label class="cambiarColorTransparente"> Sin color
-                <input type="radio" name="colorFondoTitulo" value="transparent" checked>
-                <div style="background-color: transparent;"></div>
-              </label>
-
-              <label class="cambiarColorBlanco"> Blanco
-                <input type="radio" name="colorFondoTitulo" value="rgba(255, 255, 255, 0.9)">
-                <div style="background-color: rgba(255, 255, 255, 1);"></div>
-              </label>
-
-              <label class="cambiarColorNegro"> Negro
-                <input type="radio" name="colorFondoTitulo" value="rgba(69, 69, 69, 0.9)">
-                <div style="background-color: rgba(69, 69, 69, 1);"></div>
-              </label>
+              @foreach ($colorFondoTitular as $key => $value)
+                <label> {{$key}}
+                @if ($loop->first)
+                  <input type="radio" name="colorFondoTitular" value="{{$value}}" checked>
+                @else
+                  <input type="radio" name="colorFondoTitular" value="{{$value}}">
+                @endif
+                  <div style="background-color: {{$value}};"></div>
+                </label>
+              @endforeach
             </div>
 
             <div class="recuadroTitular form_item_checkbox" style="display: none;">
@@ -248,54 +170,30 @@
 
             <div class="colorTipoSubtitular" style="display: none;">
               <p>Color tipografía de bajada de titular e información adicional:</p>
-              <label class="cambiarColorBlanco"> Blanco
-                <input type="radio" name="colorTipoSubtitular" value="#ffffff" checked>
-                <div style="background-color: #ffffff;"></div>
-              </label>
-
-              <label class="cambiarColorNegro"> Negro
-                {{-- --black: #454545; --}}
-                <input type="radio" name="colorTipoSubtitular" value="#454545">
-                <div style="background-color: #454545;"></div>
-              </label>
+              @foreach ($colorTipoSubtitular as $key => $value)
+                <label> {{$key}}
+                @if ($loop->first)
+                  <input type="radio" name="colorTipoSubtitular" value="{{$value}}" checked>
+                @else
+                  <input type="radio" name="colorTipoSubtitular" value="{{$value}}">
+                @endif
+                  <div style="background-color: {{$value}};"></div>
+                </label>
+              @endforeach
             </div>
 
             <div class="colorFondoSubtitular" style="display: none;">
               <p>Color fondo de bajada de titular e información adicional:</p>
-              <label class="cambiarColorMagenta"> Magenta
-                <input type="radio" name="colorFondoSubtitular" value="#AB2097" checked>
-                <div style="background-color: #AB2097;"></div>
-              </label>
-
-              <label class="cambiarColorVerde"> Verde
-                <input type="radio" name="colorFondoSubtitular" value="#6ACF95">
-                <div style="background-color: #6ACF95;"></div>
-              </label>
-
-              <label class="cambiarColorNaranja"> Naranja
-                <input type="radio" name="colorFondoSubtitular" value="#FC8901">
-                <div style="background-color: #FC8901;"></div>
-              </label>
-
-              <label class="cambiarColorCeleste"> Cyan
-                <input type="radio" name="colorFondoSubtitular" value="#34BFD2">
-                <div style="background-color: #34BFD2;"></div>
-              </label>
-
-              <label class="cambiarColorBlanco"> Blanco
-                <input type="radio" name="colorFondoSubtitular" value="#ffffff">
-                <div style="background-color: #ffffff;"></div>
-              </label>
-
-              <label class="cambiarColorNegro"> Negro
-                <input type="radio" name="colorFondoSubtitular" value="#454545">
-                <div style="background-color: #454545;"></div>
-              </label>
-
-              <label class="cambiarColorTransparente"> Sin color
-                <input type="radio" name="colorFondoSubtitular" value="transparent">
-                <div style="background-color: transparent;"></div>
-              </label>
+              @foreach ($colorFondoSubtitular as $key => $value)
+                <label> {{$key}}
+                @if ($loop->first)
+                  <input type="radio" name="colorFondoSubtitular" value="{{$value}}" checked>
+                @else
+                  <input type="radio" name="colorFondoSubtitular" value="{{$value}}">
+                @endif
+                  <div style="background-color: {{$value}};"></div>
+                </label>
+              @endforeach
             </div>
 
             <div class="adminFormItem form_item adminFormItem_textarea">
@@ -306,57 +204,30 @@
 
             <div class="colorTipoResumen" style="display: none;">
               <p>Color tipografía de resumen:</p>
-              <label class="magenta"> Magenta
-                {{-- hotpink --}}
-                <input type="radio" name="colorTipoResumen" value="rgb(255, 105, 180)">
-                <div style="background-color: rgb(255, 105, 180);"></div>
-              </label>
-
-              <label class="verde"> Verde
-                {{-- mediumspringgreen --}}
-                <input type="radio" name="colorTipoResumen" value="rgb(0, 250, 154)">
-                <div style="background-color: rgb(0, 250, 154);"></div>
-              </label>
-
-              <label class="naranja"> Naranja
-                {{-- darkorange --}}
-                <input type="radio" name="colorTipoResumen" value="rgb(255, 140, 0)" checked>
-                <div style="background-color: rgb(255, 140, 0);"></div>
-              </label>
-
-              <label class="celeste"> Cyan
-                {{-- cyan --}}
-                <input type="radio" name="colorTipoResumen" value="rgb(0, 255, 255)">
-                <div style="background-color: rgb(0, 255, 255);"></div>
-              </label>
-
-              <label class="blanco"> Blanco
-                <input type="radio" name="colorTipoResumen" value="#ffffff">
-                <div style="background-color: #ffffff;"></div>
-              </label>
-
-              <label class="negro"> Negro
-                <input type="radio" name="colorTipoResumen" value="rgb(69, 69, 69)">
-                <div style="background-color: rgb(69, 69, 69);"></div>
-              </label>
+              @foreach ($colorTipoResumen as $key => $value)
+                <label> {{$key}}
+                @if ($loop->first)
+                  <input type="radio" name="colorTipoResumen" value="{{$value}}" checked>
+                @else
+                  <input type="radio" name="colorTipoResumen" value="{{$value}}">
+                @endif
+                  <div style="background-color: {{$value}};"></div>
+                </label>
+              @endforeach
             </div>
 
             <div class="colorFondoResumen" style="display: none;">
               <p>Color fondo de resumen:</p>
-              <label class="cambiarColorTransparente"> Sin color
-                <input type="radio" name="colorFondoResumen" value="transparent">
-                <div style="background-color: transparent;"></div>
-              </label>
-
-              <label class="cambiarColorBlanco"> Blanco
-                <input type="radio" name="colorFondoResumen" value="rgba(255, 255, 255, 0.9)">
-                <div style="background-color: rgba(255, 255, 255, 1);"></div>
-              </label>
-
-              <label class="cambiarColorNegro"> Negro
-                <input type="radio" name="colorFondoResumen" value="rgba(69, 69, 69, 0.9)" checked>
-                <div style="background-color: rgba(69, 69, 69, 1);"></div>
-              </label>
+              @foreach ($colorFondoResumen as $key => $value)
+                <label> {{$key}}
+                @if ($loop->first)
+                  <input type="radio" name="colorFondoResumen" value="{{$value}}" checked>
+                @else
+                  <input type="radio" name="colorFondoResumen" value="{{$value}}">
+                @endif
+                  <div style="background-color: {{$value}};"></div>
+                </label>
+              @endforeach
             </div>
 
             <div class="adminFormItem form_item adminFormItem_textarea">
@@ -420,7 +291,7 @@
         </button> --}}
 
         <div class="downloadCanvas uploadNews">
-          <button class=""  type="submit" disabled>
+          <button class=""  type="submit">
             <p>7. Publicar noticia</p>
             {{-- <p>Procesando</p> --}}
           </button>
