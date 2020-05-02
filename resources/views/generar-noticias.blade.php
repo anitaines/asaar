@@ -53,7 +53,7 @@
 
           <div class="imagenesOpcionCargaNueva">
             <p>Cargar nueva imagen ▼</p>
-            <input type="file" id="files" name="files">
+            <input type="file" id="files" name="filesMain">
             <p class="alert"></p>
             <div id="uploadedImage"></div>
           </div>
