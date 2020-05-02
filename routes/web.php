@@ -50,6 +50,8 @@ Route::get('/donar', function () {
 Route::get('/plantilla-noticia', function () {
     return view('plantilla-noticia');
 });
+
+Route::get('/plantilla-noticia/{id}', 'ReleaseController@show');
 // CREAR CONTROLADORES Y AUTH EN ESTE LINK:
 // Route::get('/generar-noticias', function () {
 //     return view('generar-noticias');

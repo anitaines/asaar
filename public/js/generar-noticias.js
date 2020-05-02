@@ -17,8 +17,9 @@ window.onload = function(){
   var canvasFacebook = document.getElementById("canvasFacebook");
   // console.log(canvasFacebook);
 
-  var canvasTwitter = document.getElementById("canvasTwitter");
-  // console.log(canvasTwitter);
+  // var canvasTwitter = document.getElementById("canvasTwitter");
+  // // console.log(canvasTwitter);
+
 
   // setear titular noticia:
   let inputTitulo = document.getElementById("title");
@@ -31,8 +32,13 @@ window.onload = function(){
 
   // setear bajada titular noticia:
   let inputSubtitulo = document.getElementById("subtitle");
+  let subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
+  if (inputSubtitulo.value){
+    subtitulo.style.display = "block";
+    subtitulo.innerHTML = inputSubtitulo.value;
+  }
   inputSubtitulo.oninput = function(){
-    let subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
+    // let subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
 
     subtitulo.style.display = "block";
     subtitulo.innerHTML = this.value;
@@ -102,11 +108,11 @@ window.onload = function(){
   for (var i = 1; i < opcionesImagen.children.length; i++) {
     opcionesImagen.children[i].oninput = function(){
       // insertar imagen elegida en preview iframe:
-      imagenPrincipal.style.backgroundImage = "url(" + this.firstElementChild.value + ")";
+      imagenPrincipal.style.backgroundImage = "url('storage/noticias/imagenesMain/" + this.firstElementChild.value + "')";
 
       // Canvas:
       // imgCanvas.src = this.firstElementChild.value;
-      imgCanvasFacebook.src = this.firstElementChild.value;
+      imgCanvasFacebook.src = "storage/noticias/imagenesMain/" + this.firstElementChild.value;
       setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
       // imgCanvasTwitter.src = this.firstElementChild.value;
       // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
@@ -483,6 +489,8 @@ window.onload = function(){
     }
   }
 
+  // Canvas (en caso de recargar la página y tener datos cargados):
+  // setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
 
   // párrafo noticia:
   var parrafo = iframe.contentWindow.document.querySelector(".parrafo");

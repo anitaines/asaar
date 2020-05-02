@@ -10,19 +10,41 @@
 
 @section('content')
 
+  {{-- PREMISA:
+  SI TENGO ID DE NOTICIA, TENGO LA INFO Y ESTOY LEYENDO LA NOTICIA
+  SI NO TENGO ID, ESTO ES UNA PLANTILLA "VACIA" PARA USAR EN EL IFRAME DE SUBIR NOTICIA --}}
+
   <div class="container_contacto container_detalle_noticias">
 
     <main class="main_contacto main_detalle_noticias">
 
       <h1 class="h1_aspergerCEA h1_congresos">Noticias</h1>
-      <p>Fecha de publicación: {{Carbon\Carbon::now('America/Argentina/Buenos_Aires')->format('d-F-Y')}}</p>
+      @if (isset($noticia))
+        <p>Fecha de publicación: {{$noticia->created_at->format('d-F-Y')}}</p>
+      @else
+        <p>Fecha de publicación: {{Carbon\Carbon::now('America/Argentina/Buenos_Aires')->format('d-F-Y')}}</p>
+      @endif
 
+      @if (isset($noticia))
+        <h3 class="h3_aspergerCEA">{{$noticia->title}}</h3>
+      @else
+      <h3 class="h3_aspergerCEA" style="display:none;"></h3>
+      @endif
 
-      <h3 class="h3_aspergerCEA" style="display:none;">Taller de Padres para Padres</h3>
-      <h4 style="display:none;">Sábado 14 de Marzo de 16:30 a 18:30 hs.</h4>
+      @if (isset($noticia))
+        <h4>{{$noticia->subtitle}}</h4>
+      @else
+        <h4 style="display:none;"></h4>
+      @endif
+
 
       <div class="wrap_img">
-        <div class="img_container" style="display:none;"></div>
+        @if (isset($noticia) && $noticia->imagenNoticia == "si")
+          <div class="img_container" style="background-image: url('/storage/noticias/imagenesMain/{{$noticia->imagen}}');"></div>
+        @else
+          <div class="img_container" style="display: none; background-image: url('/storage/noticias/imagenesMain/Ali.jpg');"></div>
+        @endif
+
         <div class="info_img_container">
           <div class="box1">
             <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;">

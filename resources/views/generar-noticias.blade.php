@@ -20,12 +20,26 @@
 
         <div class="adminFormItem">
           <label for="title">1. Titular:</label>
-          <input id="title" type="text" name="title" value="">
+          <input id="title" type="text" name="title" @if ($errors->get('title'))
+          value=""
+          @else
+          value="{{ old('title') }}"
+          @endif>
+          @error('title')
+            <p style="color: red; width: 95%; margin: auto;">{{ $message }}</p>
+          @enderror
         </div>
 
         <div class="adminFormItem">
           <label for="subtitle">2. Bajada titular:</label>
-          <input id="subtitle" type="text" name="subtitle" value="">
+          <input id="subtitle" type="text" name="subtitle" @if ($errors->get('subtitle'))
+          value=""
+          @else
+          value="{{ old('subtitle') }}"
+          @endif>
+          @error('subtitle')
+            <p style="color: red; width: 95%; margin: auto;">{{ $message }}</p>
+          @enderror
         </div>
 
         <div class="adminFormItem form_item form_item_checkbox">
@@ -41,12 +55,23 @@
               <p>Elegir imagen guardada</p>
               <p>▼</p>
             </div>
-            {{-- ME FALTA EL INPUT CHECKED --}}
+
             @foreach ($imagenes as $key => $value)
+              {{-- <label class="imagenLabel">
+                <input type="radio" name="imagen" value="storage/noticias/imagenesMain/{{$value->name}}">
+                <div style="background-image: url('storage/noticias/imagenesMain/{{$value->name}}');" class=""></div>
+              </label> --}}
+
               <label class="imagenLabel">
-                <input type="radio" name="imagen" value="/media/noticias/preloaded/{{$value->name}}">
-                <div style="background-image: url('/media/noticias/preloaded/{{$value->name}}');" class=""></div>
+                @if ($loop->first)
+                  <input type="radio" name="imagen" value="{{$value->name}}" checked>
+                @else
+                  <input type="radio" name="imagen" value="{{$value->name}}">
+                @endif
+                <div style="background-image: url('storage/noticias/imagenesMain/{{$value->name}}');" class=""></div>
               </label>
+
+
             @endforeach
 
           </div>
@@ -290,12 +315,12 @@
           <p>Procesando</p>
         </button> --}}
 
-        <div class="downloadCanvas uploadNews">
-          <button class=""  type="submit">
+        {{-- <div class="downloadCanvas uploadNews"> --}}
+          <button class="downloadCanvas uploadNews"  type="submit">
             <p>7. Publicar noticia</p>
             {{-- <p>Procesando</p> --}}
           </button>
-        </div>
+        {{-- </div> --}}
 
       </form>
 
@@ -311,7 +336,7 @@
       <div class="allCanvas">
         <h4>Vista previa imagen para redes sociales:</h4>
 
-        <img id="imgCanvasFacebook" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;">
+        <img id="imgCanvasFacebook" width="" height="" src="storage/noticias/imagenesMain/Ali.jpg" alt="" style="display:none;">
         {{-- <img id="imgCanvasTwitter" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;"> --}}
 
         <div class="container_canvas">

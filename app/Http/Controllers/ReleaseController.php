@@ -126,14 +126,14 @@ class ReleaseController extends Controller
       'colorFondoResumen' => ['nullable', 'string', 'max:30'],
       'rectificacionImagen' => ['nullable', 'string', 'max:255'],
       'content' => ['nullable','string', 'max:3000'],
-      'files' => ['nullable', 'file', 'image', 'max:2048'],
+      'filesMain' => ['nullable', 'file', 'image', 'max:2048'],
       'filesPlus1' => ['nullable', 'file', 'image', 'max:2048'],
       'filesPlus2' => ['nullable', 'file', 'image', 'max:2048'],
       'filesPlus3' => ['nullable', 'file', 'image', 'max:2048'],
       ];
       $messages = [
-        'required' => 'El campo :attribute debe estar completo.',
-        'max' => 'El campo :attribute debe tener :max caracteres como máximo.',
+        'required' => 'Este campo debe estar completo.',
+        'max' => 'Este campo debe tener :max caracteres como máximo.',
         'file' =>  'Error en la carga del archivo. Por favor volver a subir.',
         'image' => 'El archivo de la imagen solo puede ser jpeg, jpg o png.',
         'files.max' => 'El archivo de la imagen es demasiado grande, no debe superar 2MB.',
@@ -142,89 +142,140 @@ class ReleaseController extends Controller
         'filesPlus3.max' => 'El archivo de la imagen es demasiado grande, no debe superar 2MB.',
       ];
 
-      // $this->validate($request, $rules, $messages);
+      $this->validate($request, $rules, $messages);
 
       $noticia= new Release;
-      // dd($noticia);
-// dd($request);
-// dd($request->files);
-      if ($request->filesMain) {
-        $rutaImage = $request->filesMain->store("public/media/noticias");
-        $nombreFilesMain = basename($rutaImage);// + nombre dir uploded??
-      }else {
-        $nombreFiles = null;
-      }
-      if ($request->filesPlus1) {
-        $rutafilesPlus1 = $request->filesPlus1->store("public/media/noticias"); //guardar en otro dir y mover??
-        $nombrefilesPlus1 = basename($rutafilesPlus1);// + nombre dir uploded??
-      }else {
-        $nombrefilesPlus1 = null;
-      }
-      if ($request->filesPlus2) {
-        $rutafilesPlus2 = $request->filesPlus2->store("public/media/noticias"); //guardar en otro dir y mover??
-        $nombrefilesPlus2 = basename($rutafilesPlus2);// + nombre dir uploded??
-      }else {
-        $nombrefilesPlus2 = null;
-      }
-      if ($request->filesPlus3) {
-        $rutafilesPlus3 = $request->filesPlus3->store("public/media/noticias"); //guardar en otro dir y mover??
-        $nombrefilesPlus3 = basename($rutafilesPlus3);// + nombre dir uploded??
-      }else {
-        $nombrefilesPlus3 = null;
-      }
-
 
       $noticia->title = $request->title;
+
       $noticia->subtitle = $request->subtitle;
+
       $noticia->imagenNoticia = $request->imagenNoticia;
+
+      // if ($request->filesMain) {
+      //   $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
+      //   $nombreFilesMain = basename($rutaImage);
+      // }else {
+      //   $nombreFilesMain = null;
+      // }
+      if (preg_match("/data:image\/jpeg;/",$request->imagen) == 0){
+        $noticia->imagen = $request->imagen;
+      } else {
+        $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
+        $nombreFilesMain = basename($rutaImage);
+
+        $noticia->imagen = $nombreFilesMain;
+
+        $nuevaImagen = new Image;
+        $nuevaImagen->name = $nombreFilesMain;
+        $nuevaImagen->origin = "Uploaded";
+        $nuevaImagen->save();
+      }
+
       if ($request->imagenNoticia == "si"){
-        if (strpos($request->imagen,"data:image/jpeg;") == false){
-          $noticia->imagen = $request->imagen;
-        } else {
-          $noticia->imagen = $nombreFilesMain;
-        }
         $noticia->filtroImagen = $request->filtroImagen;
+      } else {
+        $noticia->filtroImagen = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
         $noticia->logoAsaar = $request->logoAsaar;
+      } else {
+        $noticia->logoAsaar = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
         $noticia->calendar = $request->calendar;
         $noticia->mes = $request->mes;
         $noticia->dia = $request->dia;
         $noticia->numero = $request->numero;
-        $noticia->tituloImagen = $request->tituloImagen;
-        $noticia->colorTipoTitular = $request->colorTipoTitular;
-        $noticia->colorFondoTitular = $request->colorFondoTitular;
-        $noticia->recuadro = $request->recuadro;
-        $noticia->subtituloImagen = $request->subtituloImagen;
-        $noticia->detalleImagen = $request->detalleImagen;
-        $noticia->colorTipoSubitular = $request->colorTipoSubitular;
-        $noticia->colorFondoSubtitular = $request->colorFondoSubtitular;
-        $noticia->resumenImagen = $request->resumenImagen;
-        $noticia->colorTipoResumen = $request->colorTipoResumen;
-        $noticia->colorFondoResumen = $request->colorFondoTitular;
-        $noticia->rectificacionImagen = $request->rectificacionImagen;
       } else {
-        $noticia->imagen = null;
-        $noticia->filtroImagen = null;
-        $noticia->logoAsaar = null;
         $noticia->calendar = null;
         $noticia->mes = null;
         $noticia->dia = null;
         $noticia->numero = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->tituloImagen = $request->tituloImagen;
+        if ($request->tituloImagen){
+          $noticia->colorTipoTitular = $request->colorTipoTitular;
+          $noticia->colorFondoTitular = $request->colorFondoTitular;
+          $noticia->recuadro = $request->recuadro;
+        } else{
+          $noticia->colorTipoTitular = null;
+          $noticia->colorFondoTitular = null;
+          $noticia->recuadro = null;
+        }
+      } else {
         $noticia->tituloImagen = null;
         $noticia->colorTipoTitular = null;
         $noticia->colorFondoTitular = null;
         $noticia->recuadro = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->subtituloImagen = $request->subtituloImagen;
+        $noticia->detalleImagen = $request->detalleImagen;
+        if ($noticia->subtituloImagen || $noticia->detalleImagen){
+          $noticia->colorTipoSubtitular = $request->colorTipoSubtitular;
+          $noticia->colorFondoSubtitular = $request->colorFondoSubtitular;
+        } else{
+          $noticia->colorTipoSubtitular = null;
+          $noticia->colorFondoSubtitular = null;
+        }
+      } else {
         $noticia->subtituloImagen = null;
         $noticia->detalleImagen = null;
-        $noticia->colorTipoSubitular = null;
+        $noticia->colorTipoSubtitular = null;
         $noticia->colorFondoSubtitular = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->resumenImagen = $request->resumenImagen;
+        if ($noticia->resumenImagen){
+          $noticia->colorTipoResumen = $request->colorTipoResumen;
+          $noticia->colorFondoResumen = $request->colorFondoResumen;
+        } else{
+          $noticia->colorTipoResumen = null;
+          $noticia->colorFondoResumen = null;
+        }
+      } else {
         $noticia->resumenImagen = null;
         $noticia->colorTipoResumen = null;
         $noticia->colorFondoResumen = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->rectificacionImagen = $request->rectificacionImagen;
+      } else {
         $noticia->rectificacionImagen = null;
       }
+
       $noticia->content = $request->content;
+
+      if ($request->filesPlus1) {
+        $rutafilesPlus1 = $request->filesPlus1->store("public/noticias/imagenesPlus");
+        $nombrefilesPlus1 = basename($rutafilesPlus1);
+      }else {
+        $nombrefilesPlus1 = null;
+      }
       $noticia->filesPlus1 = $nombrefilesPlus1;
+
+      if ($request->filesPlus2) {
+        $rutafilesPlus2 = $request->filesPlus2->store("public/noticias/imagenesPlus");
+        $nombrefilesPlus2 = basename($rutafilesPlus2);
+      }else {
+        $nombrefilesPlus2 = null;
+      }
       $noticia->filesPlus2 = $nombrefilesPlus2;
+
+      if ($request->filesPlus3) {
+        $rutafilesPlus3 = $request->filesPlus3->store("public/noticias/imagenesPlus");
+        $nombrefilesPlus3 = basename($rutafilesPlus3);
+      }else {
+        $nombrefilesPlus3 = null;
+      }
       $noticia->filesPlus3 = $nombrefilesPlus3;
 
       // dd($request, $noticia);
@@ -240,9 +291,13 @@ class ReleaseController extends Controller
      * @param  \App\Release  $release
      * @return \Illuminate\Http\Response
      */
-    public function show(Release $release)
+    public function show($id)
+    // public function show(Release $release)
     {
-        //
+      $noticia = Release::find($id);
+      // dd($noticia);
+      $contenido = explode("\n",$noticia->content);
+        return view("/plantilla-noticia", compact('noticia', 'contenido'));
     }
 
     /**
