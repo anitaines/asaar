@@ -158,7 +158,7 @@ class ReleaseController extends Controller
       // }else {
       //   $nombreFilesMain = null;
       // }
-      if (preg_match("/data:image\/jpeg;/",$request->imagen) == 0){
+      if (preg_match("/data:image/",$request->imagen) == 0){
         $noticia->imagen = $request->imagen;
       } else {
         $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
@@ -278,7 +278,8 @@ class ReleaseController extends Controller
       }
       $noticia->filesPlus3 = $nombrefilesPlus3;
 
-      // dd($request, $noticia);
+$fuck = $request->session()->get('errors');
+      // dd($request, $noticia, $fuck);
 
       $noticia->save();
 
@@ -297,7 +298,7 @@ class ReleaseController extends Controller
       $noticia = Release::find($id);
       // dd($noticia);
       $contenido = explode("\n",$noticia->content);
-        return view("/plantilla-noticia", compact('noticia', 'contenido'));
+        return view("/plantilla-noticia", compact('noticia'));
     }
 
     /**

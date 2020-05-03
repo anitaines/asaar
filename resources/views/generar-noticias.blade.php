@@ -9,7 +9,7 @@
   @endsection --}}
 
 @section('content')
-
+{{-- @dd($errors) --}}
   <main class="admin">
     <div class="input">
 
@@ -231,7 +231,7 @@
               <p>Color tipografía de resumen:</p>
               @foreach ($colorTipoResumen as $key => $value)
                 <label> {{$key}}
-                @if ($loop->first)
+                @if ($key == "Naranja")
                   <input type="radio" name="colorTipoResumen" value="{{$value}}" checked>
                 @else
                   <input type="radio" name="colorTipoResumen" value="{{$value}}">
@@ -245,7 +245,7 @@
               <p>Color fondo de resumen:</p>
               @foreach ($colorFondoResumen as $key => $value)
                 <label> {{$key}}
-                @if ($loop->first)
+                @if ($key == "Negro")
                   <input type="radio" name="colorFondoResumen" value="{{$value}}" checked>
                 @else
                   <input type="radio" name="colorFondoResumen" value="{{$value}}">

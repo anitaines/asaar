@@ -7,6 +7,7 @@ window.onload = function(){
 
   // preview imagen principal en iframe:
   let imagenPrincipal = iframe.contentWindow.document.querySelector(".img_container");
+  let imagenPrincipalWrap = iframe.contentWindow.document.querySelector(".wrap_img");
 
   // imagen para canvas:
   // let imgCanvas = document.getElementById('imgCanvas');
@@ -54,13 +55,13 @@ window.onload = function(){
   imagenNoticiaCheckbox.oninput = function(){
     if (imagenNoticiaCheckbox.firstElementChild.checked == true){
       document.querySelector(".admin .imagenesWrap").style.display ="block";
-      imagenPrincipal.style.display = "block";
+      imagenPrincipalWrap.style.display = "block";
       // Canvas:
       setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
       // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
     } else {
       document.querySelector(".admin .imagenesWrap").style.display ="none";
-      imagenPrincipal.style.display = "none";
+      imagenPrincipalWrap.style.display = "none";
       // Canvas:
       setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
       // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
@@ -499,7 +500,7 @@ window.onload = function(){
     parrafo.style.display = "block";
     // parrafo.innerHTML = this.value.replace(/\n/g, "<br>");
 
-    var nuevoParrafo = this.value.replace(/\n/g, " <br> ");
+    var nuevoParrafo = " <br> " + this.value.replace(/\n/g, " <br> ");
 
     var parrafoLineasArray = nuevoParrafo.split(" ");
 
@@ -521,7 +522,11 @@ window.onload = function(){
     }
 
     for (var i = 0; i < aWeb.length; i++) {
-      nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+      if (aWeb[i].includes("http://") || aWeb[i].includes("https://")){
+        nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+      } else {
+        nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="http://' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+      }
     }
 
     parrafo.innerHTML = nuevoParrafo;

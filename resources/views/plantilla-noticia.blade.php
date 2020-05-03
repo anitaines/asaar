@@ -37,29 +37,162 @@
         <h4 style="display:none;"></h4>
       @endif
 
-
+      @if (isset($noticia) && $noticia->imagenNoticia == "si")
       <div class="wrap_img">
-        @if (isset($noticia) && $noticia->imagenNoticia == "si")
-          <div class="img_container" style="background-image: url('/storage/noticias/imagenesMain/{{$noticia->imagen}}');"></div>
-        @else
-          <div class="img_container" style="display: none; background-image: url('/storage/noticias/imagenesMain/Ali.jpg');"></div>
-        @endif
+        <div class="img_container" style="background-image: url('/storage/noticias/imagenesMain/{{$noticia->imagen}}'); filter:{{$noticia->filtroImagen}};"></div>
+
+        <div class="info_img_container">
+          @if ($noticia->logoAsaar == "si" && $noticia->calendar == "si")
+          <div class="box1" style="justify-content: space-between;">
+          @elseif ($noticia->logoAsaar == null && $noticia->calendar == "si")
+          <div class="box1" style="justify-content: flex-end;">
+          @else
+          <div class="box1">
+          @endif
+
+            @if ($noticia->logoAsaar == "si")
+              <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina">
+            @else
+              <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;">
+            @endif
+
+            @if ($noticia->calendar == "si")
+              <div class="calendar">
+                <div class="calendar_mes">
+                  <p>{{$noticia->mes}}</p>
+                </div>
+                <div class="calendar_dia">
+                  <p>{{$noticia->dia}}</p>
+                  <p>{{$noticia->numero}}</p>
+                </div>
+              </div>
+            @else
+              <div class="calendar" style="display:none;">
+                <div class="calendar_mes">
+                  <p></p>
+                </div>
+                <div class="calendar_dia">
+                  <p></p>
+                  <p></p>
+                </div>
+              </div>
+            @endif
+          </div>
+
+          @if ($noticia->tituloImagen)
+            @if($noticia->recuadro == "si")
+              <div class="box2" style="background-color: {{$noticia->colorFondoTitular}}; border-color: {{$noticia->colorTipoTitular}};">
+            @else
+              <div class="box2" style="background-color: {{$noticia->colorFondoTitular}}; border-color: transparent;">
+            @endif
+                <p style="color: {{$noticia->colorTipoTitular}};">
+                  @php
+                    $lineasTituloImagen = explode("\n",$noticia->tituloImagen);
+                  @endphp
+                  @for ($i=0; $i < count($lineasTituloImagen); $i++)
+                    {{$lineasTituloImagen[$i]}} <br>
+                  @endfor
+                </p>
+              </div>
+          @else
+            <div class="box2" style="display:none; background-color: transparent;">
+              <p style="color: #AB2097;"></p>
+            </div>
+          @endif
+
+          <div class="box3">
+            @if ($noticia->resumenImagen)
+              <div class="" style="background-color: {{$noticia->colorFondoResumen}};">
+                <p style="color: {{$noticia->colorTipoResumen}};">
+                  @php
+                    $lineasResumenImagen = explode("\n",$noticia->resumenImagen);
+                  @endphp
+                  @for ($i=0; $i < count($lineasResumenImagen); $i++)
+                    {{$lineasResumenImagen[$i]}} <br>
+                  @endfor
+                </p>
+              </div>
+            @else
+              <div class="" style="display:none; background-color: rgba(69, 69, 69, 0.9);">
+                <p style="color: rgb(255, 140, 0);">Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.</p>
+              </div>
+            @endif
+
+            @if ($noticia->subtituloImagen || $noticia->detalleImagen)
+              <div class="" style="background-color: {{$noticia->colorFondoSubtitular}};">
+
+              @if ($noticia->subtituloImagen)
+                <p style="color: {{$noticia->colorTipoSubtitular}};">
+                  @php
+                    $lineasSubtituloImagen = explode("\n",$noticia->subtituloImagen);
+                  @endphp
+                  @for ($i=0; $i < count($lineasSubtituloImagen); $i++)
+                    {{$lineasSubtituloImagen[$i]}} <br>
+                  @endfor
+                </p>
+              @else
+                <p style="display:none; color: #ffffff;">Para padres de niños, adolescentes y adultos</p>
+              @endif
+              @if ($noticia->detalleImagen)
+                <p style="color: {{$noticia->colorTipoSubtitular}};">
+                  @php
+                    $lineasDetalleImagen = explode("\n",$noticia->detalleImagen);
+                  @endphp
+                  @for ($i=0; $i < count($lineasDetalleImagen); $i++)
+                    {{$lineasDetalleImagen[$i]}} <br>
+                  @endfor
+                </p>
+              @else
+                <p style="display:none; color: #ffffff;">LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
+                Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p>
+              @endif
+            </div>
+
+            @else
+            <div class="" style="display:none; background-color: #AB2097;">
+              <p style="display:none; color: #ffffff;">Para padres de niños, adolescentes y adultos</p>
+              <p style="display:none; color: #ffffff;">LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
+              Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p>
+            </div>
+            @endif
+          </div>
+
+          @if ($noticia->rectificacionImagen)
+            <div class="box4">
+              <p>
+                @php
+                  $lineasRectificacionImagen = explode("\n",$noticia->rectificacionImagen);
+                @endphp
+                @for ($i=0; $i < count($lineasRectificacionImagen); $i++)
+                  {{$lineasRectificacionImagen[$i]}} <br>
+                @endfor
+              </p>
+            </div>
+          @else
+            <div class="box4" style="display:none;">
+              <p></p>
+            </div>
+          @endif
+
+      {{-- SETEOS imagen PARA PLANTILLA: --}}
+      @else
+      <div class="wrap_img" style="display: none;">
+        <div class="img_container" style="background-image: url('/storage/noticias/imagenesMain/Ali.jpg');"></div>
 
         <div class="info_img_container">
           <div class="box1">
             <img src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;">
-            {{-- <img src="/media/logos/logoFull.png" alt="Logotipo Asociación Asperger Argentina" style="display:none;"> --}}
-
             <div class="calendar" style="display:none;">
               <div class="calendar_mes">
-                <p>SEPTIEMBRE</p>
+                <p></p>
               </div>
               <div class="calendar_dia">
-                <p>DOMINGO</p>
-                <p>14</p>
+                <p></p>
+                <p></p>
               </div>
             </div>
           </div>
+
           <div class="box2" style="display:none; background-color: transparent;">
             <p style="color: #AB2097;">TALLER DE PADRES</p>
           </div>
@@ -76,27 +209,41 @@
           <div class="box4" style="display:none;">
             <p></p>
           </div>
+      @endif
 
         </div>
       </div>
 
-
-      <p class="parrafo" style="display:none;">Inscribirse completando el formulario del siguiente enlace:<br>
-      <a href="https://goo.gl/forms/5UssYYdEHoQJ8b262"  target="_blank" rel="noreferrer">https://goo.gl/forms/5UssYYdEHoQJ8b262</a><br>
-      LEOPOLDO MARECHAL 1160 (a media cuadra de Ángel Gallardo), CABA. <br>
-      Plano para llegar: <a href="https://goo.gl/maps/EWVVjXMCrYn"  target="_blank" rel="noreferrer">https://goo.gl/maps/EWVVjXMCrYn</a><br>
-      Encuentro de padres para padres, familiares o amigos de personas con dudas acerca del reciente diagnóstico, tratamientos, escolaridad, trámites, legislación o bien personas que tengan deseos de conocer de qué se trata el Síndrome de Asperger.<br>
-      También invitamos a sus hijos: niños, adolescentes y jóvenes adultos, de 13 a 30 años, a participar de nuestros Talleres Recreativos, enviando un mail a grupos@asperger.org.ar para combinar su participación y que puedan compartir un encuentro gratuito.<br>
-      Informes: <br>
-      e-mail: <a href="mailto:info@asperger.org.ar">info@asperger.org.ar</a> <br>
-      Tel.: (011) 4931-2712 de Lunes a Viernes de 14 a 18 hs. <br>
-      Actividad con entrada libre y gratuita. Capacidad limitada.<br>
-      La Asociación se financia únicamente con las cuotas de sus asociados y las actividades que realiza, por lo que solicitamos, un bono contribución de $ 100.- a fin de colaborar con nuestra institución.</p>
+      @if (isset($noticia) && $noticia->content)
+        <p class="parrafo" > {{$noticia->content}} </p>
+      @else
+        <p class="parrafo" style="display:none;"></p>
+      @endif
 
       <div class="imagenesAdicionales">
-        <div class="filesPlus1"></div>
-        <div class="filesPlus2"></div>
-        <div class="filesPlus3"></div>
+        @if (isset($noticia) && $noticia->filesPlus1)
+        <div class="filesPlus1">
+          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus1}}" alt="imagen noticia">
+        </div>
+        @else
+          <div class="filesPlus1"></div>
+        @endif
+
+        @if (isset($noticia) && $noticia->filesPlus2)
+        <div class="filesPlus2">
+          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus2}}" alt="imagen noticia">
+        </div>
+        @else
+          <div class="filesPlus2"></div>
+        @endif
+
+        @if (isset($noticia) && $noticia->filesPlus3)
+        <div class="filesPlus3">
+          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus3}}" alt="imagen noticia">
+        </div>
+        @else
+          <div class="filesPlus3"></div>
+        @endif
       </div>
 
       <div class="share">
@@ -232,6 +379,47 @@
 
   </div>
 
+  @if (isset($noticia) && $noticia->content)
+    <script>
+    var parrafo = document.querySelector(".parrafo");
+
+    setParrafo(parrafo);
+
+    function setParrafo(p){
+      // console.log(p);
+      var nuevoParrafo = " <br> " + p.innerHTML.replace(/\n/g, " <br> ");
+
+      var parrafoLineasArray = nuevoParrafo.split(" ");
+
+      var aMail = parrafoLineasArray.filter(filtrarMail);
+
+      function filtrarMail(value){
+        return value.includes("@");
+      }
+
+      var aWeb = parrafoLineasArray.filter(filtrarWeb);
+
+      function filtrarWeb(value){
+        var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gi;
+        return regex.test(value);
+      }
+
+      for (var i = 0; i < aMail.length; i++) {
+        nuevoParrafo = nuevoParrafo.replace(" "+aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
+      }
+
+      for (var i = 0; i < aWeb.length; i++) {
+        if (aWeb[i].includes("http://") || aWeb[i].includes("https://")){
+          nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+        } else {
+          nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="http://' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+        }
+      }
+
+      p.innerHTML = nuevoParrafo;
+    }
+    </script>
+  @endif
 
   <script>window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],
@@ -248,6 +436,11 @@
   };
 
   return t;
-  }(document, "script", "twitter-wjs"));</script>
+  }(document, "script", "twitter-wjs"));
+  </script>
 
   @endsection
+
+
+  {{-- qué pasa con los nulls? por ejemplo si no tengo bajada tit
+  todos los textaerea tienen que venir explotados desde el controller?? --}}

@@ -1650,6 +1650,7 @@ footer{
   line-height: 1;
   letter-spacing: 2px;
   font-weight: bold;
+  height: 45px;
 }
 .main_detalle_noticias .wrap_img .info_img_container .box1 .calendar div:first-child p{
   margin: 5px;
