@@ -6,6 +6,7 @@ use App\Release;
 use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class ReleaseController extends Controller
 {
@@ -33,8 +34,23 @@ class ReleaseController extends Controller
     public function index()
     {
       $colores = ["#AB2097","#6ACF95","#FC8901","#34BFD2"];
-      $noticiasAll = Release::all()->SortByDesc('id');
+
+      // $noticiasAll = Release::all()->SortByDesc('id');
+      // funciona cualquiera de los dos:
+      // dd($noticiasAll[0]->title);
+      // dd($noticiasAll[0]["title"]);
+
+      // para usar este método tiene que llamar arriba a use Illuminate\Support\Facades\DB;
+      $noticiasAll= DB::table('releases')
+                ->orderBy('id', 'desc')
+                ->get();
+                // ->paginate(12);
       // dd($noticiasAll);
+      // dd($noticiasAll[0]->title);
+      // dd($noticiasAll[0]["title"]); NO FUNCIONA: "Cannot use object of type stdClass as array"
+
+      // $noticiasAll = Release::paginate(3)->SortByDesc('id');
+
       return view("/noticias", compact('noticiasAll', 'colores'));
     }
 

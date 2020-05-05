@@ -22,12 +22,9 @@
 
     <main class="main_contacto main_detalle_noticias">
 
-      <h1 class="h1_aspergerCEA h1_congresos">Noticias</h1>
-      @if (isset($noticia))
-        <p>Fecha de publicación: {{$noticia->created_at->format('d-F-Y')}}</p>
-      @else
-        <p>Fecha de publicación: {{Carbon\Carbon::now('America/Argentina/Buenos_Aires')->format('d-F-Y')}}</p>
-      @endif
+      {{-- <h1 class="h1_aspergerCEA h1_congresos">Noticias</h1> --}}
+
+      <a href="javascript:history.back()"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a>
 
       @if (isset($noticia))
         <h3 class="h3_aspergerCEA">{{$noticia->title}}</h3>
@@ -39,6 +36,12 @@
         <h4>{{$noticia->subtitle}}</h4>
       @else
         <h4 style="display:none;"></h4>
+      @endif
+
+      @if (isset($noticia))
+        <p>Fecha de publicación: {{$noticia->created_at->format('d-F-Y')}}</p>
+      @else
+        <p>Fecha de publicación: {{Carbon\Carbon::now('America/Argentina/Buenos_Aires')->format('d-F-Y')}}</p>
       @endif
 
       @if (isset($noticia) && $noticia->imagenNoticia == "si")
@@ -262,7 +265,11 @@
           href="https://twitter.com/intent/tweet" data-size="large">
           Tweet</a>
 
-          <a href="mailto:?subject=Taller%20de%20padres%20para%20padres%20%E2%80%93%20Marzo%202020%20%E2%80%93%20Suspendido%20por%20Precauci%C3%B3n&amp;body=Novedades:%20http%3A%2F%2Fasperger.org.ar%2Ftaller-padres-padres-marzo-2020%2F" target="_blank" rel="noopener noreferrer">
+          @if (isset($noticia))
+            <a href="mailto:?subject={{$noticia->title}}&body=Novedades%3A%20http%3A%2F%2Fasperger.org.ar%2F{{$noticia->id}}%2F{{$noticia->slug}}" target="_blank" rel="noopener noreferrer">
+          @else
+            <a href="" target="_blank" rel="noopener noreferrer">
+          @endif
             <div class="share_email">
               <img src="/media/noticias/envelope-solid.svg" alt="ícono e-mail">
               <p>E-mail</p>
@@ -272,6 +279,8 @@
         </div>
 
       </div>
+
+      <a href="javascript:history.back()"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a>
 
     </main>
 
