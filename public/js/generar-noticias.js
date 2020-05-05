@@ -885,9 +885,10 @@ window.onload = function(){
   } // cierre function setCanvas()
 
 
+  // DESCARGAR IMAGEN RED SOCIAL
   var linkFacebook = document.getElementById('linkFacebook');
   linkFacebook.onclick = function(){
-    linkFacebook.setAttribute('download', 'imagenFacebook.png');
+    linkFacebook.setAttribute('download', 'imagenRedesSociales.png');
     linkFacebook.setAttribute('href', canvasFacebook.toDataURL("image/png").replace("image/png", "image/octet-stream"));
     // link.click();
   }

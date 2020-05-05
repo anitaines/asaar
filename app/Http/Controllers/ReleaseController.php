@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Release;
 use App\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ReleaseController extends Controller
 {
@@ -31,7 +32,10 @@ class ReleaseController extends Controller
      */
     public function index()
     {
-        //
+      $colores = ["#AB2097","#6ACF95","#FC8901","#34BFD2"];
+      $noticiasAll = Release::all()->SortByDesc('id');
+      // dd($noticiasAll);
+      return view("/noticias", compact('noticiasAll', 'colores'));
     }
 
     /**
@@ -105,8 +109,10 @@ class ReleaseController extends Controller
       $rules = [
       'title' => ['required', 'string', 'max:255'],
       'subtitle' => ['nullable','string', 'max:255'],
-      'imagenNoticia' => ['required', 'string', 'max:5'],
-      'imagen' => ['nullable', 'string', 'max:255'],
+      // 'imagenNoticia' => ['required', 'string', 'max:5'],
+      'imagenNoticia' => ['string', 'max:5'],
+      // 'imagen' => ['nullable', 'string', 'max:255'],
+      'imagen' => ['nullable', 'string'],
       'filtroImagen' => ['nullable', 'string', 'max:25'],
       'logoAsaar' => ['nullable', 'string', 'max:5'],
       'calendar' => ['nullable', 'string', 'max:5'],
@@ -142,35 +148,51 @@ class ReleaseController extends Controller
         'filesPlus3.max' => 'El archivo de la imagen es demasiado grande, no debe superar 2MB.',
       ];
 
+
       $this->validate($request, $rules, $messages);
 
       $noticia= new Release;
+
+      $noticia->slug = Str::slug($request->title, '-');
 
       $noticia->title = $request->title;
 
       $noticia->subtitle = $request->subtitle;
 
-      $noticia->imagenNoticia = $request->imagenNoticia;
+      if($request->imagenNoticia == "si"){
+        $noticia->imagenNoticia = $request->imagenNoticia;
 
-      // if ($request->filesMain) {
+        if (preg_match("/data:image/",$request->imagen) == 0){
+          $noticia->imagen = $request->imagen;
+        } else {
+          $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
+          $nombreFilesMain = basename($rutaImage);
+
+          $noticia->imagen = $nombreFilesMain;
+
+          $nuevaImagen = new Image;
+          $nuevaImagen->name = $nombreFilesMain;
+          $nuevaImagen->origin = "Uploaded";
+          $nuevaImagen->save();
+        }
+      } else {
+        $noticia->imagenNoticia = "no";
+        $noticia->imagen = null;
+      }
+
+      // if (preg_match("/data:image/",$request->imagen) == 0){
+      //   $noticia->imagen = $request->imagen;
+      // } else {
       //   $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
       //   $nombreFilesMain = basename($rutaImage);
-      // }else {
-      //   $nombreFilesMain = null;
+      //
+      //   $noticia->imagen = $nombreFilesMain;
+      //
+      //   $nuevaImagen = new Image;
+      //   $nuevaImagen->name = $nombreFilesMain;
+      //   $nuevaImagen->origin = "Uploaded";
+      //   $nuevaImagen->save();
       // }
-      if (preg_match("/data:image/",$request->imagen) == 0){
-        $noticia->imagen = $request->imagen;
-      } else {
-        $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
-        $nombreFilesMain = basename($rutaImage);
-
-        $noticia->imagen = $nombreFilesMain;
-
-        $nuevaImagen = new Image;
-        $nuevaImagen->name = $nombreFilesMain;
-        $nuevaImagen->origin = "Uploaded";
-        $nuevaImagen->save();
-      }
 
       if ($request->imagenNoticia == "si"){
         $noticia->filtroImagen = $request->filtroImagen;
@@ -278,8 +300,7 @@ class ReleaseController extends Controller
       }
       $noticia->filesPlus3 = $nombrefilesPlus3;
 
-$fuck = $request->session()->get('errors');
-      // dd($request, $noticia, $fuck);
+      // dd($request, $noticia);
 
       $noticia->save();
 
@@ -292,13 +313,16 @@ $fuck = $request->session()->get('errors');
      * @param  \App\Release  $release
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $slug)
     // public function show(Release $release)
     {
-      $noticia = Release::find($id);
+      // $noticia = Release::find($id);
+
+      $noticia = Release::where('id', '=', $id)
+      ->where('slug', '=', $slug)
+      ->first();
       // dd($noticia);
-      $contenido = explode("\n",$noticia->content);
-        return view("/plantilla-noticia", compact('noticia'));
+      return view("/plantilla-noticia", compact('noticia'));
     }
 
     /**

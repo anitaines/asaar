@@ -1,7 +1,11 @@
 @extends("layouts.app")
 
 @section("title")
-  Plantilla noticia -
+  @if(isset($noticia))
+  {{$noticia->title}} -
+  @else
+
+  @endif
   @endsection
 
 {{-- @section('defer')
@@ -440,7 +444,3 @@
   </script>
 
   @endsection
-
-
-  {{-- qué pasa con los nulls? por ejemplo si no tengo bajada tit
-  todos los textaerea tienen que venir explotados desde el controller?? --}}
