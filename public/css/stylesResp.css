@@ -2007,9 +2007,9 @@ line-height: 2;
 .admin .input .adminFormItem label.checkbox-label input{
   width: 12px;
 }
-.admin .input .adminFormItem input:focus {
+/* .admin .input .adminFormItem input:focus {
   outline: none;
-}
+} */
 .admin .imagenesWrap{
   margin: auto;
 }

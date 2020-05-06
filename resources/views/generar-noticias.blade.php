@@ -24,10 +24,11 @@
           value=""
           @else
           value="{{ old('title') }}"
-          @endif>
+        @endif autofocus>
           @error('title')
             <p style="color: red; width: 95%; margin: auto;">{{ $message }}</p>
           @enderror
+          <p class="alert title" style="color: red; width: 95%; margin: auto; display: none;"> </p>
         </div>
 
         <div class="adminFormItem">
@@ -44,23 +45,27 @@
 
         <div class="adminFormItem form_item form_item_checkbox">
           <label class="imagenNoticia checkbox-label">3. Incluir una imagen principal:
-            <input type="checkbox" name="imagenNoticia" value="si">
+            @if ($errors && old('imagenNoticia') == "si")
+              <input type="checkbox" name="imagenNoticia" value="si" checked>
+            @else
+              <input type="checkbox" name="imagenNoticia" value="si">
+            @endif
             <span class="checkbox-custom">✓</span>
           </label>
 
+          {{-- @if ($errors && old('imagenNoticia') == "si")
+          <div class="imagenesWrap">
+          @else --}}
           <div class="imagenesWrap" style="display: none;">
-            <div class="imagenes">
-            {{-- <p>Elegir imagen guardada:</p> --}}
+          {{-- @endif --}}
+          <div class="imagenes">
+
             <div class="imagenesOpcionCarga">
               <p>Elegir imagen guardada</p>
               <p>▼</p>
             </div>
 
             @foreach ($imagenes as $key => $value)
-              {{-- <label class="imagenLabel">
-                <input type="radio" name="imagen" value="storage/noticias/imagenesMain/{{$value->name}}">
-                <div style="background-image: url('storage/noticias/imagenesMain/{{$value->name}}');" class=""></div>
-              </label> --}}
 
               <label class="imagenLabel">
                 @if ($loop->first)
@@ -70,7 +75,6 @@
                 @endif
                 <div style="background-image: url('storage/noticias/imagenesMain/{{$value->name}}');" class=""></div>
               </label>
-
 
             @endforeach
 
@@ -314,6 +318,9 @@
           <p>8. Publicar noticia</p>
           <p>Procesando</p>
         </button> --}}
+        <div class="resumenErrores">
+
+        </div>
 
         {{-- <div class="downloadCanvas uploadNews"> --}}
           <button class="downloadCanvas uploadNews"  type="submit">

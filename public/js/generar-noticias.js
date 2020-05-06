@@ -24,12 +24,29 @@ window.onload = function(){
 
   // setear titular noticia:
   let inputTitulo = document.getElementById("title");
-  inputTitulo.oninput = function(){
+  inputTitulo.addEventListener("input", function(){
     let titulo = iframe.contentWindow.document.getElementsByTagName("h3")[0];
 
     titulo.style.display = "block";
     titulo.innerHTML = this.value;
-  }
+  });
+  // validar titular noticia:
+  inputTitulo.addEventListener("blur", function(){
+    validarTitulo();
+    // if (validarTitulo()){
+    //   let alert = document.querySelector(".alert.title.submit");
+    //   console.log(alert);
+    //   // document.querySelector(".resumenErrores").remove(alert);
+    // }
+  });
+
+//   document.getElementById("fname").addEventListener("blur", myFunction);
+//
+// function myFunction() {
+//   alert("Input field lost focus.");
+// }
+
+
 
   // setear bajada titular noticia:
   let inputSubtitulo = document.getElementById("subtitle");
@@ -490,8 +507,6 @@ window.onload = function(){
     }
   }
 
-  // Canvas (en caso de recargar la página y tener datos cargados):
-  // setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
 
   // párrafo noticia:
   var parrafo = iframe.contentWindow.document.querySelector(".parrafo");
@@ -603,6 +618,49 @@ window.onload = function(){
     }
   }
 
+
+  // DESCARGAR IMAGEN RED SOCIAL
+  var linkFacebook = document.getElementById('linkFacebook');
+  linkFacebook.onclick = function(){
+    linkFacebook.setAttribute('download', 'imagenRedesSociales.png');
+    linkFacebook.setAttribute('href', canvasFacebook.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+  }
+
+  // VALIDAR FORMULARIO
+  // validar TITULO NOTICIA
+  function validarTitulo(){
+    let alert = document.querySelector(".alert.title");
+    if (inputTitulo.value.length == 0){
+      alert.innerHTML = "Este campo debe estar completo";
+      alert.style.display = "block";
+      return false;
+    } else if (inputTitulo.value.length > 255){
+      alert.innerHTML = "Este campo debe tener como máximo 255 caracteres";
+      alert.style.display = "block";
+      return false;
+    } else {
+      alert.style.display = "none";
+
+      let alertSubmit = document.querySelector(".alert.title.submit");
+      if(alertSubmit){
+        document.querySelector(".resumenErrores").remove(alertSubmit);
+      }
+      return true;
+    }
+  }
+
+  let form = document.querySelector('form');
+  form.onsubmit = function(event){
+
+      if(!validarTitulo()){
+        event.preventDefault();
+        let alert = `
+            <p class="alert title submit" style="color: red; width: 95%; margin: auto;">* El Título de la noticia presenta errores. Por favor corregir antes de continuar</p>
+                `;
+        document.querySelector(".resumenErrores").innerHTML += alert;
+      }
+
+  }
 
   // FUNCIONES:
 
@@ -883,15 +941,6 @@ window.onload = function(){
         // canvas-unsupported code here
     }
   } // cierre function setCanvas()
-
-
-  // DESCARGAR IMAGEN RED SOCIAL
-  var linkFacebook = document.getElementById('linkFacebook');
-  linkFacebook.onclick = function(){
-    linkFacebook.setAttribute('download', 'imagenRedesSociales.png');
-    linkFacebook.setAttribute('href', canvasFacebook.toDataURL("image/png").replace("image/png", "image/octet-stream"));
-    // link.click();
-  }
 
 
 
