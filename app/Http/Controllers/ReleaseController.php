@@ -196,6 +196,11 @@ class ReleaseController extends Controller
         $noticia->imagen = null;
       }
 
+      // Por las dudas:
+      if ($noticia->imagen == null){
+        $noticia->imagenNoticia = "no";
+      }
+
       // if (preg_match("/data:image/",$request->imagen) == 0){
       //   $noticia->imagen = $request->imagen;
       // } else {

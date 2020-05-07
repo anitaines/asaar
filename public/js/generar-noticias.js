@@ -29,37 +29,31 @@ window.onload = function(){
 
     titulo.style.display = "block";
     titulo.innerHTML = this.value;
+    // validar titular noticia oninput:
+    validarTitulo();
   });
-  // validar titular noticia:
+  // validar titular noticia onblur:
   inputTitulo.addEventListener("blur", function(){
     validarTitulo();
-    // if (validarTitulo()){
-    //   let alert = document.querySelector(".alert.title.submit");
-    //   console.log(alert);
-    //   // document.querySelector(".resumenErrores").remove(alert);
-    // }
   });
 
 //   document.getElementById("fname").addEventListener("blur", myFunction);
-//
-// function myFunction() {
-//   alert("Input field lost focus.");
-// }
-
 
 
   // setear bajada titular noticia:
   let inputSubtitulo = document.getElementById("subtitle");
-  let subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
-  if (inputSubtitulo.value){
-    subtitulo.style.display = "block";
-    subtitulo.innerHTML = inputSubtitulo.value;
-  }
+  // let subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
+  // if (inputSubtitulo.value){
+  //   subtitulo.style.display = "block";
+  //   subtitulo.innerHTML = inputSubtitulo.value;
+  // }
   inputSubtitulo.oninput = function(){
-    // let subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
+    let subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
 
     subtitulo.style.display = "block";
     subtitulo.innerHTML = this.value;
+    // validar subtitulo noticia:
+    validarSubtitulo();
   }
 
   // setear preview imagen principal:
@@ -134,11 +128,15 @@ window.onload = function(){
       setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
       // imgCanvasTwitter.src = this.firstElementChild.value;
       // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+
+      // Borrar error de upload externo (si lo hubiera):
+      document.querySelector(".alert.filesMain").innerHTML = "";
     }
   }
 
   // upload externa de nueva imagen principal:
   function handleFileSelect(evt) {
+
     let files = evt.target.files; // FileList object
 
       if(files.length > 0 ){
@@ -147,8 +145,9 @@ window.onload = function(){
 
       // Closure to capture the file information.
       reader.onload = (function(theFile) {
+        // console.log(files[0]);
         return function(e) {
-          if(files[0].type == 'image/jpeg' || files[0].type == 'image/png'){
+          if(files[0].type == 'image/jpeg' || files[0].type == 'image/png' && files[0].size < 2100000){
           // Render imagen:
           imagenPrincipal.style.backgroundImage = "url(" + e.target.result + ")";
 
@@ -180,9 +179,42 @@ window.onload = function(){
             // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
           }
           // Reset alert:
-          document.querySelector(".alert").innerHTML = "";
+          document.querySelector(".alert.filesMain").innerHTML = "";
         }else{
-          document.querySelector(".alert").innerHTML = files[0].name + " <b>no es un archivo de imagen válido</b>";
+          // Mensajes de error:
+          if(files[0].type != 'image/jpeg' || files[0].type != 'image/png'){
+            document.querySelector(".alert.filesMain").innerHTML = files[0].name + " <b>no es un archivo de imagen válido</b>";
+          }
+          if(files[0].size >= 2100000){
+            document.querySelector(".alert.filesMain").innerHTML = files[0].name + " <b> archivo demasiado grande. La imagen no debe pesar más de 2MB</b>";
+          }
+          // Resetear value input:
+          document.getElementById('files').value = "";
+          // Si había un thumbnail exitoso anterior, borrarlo (la información del file de este thumbnail se reemplazó por el file erróneo y el thumbail ya no es válido):
+          document.getElementById('uploadedImage').innerHTML = "";
+          // Volver a la imagen precargada que haya quedado "checked" en el iframe y canvas o a imagen default:
+          let imagenChecked = document.querySelector(".imagenLabel input:checked");
+          if (imagenChecked == null){
+            document.querySelector(".imagenLabel input").checked = true;
+
+            imagenPrincipal.style.backgroundImage = "url(storage/noticias/imagenesMain/Ali.jpg)";
+
+            imgCanvasFacebook.src = "storage/noticias/imagenesMain/Ali.jpg";
+            setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+          }
+
+          // let imagenChecked = document.querySelector(".imagenLabel input:checked");
+          // if (imagenChecked != null){
+          //   imagenPrincipal.style.backgroundImage = "url(storage/noticias/imagenesMain/" + imagenChecked.value + ")";
+          //
+          //   imgCanvasFacebook.src = "storage/noticias/imagenesMain/" + imagenChecked.value;
+          //   setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+          // } else {
+          //   imagenPrincipal.style.backgroundImage = "url(storage/noticias/imagenesMain/Ali.jpg)";
+          //
+          //   imgCanvasFacebook.src = "storage/noticias/imagenesMain/Ali.jpg";
+          //   setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+          // }
         }
         };
       })(files[0]);
@@ -190,7 +222,20 @@ window.onload = function(){
       // Read in the image file as a data URL.
       reader.readAsDataURL(files[0]);
     }else{
-      document.querySelector(".alert").innerHTML = "";
+      document.querySelector(".alert.filesMain").innerHTML = "";
+
+      // Si había un thumbnail exitoso anterior, borrarlo (la información del file de este thumbnail se reemplazó por el file erróneo y el thumbail ya no es válido):
+      document.getElementById('uploadedImage').innerHTML = "";
+
+      let imagenChecked = document.querySelector(".imagenLabel input:checked");
+      if (imagenChecked == null){
+        document.querySelector(".imagenLabel input").checked = true;
+
+        imagenPrincipal.style.backgroundImage = "url(storage/noticias/imagenesMain/Ali.jpg)";
+
+        imgCanvasFacebook.src = "storage/noticias/imagenesMain/Ali.jpg";
+        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+      }
     }
   }
 
@@ -281,6 +326,10 @@ window.onload = function(){
     iframe.contentWindow.document.querySelector(".info_img_container .box2 p").innerHTML = this.value.replace(/\n/g, "<br>");
 
     document.querySelector(".recuadroTitular").style.display = "block";
+
+    // validación:
+    validarTituloImagen();
+
     // funcionalidad opción recuadro:
     let recuadroTitular = document.querySelector(".recuadroTitular");
     recuadroTitular.oninput = function(){
@@ -296,7 +345,6 @@ window.onload = function(){
         // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
       }
     }
-
 
     document.querySelector(".colorTipoTitular").style.display = "block";
 
@@ -348,6 +396,10 @@ window.onload = function(){
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").innerHTML = this.value.replace(/\n/g, "<br>");
 
     document.querySelector(".colorTipoSubtitular").style.display = "block";
+
+    // validación:
+    validarSubtituloImagen();
+
     // funcionalidad thumbnails colores tipografía:
     var opcionesColorTipoSubtitular = document.querySelectorAll(".colorTipoSubtitular input");
     for (var i = 0; i < opcionesColorTipoSubtitular.length; i++) {
@@ -402,6 +454,10 @@ window.onload = function(){
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").innerHTML = this.value.replace(/\n/g, "<br>");
 
     document.querySelector(".colorTipoSubtitular").style.display = "block";
+
+    // validación:
+    validarDetalleImagen();
+
     // funcionalidad thumbnails colores tipografía:
     var opcionesColorTipoSubtitular = document.querySelectorAll(".colorTipoSubtitular input");
     for (var i = 0; i < opcionesColorTipoSubtitular.length; i++) {
@@ -630,21 +686,80 @@ window.onload = function(){
   // validar TITULO NOTICIA
   function validarTitulo(){
     let alert = document.querySelector(".alert.title");
+    let alertSubmit = document.querySelector(".alert.title.submit");
     if (inputTitulo.value.length == 0){
       alert.innerHTML = "Este campo debe estar completo";
       alert.style.display = "block";
+      alertSubmit.style.display = "block";
       return false;
     } else if (inputTitulo.value.length > 255){
       alert.innerHTML = "Este campo debe tener como máximo 255 caracteres";
       alert.style.display = "block";
+      alertSubmit.style.display = "block";
       return false;
     } else {
       alert.style.display = "none";
-
-      let alertSubmit = document.querySelector(".alert.title.submit");
-      if(alertSubmit){
-        document.querySelector(".resumenErrores").remove(alertSubmit);
-      }
+      alertSubmit.style.display = "none";
+      return true;
+    }
+  }
+  // validar BAJADA TITULO NOTICIA
+  function validarSubtitulo(){
+    let alert = document.querySelector(".alert.subtitle");
+    let alertSubmit = document.querySelector(".alert.subtitle.submit");
+    if (inputSubtitulo.value.length > 255){
+      alert.innerHTML = "Este campo debe tener como máximo 255 caracteres";
+      alert.style.display = "block";
+      alertSubmit.style.display = "block";
+      return false;
+    } else {
+      alert.style.display = "none";
+      alertSubmit.style.display = "none";
+      return true;
+    }
+  }
+  // validar TITULO SOBRE IMAGEN
+  function validarTituloImagen(){
+    let alert = document.querySelector(".alert.tituloImagen");
+    let alertSubmit = document.querySelector(".alert.tituloImagen.submit");
+    if (tituloImagen.value.length > 500){
+      alert.innerHTML = "Este campo debe tener como máximo 500 caracteres";
+      alert.style.display = "block";
+      alertSubmit.style.display = "block";
+      return false;
+    } else {
+      alert.style.display = "none";
+      alertSubmit.style.display = "none";
+      return true;
+    }
+  }
+  // validar BAJADA TITULO SOBRE IMAGEN
+  function validarSubtituloImagen(){
+    let alert = document.querySelector(".alert.subtituloImagen");
+    let alertSubmit = document.querySelector(".alert.subtituloImagen.submit");
+    if (subtituloImagen.value.length > 500){
+      alert.innerHTML = "Este campo debe tener como máximo 500 caracteres";
+      alert.style.display = "block";
+      alertSubmit.style.display = "block";
+      return false;
+    } else {
+      alert.style.display = "none";
+      alertSubmit.style.display = "none";
+      return true;
+    }
+  }
+  // validar DETALLE SOBRE IMAGEN
+  function validarDetalleImagen(){
+    let alert = document.querySelector(".alert.detalleImagen");
+    let alertSubmit = document.querySelector(".alert.detalleImagen.submit");
+    if (detalleImagen.value.length > 500){
+      alert.innerHTML = "Este campo debe tener como máximo 500 caracteres";
+      alert.style.display = "block";
+      alertSubmit.style.display = "block";
+      return false;
+    } else {
+      alert.style.display = "none";
+      alertSubmit.style.display = "none";
       return true;
     }
   }
@@ -652,13 +767,15 @@ window.onload = function(){
   let form = document.querySelector('form');
   form.onsubmit = function(event){
 
-      if(!validarTitulo()){
+      if(!validarTitulo() || !validarSubtitulo() || !validarTituloImagen() || !validarSubtituloImagen() || !validarDetalleImagen()){
         event.preventDefault();
-        let alert = `
-            <p class="alert title submit" style="color: red; width: 95%; margin: auto;">* El Título de la noticia presenta errores. Por favor corregir antes de continuar</p>
-                `;
-        document.querySelector(".resumenErrores").innerHTML += alert;
+        document.querySelector(".resumenErrores").style.display = "block";
       }
+      // if(!validarSubtitulo()){
+      //   event.preventDefault();
+      //   document.querySelector(".resumenErrores").style.display = "block";
+      // }
+
 
   }
 

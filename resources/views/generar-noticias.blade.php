@@ -25,9 +25,9 @@
           @else
           value="{{ old('title') }}"
         @endif autofocus>
-          @error('title')
+          {{-- @error('title')
             <p style="color: red; width: 95%; margin: auto;">{{ $message }}</p>
-          @enderror
+          @enderror --}}
           <p class="alert title" style="color: red; width: 95%; margin: auto; display: none;"> </p>
         </div>
 
@@ -38,18 +38,19 @@
           @else
           value="{{ old('subtitle') }}"
           @endif>
-          @error('subtitle')
+          {{-- @error('subtitle')
             <p style="color: red; width: 95%; margin: auto;">{{ $message }}</p>
-          @enderror
+          @enderror --}}
+          <p class="alert subtitle" style="color: red; width: 95%; margin: auto; display: none;"> </p>
         </div>
 
         <div class="adminFormItem form_item form_item_checkbox">
           <label class="imagenNoticia checkbox-label">3. Incluir una imagen principal:
-            @if ($errors && old('imagenNoticia') == "si")
+            {{-- @if ($errors && old('imagenNoticia') == "si")
               <input type="checkbox" name="imagenNoticia" value="si" checked>
-            @else
+            @else --}}
               <input type="checkbox" name="imagenNoticia" value="si">
-            @endif
+            {{-- @endif --}}
             <span class="checkbox-custom">✓</span>
           </label>
 
@@ -83,7 +84,7 @@
           <div class="imagenesOpcionCargaNueva">
             <p>Cargar nueva imagen ▼</p>
             <input type="file" id="files" name="filesMain">
-            <p class="alert"></p>
+            <p class="alert filesMain"></p>
             <div id="uploadedImage"></div>
           </div>
 
@@ -148,6 +149,7 @@
               <label class="tituloImagen">Titular sobre imagen:
                 <textarea  class="" name="tituloImagen" rows="5"></textarea>
               </label>
+              <p class="alert tituloImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
             </div>
 
             <div class="colorTipoTitular" style="display: none;">
@@ -189,12 +191,14 @@
               <label class="subtituloImagen">Bajada de titular sobre imagen:
                 <textarea  class="" name="subtituloImagen" rows="5"></textarea>
               </label>
+              <p class="alert subtituloImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
             </div>
 
             <div class="adminFormItem form_item adminFormItem_textarea">
               <label class="detalleImagen">Información adicional sobre imagen:
                 <textarea  class="" name="detalleImagen" rows="5"></textarea>
               </label>
+              <p class="alert detalleImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
             </div>
 
             <div class="colorTipoSubtitular" style="display: none;">
@@ -318,8 +322,12 @@
           <p>8. Publicar noticia</p>
           <p>Procesando</p>
         </button> --}}
-        <div class="resumenErrores">
-
+        <div class="resumenErrores" style="display:none;">
+          <p class="alert title submit" style="color: red; width: 95%; text-align: center; display: none;">* El Titular de la noticia presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert subtitle submit" style="color: red; width: 95%; text-align: center; display: none;">* La bajada del titular de la noticia presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert tituloImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* El titular sobre la imagen presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert subtituloImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* La bajada del titular sobre la imagen presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert detalleImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* La información adicional sobre la imagen presenta errores. Por favor corregir antes de continuar</p>
         </div>
 
         {{-- <div class="downloadCanvas uploadNews"> --}}
