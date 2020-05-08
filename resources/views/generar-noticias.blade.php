@@ -18,6 +18,10 @@
       <form class="" action="/generar-noticias" method="post" enctype="multipart/form-data" autocomplete="off">
         @csrf
 
+        @if ($errors->all())
+          <p class="" style="color: red; width: 95%; text-align: center;"><b>Hubo un error procesando la información. Por favor volver a intentar y si el problema persiste contactar al desarrollador del sitio. Muchas gracias.</b></p>
+        @endif
+
         <div class="adminFormItem">
           <label for="title">1. Titular:</label>
           <input id="title" type="text" name="title" @if ($errors->get('title'))
@@ -233,6 +237,7 @@
               <label class="resumenImagen">Resumen sobre imagen:
                 <textarea  class="" name="resumenImagen" rows="5"></textarea>
               </label>
+              <p class="alert resumenImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
             </div>
 
             <div class="colorTipoResumen" style="display: none;">
@@ -266,6 +271,7 @@
             <div class="adminFormItem form_item adminFormItem_textarea">
               <label class="rectificacionImagen">Mensaje de rectificación sobre imagen:
                 <textarea  class="" name="rectificacionImagen" rows="5"></textarea>
+                <p class="alert rectificacionImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
               </label>
             </div>
 
@@ -275,6 +281,7 @@
         <div class="adminFormItem">
           <label for="content">4. Contenido de la noticia:</label>
           <textarea  class="" id="content" name="content" rows="5"></textarea>
+          <p class="alert contentNoticia" style="color: red; width: 95%; margin: auto; display: none;"> </p>
         </div>
 
         <div class="adminFormItem imagenesAdicionales">
@@ -318,17 +325,17 @@
           </a>
         </div> --}}
 
-        {{-- <button class="buton_newsletter_footer"  type="submit">
-          <p>8. Publicar noticia</p>
-          <p>Procesando</p>
-        </button> --}}
         <div class="resumenErrores" style="display:none;">
-          <p class="alert title submit" style="color: red; width: 95%; text-align: center; display: none;">* El Titular de la noticia presenta errores. Por favor corregir antes de continuar</p>
-          <p class="alert subtitle submit" style="color: red; width: 95%; text-align: center; display: none;">* La bajada del titular de la noticia presenta errores. Por favor corregir antes de continuar</p>
-          <p class="alert tituloImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* El titular sobre la imagen presenta errores. Por favor corregir antes de continuar</p>
-          <p class="alert subtituloImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* La bajada del titular sobre la imagen presenta errores. Por favor corregir antes de continuar</p>
-          <p class="alert detalleImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* La información adicional sobre la imagen presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert title submit" style="color: red; width: 95%; text-align: center; display: none;">* El <b>Titular</b> de la noticia presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert subtitle submit" style="color: red; width: 95%; text-align: center; display: none;">* La <b>bajada del titular</b> de la noticia presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert tituloImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* El <b>titular sobre la imagen</b> presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert subtituloImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* La <b>bajada del titular sobre la imagen</b> presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert detalleImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* La <b>información adicional sobre la imagen</b> presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert resumenImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* El <b>resumen sobre la imagen</b> presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert rectificacionImagen submit" style="color: red; width: 95%; text-align: center; display: none;">* El <b>mensaje de rectificación sobre la imagen</b> presenta errores. Por favor corregir antes de continuar</p>
+          <p class="alert contentNoticia submit" style="color: red; width: 95%; text-align: center; display: none;">* El <b>contenido</b> de la noticia presenta errores. Por favor corregir antes de continuar</p>
         </div>
+
 
         {{-- <div class="downloadCanvas uploadNews"> --}}
           <button class="downloadCanvas uploadNews"  type="submit">
@@ -366,8 +373,6 @@
           <div class="wrapCanvasTwitter">
             <canvas id="canvasTwitter" width="1280px" height="640px"></canvas>
           </div> --}}
-
-          {{-- <img id="prueba" src="" alt="" style="display: none;"> --}}
 
           {{-- <a id="link"><p>Descargar imagen</p></a> --}}
         </div>

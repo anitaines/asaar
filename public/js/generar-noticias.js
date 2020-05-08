@@ -2,7 +2,7 @@ window.onload = function(){
 
   // PREVIEW y SETEO NOTICIA y CANVAS:
 
-  // iframe layout preview:
+  // iframe para preview noticia:
   let iframe = document.getElementById("output_iframe");
 
   // preview imagen principal en iframe:
@@ -14,12 +14,12 @@ window.onload = function(){
   let imgCanvasFacebook = document.getElementById('imgCanvasFacebook');
   // let imgCanvasTwitter = document.getElementById('imgCanvasTwitter');
 
-  // Facebook layout preview:
-  var canvasFacebook = document.getElementById("canvasFacebook");
-  // console.log(canvasFacebook);
+  // canvas para preview imagen red social:
+  let canvasFacebook = document.getElementById("canvasFacebook");
 
   // var canvasTwitter = document.getElementById("canvasTwitter");
   // // console.log(canvasTwitter);
+
 
 
   // setear titular noticia:
@@ -32,61 +32,56 @@ window.onload = function(){
     // validar titular noticia oninput:
     validarTitulo();
   });
+
   // validar titular noticia onblur:
   inputTitulo.addEventListener("blur", function(){
     validarTitulo();
   });
 
-//   document.getElementById("fname").addEventListener("blur", myFunction);
 
 
   // setear bajada titular noticia:
   let inputSubtitulo = document.getElementById("subtitle");
-  // let subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
-  // if (inputSubtitulo.value){
-  //   subtitulo.style.display = "block";
-  //   subtitulo.innerHTML = inputSubtitulo.value;
-  // }
-  inputSubtitulo.oninput = function(){
+  inputSubtitulo.addEventListener("input", function(){
     let subtitulo = iframe.contentWindow.document.getElementsByTagName("h4")[0];
 
     subtitulo.style.display = "block";
     subtitulo.innerHTML = this.value;
+
     // validar subtitulo noticia:
     validarSubtitulo();
-  }
+  });
 
-  // setear preview imagen principal:
-  // let imagen = iframe.contentWindow.document.querySelector(".img_container");
+
 
   // setear imagen principal:
 
   // incluir imagen principal == sí => display de más opciones y display de preview imagen en iframe:
-  var imagenNoticiaCheckbox = document.querySelector(".imagenNoticia");
-  imagenNoticiaCheckbox.oninput = function(){
+  let imagenNoticiaCheckbox = document.querySelector(".imagenNoticia");
+  imagenNoticiaCheckbox.addEventListener("input", function(){
     if (imagenNoticiaCheckbox.firstElementChild.checked == true){
       document.querySelector(".admin .imagenesWrap").style.display ="block";
       imagenPrincipalWrap.style.display = "block";
       // Canvas:
-      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-      // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+      setCanvas(canvasFacebook, imgCanvasFacebook);
     } else {
       document.querySelector(".admin .imagenesWrap").style.display ="none";
       imagenPrincipalWrap.style.display = "none";
       // Canvas:
-      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-      // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+      setCanvas(canvasFacebook, imgCanvasFacebook);
     }
-  }
+  });
 
-  //funcionalidad opción de carga de imágenes:
-  var imagenesOpcionCarga = document.querySelector(".imagenesOpcionCarga");
-  imagenesOpcionCarga.onclick = function(){
+
+
+  // funcionalidad opción de carga de imágenes:
+  let imagenesOpcionCarga = document.querySelector(".imagenesOpcionCarga");
+  imagenesOpcionCarga.addEventListener("click", function(){
     if(imagenesOpcionCarga.lastElementChild.innerHTML == "▼"){
       imagenesOpcionCarga.lastElementChild.innerHTML = "▲";
       document.querySelector(".admin .imagenesWrap .imagenes").style.height = "350px";
       document.querySelector(".admin .imagenesWrap .imagenes").style.overflow = "scroll";
-      var imagenesCargadas = document.querySelectorAll(".admin .imagenesWrap .imagenes label");
+      let imagenesCargadas = document.querySelectorAll(".admin .imagenesWrap .imagenes label");
       for (var i = 0; i < imagenesCargadas.length; i++) {
         imagenesCargadas[i].style.display = "block";
       }
@@ -94,15 +89,15 @@ window.onload = function(){
       imagenesOpcionCarga.lastElementChild.innerHTML = "▼";
       document.querySelector(".admin .imagenesWrap .imagenes").style.height = "38px";
       document.querySelector(".admin .imagenesWrap .imagenes").style.overflow = "hidden";
-      var imagenesCargadas = document.querySelectorAll(".admin .imagenesWrap .imagenes label");
+      let imagenesCargadas = document.querySelectorAll(".admin .imagenesWrap .imagenes label");
       for (var i = 0; i < imagenesCargadas.length; i++) {
         imagenesCargadas[i].style.display = "none";
       }
     }
-  }
+  });
 
-  var imagenesOpcionCargaNueva = document.querySelector(".imagenesOpcionCargaNueva p");
-  imagenesOpcionCargaNueva.onclick = function(){
+  let imagenesOpcionCargaNueva = document.querySelector(".imagenesOpcionCargaNueva p");
+  imagenesOpcionCargaNueva.addEventListener("click", function(){
     if (imagenesOpcionCargaNueva.innerHTML == "Cargar nueva imagen ▼"){
       imagenesOpcionCargaNueva.innerHTML = "Cargar nueva imagen ▲"
       imagenesOpcionCargaNueva.parentElement.style.height= "auto";
@@ -112,29 +107,28 @@ window.onload = function(){
       imagenesOpcionCargaNueva.parentElement.style.height= "38px";
       imagenesOpcionCargaNueva.parentElement.style.overflow= "hidden";
     }
-  }
+  });
 
-  // funcionalidad thumbnails:
+
+
+  // funcionalidad thumbnails para imagen principal:
   let opcionesImagen = document.querySelector(".imagenes");
   // console.log(opcionesImagen.children[0]);
   for (var i = 1; i < opcionesImagen.children.length; i++) {
-    opcionesImagen.children[i].oninput = function(){
+    opcionesImagen.children[i].addEventListener("input", function(){
       // insertar imagen elegida en preview iframe:
       imagenPrincipal.style.backgroundImage = "url('storage/noticias/imagenesMain/" + this.firstElementChild.value + "')";
-
       // Canvas:
-      // imgCanvas.src = this.firstElementChild.value;
       imgCanvasFacebook.src = "storage/noticias/imagenesMain/" + this.firstElementChild.value;
-      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-      // imgCanvasTwitter.src = this.firstElementChild.value;
-      // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-
+      setCanvas(canvasFacebook, imgCanvasFacebook);
       // Borrar error de upload externo (si lo hubiera):
       document.querySelector(".alert.filesMain").innerHTML = "";
-    }
+    });
   }
 
-  // upload externa de nueva imagen principal:
+
+
+  // upload externo de nueva imagen principal:
   function handleFileSelect(evt) {
 
     let files = evt.target.files; // FileList object
@@ -152,11 +146,8 @@ window.onload = function(){
           imagenPrincipal.style.backgroundImage = "url(" + e.target.result + ")";
 
           // Render imagen en Canvas:
-          // imgCanvas.src = e.target.result;
           imgCanvasFacebook.src = e.target.result;
-          setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-          // imgCanvasTwitter.src = e.target.result;
-          // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+          setCanvas(canvasFacebook, imgCanvasFacebook);
 
           // Crear thumbnail:
           var newRadio = `
@@ -167,17 +158,14 @@ window.onload = function(){
                   `;
           document.getElementById('uploadedImage').innerHTML = newRadio;
           // Darle funcionalidad al thumbnail:
-          document.getElementById('uploadedImage').children[0].oninput = function(){
+          document.getElementById('uploadedImage').children[0].addEventListener("input", function(){
             // imagen.style.display = "block";
             imagenPrincipal.style.backgroundImage = "url(" + e.target.result + ")";
 
             // Canvas:
-            // imgCanvas.src = e.target.result;
             imgCanvasFacebook.src = e.target.result;
-            setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-            // imgCanvasTwitter.src = e.target.result;
-            // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-          }
+            setCanvas(canvasFacebook, imgCanvasFacebook);
+          });
           // Reset alert:
           document.querySelector(".alert.filesMain").innerHTML = "";
         }else{
@@ -200,25 +188,11 @@ window.onload = function(){
             imagenPrincipal.style.backgroundImage = "url(storage/noticias/imagenesMain/Ali.jpg)";
 
             imgCanvasFacebook.src = "storage/noticias/imagenesMain/Ali.jpg";
-            setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+            setCanvas(canvasFacebook, imgCanvasFacebook);
           }
-
-          // let imagenChecked = document.querySelector(".imagenLabel input:checked");
-          // if (imagenChecked != null){
-          //   imagenPrincipal.style.backgroundImage = "url(storage/noticias/imagenesMain/" + imagenChecked.value + ")";
-          //
-          //   imgCanvasFacebook.src = "storage/noticias/imagenesMain/" + imagenChecked.value;
-          //   setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-          // } else {
-          //   imagenPrincipal.style.backgroundImage = "url(storage/noticias/imagenesMain/Ali.jpg)";
-          //
-          //   imgCanvasFacebook.src = "storage/noticias/imagenesMain/Ali.jpg";
-          //   setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-          // }
         }
         };
       })(files[0]);
-
       // Read in the image file as a data URL.
       reader.readAsDataURL(files[0]);
     }else{
@@ -234,28 +208,31 @@ window.onload = function(){
         imagenPrincipal.style.backgroundImage = "url(storage/noticias/imagenesMain/Ali.jpg)";
 
         imgCanvasFacebook.src = "storage/noticias/imagenesMain/Ali.jpg";
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+        setCanvas(canvasFacebook, imgCanvasFacebook);
       }
     }
   }
 
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
-  // filtro imagen principal:
 
+
+
+  // filtro imagen principal:
   let filtroImagen = document.querySelectorAll(".filtroImagen input");
   for (var i = 0; i < filtroImagen.length; i++) {
-    filtroImagen[i].oninput = function(){
+    filtroImagen[i].addEventListener("input", function(){
       imagenPrincipal.style.filter = this.value;
       // Canvas:
-      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-      // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-    }
+      setCanvas(canvasFacebook, imgCanvasFacebook);
+    });
   }
+
+
 
   // incluir logo AsAAr:
   let logoAsaar = document.querySelector(".logoAsaar");
-  logoAsaar.oninput = function(){
+  logoAsaar.addEventListener("input", function(){
     let box1Iframe = iframe.contentWindow.document.querySelector(".info_img_container .box1");
     let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
     if (logoAsaar.firstElementChild.checked == true){
@@ -267,13 +244,14 @@ window.onload = function(){
     }
     checkLayout();
     // Canvas:
-    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-  }
+    setCanvas(canvasFacebook, imgCanvasFacebook);
+  });
+
+
 
   // incluir calendario:
   let calendar = document.querySelector(".calendar");
-  calendar.oninput = function(){
+  calendar.addEventListener("input", function(){
     let calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
     if (calendar.firstElementChild.checked == true){
       calendarioIframe.style.display ="flex";
@@ -286,27 +264,23 @@ window.onload = function(){
       }
 
       // completar mes:
-      calendar.parentElement.nextElementSibling.children[0].oninput = function(){
+      calendar.parentElement.nextElementSibling.children[0].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_mes").firstElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
       // completar día de la semana:
-      calendar.parentElement.nextElementSibling.children[1].oninput = function(){
+      calendar.parentElement.nextElementSibling.children[1].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_dia").firstElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
-
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
       // completar número:
-      calendar.parentElement.nextElementSibling.children[2].oninput = function(){
+      calendar.parentElement.nextElementSibling.children[2].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_dia").lastElementChild.innerHTML = this.firstElementChild.value;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
 
     } else {
       calendarioIframe.style.display ="none";
@@ -314,62 +288,56 @@ window.onload = function(){
     }
     checkLayout();
     // Canvas:
-    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-  }
+    setCanvas(canvasFacebook, imgCanvasFacebook);
+  });
+
+
 
   // incluir titular sobre imagen:
   let tituloImagen = document.querySelector(".tituloImagen textarea");
-  tituloImagen.oninput = function(){
+  tituloImagen.addEventListener("input", function(){
     if (this.value.length > 0){
     iframe.contentWindow.document.querySelector(".info_img_container .box2").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box2 p").innerHTML = this.value.replace(/\n/g, "<br>");
 
     document.querySelector(".recuadroTitular").style.display = "block";
 
-    // validación:
-    validarTituloImagen();
-
     // funcionalidad opción recuadro:
     let recuadroTitular = document.querySelector(".recuadroTitular");
-    recuadroTitular.oninput = function(){
+    recuadroTitular.addEventListener("input", function(){
       if (recuadroTitular.firstElementChild.firstElementChild.checked == true){
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "4px solid " + iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        setCanvas(canvasFacebook, imgCanvasFacebook);
       } else {
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "0px solid " + iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
+        setCanvas(canvasFacebook, imgCanvasFacebook);
       }
-    }
+    });
 
     document.querySelector(".colorTipoTitular").style.display = "block";
 
     // funcionalidad thumbnails colores tipografía:
     let opcionesColorTipo = document.querySelectorAll(".colorTipoTitular input");
     for (var i = 0; i < opcionesColorTipo.length; i++) {
-      opcionesColorTipo[i].oninput = function(){
+      opcionesColorTipo[i].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color = this.value;
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.borderColor = this.value;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
     }
 
     document.querySelector(".colorFondoTitular").style.display = "block";
     // funcionalidad thumbnails colores fondo:
     let opcionesColorFondo = document.querySelectorAll(".colorFondoTitular input");
     for (var i = 0; i < opcionesColorFondo.length; i++) {
-      opcionesColorFondo[i].oninput = function(){
+      opcionesColorFondo[i].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor = this.value;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
     }
 
     } else {
@@ -381,15 +349,20 @@ window.onload = function(){
 
       document.querySelector(".recuadroTitular").style.display = "none";
     }
+
+    // validación:
+    validarTituloImagen();
+
     checkLayout();
     // Canvas:
-    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-  }
+    setCanvas(canvasFacebook, imgCanvasFacebook);
+  });
+
+
 
   // incluir bajada titular sobre imagen:
-  var subtituloImagen = document.querySelector(".subtituloImagen textarea");
-  subtituloImagen.oninput = function(){
+  let subtituloImagen = document.querySelector(".subtituloImagen textarea");
+  subtituloImagen.addEventListener("input", function(){
     if (this.value.length > 0){
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.display = "block";
@@ -397,33 +370,28 @@ window.onload = function(){
 
     document.querySelector(".colorTipoSubtitular").style.display = "block";
 
-    // validación:
-    validarSubtituloImagen();
-
     // funcionalidad thumbnails colores tipografía:
-    var opcionesColorTipoSubtitular = document.querySelectorAll(".colorTipoSubtitular input");
+    let opcionesColorTipoSubtitular = document.querySelectorAll(".colorTipoSubtitular input");
     for (var i = 0; i < opcionesColorTipoSubtitular.length; i++) {
-      opcionesColorTipoSubtitular[i].oninput = function(){
+      opcionesColorTipoSubtitular[i].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color = this.value;
 
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.color = this.value;
 
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
     }
 
     document.querySelector(".colorFondoSubtitular").style.display = "block";
     // funcionalidad thumbnails colores fondo:
-    var opcionesColorFondoSubtitular = document.querySelectorAll(".colorFondoSubtitular input");
+    let opcionesColorFondoSubtitular = document.querySelectorAll(".colorFondoSubtitular input");
     for (var i = 0; i < opcionesColorFondoSubtitular.length; i++) {
-      opcionesColorFondoSubtitular[i].oninput = function(){
+      opcionesColorFondoSubtitular[i].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor = this.value;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
     }
 
   } else {
@@ -439,15 +407,19 @@ window.onload = function(){
       iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.display = "none";
     }
     }
+    // validación:
+    validarSubtituloImagen();
+
     checkLayout();
     // Canvas:
-    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-  }
+    setCanvas(canvasFacebook, imgCanvasFacebook);
+  });
+
+
 
   // incluir detalle información sobre imagen:
-  var detalleImagen = document.querySelector(".detalleImagen textarea");
-  detalleImagen.oninput = function(){
+  let detalleImagen = document.querySelector(".detalleImagen textarea");
+  detalleImagen.addEventListener("input", function(){
     if (this.value.length > 0){
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.display = "block";
@@ -455,33 +427,28 @@ window.onload = function(){
 
     document.querySelector(".colorTipoSubtitular").style.display = "block";
 
-    // validación:
-    validarDetalleImagen();
-
     // funcionalidad thumbnails colores tipografía:
-    var opcionesColorTipoSubtitular = document.querySelectorAll(".colorTipoSubtitular input");
+    let opcionesColorTipoSubtitular = document.querySelectorAll(".colorTipoSubtitular input");
     for (var i = 0; i < opcionesColorTipoSubtitular.length; i++) {
-      opcionesColorTipoSubtitular[i].oninput = function(){
+      opcionesColorTipoSubtitular[i].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color = this.value;
 
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.color = this.value;
 
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
     }
 
     document.querySelector(".colorFondoSubtitular").style.display = "block";
     // funcionalidad thumbnails colores fondo:
-    var opcionesColorFondoSubtitular = document.querySelectorAll(".colorFondoSubtitular input");
+    let opcionesColorFondoSubtitular = document.querySelectorAll(".colorFondoSubtitular input");
     for (var i = 0; i < opcionesColorFondoSubtitular.length; i++) {
-      opcionesColorFondoSubtitular[i].oninput = function(){
+      opcionesColorFondoSubtitular[i].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor = this.value;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
     }
 
     } else {
@@ -497,41 +464,43 @@ window.onload = function(){
       iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.display = "none";
     }
     }
+    // validación:
+    validarDetalleImagen();
+
     checkLayout();
     // Canvas:
-    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-  }
+    setCanvas(canvasFacebook, imgCanvasFacebook);
+  });
+
+
 
   // incluir resumen sobre imagen:
-  var resumenImagen = document.querySelector(".resumenImagen textarea");
-  resumenImagen.oninput = function(){
+  let resumenImagen = document.querySelector(".resumenImagen textarea");
+  resumenImagen.addEventListener("input", function(){
     if (this.value.length > 0){
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").innerHTML = this.value.replace(/\n/g, "<br>");
 
     document.querySelector(".colorTipoResumen").style.display = "block";
     // funcionalidad thumbnails colores tipografía:
-    var opcionesColorTipoResumen = document.querySelectorAll(".colorTipoResumen input");
+    let opcionesColorTipoResumen = document.querySelectorAll(".colorTipoResumen input");
     for (var i = 0; i < opcionesColorTipoResumen.length; i++) {
-      opcionesColorTipoResumen[i].oninput = function(){
+      opcionesColorTipoResumen[i].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color = this.value;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
     }
 
     document.querySelector(".colorFondoResumen").style.display = "block";
     // funcionalidad thumbnails colores fondo:
     var opcionesColorFondoResumen = document.querySelectorAll(".colorFondoResumen input");
     for (var i = 0; i < opcionesColorFondoResumen.length; i++) {
-      opcionesColorFondoResumen[i].oninput = function(){
+      opcionesColorFondoResumen[i].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor = this.value;
         // Canvas:
-        setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-        // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-      }
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
     }
 
     } else {
@@ -541,50 +510,56 @@ window.onload = function(){
 
       document.querySelector(".colorFondoResumen").style.display = "none";
     }
+    // validación:
+    validarResumenImagen();
+
     checkLayout();
     // Canvas:
-    setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
-    // setCanvasTwitter(canvasTwitter, imgCanvasTwitter);
-  }
+    setCanvas(canvasFacebook, imgCanvasFacebook);
+  });
+
 
 
   // incluir mensaje de rectificación sobre imagen:
-  var rectificacionImagen = document.querySelector(".rectificacionImagen textarea");
-  rectificacionImagen.oninput = function(){
+  let rectificacionImagen = document.querySelector(".rectificacionImagen textarea");
+  rectificacionImagen.addEventListener("input", function(){
     if (this.value.length > 0){
       iframe.contentWindow.document.querySelector(".info_img_container .box4").style.display = "block";
       iframe.contentWindow.document.querySelector(".info_img_container .box4 p").innerHTML = this.value.replace(/\n/g, "<br>");
       // Canvas:
-      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+      setCanvas(canvasFacebook, imgCanvasFacebook);
     } else {
       iframe.contentWindow.document.querySelector(".info_img_container .box4").style.display = "none";
       // Canvas:
-      setCanvasFacebook(canvasFacebook, imgCanvasFacebook);
+      setCanvas(canvasFacebook, imgCanvasFacebook);
     }
-  }
+    // validación:
+    validarRectificacionImagen();
+  });
+
 
 
   // párrafo noticia:
-  var parrafo = iframe.contentWindow.document.querySelector(".parrafo");
-  var inputContenido = document.getElementById("content");
-  inputContenido.oninput = function(){
+  let parrafo = iframe.contentWindow.document.querySelector(".parrafo");
+  let inputContenido = document.getElementById("content");
+  inputContenido.addEventListener("input", function(){
     parrafo.style.display = "block";
     // parrafo.innerHTML = this.value.replace(/\n/g, "<br>");
 
-    var nuevoParrafo = " <br> " + this.value.replace(/\n/g, " <br> ");
+    let nuevoParrafo = " <br> " + this.value.replace(/\n/g, " <br> ");
 
-    var parrafoLineasArray = nuevoParrafo.split(" ");
+    let parrafoLineasArray = nuevoParrafo.split(" ");
 
-    var aMail = parrafoLineasArray.filter(filtrarMail);
+    let aMail = parrafoLineasArray.filter(filtrarMail);
 
     function filtrarMail(value){
       return value.includes("@");
     }
 
-    var aWeb = parrafoLineasArray.filter(filtrarWeb);
+    let aWeb = parrafoLineasArray.filter(filtrarWeb);
 
     function filtrarWeb(value){
-      var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gi;
+      let regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gi;
       return regex.test(value);
     }
 
@@ -601,7 +576,11 @@ window.onload = function(){
     }
 
     parrafo.innerHTML = nuevoParrafo;
-  }
+
+    // validación:
+    validarContentNoticia()
+  });
+
 
 
   // cargar imagenes secundarias:
@@ -616,16 +595,16 @@ window.onload = function(){
       // Closure to capture the file information.
       reader.onload = (function(theFile) {
         return function(e) {
-          if(files[0].type == 'image/jpeg' || files[0].type == 'image/png'){
+          if(files[0].type == 'image/jpeg' || files[0].type == 'image/png' && files[0].size < 2100000){
           // Render imagen:
-          var iframe = document.getElementById("output_iframe");
-          var imagenesAdicionales = iframe.contentWindow.document.querySelector(`.${evt.target.id}`);
-          var newImagen = `
+          let iframe = document.getElementById("output_iframe");
+          let imagenesAdicionales = iframe.contentWindow.document.querySelector(`.${evt.target.id}`);
+          let newImagen = `
               <img src="${e.target.result}" alt="imagen noticia">
                   `;
           imagenesAdicionales.innerHTML += newImagen;
           // Crear thumbnail:
-          var newThumbnail = `
+          let newThumbnail = `
                 <div class="" style="background-image: url('${e.target.result}'); height: 150px"></div>
                   `;
           document.getElementById(evt.target.id).nextElementSibling.nextElementSibling.innerHTML += newThumbnail;
@@ -636,7 +615,15 @@ window.onload = function(){
           // Reset alert:
           document.getElementById(`${evt.target.id}`).parentElement.lastElementChild.innerHTML = "";
         }else{
-          document.getElementById(`${evt.target.id}`).parentElement.lastElementChild.innerHTML = files[0].name + " <b>no es un archivo de imagen válido</b>";
+          // Mensajes de error:
+          if(files[0].type != 'image/jpeg' || files[0].type != 'image/png'){
+            document.getElementById(`${evt.target.id}`).parentElement.lastElementChild.innerHTML = files[0].name + " <b>no es un archivo de imagen válido</b>";
+          }
+          if(files[0].size >= 2100000){
+            document.getElementById(`${evt.target.id}`).parentElement.lastElementChild.innerHTML = files[0].name + " <b> archivo demasiado grande. La imagen no debe pesar más de 2MB</b>";
+          }
+          // Resetear value input:
+          document.getElementById(`${evt.target.id}`).value = "";
         }
         };
       })(files[0]);
@@ -655,15 +642,16 @@ window.onload = function(){
   document.getElementById('filesPlus3').addEventListener('change', handleFilePlus, false);
 
 
-  // remover imágenes secundarias:
-  var remover = document.querySelectorAll(".remover");
-  for (var i = 0; i < remover.length; i++) {
-    remover[i].onclick = function(){
 
-      var identificador = this.previousElementSibling.name;
+  // remover imágenes secundarias:
+  let remover = document.querySelectorAll(".remover");
+  for (var i = 0; i < remover.length; i++) {
+    remover[i].addEventListener("click", function(){
+
+      let identificador = this.previousElementSibling.name;
 
       // borrar imagen en iframe:
-      var imagenesAdicionales = iframe.contentWindow.document.querySelector("." + identificador);
+      let imagenesAdicionales = iframe.contentWindow.document.querySelector("." + identificador);
       imagenesAdicionales.children[0].remove();
       // borrar thumbail en documento:
       this.nextElementSibling.children[0].remove();
@@ -671,16 +659,17 @@ window.onload = function(){
       this.previousElementSibling.style.display="inline-block";
       this.previousElementSibling.value="";
       this.style.display="none";
-    }
+    });
   }
+
 
 
   // DESCARGAR IMAGEN RED SOCIAL
-  var linkFacebook = document.getElementById('linkFacebook');
-  linkFacebook.onclick = function(){
+  let linkFacebook = document.getElementById('linkFacebook');
+  linkFacebook.addEventListener("click", function(){
     linkFacebook.setAttribute('download', 'imagenRedesSociales.png');
     linkFacebook.setAttribute('href', canvasFacebook.toDataURL("image/png").replace("image/png", "image/octet-stream"));
-  }
+  });
 
   // VALIDAR FORMULARIO
   // validar TITULO NOTICIA
@@ -763,37 +752,78 @@ window.onload = function(){
       return true;
     }
   }
-
+  // validar RESUMEN SOBRE IMAGEN
+  function validarResumenImagen(){
+    let alert = document.querySelector(".alert.resumenImagen");
+    let alertSubmit = document.querySelector(".alert.resumenImagen.submit");
+    if (resumenImagen.value.length > 500){
+      alert.innerHTML = "Este campo debe tener como máximo 500 caracteres";
+      alert.style.display = "block";
+      alertSubmit.style.display = "block";
+      return false;
+    } else {
+      alert.style.display = "none";
+      alertSubmit.style.display = "none";
+      return true;
+    }
+  }
+  // validar RECTIFICACION SOBRE IMAGEN
+  function validarRectificacionImagen(){
+    let alert = document.querySelector(".alert.rectificacionImagen");
+    let alertSubmit = document.querySelector(".alert.rectificacionImagen.submit");
+    if (rectificacionImagen.value.length > 255){
+      alert.innerHTML = "Este campo debe tener como máximo 255 caracteres";
+      alert.style.display = "block";
+      alertSubmit.style.display = "block";
+      return false;
+    } else {
+      alert.style.display = "none";
+      alertSubmit.style.display = "none";
+      return true;
+    }
+  }
+  // validar CONTENIDO
+  function validarContentNoticia(){
+    let alert = document.querySelector(".alert.contentNoticia");
+    let alertSubmit = document.querySelector(".alert.contentNoticia.submit");
+    if (inputContenido.value.length > 3000){
+      alert.innerHTML = "Este campo debe tener como máximo 3000 caracteres";
+      alert.style.display = "block";
+      alertSubmit.style.display = "block";
+      return false;
+    } else {
+      alert.style.display = "none";
+      alertSubmit.style.display = "none";
+      return true;
+    }
+  }
+  // VALIDAR SUBMIT:
   let form = document.querySelector('form');
   form.onsubmit = function(event){
 
-      if(!validarTitulo() || !validarSubtitulo() || !validarTituloImagen() || !validarSubtituloImagen() || !validarDetalleImagen()){
+      if(!validarTitulo() || !validarSubtitulo() || !validarTituloImagen() || !validarSubtituloImagen() || !validarDetalleImagen() || !validarResumenImagen() || !validarRectificacionImagen() || !validarContentNoticia()){
         event.preventDefault();
         document.querySelector(".resumenErrores").style.display = "block";
       }
-      // if(!validarSubtitulo()){
-      //   event.preventDefault();
-      //   document.querySelector(".resumenErrores").style.display = "block";
-      // }
-
-
   }
+
+
 
   // FUNCIONES:
 
   function checkLayout(){
 
-    var infoImgContainerIframe = iframe.contentWindow.document.querySelector(".info_img_container");
+    let infoImgContainerIframe = iframe.contentWindow.document.querySelector(".info_img_container");
 
-    var boxUnoIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1");
-    var logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
-    var calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
+    let boxUnoIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1");
+    let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
+    let calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
 
-    var boxDosIframe = iframe.contentWindow.document.querySelector(".info_img_container .box2");
+    let boxDosIframe = iframe.contentWindow.document.querySelector(".info_img_container .box2");
 
-    var subtituloImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child");
-    var detalleImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child");
-    var resumenImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child");
+    let subtituloImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child");
+    let detalleImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child");
+    let resumenImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child");
 
     // empieza chequeo:
     if(
@@ -813,19 +843,7 @@ window.onload = function(){
 
 
   // CANVAS:
-
-  // CAPTURAR ELEMENTOS PARA CANVAS:
-  // imagen fondo:
-    // var imgCanvas = document.getElementById('imgCanvas');
-
-  // CANVAS FACEBOOK:
-
-  // acá arranca la función
-  // la voy llamando en cada oninput
-
-  // var canvasFacebook = document.getElementById("canvasFacebook");
-
-  function setCanvasFacebook(canvas, imagen){
+  function setCanvas(canvas, imagen){
 
     if (canvas.getContext){
 
@@ -1145,11 +1163,6 @@ window.onload = function(){
       context.closePath();
       context.fillStyle = colorFondo;
       context.fill();
-
-      // context.lineWidth = "4";
-      // // context.lineWidth = lineWidth;
-      // context.strokeStyle = "#ab2097";
-      // // context.strokeStyle = color;
     }
 
 
@@ -1180,7 +1193,7 @@ window.onload = function(){
       }
       lines.push(currentLine);
       return lines;
-    } // cierre funcion getLines
+    }
 
 
   function scaleToFill(img, canvas, context, filter){
@@ -1189,8 +1202,6 @@ window.onload = function(){
       // get the top left position of the image
       var x = (canvas.width / 2) - (img.width / 2) * scale;
       var y = (canvas.height / 2) - (img.height / 2) * scale;
-      // context.globalCompositeOperation = "destination-over";
-      // context.filter = 'grayscale(100%)';
       context.filter = filter;
       context.drawImage(img, x, y, img.width * scale, img.height * scale);
       context.filter = 'none';
