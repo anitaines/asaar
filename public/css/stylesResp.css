@@ -1942,37 +1942,44 @@ line-height: 2;
   text-align: center;
   margin-bottom: 30px;
 }
+.admin .input h4{
+  display: none;
+}
 .admin .input{
   /* width: 29%; */
   width: 30%;
 }
 .admin .input form{
-  height: 74vh;
+  /* height: 74vh; */
+  height: 82vh;
   overflow-y: scroll;
 }
+
 /* SCROLLBAR */
 /* width */
 .admin .input form::-webkit-scrollbar {
   width: 10px;
 }
-
 /* Track */
 .admin .input form::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  /* background: #f1f1f1; */
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
 }
-
 /* Handle */
 .admin .input form::-webkit-scrollbar-thumb {
   background: #888;
+  border-radius: 80px;
 }
-
 /* Handle on hover */
 .admin .input form::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 /* FIN SCROLLBAR */
+
 .admin .input .adminFormItem{
-  width: 100%;
+  width: 98%;
   display: flex;
   flex-wrap: wrap;
   background-color: var(--grey);
@@ -2171,9 +2178,10 @@ line-height: 2;
   font-size: inherit;
   padding-left: 10px;
 }
-.admin .input .adminFormItem_textarea textarea:focus {
+/* .admin .input .adminFormItem_textarea textarea:focus {
   outline: none;
-}
+} */
+
 /* OPCIONES COLORES: */
 .admin .input .colorTipoTitular, .admin .input .colorFondoTitular, .admin .input .colorTipoSubtitular, .admin .input .colorFondoSubtitular, .admin .input .colorTipoResumen, .admin .input .colorFondoResumen, .admin .input .recuadroTitular{
   width: 90%;
@@ -2221,9 +2229,9 @@ border-radius: 6px;
 font-size: inherit;
 padding-left: 10px;
 }
-#content:focus{
+/* #content:focus{
   outline: none;
-}
+} */
 .admin .input .adminFormItem.imagenesAdicionales p:first-child{
   width: 95%;
   margin: auto;
@@ -2272,10 +2280,12 @@ padding-left: 10px;
   color: var(--grey);
   margin-bottom: 0px;
 }
-.admin .input .downloadCanvas.uploadNews{
-  background-color: var(--green);
+.admin .input .buttonWrap{
+  width: 90%;
+  text-align: center;
+  margin: 10px auto;
 }
-.admin .input .downloadCanvas.uploadNews button{
+.admin .input .downloadCanvas.uploadNews{
   background-color: var(--green);
   border: none;
   color: var(--grey);
@@ -2283,11 +2293,12 @@ padding-left: 10px;
   font-size: 16px;
   line-height: 20px;
   text-align: center;
-  margin: 15px 0;
+  width: 100%;
+  padding: 15px 0;
 }
-.admin .input .downloadCanvas.uploadNews button:hover{
+/* .admin .input .downloadCanvas.uploadNews button:hover{
   cursor: pointer;
-}
+} */
 
 
 .admin .output{

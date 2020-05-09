@@ -4,6 +4,13 @@ window.onload = function(){
 
   // iframe para preview noticia:
   let iframe = document.getElementById("output_iframe");
+  // (prevent clicks en iframe)
+  let aIframe = iframe.contentWindow.document.querySelectorAll("a");
+  for (var i = 0; i < aIframe.length; i++) {
+    aIframe[i].addEventListener("click", function(event){
+      event.preventDefault();
+    });
+  }
 
   // preview imagen principal en iframe:
   let imagenPrincipal = iframe.contentWindow.document.querySelector(".img_container");
@@ -677,7 +684,7 @@ window.onload = function(){
     let alert = document.querySelector(".alert.title");
     let alertSubmit = document.querySelector(".alert.title.submit");
     if (inputTitulo.value.length == 0){
-      alert.innerHTML = "Este campo debe estar completo";
+      alert.innerHTML = "Único campo obligatorio";
       alert.style.display = "block";
       alertSubmit.style.display = "block";
       return false;
@@ -1207,5 +1214,13 @@ window.onload = function(){
       context.filter = 'none';
   }
 
+
+  window.addEventListener('keydown',function(e){
+    if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){
+      if(e.target.nodeName ==='INPUT'&& e.target.type !== 'textarea'){
+        e.preventDefault();return false;
+      }
+    }
+  },true);
 
 } // fin onload

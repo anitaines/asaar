@@ -109,14 +109,14 @@
           </div>
 
           <div class="adminFormItem form_item form_item_checkbox">
-              <label class="logoAsaar checkbox-label"> Incluir logo de la Asociación:
+              <label class="logoAsaar checkbox-label"> 3a. Incluir logo de la Asociación:
                 <input type="checkbox" name="logoAsaar" value="si">
                 <span class="checkbox-custom">✓</span>
               </label>
           </div>
 
           <div class="adminFormItem form_item form_item_checkbox">
-              <label class="calendar checkbox-label"> Incluir calendario:
+              <label class="calendar checkbox-label"> 3b. Incluir calendario:
                 <input type="checkbox" name="calendar" value="si">
                 <span class="checkbox-custom">✓</span>
               </label>
@@ -150,7 +150,7 @@
           </div>
 
             <div class="adminFormItem form_item  adminFormItem_textarea">
-              <label class="tituloImagen">Titular sobre imagen:
+              <label class="tituloImagen">3c. Titular sobre imagen:
                 <textarea  class="" name="tituloImagen" rows="5"></textarea>
               </label>
               <p class="alert tituloImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
@@ -192,14 +192,14 @@
             </div>
 
             <div class="adminFormItem form_item adminFormItem_textarea">
-              <label class="subtituloImagen">Bajada de titular sobre imagen:
+              <label class="subtituloImagen">3d. Bajada de titular sobre imagen:
                 <textarea  class="" name="subtituloImagen" rows="5"></textarea>
               </label>
               <p class="alert subtituloImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
             </div>
 
             <div class="adminFormItem form_item adminFormItem_textarea">
-              <label class="detalleImagen">Información adicional sobre imagen:
+              <label class="detalleImagen">3e. Información adicional sobre imagen:
                 <textarea  class="" name="detalleImagen" rows="5"></textarea>
               </label>
               <p class="alert detalleImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
@@ -234,7 +234,7 @@
             </div>
 
             <div class="adminFormItem form_item adminFormItem_textarea">
-              <label class="resumenImagen">Resumen sobre imagen:
+              <label class="resumenImagen">3f. Resumen sobre imagen:
                 <textarea  class="" name="resumenImagen" rows="5"></textarea>
               </label>
               <p class="alert resumenImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
@@ -269,7 +269,7 @@
             </div>
 
             <div class="adminFormItem form_item adminFormItem_textarea">
-              <label class="rectificacionImagen">Mensaje de rectificación sobre imagen:
+              <label class="rectificacionImagen">3g. Mensaje de rectificación sobre imagen:
                 <textarea  class="" name="rectificacionImagen" rows="5"></textarea>
                 <p class="alert rectificacionImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
               </label>
@@ -337,12 +337,12 @@
         </div>
 
 
-        {{-- <div class="downloadCanvas uploadNews"> --}}
+        <div class="buttonWrap">
           <button class="downloadCanvas uploadNews"  type="submit">
             <p>7. Publicar noticia</p>
             {{-- <p>Procesando</p> --}}
           </button>
-        {{-- </div> --}}
+        </div>
 
       </form>
 

@@ -52,8 +52,7 @@
                   <div class="con_imagen" style="background-image: url('/storage/noticias/imagenesMain/{{$value->imagen}}');
                   background-repeat: no-repeat;
                   background-size: cover;
-                  background-position: center;
-                  filter: {{$value->filtroImagen}};"></div>
+                  background-position: center;"></div>
                   <div class="info">
                     <p>{{$value->title}}</p>
                     <p>{{$value->subtitle}}</p>
