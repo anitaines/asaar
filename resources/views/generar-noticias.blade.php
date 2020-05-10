@@ -11,6 +11,13 @@
 @section('content')
 {{-- @dd($errors) --}}
   <main class="admin">
+
+    <div class="menuMobileTablet">
+      <a class="menuInformacion"><p>Información</p></a>
+      <a class="menuNoticia"><p>Noticia</p></a>
+      <a class="menuImagen"><p>Imagen</p></a>
+    </div>
+
     <div class="input">
 
       <h4>Ingresar la información:</h4>

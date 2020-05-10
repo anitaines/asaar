@@ -1,5 +1,49 @@
 window.onload = function(){
 
+  // Menú en mobile y tablet:
+  let menuMobileTablet = document.querySelectorAll(".menuMobileTablet a");
+
+  let menuInformacion = document.querySelector(".admin .input");
+  let menuNoticia = document.querySelector(".admin .output .wrap_iframe");
+  let menuImagen = document.querySelector(".admin .output .allCanvas");
+
+  for (var i = 0; i < menuMobileTablet.length; i++) {
+    menuMobileTablet[i].addEventListener("click", function(event){
+      event.preventDefault();
+
+      for (var i = 0; i < menuMobileTablet.length; i++){
+        menuMobileTablet[i].firstElementChild.style.backgroundColor= "#ffffff";
+        menuMobileTablet[i].firstElementChild.style.color= "var(--magenta)";
+      }
+
+      this.firstElementChild.style.backgroundColor= "var(--magenta)";
+      this.firstElementChild.style.color= "#ffffff";
+
+      switch (this.className) {
+        case "menuInformacion":
+          menuInformacion.style.display = "block";
+          menuNoticia.style.display = "none";
+          menuImagen.style.display = "none";
+          break;
+        case "menuNoticia":
+          menuInformacion.style.display = "none";
+          menuNoticia.style.display = "block";
+          menuImagen.style.display = "none";
+          break;
+        case "menuImagen":
+          menuInformacion.style.display = "none";
+          menuNoticia.style.display = "none";
+          menuImagen.style.display = "block";
+          break;
+        default:
+          menuInformacion.style.display = "block";
+          menuNoticia.style.display = "none";
+          menuImagen.style.display = "none";
+      }
+    });
+  }
+
+
   // PREVIEW y SETEO NOTICIA y CANVAS:
 
   // iframe para preview noticia:

@@ -1840,6 +1840,7 @@ line-height: 2;
 }
 .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item{
   /* width: 100%; */
+  height: max-content;
   margin: 10px;
   overflow: hidden;
   height: fit-content;
@@ -1928,13 +1929,30 @@ line-height: 2;
 /* ************ GENERAR NOTICIA SECTION - MOBILE ************ */
 .admin{
   position: relative;
-  top: 132px;
+  top: 125px;
   /* width: 95%; */
   width: 98%;
   margin: auto;
+}
+.admin .menuMobileTablet{
   display: flex;
-  justify-content: space-between;
-  overflow: hidden;
+  justify-content: space-evenly;
+  position: fixed;
+  z-index: 900;
+  top: 80px;
+  width: 98%;
+}
+.admin .menuMobileTablet p{
+  font-weight: bold;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: var(--magenta);
+  border: 2px solid var(--magenta);
+}
+.admin .menuMobileTablet a:first-child p{
+  background-color: var(--magenta);
+  color: #ffffff;
 }
 .admin h4{
   font-size: 20px;
@@ -1946,44 +1964,20 @@ line-height: 2;
   display: none;
 }
 .admin .input{
-  /* width: 29%; */
-  width: 30%;
+  width: 100%;
 }
 .admin .input form{
   /* height: 74vh; */
-  height: 82vh;
-  overflow-y: scroll;
+  /* height: 82vh;
+  overflow-y: scroll; */
 }
-
-/* SCROLLBAR */
-/* width */
-.admin .input form::-webkit-scrollbar {
-  width: 10px;
-}
-/* Track */
-.admin .input form::-webkit-scrollbar-track {
-  /* background: #f1f1f1; */
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  background-color: #F5F5F5;
-}
-/* Handle */
-.admin .input form::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 80px;
-}
-/* Handle on hover */
-.admin .input form::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-/* FIN SCROLLBAR */
-
 .admin .input .adminFormItem{
   width: 98%;
   display: flex;
   flex-wrap: wrap;
   background-color: var(--grey);
   border-radius: 6px;
+  margin: auto;
   margin-bottom: 20px;
 }
 .admin .input .adminFormItem label{
@@ -2197,7 +2191,7 @@ line-height: 2;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 35%;
+  width: 45%;
 }
 .admin .input .colorTipoTitular label div, .admin .input .colorFondoTitular label div, .admin .input .colorTipoSubtitular label div, .admin .input .colorFondoSubtitular label div, .admin .input .colorTipoResumen label div, .admin .input .colorFondoResumen label div{
   width: 30px;
@@ -2302,35 +2296,29 @@ padding-left: 10px;
 
 
 .admin .output{
-  /* position: fixed;
-  top: 150px;
-  right: 0; */
-  width: 69%;
-  width: 68%;
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
 }
 .admin .output .wrap_iframe {
-  /* width: 635px; */
-  width: 45%;
-  /* height: 1700px; */
-  /* overflow: hidden; */
+  width: 100%;
+  overflow: hidden;
+  height: 80vh;
+  display: none;
 }
 .admin .output .wrap_iframe iframe {
   border: 3px solid var(--black);
-  /* width: 200% !important; */
-  width: 245% !important;
-  /* height: 110% !important; */
-  /* height: 175% !important; */
-  height: 228% !important;
-  -webkit-transform: scale(0.4);
-  transform: scale(0.4);
+  width: 320% !important;
+  /* height: -webkit-fill-available; */
+  height: 188vh;
+  -webkit-transform: scale(0.31);
+  transform: scale(0.31);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
 .admin .output .allCanvas{
-  width: 51%;
-  min-width: 489px;
+  width: 100%;
+  overflow: hidden;
+  height: 80vh;
+  display: none;
 }
 .admin .output .allCanvas .container_canvas p{
   text-align: center;
@@ -2338,64 +2326,23 @@ padding-left: 10px;
   font-size: 15px;
 }
 .admin .output .allCanvas .container_canvas{
-  height: 74vh;
-  /* overflow: scroll; */
+  /* height: 74vh;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: hidden; */
 }
 .admin .output .wrapCanvasFacebook {
-  /* width: 635px; */
-  /* width: 45%; */
-  /* height: 1700px; */
-  /* overflow: hidden; */
-  width: 510px;
-  height: 510px;
-
-  /* width: 546px;
-    height: 546px; */
-}
-#canvasFacebook{
-  border: 3px solid var(--black);
-  /* width: 100% !important;
-  height: 100% !important;
-  -webkit-transform: scale(1.5);
-  transform: scale(1.5); */
-  /* -webkit-transform: scale(0.45);
-  transform: scale(0.45); */
-  -webkit-transform: scale(0.4);
-  transform: scale(0.4);
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  /* width: 48%;
-  height: 28%; */
-}
-.admin .output .wrapCanvasTwitter {
-  /* width: 635px; */
-  /* width: 45%; */
-  /* height: 1700px; */
-  /* overflow: hidden; */
-
   /* width: 510px;
   height: 510px; */
-
-  width: 490px;
-  height: 310px;
 }
-#canvasTwitter{
-  border: 3px solid var(--black);
-  /* width: 100% !important;
-  height: 100% !important;
-  -webkit-transform: scale(1.5);
-  transform: scale(1.5); */
-  /* -webkit-transform: scale(0.45);
-  transform: scale(0.45); */
-  -webkit-transform: scale(0.375);
-  transform: scale(0.375);
+#canvasFacebook{
+  /* border: 3px solid var(--black); */
+  border: 1px solid var(--black);
+  -webkit-transform: scale(0.26);
+  transform: scale(0.26);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
-  /* width: 48%;
-  height: 28%; */
 }
+
 
 /* ************ END GENERAR NOTICIA SECTION - MOBILE ************ */
 
@@ -2727,6 +2674,9 @@ padding-left: 10px;
     order: 1;
   }
   /* ************ END DETALLE NOTICIA SECTION - TABLET ************ */
+
+
+  /* ************ NOTICIAS SECTION - TABLET ************ */
   .main_contacto.main_noticias .wrap_noticias_all{
     display: flex;
     flex-wrap: wrap;
@@ -2735,10 +2685,31 @@ padding-left: 10px;
   .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item{
     width: 40%;
   }
-
-  /* ************ NOTICIAS SECTION - TABLET ************ */
-
   /* ************ END NOTICIAS SECTION - TABLET ************ */
+
+
+  /* ADMIN SECTION */
+  /* ************ GENERAR NOTICIA SECTION - TABLET ************ */
+  .admin{
+    top: 130px;
+  }
+  .admin .menuMobileTablet{
+    top: 85px;
+  }
+  .admin .output .wrap_iframe iframe {
+    width: 166% !important;
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+  #canvasFacebook{
+    -webkit-transform: scale(0.4);
+    transform: scale(0.4);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+  /* ************ END GENERAR NOTICIA SECTION - TABLET ************ */
 
   } /*fin media query tablet*/
 
@@ -3389,15 +3360,143 @@ padding-left: 10px;
   .container_detalle_noticias footer .contact_footer{
     margin-bottom: 0;
   }
-  .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item{
-    width: 20%;
-  }
   /* ************ END DETALLE NOTICIA SECTION - DESKTOP ************ */
 
 
-  /* ************ NOTICIAS SECTION - DESKTOP ************ */
 
+  /* ************ NOTICIAS SECTION - DESKTOP ************ */
+  .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item{
+    width: 20%;
+  }
   /* ************ END NOTICIAS SECTION - DESKTOP ************ */
+
+
+
+  /* ADMIN SECTION */
+  /* ************ GENERAR NOTICIA SECTION - DESKTOP ************ */
+  .admin{
+    top: 132px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .admin .menuMobileTablet{
+    display: none;
+  }
+  .admin .input{
+    display: block !important;
+    /* width: 29%; */
+    width: 30%;
+  }
+  .admin .input form{
+    /* height: 74vh; */
+    height: 82vh;
+    overflow-y: scroll;
+  }
+  /* SCROLLBAR */
+  /* width */
+  .admin .input form::-webkit-scrollbar {
+    width: 10px;
+  }
+  /* Track */
+  .admin .input form::-webkit-scrollbar-track {
+    /* background: #f1f1f1; */
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+  }
+  /* Handle */
+  .admin .input form::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 80px;
+  }
+  /* Handle on hover */
+  .admin .input form::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  /* FIN SCROLLBAR */
+
+  .admin .input .adminFormItem{
+    margin-left: 0;
+  }
+  .admin .input .colorTipoTitular label, .admin .input .colorFondoTitular label, .admin .input .colorTipoSubtitular label, .admin .input .colorFondoSubtitular label, .admin .input .colorTipoResumen label, .admin .input .colorFondoResumen label{
+    width: 35%;
+  }
+
+  .admin .output{
+    /* position: fixed;
+    top: 150px;
+    right: 0; */
+    /* width: 69%; */
+    width: 68%;
+    height: 82vh;;
+    display: flex;
+    justify-content: space-between;
+  }
+  .admin .output .wrap_iframe {
+    /* width: 635px; */
+    /* width: 45%; */
+    width: 47%;
+    height: 100vh;
+    /* height: 1700px; */
+    /* height: 111vh; */
+    /* overflow: hidden; */
+    display: block !important;
+  }
+  .admin .output .wrap_iframe iframe {
+    /* width: 245% !important; */
+    width: 331% !important;
+    height: 254% !important;
+    /* -webkit-transform: scale(0.4);
+    transform: scale(0.4); */
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+  .admin .output .allCanvas{
+    width: 51%;
+    /* min-width: 489px; */
+    display: block !important;
+  }
+  .admin .output .allCanvas .container_canvas{
+    height: 74vh;
+    /* overflow: scroll; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .admin .output .wrapCanvasFacebook {
+    /* width: 635px; */
+    /* width: 45%; */
+    /* height: 1700px; */
+    /* overflow: hidden; */
+
+    /* width: 510px; */
+    width: 100%;
+    height: 510px;
+
+    /* width: 546px;
+      height: 546px; */
+  }
+  #canvasFacebook{
+    /* width: 100% !important;
+    height: 100% !important;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5); */
+    /* -webkit-transform: scale(0.45);
+    transform: scale(0.45); */
+    width: 100%;
+    /* -webkit-transform: scale(0.4);
+    transform: scale(0.4); */
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    /* width: 48%;
+    height: 28%; */
+  }
+
+  /* ************ END GENERAR NOTICIA SECTION - DESKTOP ************ */
 
   } /*fin media query desktop*/
 
