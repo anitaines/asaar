@@ -20,11 +20,12 @@
 
   <div class="container_contacto container_detalle_noticias">
 
+    {{-- <a href="javascript:history.back()"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a> --}}
+    <a href="/noticias"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a>
+
     <main class="main_contacto main_detalle_noticias">
 
       {{-- <h1 class="h1_aspergerCEA h1_congresos">Noticias</h1> --}}
-
-      <a href="javascript:history.back()"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a>
 
       @if (isset($noticia))
         <h3 class="h3_aspergerCEA">{{$noticia->title}}</h3>
@@ -259,7 +260,12 @@
 
         <div class="share_options">
 
-          <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.pruebas-asaar.epizy.com%2F&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+          {{-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.pruebas-asaar.epizy.com%2F&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> --}}
+          @if (isset($noticia))
+            <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.asperger.org.ar%2F{{$noticia->id}}%2F{{$noticia->slug}}&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+          @else
+            <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.asperger.org.ar&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+          @endif
 
           <a class="twitter-share-button"
           href="https://twitter.com/intent/tweet" data-size="large">
@@ -280,7 +286,7 @@
 
       </div>
 
-      <a href="javascript:history.back()"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a>
+      <a href="/noticias"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a>
 
     </main>
 
@@ -391,6 +397,10 @@
       </footer>
 
   </div>
+
+  @if (isset($noticia) && $noticia->imagenNoticia == "si")
+    <script src="{{ asset('js/prueba.js') }}"></script>
+  @endif
 
   @if (isset($noticia) && $noticia->content)
     <script>
