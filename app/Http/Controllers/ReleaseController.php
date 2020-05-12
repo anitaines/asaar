@@ -4,28 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Release;
 use App\Image;
+use App\Carousel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 class ReleaseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function carousel()
-    {
-        //cuando esté la DB modificar esta parte para que guarde en una variable las noticias
-        // $articulos = Article::all()->shuffle();
-        // dd($articulos);
-        //
-        // return view("/index", compact('articulos'));
-
-        return view('index');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -379,4 +364,55 @@ class ReleaseController extends Controller
     {
         //
     }
+
+
+    /**
+     * Mostrar noticias en el carousel de inicio.
+     *
+     */
+    public function carousel()
+    {
+        //cuando esté la DB modificar esta parte para que guarde en una variable las noticias
+        // $articulos = Article::all()->shuffle();
+        // dd($articulos);
+        //
+        // return view("/index", compact('articulos'));
+
+        return view('index');
+    }
+
+
+    /**
+     *
+     */
+    public function carouselAdmin()
+    {
+      $carouselActual = Release::whereNotNull('carousel')
+      ->orderBy('id', 'desc')
+      ->get();
+      // dd($carouselActual);
+
+      $noticiasAll= DB::table('releases')
+      ->orderBy('id', 'desc')
+      ->get();
+
+      $carouselImagenes = Carousel::all();
+
+      return view('/administrar-carousel', compact('carouselActual', 'noticiasAll', 'carouselImagenes'));
+    }
+
+
+    /**
+     *
+     */
+    public function carouselStore()
+    {
+        //validar validar
+        // hacer
+        // guardar
+
+        return view('index');
+    }
+
+
 }

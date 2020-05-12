@@ -399,7 +399,7 @@
   </div>
 
   @if (isset($noticia) && $noticia->imagenNoticia == "si")
-    <script src="{{ asset('js/prueba.js') }}"></script>
+    <script src="{{ asset('js/layoutNoticia.js') }}"></script>
   @endif
 
   @if (isset($noticia) && $noticia->content)

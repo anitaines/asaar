@@ -10,7 +10,7 @@
 
 @section('content')
 {{-- @dd($errors) --}}
-  <main class="admin">
+  <main class="admin generar">
 
     <div class="menuMobileTablet">
       <a class="menuInformacion"><p>Información</p></a>

@@ -63,3 +63,7 @@ Route::get('/noticias/{id}/{slug}', 'ReleaseController@show');
 Route::get('/generar-noticias', 'ReleaseController@create'); //falta auth
 
 Route::post('/generar-noticias', 'ReleaseController@store'); //falta auth
+
+Route::get('/administrar-carousel', 'ReleaseController@carouselAdmin'); //falta auth
+
+Route::post('/administrar-carousel', 'ReleaseController@carouselStore'); //falta auth

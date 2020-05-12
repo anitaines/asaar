@@ -3399,6 +3399,8 @@ padding-left: 10px;
   /* ************ GENERAR NOTICIA SECTION - DESKTOP ************ */
   .admin{
     top: 132px;
+  }
+  .admin.generar{
     display: flex;
     justify-content: space-between;
     overflow: hidden;
