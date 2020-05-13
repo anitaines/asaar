@@ -311,6 +311,7 @@ class ReleaseController extends Controller
       $noticia->save();
 
       return redirect('/home');
+      // next: redirect a adminCarousel con paremtros y flash? AGREGAR CAROUSEL A LA VALIDACION Y GUARDADO
     }
 
     /**
@@ -405,13 +406,41 @@ class ReleaseController extends Controller
     /**
      *
      */
-    public function carouselStore()
+    public function carouselStore(Request $request)
     {
-        //validar validar
-        // hacer
-        // guardar
+        // dd($request);
+        $rules = [
+        'eliminarNoticiaCarousel' => ['nullable','array'],
+        'eliminarNoticiaCarousel.*' => ['nullable','string', 'max:11'],
+        'agregarNoticiaCarousel' => ['nullable','array'],
+        'agregarNoticiaCarousel.*' => ['nullable','string', 'max:255'],
+        ];
+        $messages = [
+          'max' => 'Este campo debe tener :max caracteres como máximo.',
+        ];
 
-        return view('index');
+        $this->validate($request, $rules, $messages);
+
+        if ($request->eliminarNoticiaCarousel) {
+          foreach ($request->eliminarNoticiaCarousel as $key => $value) {
+            $noticia = Release::find($value);
+            $noticia->carousel = null;
+
+            $noticia->save();
+          }
+        }
+
+        if ($request->agregarNoticiaCarousel) {
+          foreach ($request->agregarNoticiaCarousel as $key => $value) {
+            $noticia = Release::find($key);
+            $noticia->carousel = $value;
+
+            $noticia->save();
+          }
+        }
+
+
+        return view('/index');
     }
 
 

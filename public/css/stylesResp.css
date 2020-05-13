@@ -1934,7 +1934,6 @@ text-align: left;
 .admin{
   position: relative;
   top: 125px;
-  /* width: 95%; */
   width: 98%;
   margin: auto;
 }
@@ -1972,11 +1971,10 @@ text-align: left;
 .admin .input{
   width: 100%;
 }
-.admin .input form{
-  /* height: 74vh; */
-  /* height: 82vh;
-  overflow-y: scroll; */
-}
+/* .admin .input form{
+  height: 74vh;
+  overflow-y: scroll;
+} */
 .admin .input .adminFormItem{
   width: 98%;
   display: flex;
@@ -2003,11 +2001,9 @@ text-align: left;
   margin: 15px auto;
   margin-top: 0;
   border-style: none;
-  /* border: 2px solid var(--magenta); */
   padding-left: 10px;
   height: 39px;
   border-radius: 6px;
-  /* font-family: inherit; */
   font-size: inherit;
   line-height: inherit;
 }
@@ -2029,9 +2025,7 @@ text-align: left;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* height: 350px; */
   height: 38px;
-  /* overflow: scroll; */
   position: relative;
 }
 .admin .imagenesWrap .imagenes .imagenesOpcionCarga{
@@ -2041,7 +2035,6 @@ text-align: left;
   background-color: var(--magenta);
   justify-content: center;
   align-items: center;
-  /* margin-bottom: 5px; */
   position: sticky;
   top: 0;
   z-index: 500;
@@ -2067,18 +2060,13 @@ text-align: left;
   border: 2px solid var(--black);
 }
 .admin .imagenLabel div{
-  /* height: 150px;
-  width: 250px; */
   height: 120px;
-  /* width: 165px; */
   width: 100%;
   /* background-image: url('/media/noticias/preloaded/01.jpeg'); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* margin: 5px; */
 }
-
 .admin .imagenLabel input{
   display: none;
 }
@@ -2104,7 +2092,6 @@ text-align: left;
 }
 .admin .imagenesWrap .imagenesOpcionCargaNueva input{
   margin-bottom: 0px;
-  /* width: 188%; */
   height: 30px;
 }
 .admin .imagenesWrap .imagenesOpcionCargaNueva .alert{
@@ -2151,16 +2138,11 @@ text-align: left;
 .admin .imagenesWrap .adminFormItem label{
   width: auto;
 }
-/* .adminFormItem.form_item.form_item_checkbox{
-  margin-bottom: 5px;
-} */
 .admin .imagenesWrap .info_calendar{
-  /* display: flex; */
   flex-wrap: wrap;
   width: 90%;
   margin: auto;
   padding-left: 54px;
-  /* background-color: #ffffff; */
   border: 2px solid var(--magenta);
   border-radius: 6px;
 }
@@ -2168,7 +2150,6 @@ text-align: left;
   margin-bottom: 0px;
 }
 .admin .input .adminFormItem_textarea label{
-  /* line-height: 0px; */
   width: 90%;
 }
 .admin .input .adminFormItem_textarea textarea{
@@ -2190,9 +2171,6 @@ text-align: left;
   border: 2px solid var(--magenta);
   text-align: center;
 }
-/* .admin .input .colorTipoTitular p, .admin .input .colorFondoTitular p, .admin .input .colorTipoSubtitular p, .admin .input .colorFondoSubtitular p, .admin .input .colorTipoResumen p, .admin .input .colorFondoResumen p{
-
-} */
 .admin .input .colorTipoTitular label, .admin .input .colorFondoTitular label, .admin .input .colorTipoSubtitular label, .admin .input .colorFondoSubtitular label, .admin .input .colorTipoResumen label, .admin .input .colorFondoResumen label{
   display: flex;
   justify-content: flex-end;
@@ -2213,14 +2191,9 @@ text-align: left;
   display: none;
 }
 .admin .input .colorTipoTitular label input:checked ~ div, .admin .input .colorFondoTitular label input:checked ~ div, .admin .input .colorTipoSubtitular label input:checked ~ div, .admin .input .colorFondoSubtitular label input:checked ~ div {
-  /* border: 2px solid var(--black); */
-  /* box-shadow: 0 0 3pt 2pt var(--black); */
-  /* border: 2px solid var(--magenta); */
   outline: 1px solid var(--black);
 }
 .admin .input .colorTipoResumen label input:checked ~ div, .admin .input .colorFondoResumen label input:checked ~ div {
-  /* border: 2px solid var(--black); */
-  /* box-shadow: 0 0 3pt 2pt var(--black); */
   outline: 1px solid var(--black);
 }
 /* fin colores */
@@ -2300,9 +2273,6 @@ padding-left: 10px;
   width: 100%;
   padding: 15px 0;
 }
-/* .admin .input .downloadCanvas.uploadNews button:hover{
-  cursor: pointer;
-} */
 
 
 .admin .output{
@@ -2317,7 +2287,6 @@ padding-left: 10px;
 .admin .output .wrap_iframe iframe {
   border: 3px solid var(--black);
   width: 320% !important;
-  /* height: -webkit-fill-available; */
   height: 188vh;
   -webkit-transform: scale(0.31);
   transform: scale(0.31);
@@ -2335,15 +2304,15 @@ padding-left: 10px;
   color: var(--orange);
   font-size: 15px;
 }
-.admin .output .allCanvas .container_canvas{
-  /* height: 74vh;
+/* .admin .output .allCanvas .container_canvas{
+  height: 74vh;
   overflow-y: scroll;
-  overflow-x: hidden; */
-}
-.admin .output .wrapCanvasFacebook {
-  /* width: 510px;
-  height: 510px; */
-}
+  overflow-x: hidden;
+} */
+/* .admin .output .wrapCanvasFacebook {
+  width: 510px;
+  height: 510px;
+} */
 #canvasFacebook{
   /* border: 3px solid var(--black); */
   border: 1px solid var(--black);
@@ -2352,9 +2321,131 @@ padding-left: 10px;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-
-
 /* ************ END GENERAR NOTICIA SECTION - MOBILE ************ */
+
+
+/* ************ ADMINISTRAR CAROUSEL SECTION - MOBILE ************ */
+.admin.carousel .carouselActual{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.admin.carousel .carouselActual .carouselItem{
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  margin: 2px;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  text-align: center;
+}
+.admin.carousel .carouselActual .carouselItem .carouselImagen{
+  width: 300px;
+  height: 150px;
+}
+.admin.carousel .carouselActual .carouselItem .carouselInfo a p{
+  color: var(--magenta);
+}
+.admin.carousel form .accion{
+  display: flex;
+  justify-content: center;
+}
+.admin.carousel form .accion .eliminar, .admin.carousel form .accion .agregar{
+  width: 45%;
+}
+.admin.carousel form .accion .eliminar .botonEliminar, .admin.carousel form .accion .agregar .botonAgregar{
+  background-color: crimson;
+  border-radius: 6px;
+  width: 95%;
+  text-align: center;
+  margin: 10px auto;
+}
+.admin.carousel form .accion .agregar .botonAgregar{
+  background-color: darkcyan;
+}
+.admin.carousel form .accion .eliminar .botonEliminar:hover, .admin.carousel form .accion .agregar .botonAgregar:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin.carousel form .accion .eliminar .botonEliminar p, .admin.carousel form .accion .agregar .botonAgregar p{
+  color: var(--grey);
+  margin-bottom: 0px;
+}
+.admin.carousel form .accion .eliminar .itemsEliminar, .admin.carousel form .accion .agregar .itemsAgregar{
+  height: 300px;
+  overflow: scroll;
+}
+.admin.carousel form .accion .eliminar .itemsEliminar .accionItem, .admin.carousel form .accion .agregar .itemsAgregar .accionItem {
+  width: 95%;
+  margin: 3px auto;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+.admin.carousel form .accion .eliminar .itemsEliminar .accionItem .accionInfo, .admin.carousel form .accion .agregar .itemsAgregar .accionItem .accionInfo{
+  padding: 5px;
+}
+.admin.carousel form .accion .eliminar .itemsEliminar .accionItem .accionInfo a p, .admin.carousel form .accion .agregar .itemsAgregar .accionItem .accionInfo a p{
+  color: var(--magenta);
+}
+.admin.carousel form .accion .eliminar .itemsEliminar .accionItem .input, .admin.carousel form .accion .agregar .itemsAgregar .accionItem .input{
+  background-color: var(--grey);
+  padding-top: 15px;
+}
+.admin.carousel form .accion .eliminar .itemsEliminar .accionItem .input label span{
+  border-color: crimson;
+}
+.admin.carousel form .accion .eliminar .itemsEliminar .accionItem .input label input:checked ~ span{
+  background-color: crimson;
+}
+.admin.carousel form .accion .agregar .itemsAgregar .accionItem .input label span{
+  border-color: darkcyan;
+}
+.admin.carousel form .accion .agregar .itemsAgregar .accionItem .input label input:checked ~ span{
+  background-color: darkcyan;
+}
+.admin.carousel form .accion .agregar .itemsAgregar .imagenesDisponibles{
+  width: 95%;
+  height: 315px;
+  overflow: hidden;
+  margin: 10px auto;
+  margin-top: -5px;
+  border: 2px solid var(--black);
+  border-top: none;
+  border-radius: 0px 0px 6px 6px;
+  text-align: center;
+}
+.admin.carousel form .accion .agregar .itemsAgregar .imagenesDisponibles .imagenesDisponiblesWrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.admin.carousel form .accion .agregar .itemsAgregar .imagenesDisponibles .imagenesDisponiblesWrap label{
+  width: 45%;
+  margin: 5px;
+}
+
+
+
+.admin.carousel form .buttonWrap{
+  background-color: var(--orange);
+  border-radius: 6px;
+  width: 95%;
+  text-align: center;
+  margin: 10px auto;
+}
+.admin.carousel form .buttonWrap:last-child{
+  background-color: var(--green);
+}
+.admin.carousel form .buttonWrap:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+
+/* ************ END ADMINISTRAR CAROUSEL SECTION - MOBILE ************ */
 
 
 /* ********************************************* */
