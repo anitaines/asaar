@@ -408,7 +408,7 @@ class ReleaseController extends Controller
      */
     public function carouselStore(Request $request)
     {
-        // dd($request);
+        dd($request); //MODIFICAR LOS CAMPOS, CAMBIARON LOS NUMBRES... bah modificar todo en realidad
         $rules = [
         'eliminarNoticiaCarousel' => ['nullable','array'],
         'eliminarNoticiaCarousel.*' => ['nullable','string', 'max:11'],
@@ -424,9 +424,15 @@ class ReleaseController extends Controller
         if ($request->eliminarNoticiaCarousel) {
           foreach ($request->eliminarNoticiaCarousel as $key => $value) {
             $noticia = Release::find($value);
+
+            $imagen = Carousel::where('name', $noticia->carousel)->first();
+            $imagen->available = true;
+            $imagen->save();
+
             $noticia->carousel = null;
 
             $noticia->save();
+
           }
         }
 
@@ -436,6 +442,10 @@ class ReleaseController extends Controller
             $noticia->carousel = $value;
 
             $noticia->save();
+
+            $imagen = Carousel::where('name', $value)->first();
+            $imagen->available = false;
+            $imagen->save();
           }
         }
 

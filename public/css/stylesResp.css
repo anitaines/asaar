@@ -2349,29 +2349,40 @@ padding-left: 10px;
 }
 .admin.carousel form .accion{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .admin.carousel form .accion .eliminar, .admin.carousel form .accion .agregar{
-  width: 45%;
+  /* width: 45%; */
+  width: 100%;
+  border: 2px solid crimson;
+  border-radius: 6px;
+}
+.admin.carousel form .accion .agregar{
+  border-color: darkcyan;
 }
 .admin.carousel form .accion .eliminar .botonEliminar, .admin.carousel form .accion .agregar .botonAgregar{
   background-color: crimson;
-  border-radius: 6px;
-  width: 95%;
+  /* border-radius: 6px; */
+  /* width: 95%; */
   text-align: center;
-  margin: 10px auto;
+  /* margin: 10px auto; */
 }
 .admin.carousel form .accion .agregar .botonAgregar{
   background-color: darkcyan;
 }
-.admin.carousel form .accion .eliminar .botonEliminar:hover, .admin.carousel form .accion .agregar .botonAgregar:hover{
+/* .admin.carousel form .accion .eliminar .botonEliminar:hover, .admin.carousel form .accion .agregar .botonAgregar:hover{
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
-}
+} */
 .admin.carousel form .accion .eliminar .botonEliminar p, .admin.carousel form .accion .agregar .botonAgregar p{
   color: var(--grey);
+  /* color: crimson; */
+  font-weight: bold;
   margin-bottom: 0px;
 }
+/* .admin.carousel form .accion .agregar .botonAgregar p{
+  color: darkcyan;
+} */
 .admin.carousel form .accion .eliminar .itemsEliminar, .admin.carousel form .accion .agregar .itemsAgregar{
   height: 300px;
   overflow: scroll;
@@ -2427,17 +2438,34 @@ padding-left: 10px;
   margin: 5px;
 }
 
-
-
 .admin.carousel form .buttonWrap{
-  background-color: var(--orange);
+  background-color: var(--green);
   border-radius: 6px;
-  width: 95%;
+  width: 65%;
   text-align: center;
+
   margin: 10px auto;
 }
-.admin.carousel form .buttonWrap:last-child{
+.admin.carousel form .buttonWrap button{
   background-color: var(--green);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--grey);
+  padding: 15px 0;
+}
+.admin.carousel form .buttonWrap:last-child{
+  background-color: var(--magenta);
+}
+.admin.carousel form .buttonWrap:last-child p{
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--grey);
+  padding: 15px 0;
+}
+.admin.carousel form .buttonWrap button:hover{
+  cursor: pointer;
 }
 .admin.carousel form .buttonWrap:hover{
   cursor: pointer;

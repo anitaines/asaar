@@ -24,6 +24,7 @@
     <div class="carouselActual">
       @foreach ($carouselActual as $key => $value)
         <div class="carouselItem">
+          <input type="hidden" name="" value="{{$value->carousel}}">
           <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$value->carousel}}');
             background-repeat: no-repeat;
             background-size: cover;
@@ -33,127 +34,145 @@
               <p>{{$value->title}}</p>
             </a>
             <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>
+            <label> Noticia nro.
+              <input type="text" name="" value="{{$value->id}}" disabled>
+            </label>
           </div>
         </div>
       @endforeach
     </div>
 
+    {{-- <div class="imagenesDisponiblesRef" style="display: block;">
+        @foreach ($carouselImagenes as $key => $value)
+          @if ($value->available == true)
+            <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$value->name}}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; height: 100px;">
+              <input type="text" name="" value="{{$value->name}}">
+            </div>
+          @else
+            <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$value->name}}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; height: 100px; display: none;">
+              <input type="text" name="" value="{{$value->name}}">
+            </div>
+          @endif
+        @endforeach
+    </div> --}}
+
 
     <form class="" action="/administrar-carousel" method="post" autocomplete="off">
       @csrf
-      <div class="accion">
+      <div class="accion"> {{-- queda solo por css --}}
 
-        <div class="eliminar">
 
-          <div class="botonEliminar">
-            <a>
-              <p>Eliminar noticias</p>
-              <p>del carrusel</p>
-            </a>
-          </div>
+{{-- arranco de nuevo: --}}
+      <div class="agregar">
 
-          <div class="itemsEliminar">
-            @foreach ($noticiasAll as $key => $value)
-              @if ($value->carousel != null)
-              <div class="accionItem">
-                <div class="accionInfo">
-                  <a href="/noticias/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
-                    <p>{{$value->title}}</p>
-                  </a>
-                  <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>
-                </div>
-                <div class="input">
-                  <label class="checkbox-label"> Eliminar
-                    <input type="checkbox" name="eliminarNoticiaCarousel[]" value="{{$value->id}}">
-                    <span class="checkbox-custom">✓</span>
-                  </label>
-                </div>
-              </div>
-              @endif
-            @endforeach
-          </div>
+        <div class="botonAgregar">
+          <a>
+            <p>Modificar noticias</p>
+            <p>en el carrusel</p>
+          </a>
         </div>
 
-        <div class="agregar">
+        <div class="itemsAgregar noticias">
+          @foreach ($noticiasAll as $key => $value)
 
-          <div class="botonAgregar">
-            <a>
-              <p>Agregar noticias</p>
-              <p>al carrusel</p>
-            </a>
-          </div>
-
-          <div class="imagenesDisponibles" style="display: none;">
-            <p>Elegir imagen para carousel:</p>
-            <div class="imagenesDisponiblesWrap">
-              @foreach ($carouselImagenes as $keyImagen => $valueImagen)
-                <label> Elegir
-                  <input type="radio" name="agregarNoticiaCarousel[{{$value->id}}]" value="{{$valueImagen->name}}">
-                  <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$valueImagen->name}}');
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                  background-position: center; height: 100px;"></div>
+            <div class="accionItem noticiasItem">
+              <input type="hidden" name="" value="{{$value->carousel}}">
+              <div class="itemId">
+                <label> Noticia nro.
+                  <input type="text" name="" value="{{$value->id}}" disabled>
                 </label>
-              @endforeach
-            </div>
-          </div>
-
-          <div class="itemsAgregar">
-            @foreach ($noticiasAll as $key => $value)
-              @if ($value->carousel == null && $value->id > 0 && $value->id < 5 )
-              <div class="accionItem">
-                <div class="accionInfo">
-                  <a href="/noticias/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
-                    <p>{{$value->title}}</p>
-                  </a>
-                  <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>
-                </div>
-                <div class="input">
+              </div>
+              <div class="accionInfo">
+                <a href="/noticias/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
+                  <p>{{$value->title}}</p>
+                </a>
+                <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>
+              </div>
+              <div class="input">
+                @if ($value->carousel == null)
                   <label class="checkbox-label"> Agregar
-                    {{-- <input type="checkbox" name="agregarNoticiaCarousel[]" value="{{$value->id}}"> --}}
                     <input type="checkbox" name="" value="">
                     <span class="checkbox-custom">✓</span>
                   </label>
-                </div>
+                @else
+                  <label class="checkbox-label" style="opacity:0;"> Agregar
+                    <input type="checkbox" name="" value="" disabled>
+                    <span class="checkbox-custom">✓</span>
+                  </label>
+                @endif
+
+                @if ($value->carousel != null)
+                  <label class="checkbox-label"> Eliminar
+                    <input type="checkbox" name="modificarNoticiaCarousel[{{$value->id}}]" value="null">
+                    <span class="checkbox-custom">✓</span>
+                  </label>
+                @else
+                  <label class="checkbox-label" style="opacity:0;"> Eliminar
+                    <input type="checkbox" name="modificarNoticiaCarousel[{{$value->id}}]" value="null" disabled>
+                    <span class="checkbox-custom">✓</span>
+                  </label>
+                @endif
+
+                @if ($value->carousel != null)
+                  <label class="checkbox-label"> Modificar imagen
+                    <input type="checkbox" name="" value="">
+                    <span class="checkbox-custom">✓</span>
+                  </label>
+                @else
+                  <label class="checkbox-label" style="opacity:0;"> Modificar imagen
+                    <input type="checkbox" name="" value="" disabled>
+                    <span class="checkbox-custom">✓</span>
+                  </label>
+                @endif
               </div>
-              {{-- <div class="imagenesDisponibles">
-                <p>Elegir imagen para carousel:</p>
-                <div class="imagenesDisponiblesWrap">
-                  @foreach ($carouselImagenes as $keyImagen => $valueImagen)
-                    <label> Elegir
-                      <input type="radio" name="agregarNoticiaCarousel[{{$value->id}}]" value="{{$valueImagen->name}}">
-                      <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$valueImagen->name}}');
-                      background-repeat: no-repeat;
-                      background-size: cover;
-                      background-position: center; height: 100px;"></div>
-                    </label>
-                  @endforeach
-                </div>
-              </div> --}}
-            @endif
+            </div>
+            {{-- adentro del foreach noticia, afuera del item noticia --}}
+            <div class="imagenesDisponibles" style="display: none;">
+              <p>Elegir imagen para carousel:</p>
+              <div class="imagenesDisponiblesWrap">
+                @foreach ($carouselImagenes as $keyImagen => $valueImagen)
+                  <label style="display:none;"> Elegir
+                    <input type="radio" name="modificarNoticiaCarousel[{{$value->id}}]" value="{{$valueImagen->name}}">
+                    <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$valueImagen->name}}');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center; height: 100px;"></div>
+                  </label>
+                @endforeach
+              </div>
+            </div>
+
           @endforeach
-
-          </div>
-
         </div>
-
       </div>
 
+</div> {{-- fin div accion --}}
+
+      <div class="buttonWrap">
+        <button class="save"  type="submit">
+          Guardar cambios
+          {{-- <p>Guardar cambios</p> --}}
+          {{-- <p>Procesando</p> --}}
+        </button>
+      </div>
       <div class="buttonWrap">
         <a class="reset"  href="/index">
           <p>Cancelar</p>
         </a>
       </div>
-      <div class="buttonWrap">
-        <button class="save"  type="submit">
-          <p>Guardar cambios</p>
-          {{-- <p>Procesando</p> --}}
-        </button>
-      </div>
+
       </form>
 
-
   </main>
+
+  <!-- Scripts -->
+  <script src="{{ asset('js/administrar-carousel.js') }}"></script>
 
 
   @endsection
