@@ -23,7 +23,7 @@
 
     <div class="carouselActual">
       @foreach ($carouselActual as $key => $value)
-        <div class="carouselItem">
+        <div class="carouselItem inCarousel">
           <input type="hidden" name="" value="{{$value->carousel}}">
           <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$value->carousel}}');
             background-repeat: no-repeat;
@@ -42,25 +42,11 @@
       @endforeach
     </div>
 
-    {{-- <div class="imagenesDisponiblesRef" style="display: block;">
+    <div class="imagenesAll" style="display: none;">
         @foreach ($carouselImagenes as $key => $value)
-          @if ($value->available == true)
-            <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$value->name}}');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center; height: 100px;">
-              <input type="text" name="" value="{{$value->name}}">
-            </div>
-          @else
-            <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$value->name}}');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center; height: 100px; display: none;">
-              <input type="text" name="" value="{{$value->name}}">
-            </div>
-          @endif
+          <input type="hidden" name="" value="{{$value->name}}" disabled>
         @endforeach
-    </div> --}}
+    </div>
 
 
     <form class="" action="/administrar-carousel" method="post" autocomplete="off">
@@ -137,7 +123,7 @@
               <p>Elegir imagen para carousel:</p>
               <div class="imagenesDisponiblesWrap">
                 @foreach ($carouselImagenes as $keyImagen => $valueImagen)
-                  <label style="display:none;"> Elegir
+                  <label> Elegir
                     <input type="radio" name="modificarNoticiaCarousel[{{$value->id}}]" value="{{$valueImagen->name}}">
                     <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$valueImagen->name}}');
                     background-repeat: no-repeat;

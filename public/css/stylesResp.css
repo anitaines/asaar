@@ -2384,7 +2384,8 @@ padding-left: 10px;
   color: darkcyan;
 } */
 .admin.carousel form .accion .eliminar .itemsEliminar, .admin.carousel form .accion .agregar .itemsAgregar{
-  height: 300px;
+  /* height: 300px; */
+  height: 670px;
   overflow: scroll;
 }
 .admin.carousel form .accion .eliminar .itemsEliminar .accionItem, .admin.carousel form .accion .agregar .itemsAgregar .accionItem {
