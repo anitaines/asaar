@@ -38,6 +38,18 @@ window.onload = function(){
         }
 
       } else {
+
+        // for (var i = 0; i < carouselActualItems.length; i++){
+        //   if (carouselActualItems[i].firstElementChild.value == this.firstElementChild.value && carouselActualItems[i].lastElementChild.lastElementChild.firstElementChild.value != this.lastElementChild.lastElementChild.firstElementChild.value){
+        //     la imagen está ocupada
+        //     avisar
+        //     tildar modificar, onchange modificar
+        //     resolver qué imagen muestra en el carousel mientras tanto
+        //   } else {
+        //     el código que ya está hecho, pasarlo acá adentro
+        //   }
+        // }
+
         // dejar noticia en el preview carousel:
         for (var i = 0; i < carouselActualItems.length; i++){
           if (carouselActualItems[i].lastElementChild.lastElementChild.firstElementChild.value == this.parentElement.parentElement.previousElementSibling.previousElementSibling.firstElementChild.firstElementChild.value) {
@@ -67,7 +79,8 @@ window.onload = function(){
       if (this.checked == true){
 
         // 1a. mostrar caja con opciones de imagen:
-        this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "block";
+        // this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "block";
+        this.parentElement.parentElement.parentElement.nextElementSibling.style.opacity = "1";
         this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
 
@@ -92,9 +105,9 @@ window.onload = function(){
               }
             }
 
-            // 4. Incluir noticia en preview carousel
+            // 4. Generar nuevo item carousel
             let newCarouselItem = `
-                <div class="carouselItem inCarousel">
+                <div class="carouselItem inCarousel" id="newInsert">
                   <input type="hidden" name="" value="${this.firstElementChild.value}">
                   <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/${this.firstElementChild.value}');
                     background-repeat: no-repeat;
@@ -104,7 +117,7 @@ window.onload = function(){
                     <a href="${noticia.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.href}" target="_blank" rel="noreferrer">
                       <p>${noticia.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.innerHTML}</p>
                     </a>
-                    <p>Fecha de publicación: ${noticia.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.innerHTML}</p>
+                    <p style="display:none;">Fecha de publicación: ${noticia.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.innerHTML}</p>
                     <label> Noticia nro.
                       <input type="text" name="" value="${noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value}" disabled>
                     </label>
@@ -113,30 +126,31 @@ window.onload = function(){
                     `;
             // document.querySelector(".carouselActual").innerHTML += newCarouselItem;
 
-            // let carouselUltimaVersion2 = document.getElementsByClassName("inCarousel");
-console.log(carouselUltimaVersion);
+// console.log(carouselUltimaVersion);
 
+
+            // 5. Incluir noticia en preview carousel ordenada por nro. id
             for (let i = 0; i < carouselUltimaVersion.length; i++) {
-console.log(carouselUltimaVersion);
+// console.log(carouselUltimaVersion);
+// console.log("length " + carouselUltimaVersion.length);
+// console.log("i: " + i);
               let idCarousel = Number( carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value);
-console.log(typeof idCarousel + idCarousel);
+// console.log(typeof idCarousel + idCarousel);
               let idNoticia = Number(noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value);
-console.log(typeof idNoticia + idNoticia);
+// console.log(typeof idNoticia + idNoticia);
 
               if (idCarousel < idNoticia){
-                console.log("no rompe");
-                // carouselUltimaVersion[i].insertAdjacentElement("beforebegin", newCarouselItem);
-                //   // break;
-              } else {
-                // document.querySelector(".carouselActual").innerHTML += newCarouselItem;
-                console.log("else");
+                document.querySelector(".carouselActual").innerHTML += newCarouselItem;
+                let newInsert = document.getElementById("newInsert");
+                newInsert.removeAttribute("id");
+                carouselUltimaVersion[i].insertAdjacentElement("beforebegin", newInsert);
+                break;
               }
             }
+// console.log(carouselUltimaVersion);
 
-            // elemetoRef.insertAdjacentElement("beforebegin", elementoInserto);
-            // node.insertAdjacentElement(position, element)
 
-            //actualizar disponibilidad de imágenes
+            //6. actualizar disponibilidad de imágenes
             let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
 
             for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
@@ -170,7 +184,8 @@ console.log(typeof idNoticia + idNoticia);
         }
 
         // 4. Deshabilitar opciones de imagen:
-        this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "none";
+        // this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "none";
+        this.parentElement.parentElement.parentElement.nextElementSibling.style.opacity = "0";
         this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
       }
@@ -192,7 +207,8 @@ console.log(typeof idNoticia + idNoticia);
         }
 
         // 1a. mostrar caja con opciones de imagen:
-        this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "block";
+        // this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "block";
+        this.parentElement.parentElement.parentElement.nextElementSibling.style.opacity = "1";
         this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
         // 1b. setear imagenes disponibles y no disponibles:
@@ -256,7 +272,8 @@ console.log(typeof idNoticia + idNoticia);
         }
 
         // 4. Deshabilitar opciones de imagen:
-        this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "none";
+        // this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "none";
+        this.parentElement.parentElement.parentElement.nextElementSibling.style.opacity = "0";
         this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
       }

@@ -2325,126 +2325,166 @@ padding-left: 10px;
 
 
 /* ************ ADMINISTRAR CAROUSEL SECTION - MOBILE ************ */
+.admin.carousel h4{
+  margin-bottom: 10px;
+}
 .admin.carousel .carouselActual{
   width: 90%;
-  margin: 0 auto;
+  margin: 10px auto;
   display: flex;
   justify-content: center;
 }
 .admin.carousel .carouselActual .carouselItem{
   display: flex;
   flex-wrap: wrap;
-  width: 300px;
+  /* width: 300px; */
+  width: 190px;
   margin: 2px;
   border: 2px solid var(--black);
   border-radius: 6px;
   text-align: center;
 }
 .admin.carousel .carouselActual .carouselItem .carouselImagen{
-  width: 300px;
-  height: 150px;
+  /* width: 300px; */
+  /* height: 150px; */
+  width: 190px;
+  height: 100px;
+}
+.admin.carousel .carouselActual .carouselItem .carouselInfo{
+  margin: auto;
 }
 .admin.carousel .carouselActual .carouselItem .carouselInfo a p{
   color: var(--magenta);
 }
-.admin.carousel form .accion{
-  display: flex;
-  justify-content: space-evenly;
+.admin.carousel .carouselActual .carouselItem .carouselInfo label input{
+  width: 40px;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--magenta);
 }
-.admin.carousel form .accion .eliminar, .admin.carousel form .accion .agregar{
-  /* width: 45%; */
+.admin.carousel form{
+  /* display: flex;
+  justify-content: space-evenly; */
+  position: relative;
+}
+.admin.carousel form .noticiasWrap{
   width: 100%;
-  border: 2px solid crimson;
+  border: 2px solid var(--blue);
   border-radius: 6px;
 }
-.admin.carousel form .accion .agregar{
-  border-color: darkcyan;
-}
-.admin.carousel form .accion .eliminar .botonEliminar, .admin.carousel form .accion .agregar .botonAgregar{
-  background-color: crimson;
+.admin.carousel form .noticiasWrap .noticiasHead{
+  /* background-color: var(--orange); */
   /* border-radius: 6px; */
   /* width: 95%; */
   text-align: center;
   /* margin: 10px auto; */
 }
-.admin.carousel form .accion .agregar .botonAgregar{
-  background-color: darkcyan;
-}
-/* .admin.carousel form .accion .eliminar .botonEliminar:hover, .admin.carousel form .accion .agregar .botonAgregar:hover{
-  cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
-} */
-.admin.carousel form .accion .eliminar .botonEliminar p, .admin.carousel form .accion .agregar .botonAgregar p{
-  color: var(--grey);
-  /* color: crimson; */
-  font-weight: bold;
+.admin.carousel form .noticiasWrap .noticiasHead p{
+  color: var(--blue);
+  font-size: 18px;
   margin-bottom: 0px;
 }
-/* .admin.carousel form .accion .agregar .botonAgregar p{
-  color: darkcyan;
-} */
-.admin.carousel form .accion .eliminar .itemsEliminar, .admin.carousel form .accion .agregar .itemsAgregar{
+.admin.carousel form .noticiasWrap .noticias{
   /* height: 300px; */
-  height: 670px;
+  /* height: 670px; */
+  height: 39vh;
   overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 15px;
 }
-.admin.carousel form .accion .eliminar .itemsEliminar .accionItem, .admin.carousel form .accion .agregar .itemsAgregar .accionItem {
-  width: 95%;
+.admin.carousel form .noticiasWrap .noticias .noticiasItem {
+  /* width: 95%; */
+  width: 60%;
   margin: 3px auto;
   border: 2px solid var(--black);
   border-radius: 6px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.admin.carousel form .accion .eliminar .itemsEliminar .accionItem .accionInfo, .admin.carousel form .accion .agregar .itemsAgregar .accionItem .accionInfo{
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .itemId{
+  width: 20%;
+  text-align: center;
   padding: 5px;
 }
-.admin.carousel form .accion .eliminar .itemsEliminar .accionItem .accionInfo a p, .admin.carousel form .accion .agregar .itemsAgregar .accionItem .accionInfo a p{
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .itemId input{
+  width: 40px;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
   color: var(--magenta);
 }
-.admin.carousel form .accion .eliminar .itemsEliminar .accionItem .input, .admin.carousel form .accion .agregar .itemsAgregar .accionItem .input{
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .noticiasInfo{
+  width: 80%;
+  padding: 5px;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .noticiasInfo a p{
+  color: var(--magenta);
+  margin-bottom: 5px;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .inputs{
+  width: 100%;
   background-color: var(--grey);
-  padding-top: 15px;
-}
-.admin.carousel form .accion .eliminar .itemsEliminar .accionItem .input label span{
-  border-color: crimson;
-}
-.admin.carousel form .accion .eliminar .itemsEliminar .accionItem .input label input:checked ~ span{
-  background-color: crimson;
-}
-.admin.carousel form .accion .agregar .itemsAgregar .accionItem .input label span{
-  border-color: darkcyan;
-}
-.admin.carousel form .accion .agregar .itemsAgregar .accionItem .input label input:checked ~ span{
-  background-color: darkcyan;
-}
-.admin.carousel form .accion .agregar .itemsAgregar .imagenesDisponibles{
-  width: 95%;
-  height: 315px;
-  overflow: hidden;
-  margin: 10px auto;
-  margin-top: -5px;
-  border: 2px solid var(--black);
-  border-top: none;
-  border-radius: 0px 0px 6px 6px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   text-align: center;
 }
-.admin.carousel form .accion .agregar .itemsAgregar .imagenesDisponibles .imagenesDisponiblesWrap{
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .inputs label span{
+  border-color: darkcyan;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .inputs label input:checked ~ span{
+  background-color: darkcyan;
+}
+.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles{
+  /* width: 95%; */
+  width: 40%;
+  /* height: 315px; */
+  height: 114px;
+  /* overflow: hidden; */
+  overflow: scroll;
+  margin: 10px auto;
+  /* margin-top: -5px; */
+  border: 2px solid var(--black);
+  border-left: none;
+  border-radius: 0px 6px 6px 0px;
+  text-align: center;
+}
+.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles p{
+  margin: 5px auto;
+}
+.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles .imagenesDisponiblesWrap{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.admin.carousel form .accion .agregar .itemsAgregar .imagenesDisponibles .imagenesDisponiblesWrap label{
+.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles .imagenesDisponiblesWrap label{
   width: 45%;
   margin: 5px;
 }
-
+.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles .imagenesDisponiblesWrap label input{
+  display: none;
+}
+.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles .imagenesDisponiblesWrap label input:checked ~ .carouselImagen{
+  border: 2px solid var(--black);
+}
+.admin.carousel form .buttons{
+  /* position: fixed;
+  z-index: 900;
+  bottom: 0;
+  right: 60px;
+  width: 25%;
+  background-color: #ffffff;
+  border-radius: 6px 0px 0px 0px; */
+  display: flex;
+  flex-direction: row-reverse;
+}
 .admin.carousel form .buttonWrap{
   background-color: var(--green);
   border-radius: 6px;
-  width: 65%;
+  width: 49%;
   text-align: center;
-
   margin: 10px auto;
 }
 .admin.carousel form .buttonWrap button{
@@ -2452,7 +2492,8 @@ padding-left: 10px;
   border: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  line-height: 20px;
+  /* line-height: 20px; */
+  line-height: 6px;
   color: var(--grey);
   padding: 15px 0;
 }
@@ -2461,9 +2502,10 @@ padding-left: 10px;
 }
 .admin.carousel form .buttonWrap:last-child p{
   font-size: 16px;
-  line-height: 20px;
+  line-height: 6px;
   color: var(--grey);
   padding: 15px 0;
+  margin-bottom: 0px;
 }
 .admin.carousel form .buttonWrap button:hover{
   cursor: pointer;

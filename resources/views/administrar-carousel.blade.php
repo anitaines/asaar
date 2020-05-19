@@ -13,7 +13,7 @@
   <main class="admin carousel">
     {{-- @dd($errors) --}}
 
-    <h4>Noticias actualmente en el carrusel de inicio:</h4>
+    <h4>Noticias actualmente en el carrusel de inicio: {{count($carouselActual)}}</h4>
 
     @if (count($carouselActual) > 3)
       <p>El carrusel tiene más de 3 noticias, por favor considerar reducir la cantidad.</p>
@@ -33,13 +33,26 @@
             <a href="/noticias/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
               <p>{{$value->title}}</p>
             </a>
-            <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>
+            <p style="display:none;">Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>
             <label> Noticia nro.
               <input type="text" name="" value="{{$value->id}}" disabled>
             </label>
           </div>
         </div>
       @endforeach
+      <div class="carouselItem inCarousel" style="display: none;">
+        <input type="hidden" name="" value="">
+        <div class="carouselImagen"></div>
+        <div class="carouselInfo">
+          <a href="" target="_blank" rel="noreferrer">
+            <p></p>
+          </a>
+          <p>Fecha de publicación:</p>
+          <label> Noticia nro.
+            <input type="text" name="" value="0" disabled>
+          </label>
+        </div>
+      </div>
     </div>
 
     {{-- <div class="imagenesAll" style="display: none;">
@@ -51,36 +64,33 @@
 
     <form class="" action="/administrar-carousel" method="post" autocomplete="off">
       @csrf
-      <div class="accion"> {{-- queda solo por css --}}
 
+      <div class="noticiasWrap">
 
-{{-- arranco de nuevo: --}}
-      <div class="agregar">
-
-        <div class="botonAgregar">
+        <div class="noticiasHead">
           <a>
-            <p>Modificar noticias</p>
-            <p>en el carrusel</p>
+            <p>Listado de noticias:</p>
+            {{-- <p></p> --}}
           </a>
         </div>
 
-        <div class="itemsAgregar noticias">
+        <div class="noticias">
           @foreach ($noticiasAll as $key => $value)
 
-            <div class="accionItem noticiasItem">
+            <div class="noticiasItem">
               <input type="hidden" name="" value="{{$value->carousel}}">
               <div class="itemId">
                 <label> Noticia nro.
                   <input type="text" name="" value="{{$value->id}}" disabled>
                 </label>
               </div>
-              <div class="accionInfo">
+              <div class="noticiasInfo">
                 <a href="/noticias/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
                   <p>{{$value->title}}</p>
                 </a>
                 <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>
               </div>
-              <div class="input">
+              <div class="inputs">
                 @if ($value->carousel == null)
                   <label class="checkbox-label"> Agregar
                     <input type="checkbox" name="" value="">
@@ -120,16 +130,17 @@
             </div>
             {{-- adentro del foreach noticia, afuera del item noticia --}}
 
-            <div class="imagenesDisponibles" style="display: none;">
+            {{-- <div class="imagenesDisponibles" style="display: none;"> --}}
+            <div class="imagenesDisponibles" style="opacity: 0;">
               <p>Elegir imagen para carousel:</p>
               <div class="imagenesDisponiblesWrap">
                 @foreach ($carouselImagenes as $keyImagen => $valueImagen)
-                  <label> Elegir
-                    @if ($value->carousel == $valueImagen->name)
+                  <label>
+                    {{-- @if ($value->carousel == $valueImagen->name)
                       <input type="radio" name="modificarNoticiaCarousel[{{$value->id}}]" value="{{$valueImagen->name}}" checked>
-                    @else
+                    @else --}}
                       <input type="radio" name="modificarNoticiaCarousel[{{$value->id}}]" value="{{$valueImagen->name}}">
-                    @endif
+                    {{-- @endif --}}
                     <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$valueImagen->name}}');
                     background-repeat: no-repeat;
                     background-size: cover;
@@ -142,8 +153,8 @@
           @endforeach
         </div>
       </div>
+<div class="buttons">
 
-</div> {{-- fin div accion --}}
 
       <div class="buttonWrap">
         <button class="save"  type="submit">
@@ -157,7 +168,7 @@
           <p>Cancelar</p>
         </a>
       </div>
-
+</div>
       </form>
 
   </main>
