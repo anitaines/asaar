@@ -21,33 +21,20 @@ window.onload = function(){
           inputModificar.onchange();
         }
 
-        // sacar noticia del preview carousel:
+        // sacar noticia del preview carousel: PORQUE NONE y no REMOVE??
         for (var i = 0; i < carouselActualItems.length; i++){
           if (carouselActualItems[i].lastElementChild.lastElementChild.firstElementChild.value == this.parentElement.parentElement.previousElementSibling.previousElementSibling.firstElementChild.firstElementChild.value) {
             carouselActualItems[i].style.display = "none";
             carouselActualItems[i].classList.toggle("inCarousel");
 
-
-            // poner su imagen disponible en los "Agregar" activos:
-            let nuevaImagenDisponible = carouselActualItems[i].firstElementChild.value;
-
-            let imagenesDisponiblesOn = document.getElementsByClassName("imagenesDisponiblesOn");
-
-            for (var i = 0; i < imagenesDisponiblesOn.length; i++) {
-
-            let imagenes = imagenesDisponiblesOn[i].children;
-
-              for (var i = 0; i < imagenes.length; i++) {
-
-                if (imagenes[i].firstElementChild.value == nuevaImagenDisponible){
-                  imagenes[i].style.filter = "none";
-                  // imagenes[i].firstElementChild.setAttribute("disabled", false);
-                  imagenes[i].firstElementChild.removeAttribute("disabled");
-                }
-              }
-            }
-
           }
+        }
+
+        // poner su imagen disponible en los "Agregar" activos:
+        let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
+
+        for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
+          imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
         }
 
       } else {
@@ -57,30 +44,20 @@ window.onload = function(){
             carouselActualItems[i].style.display = "flex";
             carouselActualItems[i].classList.toggle("inCarousel");
 
-            // su imagen no está más disponible en los "Agregar" activos:
-            let nuevaImagenDisponible = carouselActualItems[i].firstElementChild.value;
-
-            let imagenesDisponiblesOn = document.getElementsByClassName("imagenesDisponiblesOn");
-
-            for (var i = 0; i < imagenesDisponiblesOn.length; i++) {
-
-            let imagenes = imagenesDisponiblesOn[i].children;
-
-              for (var i = 0; i < imagenes.length; i++) {
-
-                if (imagenes[i].firstElementChild.value == nuevaImagenDisponible){
-                  imagenes[i].style.filter = "grayscale(100%)";
-                  imagenes[i].firstElementChild.setAttribute("disabled", "");
-                }
-              }
-            }
-
           }
+        }
+
+        // su imagen no está más disponible en los "Agregar" activos:
+        let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
+
+        for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
+          imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
         }
 
       }
 
     }
+
 
     // AGREGAR:
     let inputAgregar = noticias[i].lastElementChild.firstElementChild.firstElementChild;
@@ -89,24 +66,20 @@ window.onload = function(){
 
       if (this.checked == true){
 
-        // 1. habilitar opciones de imagen:
+        // 1a. mostrar caja con opciones de imagen:
         this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "block";
         this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
+
+        // 1b. setear imagenes disponibles y no disponibles:
+        imagenesDisponiblesAhora (this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild);
+
+
+        // 2. Seleccionar imagen
         let imagenesOpciones = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.children;
 
-        let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
-
         for (var i = 0; i < imagenesOpciones.length; i++) {
-          for (var ii = 0; ii < carouselUltimaVersion.length; ii++) {
 
-            if(imagenesOpciones[i].firstElementChild.value == carouselUltimaVersion[ii].firstElementChild.value){
-              imagenesOpciones[i].style.filter = "grayscale(100%)";
-              imagenesOpciones[i].firstElementChild.setAttribute("disabled", "");
-            }
-          }
-
-          // 2. Seleccionar imagen
           imagenesOpciones[i].oninput = function(){
 
             // 3. Chequear si ya agregué esta noticia (si ya la había creado, la elimina)
@@ -138,25 +111,37 @@ window.onload = function(){
                   </div>
                 </div>
                     `;
-            document.querySelector(".carouselActual").innerHTML += newCarouselItem;
+            // document.querySelector(".carouselActual").innerHTML += newCarouselItem;
 
-            // imagen deja de estar disponible:
-            let imagenesDisponiblesOn = document.getElementsByClassName("imagenesDisponiblesOn");
-            for (var i = 0; i < imagenesDisponiblesOn.length; i++) {
+            // let carouselUltimaVersion2 = document.getElementsByClassName("inCarousel");
+console.log(carouselUltimaVersion);
 
-            let imagenes = imagenesDisponiblesOn[i].children;
+            for (let i = 0; i < carouselUltimaVersion.length; i++) {
+console.log(carouselUltimaVersion);
+              let idCarousel = Number( carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value);
+console.log(typeof idCarousel + idCarousel);
+              let idNoticia = Number(noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value);
+console.log(typeof idNoticia + idNoticia);
 
-              for (var i = 0; i < imagenes.length; i++) {
-
-                if (imagenes[i].firstElementChild.value == this.firstElementChild.value){
-                  imagenes[i].style.filter = "grayscale(100%)";
-                  imagenes[i].firstElementChild.setAttribute("disabled", "");
-                }
+              if (idCarousel < idNoticia){
+                console.log("no rompe");
+                // carouselUltimaVersion[i].insertAdjacentElement("beforebegin", newCarouselItem);
+                //   // break;
+              } else {
+                // document.querySelector(".carouselActual").innerHTML += newCarouselItem;
+                console.log("else");
               }
             }
 
+            // elemetoRef.insertAdjacentElement("beforebegin", elementoInserto);
+            // node.insertAdjacentElement(position, element)
 
+            //actualizar disponibilidad de imágenes
+            let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
 
+            for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
+              imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
+            }
 
           }
         }
@@ -177,32 +162,21 @@ window.onload = function(){
           imagenesOpciones[i].firstElementChild.checked = false;
         }
 
+        // 3. imagen pasa a estar disponible:
+        let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
 
-        // imagen pasa a estar disponible:
-        // let imagenesDisponiblesOn = document.getElementsByClassName("imagenesDisponiblesOn");
-        // for (var i = 0; i < imagenesDisponiblesOn.length; i++) {
-        //
-        // let imagenes = imagenesDisponiblesOn[i].children;
-        //
-        //   for (var i = 0; i < imagenes.length; i++) {
-        //
-        //     if (imagenes[i].firstElementChild.value == this.firstElementChild.value){
-        //       imagenes[i].style.filter = "none";
-        //       imagenes[i].firstElementChild.removeAttribute("disabled");
-        //     }
-        //   }
-        // }
+        for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
+          imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
+        }
 
-
-
-
-        // 3. Deshabilitar opciones de imagen:
+        // 4. Deshabilitar opciones de imagen:
         this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "none";
         this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
       }
 
     }
+
 
     // MODIFICAR IMAGEN:
     let inputModificar = noticias[i].lastElementChild.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild;
@@ -217,23 +191,18 @@ window.onload = function(){
           inputEliminar.onchange();
         }
 
-        // 1. habilitar opciones de imagen:
+        // 1a. mostrar caja con opciones de imagen:
         this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "block";
+        this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
+        // 1b. setear imagenes disponibles y no disponibles:
+        imagenesDisponiblesAhora (this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild);
+
+        // 2. Seleccionar imagen
         let imagenesOpciones = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.children;
 
-        let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
-
         for (var i = 0; i < imagenesOpciones.length; i++) {
-          for (var ii = 0; ii < carouselUltimaVersion.length; ii++) {
 
-            if(imagenesOpciones[i].firstElementChild.value == carouselUltimaVersion[ii].firstElementChild.value){
-              imagenesOpciones[i].style.filter = "grayscale(100%)";
-              imagenesOpciones[i].firstElementChild.setAttribute("disabled", "");
-            }
-          }
-
-          // 2. Seleccionar imagen
           imagenesOpciones[i].oninput = function(){
 
             // 3. Modificar imagen en preview carousel
@@ -246,6 +215,13 @@ window.onload = function(){
                 carouselUltimaVersion[i].firstElementChild.nextElementSibling.style.backgroundImage = "url('/media/noticias/carousel/" + this.firstElementChild.value + "')";
 
               }
+            }
+
+            // 4. Imagen nueva deja de estar disponible y la vieja pasa a estar disponible
+            let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
+
+            for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
+              imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
             }
 
           }
@@ -272,69 +248,55 @@ window.onload = function(){
           imagenesOpciones[i].firstElementChild.checked = false;
         }
 
-        // 3. Deshabilitar opciones de imagen:
+        // 3. Imagen pasa a estar disponible:
+        let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
+
+        for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
+          imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
+        }
+
+        // 4. Deshabilitar opciones de imagen:
         this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "none";
+        this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
       }
 
     }
 
-
-
   } // cierre for cada noticia
 
 
-  // caja activa = imagenesDisponiblesWrap  imagenesDisponiblesOn
 
-  // let imagenesDisponiblesOnZ = document.getElementsByClassName("imagenesDisponiblesOn");
-  // imagenesDisponiblesAhora (imagenesDisponiblesOnZ)
+  // let imagenesDisponiblesOn = document.querySelector(".imagenesDisponiblesOn");
+  //
+  // imagenesDisponiblesAhora (imagenesDisponiblesOn);
+
+  // caja activa = imagenesDisponiblesWrap  imagenesDisponiblesOn
 
   function imagenesDisponiblesAhora (cajaActiva){
 
     let carouselAhora = document.getElementsByClassName("inCarousel");
 
-    let imagenesAll = document.querySelector(".imagenesAll").children;
+    for (var i = 0; i < cajaActiva.children.length; i++) {
 
-    this.innerHTML = "";
+      let input = cajaActiva.children[i].firstElementChild;
 
-    for (var i = 0; i < carouselAhora.length; i++) {
-      let imagenCarousel = carouselAhora[i];
-      for (var i = 0; i < imagenesAll.length; i++) {
+      input.removeAttribute("disabled");
+      input.nextElementSibling.style.filter = "none";
 
-    // for (var i = 0; i < imagenesAll.length; i++) {
-    //   let imagen = imagenesAll[i];
-    //   for (var i = 0; i < carouselAhora.length; i++) {
-        if (imagenCarousel.firstElementChild.value == imagenesAll[i].value){
-          let labelAhora = `
-          <label> Elegir
-            <input type="radio" name="modificarNoticiaCarousel[${cajaActiva.parentElement.previousElementSibling.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value}]" value="${imagenesAll[i].value} disabled">
-            <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/${imagenesAll[i].value}');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            height: 100px;
-            filter: grayscale(100%);"></div>
-          </label>
-          `;
+      for (var ii = 0; ii < carouselAhora.length; ii++) {
+        if (carouselAhora[ii].firstElementChild.value == input.value && input.checked != true){
 
-          this.innerHTML += labelAhora;
+          input.setAttribute("disabled", "");
+          input.nextElementSibling.style.filter = "grayscale(100%";
 
-        } else {
-          let labelAhora = `
-          <label> Elegir
-            <input type="radio" name="modificarNoticiaCarousel[${cajaActiva.parentElement.previousElementSibling.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value}]" value="${imagenesAll[i].value}">
-            <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/${imagenesAll[i].value}');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            height: 100px;"></div>
-          </label>
-          `;
+        } else if (carouselAhora[ii].firstElementChild.value == input.value && input.checked == true) {
 
-          this.innerHTML += labelAhora;
+          input.nextElementSibling.style.filter = "grayscale(100%";
 
         }
       }
+
     }
   }
 

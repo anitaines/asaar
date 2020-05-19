@@ -42,11 +42,11 @@
       @endforeach
     </div>
 
-    <div class="imagenesAll" style="display: none;">
+    {{-- <div class="imagenesAll" style="display: none;">
         @foreach ($carouselImagenes as $key => $value)
           <input type="hidden" name="" value="{{$value->name}}" disabled>
         @endforeach
-    </div>
+    </div> --}}
 
 
     <form class="" action="/administrar-carousel" method="post" autocomplete="off">
@@ -119,12 +119,17 @@
               </div>
             </div>
             {{-- adentro del foreach noticia, afuera del item noticia --}}
+
             <div class="imagenesDisponibles" style="display: none;">
               <p>Elegir imagen para carousel:</p>
               <div class="imagenesDisponiblesWrap">
                 @foreach ($carouselImagenes as $keyImagen => $valueImagen)
                   <label> Elegir
-                    <input type="radio" name="modificarNoticiaCarousel[{{$value->id}}]" value="{{$valueImagen->name}}">
+                    @if ($value->carousel == $valueImagen->name)
+                      <input type="radio" name="modificarNoticiaCarousel[{{$value->id}}]" value="{{$valueImagen->name}}" checked>
+                    @else
+                      <input type="radio" name="modificarNoticiaCarousel[{{$value->id}}]" value="{{$valueImagen->name}}">
+                    @endif
                     <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$valueImagen->name}}');
                     background-repeat: no-repeat;
                     background-size: cover;
