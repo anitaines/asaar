@@ -1,5 +1,7 @@
 window.onload = function(){
 
+  contarItemsCarousel();
+
   let noticias = document.querySelectorAll(".noticias .noticiasItem");
 
   for (var i = 0; i < noticias.length; i++){
@@ -68,6 +70,7 @@ window.onload = function(){
 
       }
 
+      contarItemsCarousel();
     }
 
 
@@ -148,7 +151,7 @@ window.onload = function(){
               }
             }
 // console.log(carouselUltimaVersion);
-
+            contarItemsCarousel();
 
             //6. actualizar disponibilidad de imágenes
             let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
@@ -168,6 +171,7 @@ window.onload = function(){
             carouselUltimaVersion[i].remove();
           }
         }
+        contarItemsCarousel();
 
         // 2. Deseleccionar imagen
         let imagenesOpciones = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.children;
@@ -283,7 +287,6 @@ window.onload = function(){
   } // cierre for cada noticia
 
 
-
   // let imagenesDisponiblesOn = document.querySelector(".imagenesDisponiblesOn");
   //
   // imagenesDisponiblesAhora (imagenesDisponiblesOn);
@@ -314,6 +317,21 @@ window.onload = function(){
         }
       }
 
+    }
+  }
+
+  function contarItemsCarousel(){
+    let cantidadItemsCarousel = document.querySelectorAll(".inCarousel").length - 1;
+    let alert = document.querySelector(".alert");
+    if (cantidadItemsCarousel > 3){
+      alert.innerHTML = "El carrusel tiene más de 3 noticias, por favor considerar reducir la cantidad.";
+      alert.style.color = "red";
+    } else if (cantidadItemsCarousel == 0) {
+      alert.innerHTML = "No hay noticias en el carousel.";
+      alert.style.color = "red";
+    } else {
+      alert.innerHTML = "alert";
+      alert.style.color = "#ffffff";
     }
   }
 

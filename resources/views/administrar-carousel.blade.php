@@ -13,12 +13,12 @@
   <main class="admin carousel">
     {{-- @dd($errors) --}}
 
-    <h4>Noticias actualmente en el carrusel de inicio: {{count($carouselActual)}}</h4>
+    <h4>Noticias actualmente en el carousel de inicio:</h4>
 
-    @if (count($carouselActual) > 3)
-      <p>El carrusel tiene más de 3 noticias, por favor considerar reducir la cantidad.</p>
-    @elseif (count($carouselActual) == 0)
-      <p>No hay noticias en el carrusel.</p>
+    <p class="alert" style="color: #ffffff;">alert</p>
+
+    @if ($errors->all())
+      <p class="" style="color: red; width: 95%; text-align: center;"><b>Hubo un error guardando los cambios. Por favor refrescar la página y volver a intentar. Si el problema persiste contactar al desarrollador del sitio. Muchas gracias.</b></p>
     @endif
 
     <div class="carouselActual">
@@ -76,7 +76,6 @@
 
         <div class="noticias">
           @foreach ($noticiasAll as $key => $value)
-
             <div class="noticiasItem">
               <input type="hidden" name="" value="{{$value->carousel}}">
               <div class="itemId">
@@ -105,12 +104,12 @@
 
                 @if ($value->carousel != null)
                   <label class="checkbox-label"> Eliminar
-                    <input type="checkbox" name="modificarNoticiaCarousel[{{$value->id}}]" value="null">
+                    <input type="checkbox" name="modificarNoticiaCarousel[{{$value->id}}]" value="">
                     <span class="checkbox-custom">✓</span>
                   </label>
                 @else
                   <label class="checkbox-label" style="opacity:0;"> Eliminar
-                    <input type="checkbox" name="modificarNoticiaCarousel[{{$value->id}}]" value="null" disabled>
+                    <input type="checkbox" name="modificarNoticiaCarousel[{{$value->id}}]" value="" disabled>
                     <span class="checkbox-custom">✓</span>
                   </label>
                 @endif
