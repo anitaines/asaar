@@ -60,7 +60,7 @@
 
             <div class="menu_container_line1">
             <div class="divh1_header_nav">
-              <h1 class="h1_header_nav">ASOCIACIÓN ASPERGER ARGENTINA</h1>
+              <h1 class="h1_header_nav">Asociación Asperger Argentina</h1>
               </div>
 
 

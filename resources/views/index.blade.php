@@ -33,25 +33,27 @@
           <div class="slideshow-inner">
 
             <div class="mySlides img_intro transition-news">
-              {{-- <div class="img_intro"></div> --}}
               <div class="div_intro">
                 <p class="p_intro">Asociación</p>
                 <p class="p_intro">Asperger</p>
                 <p class="p_intro">Argentina</p>
-                </div>
+              </div>
             </div>
 
-            {{-- <div class="mySlides img_intro2 transition-news">
-
-            </div> --}}
-
-            <div class="mySlides img_intro3 transition-news">
-              {{-- <div class="img_intro"></div> --}}
-            </div>
             @for ($i=0; $i < count($noticiasCarousel); $i++)
+              @php
+                $randColor = $colores[rand(0,3)];
+              @endphp
               <div class="mySlides img_noticia noticiaNro{{$i}} transition-news">
-                {{-- style="background-image: url('/media/noticias/carousel/mobile/{{$noticiasCarousel[$i]->carousel}}');" --}}
-                {{-- <div class="img_intro"></div> --}}
+                <a href="/noticias/{{$noticiasCarousel[$i]->id}}/{{$noticiasCarousel[$i]->slug}}">
+                  <div class="div_noticia" style="background-color: {{$randColor}};">
+                    <p class="p_noticia">{{$noticiasCarousel[$i]->title}}</p>
+                    <p class="p_noticia">{{$noticiasCarousel[$i]->subtitle}}</p>
+                    <div class="mas_info">
+                      <p class="p_mas_info" style="color: {{$randColor}};">Más información</p>
+                    </div>
+                  </div>
+                </a>
               </div>
             @endfor
 
@@ -60,6 +62,13 @@
             <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
             <a class="next" onclick='plusSlides(1)'>&#10095;</a>
             <a class="downScroll" href="#down">&#10095;</a>
+
+            <div class="dotContainer" style='text-align: center;'>
+              <span class="dot" onclick='currentSlide(1)'></span>
+              <span class="dot" onclick='currentSlide(2)'></span>
+              <span class="dot" onclick='currentSlide(3)'></span>
+              <span class="dot" onclick='currentSlide(4)'></span>
+            </div>
 
           <!-- </div> -->
 
@@ -102,9 +111,9 @@
     {{-- <img class="img_separador" src="/media/hands.jpg" alt="Muchas manos levantadas"> --}}
     <img class="img_separador"
     srcset="
-    /media/2580120crop_desktop3x.jpg 1920w,
-    /media/2580120crop_tablet2x.jpg 991w,
-    /media/2580120crop_mobile1x.jpg 767w
+    /media/home/2580120crop_desktop3x.jpg 1920w,
+    /media/home/2580120crop_tablet2x.jpg 991w,
+    /media/home/2580120crop_mobile1x.jpg 767w
     "
     src="/media/2580120crop_desktop3x.jpg"
     alt="Muchas manos levantadas">

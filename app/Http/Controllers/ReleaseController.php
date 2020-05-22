@@ -373,6 +373,10 @@ class ReleaseController extends Controller
      */
     public function carousel()
     {
+        // $colores = ["#AB2097","#6ACF95","#FC8901","#34BFD2"];
+        $colores = ["rgba(172, 60, 151, 0.9)","rgba(106, 207, 149, 0.9)","rgba(239, 136, 51, 0.9)","rgba(86, 192, 211, 0.9)"];
+        // $colores = [magenta, verde, naranja, blue];
+
         $noticiasCarousel = Release::whereNotNull('carousel')
         ->orderBy('id', 'desc')
         ->get();
@@ -380,7 +384,7 @@ class ReleaseController extends Controller
         // dd($noticiasCarousel[0]->carousel);
         // dd($noticiasCarousel[0]["carousel"]);
 
-        return view('/index', compact('noticiasCarousel'));
+        return view('/index', compact('noticiasCarousel', 'colores'));
     }
 
 
@@ -460,7 +464,9 @@ class ReleaseController extends Controller
           }
         }
 
-        return view('/index');
+        return redirect('/home');
+        // corregir para que despues de guardar vaya al panel de control
+
     }
 
 
