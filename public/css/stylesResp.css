@@ -316,9 +316,8 @@ img,svg {
   background-size: cover;
   background-position: center;
 }
-.img_intro2{
+.img_noticia{
   height: 90vh;
-  background-image: url('/media/foto_fondo_prov1.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -3012,7 +3011,7 @@ padding-left: 10px;
     background-size: cover;
     background-position: center;
   }
-  .img_intro2{
+  .img_noticia{
     height: 99vh;
   }
   .img_intro3{
@@ -3833,7 +3832,7 @@ padding-left: 10px;
   }
 
 @media (min-width:3840px) { /*desktop 4K*/
-  .img_intro, .img_intro2, .img_intro3{
+  .img_intro, .img_noticia, .img_intro3{
     height: 43vh;
   }
   } /*fin media query desktop 4K*/

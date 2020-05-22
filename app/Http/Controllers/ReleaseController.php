@@ -373,13 +373,14 @@ class ReleaseController extends Controller
      */
     public function carousel()
     {
-        //cuando esté la DB modificar esta parte para que guarde en una variable las noticias
-        // $articulos = Article::all()->shuffle();
-        // dd($articulos);
-        //
-        // return view("/index", compact('articulos'));
+        $noticiasCarousel = Release::whereNotNull('carousel')
+        ->orderBy('id', 'desc')
+        ->get();
+        // dd($noticiasCarousel);
+        // dd($noticiasCarousel[0]->carousel);
+        // dd($noticiasCarousel[0]["carousel"]);
 
-        return view('index');
+        return view('/index', compact('noticiasCarousel'));
     }
 
 
@@ -419,31 +420,43 @@ class ReleaseController extends Controller
 
         $this->validate($request, $rules, $messages);
 
+        // if ($request->modificarNoticiaCarousel){
+        //   foreach ($request->modificarNoticiaCarousel as $key => $value){
+        //     if ($value == null){
+        //       $noticia = Release::find($key);
+        //
+        //       $imagen = Carousel::where('name', $noticia->carousel)->first();
+        //       $imagen->available = true;
+        //       $imagen->save();
+        //
+        //       $noticia->carousel = $value;
+        //
+        //       $noticia->save();
+        //
+        //     } else {
+        //       $noticia = Release::find($key);
+        //
+        //       $imagen = Carousel::where('name', $value)->first();
+        //       $imagen->available = false;
+        //       $imagen->save();
+        //
+        //       $noticia->carousel = $value;
+        //
+        //       $noticia->save();
+        //
+        //     }
+        //   }
+        // }
+
         if ($request->modificarNoticiaCarousel){
           foreach ($request->modificarNoticiaCarousel as $key => $value){
-            if ($value == null){
-              $noticia = Release::find($key);
 
-              $imagen = Carousel::where('name', $noticia->carousel)->first();
-              $imagen->available = true;
-              $imagen->save();
+              $noticia = Release::find($key);
 
               $noticia->carousel = $value;
 
               $noticia->save();
 
-            } else {
-              $noticia = Release::find($key);
-
-              $imagen = Carousel::where('name', $value)->first();
-              $imagen->available = false;
-              $imagen->save();
-
-              $noticia->carousel = $value;
-
-              $noticia->save();
-
-            }
           }
         }
 

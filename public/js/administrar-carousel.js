@@ -112,7 +112,7 @@ window.onload = function(){
             let newCarouselItem = `
                 <div class="carouselItem inCarousel" id="newInsert">
                   <input type="hidden" name="" value="${this.firstElementChild.value}">
-                  <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/${this.firstElementChild.value}');
+                  <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/thumbnails/${this.firstElementChild.value}');
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position: center;"></div>
@@ -232,7 +232,7 @@ window.onload = function(){
 
                 carouselUltimaVersion[i].firstElementChild.value = this.firstElementChild.value;
 
-                carouselUltimaVersion[i].firstElementChild.nextElementSibling.style.backgroundImage = "url('/media/noticias/carousel/" + this.firstElementChild.value + "')";
+                carouselUltimaVersion[i].firstElementChild.nextElementSibling.style.backgroundImage = "url('/media/noticias/carousel/thumbnails/" + this.firstElementChild.value + "')";
 
               }
             }
@@ -256,7 +256,7 @@ window.onload = function(){
 
             carouselUltimaVersion[i].firstElementChild.value = noticia.firstElementChild.value;
 
-            carouselUltimaVersion[i].firstElementChild.nextElementSibling.style.backgroundImage = "url('/media/noticias/carousel/" + noticia.firstElementChild.value + "')";
+            carouselUltimaVersion[i].firstElementChild.nextElementSibling.style.backgroundImage = "url('/media/noticias/carousel/thumbnails/" + noticia.firstElementChild.value + "')";
 
           }
         }

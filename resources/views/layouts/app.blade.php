@@ -37,6 +37,7 @@
 
       <link rel="stylesheet" href="/css/stylesResp.css">
 
+      @yield('style')
   </head>
 
   <body>

@@ -25,7 +25,7 @@
       @foreach ($carouselActual as $key => $value)
         <div class="carouselItem inCarousel">
           <input type="hidden" name="" value="{{$value->carousel}}">
-          <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$value->carousel}}');
+          <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/thumbnails/{{$value->carousel}}');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;"></div>
@@ -140,7 +140,7 @@
                     @else --}}
                       <input type="radio" name="modificarNoticiaCarousel[{{$value->id}}]" value="{{$valueImagen->name}}">
                     {{-- @endif --}}
-                    <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/{{$valueImagen->name}}');
+                    <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/thumbnails/{{$valueImagen->name}}');
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position: center; height: 100px;"></div>

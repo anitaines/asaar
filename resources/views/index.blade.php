@@ -4,6 +4,27 @@
 
   @endsection
 
+  @section("style")
+    <style>
+      @for ($i=0; $i < count($noticiasCarousel); $i++)
+        .noticiaNro{{$i}} {background-image: url('/media/noticias/carousel/mobile/{{$noticiasCarousel[$i]->carousel}}');}
+      @endfor
+
+
+      @media (min-width: 768px){
+        @for ($i=0; $i < count($noticiasCarousel); $i++)
+          .noticiaNro{{$i}} {background-image: url('/media/noticias/carousel/tablet/{{$noticiasCarousel[$i]->carousel}}');}
+        @endfor
+      }
+
+      @media (min-width: 992px){
+        @for ($i=0; $i < count($noticiasCarousel); $i++)
+          .noticiaNro{{$i}} {background-image: url('/media/noticias/carousel/desktop/{{$noticiasCarousel[$i]->carousel}}');}
+        @endfor
+      }
+    </style>
+    @endsection
+
 @section('content')
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
@@ -20,13 +41,19 @@
                 </div>
             </div>
 
-            <div class="mySlides img_intro2 transition-news">
-              {{-- <div class="img_intro"></div> --}}
-            </div>
+            {{-- <div class="mySlides img_intro2 transition-news">
+
+            </div> --}}
 
             <div class="mySlides img_intro3 transition-news">
               {{-- <div class="img_intro"></div> --}}
             </div>
+            @for ($i=0; $i < count($noticiasCarousel); $i++)
+              <div class="mySlides img_noticia noticiaNro{{$i}} transition-news">
+                {{-- style="background-image: url('/media/noticias/carousel/mobile/{{$noticiasCarousel[$i]->carousel}}');" --}}
+                {{-- <div class="img_intro"></div> --}}
+              </div>
+            @endfor
 
             </div>
 
