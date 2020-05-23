@@ -268,8 +268,8 @@ img,svg {
 }
 .dotContainer {
     position: absolute;
-    bottom: 50px;
-    right: 25px;
+    bottom: 65px;
+    width: 100%;
   }
 .dot {
     cursor: pointer;
@@ -277,11 +277,19 @@ img,svg {
     width: 15px;
     margin: 0 2px;
     background-color: #bbb;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
     border-radius: 50%;
     display: inline-block;
-    transition: background-color .6s ease
+    transition: background-color .6s ease;
+}
+.active,
+.dot:hover {
+    background-color: rgba(171, 32, 151, 0.5);
 }
 /* Fading animation */
+.slideshow-inner{
+  overflow: hidden;
+}
 .transition-news{
   -webkit-animation-name: slidein;
   -webkit-animation-duration: 0.5s;
@@ -291,37 +299,49 @@ img,svg {
 @-webkit-keyframes slidein {
   from {
     margin-left: 100%;
-    /* width: 100%; */
+    width: 100%;
   }
   to {
     margin-left: 0%;
-    /* width: 100%; */
+    width: 100%;
   }
 }
 @keyframes slidein {
   from {
     margin-left: 100%;
-    /* width: 100%; */
+    width: 100%;
   }
   to {
     margin-left: 0%;
-    /* width: 100%; */
+    width: 100%;
   }
 }
-/* .transition-news {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+.transition-news-back{
+  -webkit-animation-name: slideback;
+  -webkit-animation-duration: 0.5s;
+  animation-name: slideback;
+  animation-duration: 0.5s;
 }
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+@-webkit-keyframes slideback {
+  from {
+    margin-left: -100%;
+    width: 100%;
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-} */
+@keyframes slideback {
+  from {
+    margin-left: -100%;
+    width: 100%;
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 
 .img_intro{
   height: 90vh;

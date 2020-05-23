@@ -61,14 +61,62 @@ function currentSlide(n){
 function showSlides(n){
   var i;
   var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
   // slides[slideIndex-1].style.display = "block";
   slides[slideIndex-1].style.display = "flex";
+  slides[slideIndex-1].classList.remove("transition-news-back");
+  slides[slideIndex-1].classList.add("transition-news");
+
+  if (dots.length>0){
+    dots[slideIndex-1].className += " active";
   }
+}
+
+  // pause - resume
+  let div_noticia = document.querySelectorAll(".div_noticia");
+
+  for (var i = 0; i < div_noticia.length; i++) {
+
+    div_noticia[i].addEventListener("mouseenter", function(){
+      clearInterval(myTimer);
+    });
+
+    div_noticia[i].addEventListener("mouseleave", function(){
+      clearInterval(myTimer);
+      myTimer = setInterval(function(){plusSlides(slideIndex)}, 4000);
+    });
+  }
+
+
+  // reverse transition
+  let aPrev = document.querySelector(".prev");
+  let mySlides = document.querySelectorAll(".mySlides");
+  aPrev.addEventListener("click", function(){
+    for (var i = 0; i < mySlides.length; i++) {
+      mySlides[i].classList.remove("transition-news");
+      mySlides[i].classList.add("transition-news-back");
+
+      // setTimeout(function(){reset()}, 4000);
+
+    }
+  });
+
+  // function reset(){
+  //   for (var i = 0; i < mySlides.length; i++) {
+  //     console.log("reseteé " + mySlides[i]);
+  //     mySlides[i].classList.remove("transition-news-back");
+  //     mySlides[i].classList.add("transition-news");
+  //   }
+  // }
+
 
 
 // RE RENDER FB??

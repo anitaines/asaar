@@ -59,16 +59,22 @@
 
             </div>
 
-            <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
-            <a class="next" onclick='plusSlides(1)'>&#10095;</a>
-            <a class="downScroll" href="#down">&#10095;</a>
+            @if (count($noticiasCarousel) > 0)
+              <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
+              <a class="next" onclick='plusSlides(1)'>&#10095;</a>
 
-            <div class="dotContainer" style='text-align: center;'>
-              <span class="dot" onclick='currentSlide(1)'></span>
-              <span class="dot" onclick='currentSlide(2)'></span>
-              <span class="dot" onclick='currentSlide(3)'></span>
-              <span class="dot" onclick='currentSlide(4)'></span>
-            </div>
+              <div class="dotContainer" style='text-align: center;'>
+                {{-- <span class="dot" onclick='currentSlide(1)'></span>
+                <span class="dot" onclick='currentSlide(2)'></span>
+                <span class="dot" onclick='currentSlide(3)'></span>
+                <span class="dot" onclick='currentSlide(4)'></span> --}}
+                  @for ($i=0; $i <= count($noticiasCarousel); $i++)
+                    <span class="dot" onclick='currentSlide({{$i +1 }})'></span>
+                  @endfor
+              </div>
+            @endif
+
+            <a class="downScroll" href="#down">&#10095;</a>
 
           <!-- </div> -->
 
