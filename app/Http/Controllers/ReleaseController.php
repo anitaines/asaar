@@ -46,7 +46,7 @@ class ReleaseController extends Controller
      */
     public function create()
     {
-      $imagenes = Image::orderBy('id')->get();
+      $imagenes = Image::orderBy('id', 'DESC')->get();
       // dd($imagenes);
       $mes = ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
       $diaSemana = ["DOMINGO", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"];
@@ -311,7 +311,7 @@ class ReleaseController extends Controller
       $noticia->save();
 
       return redirect('/home');
-      // next: redirect a adminCarousel con paremtros y flash? AGREGAR CAROUSEL A LA VALIDACION Y GUARDADO
+      // next: redirect a adminCarousel con paremtros y flash? AGREGAR CAROUSEL A LA VALIDACION Y GUARDADO ---> no need
     }
 
     /**
@@ -404,7 +404,7 @@ class ReleaseController extends Controller
 
       $carouselImagenes = Carousel::all();
 
-      return view('/administrar-carousel', compact('carouselActual', 'noticiasAll', 'carouselImagenes'));
+      return view('/administrar-carousel-dos', compact('carouselActual', 'noticiasAll', 'carouselImagenes'));
     }
 
 

@@ -278,7 +278,7 @@
               Tel.: (011) 4931-2712 de Lunes a Viernes de 14 a 18 hs.</p>
 
               <p class="p_aspergerCEA">
-              Para saber cuándo será el próximo taller de padres, por favor visitar nuestra sección de <a href="#"><u>NOTICIAS</u></a></p>
+              Para saber cuándo será el próximo taller de padres, por favor visitar nuestra sección de <a href="/noticias"><u>NOTICIAS</u></a></p>
 
             </div>
 
@@ -316,7 +316,7 @@
         <br>
         <p class="p_aspergerCEA"><b>Para conocer la agenda de nuestras próximas actividades, por favor visitar la sección de Noticias:</b></p>
 
-        <a href="#"><p class="p_aspergerCEA button_quienesSomos">Noticias</p></a>
+        <a href="/noticias"><p class="p_aspergerCEA button_quienesSomos">Noticias</p></a>
 
         {{-- <p class="p_aspergerCEA"><b>También puede suscribirse a nuestro newsletter para mantenerse al tanto de las novedades:</b></p> --}}
 

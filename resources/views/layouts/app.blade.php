@@ -66,7 +66,7 @@
 
             <div class="container_header_nav2_992v"> {{-- DESKTOP SMALL --}}
                 <div class="div_header_nav2_992v">
-                  <a class="a_header_nav2_992v" href="#">Noticias</a>
+                  <a class="a_header_nav2_992v" href="/noticias">Noticias</a>
                   </div>
                 <div class="div_header_nav2_992v">
                   <a class="a_header_nav2_992v" href="/donar">DONAR</a>
@@ -140,7 +140,7 @@
 
           <div class="container_header_nav2">
             <div class="div_header_nav2">
-              <a class="a_header_nav2" href="#">Noticias</a>
+              <a class="a_header_nav2" href="/noticias">Noticias</a>
               </div>
             <div class="div_header_nav2">
               <a class="a_header_nav2" href="/donar">DONAR</a>
