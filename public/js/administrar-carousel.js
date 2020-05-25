@@ -17,15 +17,20 @@ window.onload = function(){
 
       if (this.checked == true){
 
-        // deseleccionar checkbox "modificar"
-        if (this.parentElement.nextElementSibling.firstElementChild.checked == true){
-          this.parentElement.nextElementSibling.firstElementChild.checked = false;
+        // deseleccionar checkbox "modificar" si estaba seleccionado
+        if (inputModificar.checked == true){
+          inputModificar.checked = false;
           inputModificar.onchange();
         }
 
         // sacar noticia del preview carousel: PORQUE NONE y no REMOVE??
         for (var i = 0; i < carouselActualItems.length; i++){
-          if (carouselActualItems[i].lastElementChild.lastElementChild.firstElementChild.value == this.parentElement.parentElement.previousElementSibling.previousElementSibling.firstElementChild.firstElementChild.value) {
+
+          let nroNoticiaCarousel = carouselActualItems[i].lastElementChild.lastElementChild.firstElementChild.value;
+
+          let nroNoticia = this.parentElement.parentElement.previousElementSibling.previousElementSibling.firstElementChild.firstElementChild.value;
+
+          if (nroNoticiaCarousel == nroNoticia) {
             carouselActualItems[i].style.display = "none";
             carouselActualItems[i].classList.toggle("inCarousel");
 
@@ -41,20 +46,14 @@ window.onload = function(){
 
       } else {
 
-        // for (var i = 0; i < carouselActualItems.length; i++){
-        //   if (carouselActualItems[i].firstElementChild.value == this.firstElementChild.value && carouselActualItems[i].lastElementChild.lastElementChild.firstElementChild.value != this.lastElementChild.lastElementChild.firstElementChild.value){
-        //     la imagen está ocupada
-        //     avisar
-        //     tildar modificar, onchange modificar
-        //     resolver qué imagen muestra en el carousel mientras tanto
-        //   } else {
-        //     el código que ya está hecho, pasarlo acá adentro
-        //   }
-        // }
-
         // dejar noticia en el preview carousel:
         for (var i = 0; i < carouselActualItems.length; i++){
-          if (carouselActualItems[i].lastElementChild.lastElementChild.firstElementChild.value == this.parentElement.parentElement.previousElementSibling.previousElementSibling.firstElementChild.firstElementChild.value) {
+
+          let nroNoticiaCarousel = carouselActualItems[i].lastElementChild.lastElementChild.firstElementChild.value;
+
+          let nroNoticia = this.parentElement.parentElement.previousElementSibling.previousElementSibling.firstElementChild.firstElementChild.value;
+
+          if (nroNoticiaCarousel == nroNoticia) {
             carouselActualItems[i].style.display = "flex";
             carouselActualItems[i].classList.toggle("inCarousel");
 
@@ -82,13 +81,15 @@ window.onload = function(){
       if (this.checked == true){
 
         // 1a. mostrar caja con opciones de imagen:
-        // this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "block";
-        this.parentElement.parentElement.parentElement.nextElementSibling.style.opacity = "1";
-        this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
+        let imagenesDisponibles = this.parentElement.parentElement.parentElement.nextElementSibling;
+        // imagenesDisponibles.style.display = "block";
+        imagenesDisponibles.style.opacity = "1";
+        imagenesDisponibles.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
 
         // 1b. setear imagenes disponibles y no disponibles:
-        imagenesDisponiblesAhora (this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild);
+        let divImaagenes = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild;
+        imagenesDisponiblesAhora (divImaagenes);
 
 
         // 2. Seleccionar imagen
@@ -101,7 +102,12 @@ window.onload = function(){
             // 3. Chequear si ya agregué esta noticia (si ya la había creado, la elimina)
             let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
             for (var i = 0; i < carouselUltimaVersion.length; i++) {
-              if (carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value == noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value){
+
+              let nroNoticiaCarousel = carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value;
+
+              let nroNoticia = noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value;
+
+              if (nroNoticiaCarousel == nroNoticia){
 
                 carouselUltimaVersion[i].remove();
 
@@ -167,7 +173,12 @@ window.onload = function(){
         // 1. Sacar noticia del preview carousel
         let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
         for (var i = 0; i < carouselUltimaVersion.length; i++) {
-          if (carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value == noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value){
+
+            let nroNoticiaCarousel = carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value;
+
+            let nroNoticia = noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value;
+
+          if (nroNoticiaCarousel == nroNoticia){
             carouselUltimaVersion[i].remove();
           }
         }
@@ -188,9 +199,10 @@ window.onload = function(){
         }
 
         // 4. Deshabilitar opciones de imagen:
-        // this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "none";
-        this.parentElement.parentElement.parentElement.nextElementSibling.style.opacity = "0";
-        this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
+        let imagenesDisponibles = this.parentElement.parentElement.parentElement.nextElementSibling;
+        // imagenesDisponibles.style.display = "none";
+        imagenesDisponibles.style.opacity = "0";
+        imagenesDisponibles.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
       }
 
@@ -205,18 +217,20 @@ window.onload = function(){
       if (this.checked == true){
 
         // deseleccionar checkbox "eliminar"
-        if (this.parentElement.previousElementSibling.firstElementChild.checked == true){
-          this.parentElement.previousElementSibling.firstElementChild.checked = false;
+        if (inputEliminar.checked == true){
+          inputEliminar.checked = false;
           inputEliminar.onchange();
         }
 
         // 1a. mostrar caja con opciones de imagen:
-        // this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "block";
-        this.parentElement.parentElement.parentElement.nextElementSibling.style.opacity = "1";
-        this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
+        let imagenesDisponibles = this.parentElement.parentElement.parentElement.nextElementSibling;
+        // imagenesDisponibles.style.display = "block";
+        imagenesDisponibles.style.opacity = "1";
+        imagenesDisponibles.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
         // 1b. setear imagenes disponibles y no disponibles:
-        imagenesDisponiblesAhora (this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild);
+        let divImaagenes = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild;
+        imagenesDisponiblesAhora (divImaagenes);
 
         // 2. Seleccionar imagen
         let imagenesOpciones = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.children;
@@ -228,7 +242,12 @@ window.onload = function(){
             // 3. Modificar imagen en preview carousel
             let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
             for (var i = 0; i < carouselUltimaVersion.length; i++) {
-              if (carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value == noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value){
+
+              let nroNoticiaCarousel = carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value;
+
+              let nroNoticia = noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value;
+
+              if (nroNoticiaCarousel == nroNoticia){
 
                 carouselUltimaVersion[i].firstElementChild.value = this.firstElementChild.value;
 
@@ -252,7 +271,12 @@ window.onload = function(){
         // 1. Dejar imagen original en preview carousel
         let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
         for (var i = 0; i < carouselUltimaVersion.length; i++) {
-          if (carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value == noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value){
+
+          let nroNoticiaCarousel = carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value;
+
+          let nroNoticia = noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value;
+
+          if (nroNoticiaCarousel == nroNoticia){
 
             carouselUltimaVersion[i].firstElementChild.value = noticia.firstElementChild.value;
 
@@ -276,9 +300,10 @@ window.onload = function(){
         }
 
         // 4. Deshabilitar opciones de imagen:
-        // this.parentElement.parentElement.parentElement.nextElementSibling.style.display = "none";
-        this.parentElement.parentElement.parentElement.nextElementSibling.style.opacity = "0";
-        this.parentElement.parentElement.parentElement.nextElementSibling.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
+        let imagenesDisponibles = this.parentElement.parentElement.parentElement.nextElementSibling;
+        // imagenesDisponibles.style.display = "none";
+        imagenesDisponibles.style.opacity = "0";
+        imagenesDisponibles.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
 
       }
 

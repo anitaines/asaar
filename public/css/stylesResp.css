@@ -2445,6 +2445,13 @@ padding-left: 10px;
   width: 100%;
   border: 2px solid var(--blue);
   border-radius: 6px;
+  /* new */
+  width: 60%;
+  position: absolute;
+  z-index: 800;
+  top: 15px;
+  left: calc((100vw - 60%)/2);
+  background-color: #ffffff;
 }
 .admin.carousel form .noticiasWrap .noticiasHead{
   text-align: center;
@@ -2455,13 +2462,13 @@ padding-left: 10px;
   margin-bottom: 0px;
 }
 .admin.carousel form .noticiasWrap .noticias{
-  height: 39vh; /* fallback */
-  height: calc(85vh - 345px);
-  /* overflow: scroll; */
+  /* height: 39vh; /* fallback */
+  /* height: calc(85vh - 345px); */
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
   padding: 0px 15px;
+  height: 55vh;
 }
 /* SCROLLBAR */
 /* width */
@@ -2486,15 +2493,13 @@ padding-left: 10px;
 }
 /* FIN SCROLLBAR */
 .admin.carousel form .noticiasWrap .noticias .noticiasItem {
-  width: 60%;
+  /* width: 60%; */
+  width: 80%;
   margin: 3px auto;
   border: 2px solid var(--black);
   border-radius: 6px;
   display: flex;
   flex-wrap: wrap;
-}
-.admin.carousel form .noticiasWrap .noticias{
-  padding-bottom: 55px;
 }
 .admin.carousel form .noticiasWrap .noticias .noticiasItem .itemId{
   width: 20%;
@@ -2530,37 +2535,58 @@ padding-left: 10px;
 .admin.carousel form .noticiasWrap .noticias .noticiasItem .inputs label input:checked ~ span{
   background-color: darkcyan;
 }
-.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles{
-  width: 40%;
-  height: 114px;
+.admin.carousel form .imagenesDisponibles{
+  width: 60%;
+  /* height: 114px; */
+  height: 55vh;
   overflow: scroll;
-  margin: 10px auto;
+  /* margin: 10px auto; */
   border: 2px solid var(--black);
-  border-left: none;
-  border-radius: 0px 6px 6px 0px;
-  text-align: center;
+  /* border-left: none; */
+  border-radius: 6px;
+  /* text-align: center; */
+  position: absolute;
+  z-index: 800;
+  top: 15px;
+  left: calc((100vw - 60%)/2);
+  background-color: #ffffff;
 }
-.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles p{
+.admin.carousel form .imagenesDisponibles p{
   margin: 5px auto;
 }
-.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles .imagenesDisponiblesWrap{
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles .imagenesDisponiblesWrap label{
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label{
   width: 45%;
   margin: 5px;
 }
-.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles .imagenesDisponiblesWrap label input{
-  display: none;
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label input{
+  /* display: none; */
 }
-.admin.carousel form .noticiasWrap .noticias .imagenesDisponibles .imagenesDisponiblesWrap label input:checked ~ .carouselImagen{
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label input:checked ~ .carouselImagen{
   border: 2px solid var(--black);
+}
+.admin.carousel form .noticiasWrap .noticias .noticiaGris{
+  color: grey;
+  border-color: grey;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiaGris .itemId label input, .admin.carousel form .noticiasWrap .noticias .noticiaGris .noticiasInfo a p{
+  color: grey;
+}
+.admin.carousel form .gris{
+  background-color: rgba(0,0,0,0.6);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: -50px;
+  z-index: 700;
 }
 .admin.carousel form .buttons{
   position: fixed;
-  z-index: 900;
+  z-index: 600;
   bottom: 0;
   width: 98%;
   /* background-color: #ffffff; */
