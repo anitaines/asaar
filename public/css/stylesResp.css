@@ -2438,6 +2438,9 @@ padding-left: 10px;
   font-family: inherit;
   color: var(--magenta);
 }
+/* .admin.carousel .agregarItem{
+  border: 2px solid black;
+} */
 .admin.carousel form{
   position: relative;
 }
@@ -2538,7 +2541,7 @@ padding-left: 10px;
 .admin.carousel form .imagenesDisponibles{
   width: 60%;
   /* height: 114px; */
-  height: 55vh;
+  /* height: 55vh; */
   overflow: scroll;
   /* margin: 10px auto; */
   border: 2px solid var(--black);
@@ -2558,6 +2561,9 @@ padding-left: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: calc(55vh - 25px);
+  /* height: 55vh; */
+  overflow-y: scroll;
 }
 .admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label{
   width: 45%;
@@ -2585,9 +2591,9 @@ padding-left: 10px;
   z-index: 700;
 }
 .admin.carousel form .buttons{
-  position: fixed;
+  /* position: fixed;
   z-index: 600;
-  bottom: 0;
+  bottom: 0; */
   width: 98%;
   /* background-color: #ffffff; */
   /* border-radius: 6px 0px 0px 0px; */

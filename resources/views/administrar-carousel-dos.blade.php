@@ -27,10 +27,9 @@
       <div class="carouselActual">
         @foreach ($carouselActual as $key => $value)
           <div class="carouselItem inCarousel">
+            <input type="checkbox" name="" value="" style="display: none;">
             <div class="eliminar">
-              <label> Eliminar
-                <input type="checkbox" name="modificarNoticiaCarousel[{{$value->id}}]" value="">
-              </label>
+              <p>Eliminar</p>
               <div class="cruz">
                 <p>✖</p>
               </div>
@@ -50,13 +49,18 @@
               </label>
             </div>
             <div class="modificar">
-              <label> Modificar imagen carousel
-                <input type="checkbox" name="modificarNoticiaCarousel[{{$value->id}}]" value="">
-              </label>
+              <p>Modificar imagen carousel</p>
             </div>
           </div>
         @endforeach
         <div class="carouselItem inCarousel" style="display: none;">
+          <input type="checkbox" name="" value="" style="display: none;">
+          <div class="">
+            <p>Eliminar</p>
+            <div class="cruz">
+              <p>✖</p>
+            </div>
+          </div>
           <input type="hidden" name="" value="">
           <div class="carouselImagen"></div>
           <div class="carouselInfo">
@@ -68,6 +72,9 @@
               <input type="text" name="" value="0" disabled>
             </label>
           </div>
+          <div class="modificar">
+            <p>Modificar imagen carousel</p>
+          </div>
         </div>
 
         <div class="carouselItem agregarItem">
@@ -75,6 +82,11 @@
           <p>Agregar noticia al carousel</p>
         </div>
       </div>
+
+      {{-- <div class="agregarItem">
+        <div class="circulo"></div>
+        <p>Agregar noticia al carousel</p>
+      </div> --}}
 
       <div class="noticiasWrap" style="display: none;">
 
@@ -111,6 +123,7 @@
                   <input type="checkbox" name="" value="{{$value->id}}">
                   <span class="checkbox-custom">✓</span>
                 </label>
+                <p style="display: none;">Ya se encuentra en el carousel</p>
                 {{-- @endif --}}
               </div>
             </div>
@@ -138,6 +151,10 @@
               background-position: center; height: 100px;"></div>
             </label>
           @endforeach
+        </div>
+        <div class="listo">
+          <p>Listo</p>
+          <p style="color: red; display: none;">Seleccionar una imagen</p>
         </div>
       </div>
 
