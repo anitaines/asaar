@@ -1,4 +1,10 @@
 window.onload = function(){
+// PENDING:
+// agregar modificar evento a nuevos elementos
+// SACAR TODOS LOS ONCLICKS, ONCHANGE
+// CHEQUEAR EVENT PROPAG
+// poner los contadores de elementos
+// detallar paso a paso en funciones
 
   let listadoNoticias = document.querySelector(".noticiasWrap");
   let imagenesDisponibles = document.querySelector(".imagenesDisponibles");
@@ -11,11 +17,17 @@ window.onload = function(){
   // Agregar noticia 1: al hacer click en el botón agregar, se abre la ventana con el listado de noticia (actualizado)
   let agregar = document.querySelector(".agregarItem");
 
-  agregar.onclick = function(){
+  // agregar.onclick = function(){
+  //   listadoNoticias.style.display = "block";
+  //   noticiasDisponibles();
+  //   fondoGris.style.display = "block";
+  //   console.log("clickeé en agregar");
+  // }
+  agregar.addEventListener("click", function(){
     listadoNoticias.style.display = "block";
     noticiasDisponibles();
     fondoGris.style.display = "block";
-  }
+  });
 
   // Agregar noticia 1b: habilitar botón cierre de la ventana de noticias y/o imagenes
   let cerrarNoticias = document.querySelector(".cerrarNoticias");
@@ -60,7 +72,23 @@ window.onload = function(){
     let imagenSeleccionada = cualImagen();
 
     if (imagenSeleccionada != null){
-      // 3a: Generar nuevo item carousel
+      // 3a. Chequear si la noticia ya existe en el carousel y está "eliminada", así no la duplico. Si existe, borrar.
+      let carouselCompleto = document.getElementsByClassName("carouselItem");
+
+      for (var i = 0; i < carouselCompleto.length -1; i++) {
+
+        let nroNoticiaCarousel = carouselCompleto[i].lastElementChild.previousElementSibling.lastElementChild.firstElementChild.value;
+
+        let nroNoticia = noticiaSeleccionada.firstElementChild.firstElementChild.firstElementChild.value;
+
+        if (nroNoticiaCarousel == nroNoticia){
+
+          carouselCompleto[i].remove();
+
+        }
+      }
+
+      // 3b: Generar nuevo item carousel
       let newCarouselItem = `
       <div class="carouselItem inCarousel" id="newInsert">
         <input type="checkbox" name="modificarNoticiaCarousel[${noticiaSeleccionada.firstElementChild.firstElementChild.firstElementChild.value}]" value="${imagenSeleccionada.firstElementChild.value}" style="display: none;" checked>
@@ -90,7 +118,7 @@ window.onload = function(){
       </div>
       `;
 
-      // 3b: Incluir noticia en preview carousel ordenada por nro. id
+      // 3c: Incluir noticia en preview carousel ordenada por nro. id
       let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
 
       for (let i = 0; i < carouselUltimaVersion.length; i++) {
@@ -99,11 +127,23 @@ window.onload = function(){
         let idNoticia = Number(noticiaSeleccionada.firstElementChild.firstElementChild.firstElementChild.value);
 
         if (idCarousel < idNoticia){
-          // Primero inserto, después capturo el nuevo elemento y después lo cambio de lugar
-          document.querySelector(".carouselActual").innerHTML += newCarouselItem;
+          // Primero insertar, después capturar el nuevo elemento y después cambiarlo de lugar
+          // Camino 1: el método innerHTML += borra todos los eventos de sus elementos...¿¿¿????
+          // document.querySelector(".carouselActual").innerHTML += newCarouselItem;
+          // let newInsert = document.getElementById("newInsert");
+          // newInsert.removeAttribute("id");
+          // carouselUltimaVersion[i].insertAdjacentElement("beforebegin", newInsert);
+
+          // insertar nuevo item
+          carouselUltimaVersion[i].insertAdjacentHTML('beforebegin', newCarouselItem);
+
+          // capturarlo con el id
           let newInsert = document.getElementById("newInsert");
+          // al div "eliminar" agregarle el evento para que funcione eliminar
+          newInsert.firstElementChild.nextElementSibling.addEventListener("click", eliminarItemCarousel);
+          // remover el id
           newInsert.removeAttribute("id");
-          carouselUltimaVersion[i].insertAdjacentElement("beforebegin", newInsert);
+
           break;
         }
       }
@@ -112,27 +152,6 @@ window.onload = function(){
       // Cerrar ventana imágenes:
       imagenesDisponibles.style.display = "none";
       fondoGris.style.display = "none";
-
-      // volver a cargar onclick a agregar: ???????
-      let agregar = document.querySelector(".agregarItem");
-      agregar.onclick = function(){
-        listadoNoticias.style.display = "block";
-        noticiasDisponibles();
-        fondoGris.style.display = "block";
-      }
-
-      // funcionalidad eliminar a todos los items
-      let eliminar = document.querySelectorAll(".eliminar");
-      for (var i = 0; i < eliminar.length; i++) {
-        eliminar[i].onclick = function(){
-          let idEliminar = this.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.value;
-
-          this.previousElementSibling.name = "modificarNoticiaCarousel[" + idEliminar + "]";
-          this.previousElementSibling.checked = true;
-          this.parentElement.style.display = "none";
-          this.parentElement.classList.remove("inCarousel");
-        }
-      }
 
     } else {
       let alertImagen = document.querySelector(".listo").lastElementChild;
@@ -151,23 +170,22 @@ window.onload = function(){
   let eliminar = document.querySelectorAll(".eliminar");
 
   for (var i = 0; i < eliminar.length; i++) {
-    eliminar[i].onclick = function(){
-      let idEliminar = this.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.value;
-
-      this.previousElementSibling.name = "modificarNoticiaCarousel[" + idEliminar + "]";
-      this.previousElementSibling.checked = true;
-      this.parentElement.style.display = "none";
-      this.parentElement.classList.remove("inCarousel");
-    }
+    eliminar[i].addEventListener("click", eliminarItemCarousel);
   }
 
-// dos problemas
-// sin funcion eliminar en nuevos elemntos y perdido en anteriores
-// si agrego un elemto que habia borrado, lo duplica con dos valores distintos
+  // MODIFICAR IMAGEN
+  let modificar = document.querySelectorAll(".modificar");
+
+  for (var i = 0; i < modificar.length; i++) {
+    modificar[i].addEventListener("click", modificarItemCarousel);
+  }
+
+
 
   // <label> Eliminar
   //   <input type="checkbox" name="modificarNoticiaCarousel[{{$value->id}}]" value="">
   // </label>
+
 
 
 
@@ -516,7 +534,7 @@ window.onload = function(){
       let noticiaInputAgregar = noticia.lastElementChild.firstElementChild.firstElementChild;
       noticiaInputAgregar.checked = false;
 
-      for (var ii = 0; ii < carouselAhora.length-1; ii++) {
+      for (var ii = 0; ii < carouselAhora.length; ii++) {
         let noticiaNroCarousel = carouselAhora[ii].lastElementChild.previousElementSibling.lastElementChild.firstElementChild.value;
         let noticiaNro = noticia.firstElementChild.firstElementChild.firstElementChild.value;
 
@@ -572,7 +590,7 @@ window.onload = function(){
 
 
   function cualNoticia(){
-    searchNoticias = document.querySelectorAll(".noticiasItem");
+    let searchNoticias = document.querySelectorAll(".noticiasItem");
 
     var noticiaSeleccionada;
 
@@ -609,6 +627,46 @@ window.onload = function(){
     }
     // console.log(imagenSeleccionada);
     return imagenSeleccionada;
+  }
+
+
+
+  function eliminarItemCarousel(){
+    let idEliminar = this.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.value;
+
+    this.previousElementSibling.name = "modificarNoticiaCarousel[" + idEliminar + "]";
+    this.previousElementSibling.value = "";
+    this.previousElementSibling.checked = true;
+    this.parentElement.style.display = "none";
+    this.parentElement.classList.remove("inCarousel");
+  }
+
+
+
+  function modificarItemCarousel(){
+    // let idModificar = this.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.value;
+
+    // this.previousElementSibling.name = "modificarNoticiaCarousel[" + idEliminar + "]";
+    // this.previousElementSibling.value = "";
+    // this.previousElementSibling.checked = true;
+    // this.parentElement.style.display = "none";
+    // this.parentElement.classList.remove("inCarousel");
+
+    let listadoNoticias =  document.querySelectorAll(".noticiasItem");
+    for (var i = 0; i < listadoNoticias.length; i++) {
+      let nroNoticiaModificar = this.previousElementSibling.lastElementChild.firstElementChild.value;
+      let nroNoticia = listadoNoticias[i].firstElementChild.firstElementChild.firstElementChild.value;
+
+      if (nroNoticiaModificar == nroNoticia){
+
+        listadoNoticias[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.checked = true;
+
+      }
+    }
+
+    imagenesDisponibles.style.display = "block";
+    imagenesDisponiblesAhora ();
+    fondoGris.style.display = "block";
   }
 
 } // cierre onload
