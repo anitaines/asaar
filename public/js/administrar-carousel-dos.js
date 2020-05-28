@@ -1,10 +1,5 @@
 window.onload = function(){
-// PENDING:
-// agregar modificar evento a nuevos elementos
-// SACAR TODOS LOS ONCLICKS, ONCHANGE
-// CHEQUEAR EVENT PROPAG
-// poner los contadores de elementos
-// detallar paso a paso en funciones
+
 
   let listadoNoticias = document.querySelector(".noticiasWrap");
   let imagenesDisponibles = document.querySelector(".imagenesDisponibles");
@@ -17,14 +12,10 @@ window.onload = function(){
   // Agregar noticia 1: al hacer click en el botón agregar, se abre la ventana con el listado de noticia (actualizado)
   let agregar = document.querySelector(".agregarItem");
 
-  // agregar.onclick = function(){
-  //   listadoNoticias.style.display = "block";
-  //   noticiasDisponibles();
-  //   fondoGris.style.display = "block";
-  //   console.log("clickeé en agregar");
-  // }
   agregar.addEventListener("click", function(){
+
     listadoNoticias.style.display = "block";
+    listadoNoticias.firstElementChild.nextElementSibling.nextElementSibling.scrollTop = 0;
     noticiasDisponibles();
     fondoGris.style.display = "block";
   });
@@ -32,40 +23,43 @@ window.onload = function(){
   // Agregar noticia 1b: habilitar botón cierre de la ventana de noticias y/o imagenes
   let cerrarNoticias = document.querySelector(".cerrarNoticias");
 
-  cerrarNoticias.onclick = function(){
+  cerrarNoticias.addEventListener("click", function(){
     listadoNoticias.style.display = "none";
     fondoGris.style.display = "none";
-  }
+  });
 
   let cerrarImagenes = document.querySelector(".cerrarImagenes");
 
-  cerrarImagenes.onclick = function(){
+  cerrarImagenes.addEventListener("click", function(){
     imagenesDisponibles.style.display = "none";
     fondoGris.style.display = "none";
-  }
+  });
 
-  // Agregar noticia 2: funcionalidad input Agregar en cada noticia. Al clickear se abre la ventana con el listado de imágenes (actualizado)
+  // Agregar noticia 2: funcionalidad input Agregar en cada noticia. Al clickear se abre la ventana con el listado (actualizado) de imágenes
   let noticias = document.querySelectorAll(".noticias .noticiasItem");
 
   for (var i = 0; i < noticias.length; i++){
     let noticia = noticias[i];
     let noticiaInputAgregar = noticias[i].lastElementChild.firstElementChild.firstElementChild;
 
-    noticiaInputAgregar.onclick = function(){
+    noticiaInputAgregar.addEventListener("click", function(){
       listadoNoticias.style.display = "none";
 
       let alertImagen = document.querySelector(".listo").lastElementChild;
       alertImagen.style.display = "none";
 
       imagenesDisponibles.style.display = "block";
+
+      imagenesDisponibles.firstElementChild.nextElementSibling.nextElementSibling.scrollTop = 0;
+
       imagenesDisponiblesAhora ();
-    }
+    });
   }
 
   // Agregar noticia 3: funcionalidad botón listo. Si hay una imagen seleccionada, agrega la noticia el carousel
   let listo = document.querySelector(".listo");
 
-  listo.onclick = function(){
+  listo.addEventListener("click", function(){
 
     let noticiaSeleccionada = cualNoticia();
 
@@ -127,20 +121,15 @@ window.onload = function(){
         let idNoticia = Number(noticiaSeleccionada.firstElementChild.firstElementChild.firstElementChild.value);
 
         if (idCarousel < idNoticia){
-          // Primero insertar, después capturar el nuevo elemento y después cambiarlo de lugar
-          // Camino 1: el método innerHTML += borra todos los eventos de sus elementos...¿¿¿????
-          // document.querySelector(".carouselActual").innerHTML += newCarouselItem;
-          // let newInsert = document.getElementById("newInsert");
-          // newInsert.removeAttribute("id");
-          // carouselUltimaVersion[i].insertAdjacentElement("beforebegin", newInsert);
-
           // insertar nuevo item
           carouselUltimaVersion[i].insertAdjacentHTML('beforebegin', newCarouselItem);
 
           // capturarlo con el id
           let newInsert = document.getElementById("newInsert");
-          // al div "eliminar" agregarle el evento para que funcione eliminar
+          // al div "eliminar" agregarle el evento/función "eliminar"
           newInsert.firstElementChild.nextElementSibling.addEventListener("click", eliminarItemCarousel);
+          // al div "modificar" agregarle el evento/función "modificar"
+          newInsert.lastElementChild.addEventListener("click", modificarItemCarousel);
           // remover el id
           newInsert.removeAttribute("id");
 
@@ -153,18 +142,18 @@ window.onload = function(){
       imagenesDisponibles.style.display = "none";
       fondoGris.style.display = "none";
 
-    } else {
+    } else { // si no hay imagen seleccionada
       let alertImagen = document.querySelector(".listo").lastElementChild;
       alertImagen.style.display = "block";
 
       // si selecciono una imagen, sacar alerta:
       for (var i = 0; i < imagenesDisponibles.children.length; i++) {
-        imagenesDisponibles.children[i].onchange = function(){
+        imagenesDisponibles.children[i].addEventListener("change", function(){
           alertImagen.style.display = "none";
-        }
+        });
       }
     }
-  }
+  });
 
   // ELIMINAR NOTICIA:
   let eliminar = document.querySelectorAll(".eliminar");
@@ -179,330 +168,6 @@ window.onload = function(){
   for (var i = 0; i < modificar.length; i++) {
     modificar[i].addEventListener("click", modificarItemCarousel);
   }
-
-
-
-  // <label> Eliminar
-  //   <input type="checkbox" name="modificarNoticiaCarousel[{{$value->id}}]" value="">
-  // </label>
-
-
-
-
-
-
-
-
-//   let noticias = document.querySelectorAll(".noticias .noticiasItem");
-//
-//   for (var i = 0; i < noticias.length; i++){
-//     let noticia = noticias[i];
-//
-//     // ELIMINAR:
-//     let inputEliminar = noticias[i].lastElementChild.firstElementChild.nextElementSibling.firstElementChild;
-//
-//     inputEliminar.onchange = function (){
-//
-//       let carouselActualItems = document.querySelector(".carouselActual").children;
-//
-//
-//       if (this.checked == true){
-//
-//         // deseleccionar checkbox "modificar" si estaba seleccionado
-//         if (inputModificar.checked == true){
-//           inputModificar.checked = false;
-//           inputModificar.onchange();
-//         }
-//
-//         // sacar noticia del preview carousel: PORQUE NONE y no REMOVE??
-//         for (var i = 0; i < carouselActualItems.length; i++){
-//
-//           let nroNoticiaCarousel = carouselActualItems[i].lastElementChild.lastElementChild.firstElementChild.value;
-//
-//           let nroNoticia = this.parentElement.parentElement.previousElementSibling.previousElementSibling.firstElementChild.firstElementChild.value;
-//
-//           if (nroNoticiaCarousel == nroNoticia) {
-//             carouselActualItems[i].style.display = "none";
-//             carouselActualItems[i].classList.toggle("inCarousel");
-//
-//           }
-//         }
-//
-//         // poner su imagen disponible en los "Agregar" activos:
-//         let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
-//
-//         for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
-//           imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
-//         }
-//
-//       } else {
-//
-//         // dejar noticia en el preview carousel:
-//         for (var i = 0; i < carouselActualItems.length; i++){
-//
-//           let nroNoticiaCarousel = carouselActualItems[i].lastElementChild.lastElementChild.firstElementChild.value;
-//
-//           let nroNoticia = this.parentElement.parentElement.previousElementSibling.previousElementSibling.firstElementChild.firstElementChild.value;
-//
-//           if (nroNoticiaCarousel == nroNoticia) {
-//             carouselActualItems[i].style.display = "flex";
-//             carouselActualItems[i].classList.toggle("inCarousel");
-//
-//           }
-//         }
-//
-//         // su imagen no está más disponible en los "Agregar" activos:
-//         let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
-//
-//         for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
-//           imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
-//         }
-//
-//       }
-//
-//       contarItemsCarousel();
-//     }
-//
-//
-//     // AGREGAR:
-//     let inputAgregar = noticias[i].lastElementChild.firstElementChild.firstElementChild;
-//
-//     inputAgregar.oninput = function (){
-//
-//       if (this.checked == true){
-//
-//         // 1a. mostrar caja con opciones de imagen:
-//         let imagenesDisponibles = this.parentElement.parentElement.parentElement.nextElementSibling;
-//         // imagenesDisponibles.style.display = "block";
-//         imagenesDisponibles.style.opacity = "1";
-//         imagenesDisponibles.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
-//
-//
-//         // 1b. setear imagenes disponibles y no disponibles:
-//         let divImaagenes = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild;
-//         imagenesDisponiblesAhora (divImaagenes);
-//
-//
-//         // 2. Seleccionar imagen
-//         let imagenesOpciones = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.children;
-//
-//         for (var i = 0; i < imagenesOpciones.length; i++) {
-//
-//           imagenesOpciones[i].oninput = function(){
-//
-//             // 3. Chequear si ya agregué esta noticia (si ya la había creado, la elimina)
-//             let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
-//             for (var i = 0; i < carouselUltimaVersion.length; i++) {
-//
-//               let nroNoticiaCarousel = carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value;
-//
-//               let nroNoticia = noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value;
-//
-//               if (nroNoticiaCarousel == nroNoticia){
-//
-//                 carouselUltimaVersion[i].remove();
-//
-//               }
-//             }
-//
-//             // 4. Generar nuevo item carousel
-//             let newCarouselItem = `
-//                 <div class="carouselItem inCarousel" id="newInsert">
-//                   <input type="hidden" name="" value="${this.firstElementChild.value}">
-//                   <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/thumbnails/${this.firstElementChild.value}');
-//                     background-repeat: no-repeat;
-//                     background-size: cover;
-//                     background-position: center;"></div>
-//                   <div class="carouselInfo">
-//                     <a href="${noticia.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.href}" target="_blank" rel="noreferrer">
-//                       <p>${noticia.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.innerHTML}</p>
-//                     </a>
-//                     <p style="display:none;">Fecha de publicación: ${noticia.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.innerHTML}</p>
-//                     <label> Noticia nro.
-//                       <input type="text" name="" value="${noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value}" disabled>
-//                     </label>
-//                   </div>
-//                 </div>
-//                     `;
-//             // document.querySelector(".carouselActual").innerHTML += newCarouselItem;
-//
-// // console.log(carouselUltimaVersion);
-//
-//
-//             // 5. Incluir noticia en preview carousel ordenada por nro. id
-//             for (let i = 0; i < carouselUltimaVersion.length; i++) {
-// // console.log(carouselUltimaVersion);
-// // console.log("length " + carouselUltimaVersion.length);
-// // console.log("i: " + i);
-//               let idCarousel = Number( carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value);
-// // console.log(typeof idCarousel + idCarousel);
-//               let idNoticia = Number(noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value);
-// // console.log(typeof idNoticia + idNoticia);
-//
-//               if (idCarousel < idNoticia){
-//                 document.querySelector(".carouselActual").innerHTML += newCarouselItem;
-//                 let newInsert = document.getElementById("newInsert");
-//                 newInsert.removeAttribute("id");
-//                 carouselUltimaVersion[i].insertAdjacentElement("beforebegin", newInsert);
-//                 break;
-//               }
-//             }
-// // console.log(carouselUltimaVersion);
-//             contarItemsCarousel();
-//
-//             //6. actualizar disponibilidad de imágenes
-//             let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
-//
-//             for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
-//               imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
-//             }
-//
-//           }
-//         }
-//
-//       } else {
-//         // 1. Sacar noticia del preview carousel
-//         let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
-//         for (var i = 0; i < carouselUltimaVersion.length; i++) {
-//
-//             let nroNoticiaCarousel = carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value;
-//
-//             let nroNoticia = noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value;
-//
-//           if (nroNoticiaCarousel == nroNoticia){
-//             carouselUltimaVersion[i].remove();
-//           }
-//         }
-//         contarItemsCarousel();
-//
-//         // 2. Deseleccionar imagen
-//         let imagenesOpciones = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.children;
-//
-//         for (var i = 0; i < imagenesOpciones.length; i++) {
-//           imagenesOpciones[i].firstElementChild.checked = false;
-//         }
-//
-//         // 3. imagen pasa a estar disponible:
-//         let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
-//
-//         for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
-//           imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
-//         }
-//
-//         // 4. Deshabilitar opciones de imagen:
-//         let imagenesDisponibles = this.parentElement.parentElement.parentElement.nextElementSibling;
-//         // imagenesDisponibles.style.display = "none";
-//         imagenesDisponibles.style.opacity = "0";
-//         imagenesDisponibles.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
-//
-//       }
-//
-//     }
-//
-//
-//     // MODIFICAR IMAGEN:
-//     let inputModificar = noticias[i].lastElementChild.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild;
-//
-//     inputModificar.onchange = function(){
-//
-//       if (this.checked == true){
-//
-//         // deseleccionar checkbox "eliminar"
-//         if (inputEliminar.checked == true){
-//           inputEliminar.checked = false;
-//           inputEliminar.onchange();
-//         }
-//
-//         // 1a. mostrar caja con opciones de imagen:
-//         let imagenesDisponibles = this.parentElement.parentElement.parentElement.nextElementSibling;
-//         // imagenesDisponibles.style.display = "block";
-//         imagenesDisponibles.style.opacity = "1";
-//         imagenesDisponibles.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
-//
-//         // 1b. setear imagenes disponibles y no disponibles:
-//         let divImaagenes = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild;
-//         imagenesDisponiblesAhora (divImaagenes);
-//
-//         // 2. Seleccionar imagen
-//         let imagenesOpciones = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.children;
-//
-//         for (var i = 0; i < imagenesOpciones.length; i++) {
-//
-//           imagenesOpciones[i].oninput = function(){
-//
-//             // 3. Modificar imagen en preview carousel
-//             let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
-//             for (var i = 0; i < carouselUltimaVersion.length; i++) {
-//
-//               let nroNoticiaCarousel = carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value;
-//
-//               let nroNoticia = noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value;
-//
-//               if (nroNoticiaCarousel == nroNoticia){
-//
-//                 carouselUltimaVersion[i].firstElementChild.value = this.firstElementChild.value;
-//
-//                 carouselUltimaVersion[i].firstElementChild.nextElementSibling.style.backgroundImage = "url('/media/noticias/carousel/thumbnails/" + this.firstElementChild.value + "')";
-//
-//               }
-//             }
-//
-//             // 4. Imagen nueva deja de estar disponible y la vieja pasa a estar disponible
-//             let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
-//
-//             for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
-//               imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
-//             }
-//
-//           }
-//         }
-//
-//       } else {
-//
-//         // 1. Dejar imagen original en preview carousel
-//         let carouselUltimaVersion = document.getElementsByClassName("inCarousel");
-//         for (var i = 0; i < carouselUltimaVersion.length; i++) {
-//
-//           let nroNoticiaCarousel = carouselUltimaVersion[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value;
-//
-//           let nroNoticia = noticia.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.value;
-//
-//           if (nroNoticiaCarousel == nroNoticia){
-//
-//             carouselUltimaVersion[i].firstElementChild.value = noticia.firstElementChild.value;
-//
-//             carouselUltimaVersion[i].firstElementChild.nextElementSibling.style.backgroundImage = "url('/media/noticias/carousel/thumbnails/" + noticia.firstElementChild.value + "')";
-//
-//           }
-//         }
-//
-//         // 2. Deseleccionar imagen
-//         let imagenesOpciones = this.parentElement.parentElement.parentElement.nextElementSibling.lastElementChild.children;
-//
-//         for (var i = 0; i < imagenesOpciones.length; i++) {
-//           imagenesOpciones[i].firstElementChild.checked = false;
-//         }
-//
-//         // 3. Imagen pasa a estar disponible:
-//         let imagenesDisponiblesOn = document.querySelectorAll(".imagenesDisponiblesOn");
-//
-//         for (let i = 0; i < imagenesDisponiblesOn.length; i++) {
-//           imagenesDisponiblesAhora (imagenesDisponiblesOn[i]);
-//         }
-//
-//         // 4. Deshabilitar opciones de imagen:
-//         let imagenesDisponibles = this.parentElement.parentElement.parentElement.nextElementSibling;
-//         // imagenesDisponibles.style.display = "none";
-//         imagenesDisponibles.style.opacity = "0";
-//         imagenesDisponibles.firstElementChild.nextElementSibling.classList.toggle("imagenesDisponiblesOn");
-//
-//       }
-//
-//     }
-//
-//   } // cierre for cada noticia
-
-
 
 
 
@@ -632,38 +297,42 @@ window.onload = function(){
 
 
   function eliminarItemCarousel(){
+    // ubico el item a eliminar
     let idEliminar = this.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.value;
 
+    // modifico la información de su input que va a mandar el form al controlador
     this.previousElementSibling.name = "modificarNoticiaCarousel[" + idEliminar + "]";
     this.previousElementSibling.value = "";
     this.previousElementSibling.checked = true;
+    // lo mantengo en el carousel con display none (si lo remuevo pierdo la info que tiene que mandar el form)
     this.parentElement.style.display = "none";
+    // al sacar esta clase deja de ser un item activo
     this.parentElement.classList.remove("inCarousel");
+
+    // Alertar sobre cantidad de items en carousel (si hace falta)
+    contarItemsCarousel();
   }
 
 
 
   function modificarItemCarousel(){
-    // let idModificar = this.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.value;
-
-    // this.previousElementSibling.name = "modificarNoticiaCarousel[" + idEliminar + "]";
-    // this.previousElementSibling.value = "";
-    // this.previousElementSibling.checked = true;
-    // this.parentElement.style.display = "none";
-    // this.parentElement.classList.remove("inCarousel");
-
+    // Buscar en el listado de noticias la noticia que clickeé "modificar" en el carousel
     let listadoNoticias =  document.querySelectorAll(".noticiasItem");
     for (var i = 0; i < listadoNoticias.length; i++) {
       let nroNoticiaModificar = this.previousElementSibling.lastElementChild.firstElementChild.value;
       let nroNoticia = listadoNoticias[i].firstElementChild.firstElementChild.firstElementChild.value;
 
+      // darle "checked" a la noticia para seleccionar su input (con esta información activo la función cualNoticia())
       if (nroNoticiaModificar == nroNoticia){
 
         listadoNoticias[i].firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.checked = true;
 
       }
     }
-
+    // resetear alerta de imagen por las dudas
+    let alertImagen = document.querySelector(".listo").lastElementChild;
+    alertImagen.style.display = "none";
+    // display de ventana imágenes con su chequeo de imágenes disponibles
     imagenesDisponibles.style.display = "block";
     imagenesDisponiblesAhora ();
     fondoGris.style.display = "block";

@@ -413,7 +413,7 @@ class ReleaseController extends Controller
      */
     public function carouselStore(Request $request)
     {
-        dd($request);
+        // dd($request);
         $rules = [
         'modificarNoticiaCarousel' => ['nullable','array'],
         'modificarNoticiaCarousel.*' => ['nullable','string', 'max:255'],
