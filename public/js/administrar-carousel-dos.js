@@ -4,6 +4,7 @@ window.onload = function(){
   let listadoNoticias = document.querySelector(".noticiasWrap");
   let imagenesDisponibles = document.querySelector(".imagenesDisponibles");
   let fondoGris = document.querySelector(".gris");
+  let main = document.querySelector(".admin.carousel");
 
   // Alertar sobre cantidad de items en carousel (si hace falta)
   contarItemsCarousel();
@@ -18,6 +19,8 @@ window.onload = function(){
     listadoNoticias.firstElementChild.nextElementSibling.nextElementSibling.scrollTop = 0;
     noticiasDisponibles();
     fondoGris.style.display = "block";
+    main.style.overflow = "hidden";
+    main.style.height = "84vh";
   });
 
   // Agregar noticia 1b: habilitar botón cierre de la ventana de noticias y/o imagenes
@@ -26,6 +29,8 @@ window.onload = function(){
   cerrarNoticias.addEventListener("click", function(){
     listadoNoticias.style.display = "none";
     fondoGris.style.display = "none";
+    main.style.overflow = "unset";
+    main.style.height = "unset";
   });
 
   let cerrarImagenes = document.querySelector(".cerrarImagenes");
@@ -33,6 +38,17 @@ window.onload = function(){
   cerrarImagenes.addEventListener("click", function(){
     imagenesDisponibles.style.display = "none";
     fondoGris.style.display = "none";
+    main.style.overflow = "unset";
+    main.style.height = "unset";
+  });
+
+  // Si clickeo afuera de la ventana, se cierra también
+  fondoGris.addEventListener("click", function(){
+    listadoNoticias.style.display = "none";
+    imagenesDisponibles.style.display = "none";
+    fondoGris.style.display = "none";
+    main.style.overflow = "unset";
+    main.style.height = "unset";
   });
 
   // Agregar noticia 2: funcionalidad input Agregar en cada noticia. Al clickear se abre la ventana con el listado (actualizado) de imágenes
@@ -57,7 +73,7 @@ window.onload = function(){
   }
 
   // Agregar noticia 3: funcionalidad botón listo. Si hay una imagen seleccionada, agrega la noticia el carousel
-  let listo = document.querySelector(".listo");
+  let listo = document.querySelector(".listo p:first-child");
 
   listo.addEventListener("click", function(){
 
@@ -141,6 +157,8 @@ window.onload = function(){
       // Cerrar ventana imágenes:
       imagenesDisponibles.style.display = "none";
       fondoGris.style.display = "none";
+      main.style.overflow = "unset";
+      main.style.height = "unset";
 
     } else { // si no hay imagen seleccionada
       let alertImagen = document.querySelector(".listo").lastElementChild;
@@ -231,13 +249,14 @@ window.onload = function(){
 
       input.removeAttribute("disabled");
       input.nextElementSibling.style.filter = "none";
+      input.parentElement.classList.remove("noHover");
 
       for (var ii = 0; ii < carouselAhora.length; ii++) {
         if (carouselAhora[ii].firstElementChild.nextElementSibling.nextElementSibling.value == input.value){
 
           input.setAttribute("disabled", "");
           input.nextElementSibling.style.filter = "grayscale(100%) blur(5px)";
-
+          input.parentElement.classList.add("noHover");
           break;
 
         } else {
@@ -336,6 +355,8 @@ window.onload = function(){
     imagenesDisponibles.style.display = "block";
     imagenesDisponiblesAhora ();
     fondoGris.style.display = "block";
+    main.style.overflow = "hidden";
+    main.style.height = "84vh";
   }
 
 } // cierre onload

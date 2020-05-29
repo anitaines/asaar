@@ -78,15 +78,14 @@
         </div>
 
         <div class="carouselItem agregarItem">
-          <div class="circulo"></div>
+          <div class="circulo">
+            <div class="lineaVHorizontal"></div>
+            <div class="lineaVertical"></div>
+            <div class="lineaVHorizontal"></div>
+          </div>
           <p>Agregar noticia al carousel</p>
         </div>
       </div>
-
-      {{-- <div class="agregarItem">
-        <div class="circulo"></div>
-        <p>Agregar noticia al carousel</p>
-      </div> --}}
 
       <div class="noticiasWrap" style="display: none;">
 
@@ -98,12 +97,7 @@
         </div>
         <div class="noticias">
           @foreach ($noticiasAll as $key => $value)
-            {{-- @if ($value->carousel != null)
-            <div class="noticiasItem noticiaGris">
-            @else --}}
             <div class="noticiasItem">
-            {{-- @endif --}}
-              {{-- <input type="hidden" name="" value="{{$value->carousel}}"> --}}
               <div class="itemId">
                 <label> Noticia nro.
                   <input type="text" name="" value="{{$value->id}}" disabled>
@@ -116,15 +110,11 @@
                 <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>
               </div>
               <div class="agregar">
-                {{-- @if ($value->carousel != null)
-                  <p>Ya se encuentra en el carousel</p>
-                @else --}}
                 <label class="checkbox-label"> Agregar
                   <input type="checkbox" name="" value="{{$value->id}}">
                   <span class="checkbox-custom">✓</span>
                 </label>
                 <p style="display: none;">Ya se encuentra en el carousel</p>
-                {{-- @endif --}}
               </div>
             </div>
           @endforeach
@@ -148,7 +138,7 @@
               <div class="carouselImagen" style="background-image: url('/media/noticias/carousel/thumbnails/{{$valueImagen->name}}');
               background-repeat: no-repeat;
               background-size: cover;
-              background-position: center; height: 100px;"></div>
+              background-position: center; height: 120px;"></div>
             </label>
           @endforeach
         </div>

@@ -2123,6 +2123,7 @@ text-align: left;
 }
 .admin .imagenesWrap .imagenes label:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 .admin .imagenesWrap .imagenes label input:checked ~ div{
   border: 2px solid var(--black);
@@ -2394,7 +2395,7 @@ padding-left: 10px;
 
 /* ************ ADMINISTRAR CAROUSEL SECTION - MOBILE ************ */
 .admin.carousel{
-  top: 122px; /* corregir en responsive, este top es desktop! */
+  top: 90px;
 }
 .admin.carousel h4{
   margin-bottom: 0px;
@@ -2402,29 +2403,30 @@ padding-left: 10px;
 .admin.carousel .alert{
   text-align: center;
   font-style: italic;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
 .admin.carousel form{
   position: relative;
 }
+  /* CONTENEDOR CAROUSEL: */
 .admin.carousel form .carouselActual{
   width: 90%;
   margin: auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding-bottom: 65px;
 }
 .admin.carousel form .carouselActual .carouselItem{
   display: flex;
   flex-wrap: wrap;
-  /* align-content: space-between; */
   align-content: flex-start;
   width: 190px;
-  margin: 2px;
+  margin: 10px;
   border: 2px solid var(--black);
   border-radius: 6px;
   text-align: center;
-  /* position: relative; */
+  background-color: #ffffff;
 }
 .admin.carousel form .carouselActual .carouselItem .eliminar{
   display: flex;
@@ -2436,6 +2438,9 @@ padding-left: 10px;
   background-color: beige;
   border-bottom: 2px solid var(--black);
 }
+.admin.carousel form .carouselActual .carouselItem .eliminar:hover{
+  cursor: pointer;
+}
 .admin.carousel form .carouselActual .carouselItem .eliminar p{
   width: 100%;
   text-align: center;
@@ -2444,7 +2449,7 @@ padding-left: 10px;
 .admin.carousel form .carouselActual .carouselItem .eliminar .cruz{
   width: 30px;
   height: 30px;
-  border-radius: 50px;
+  border-radius: 100px;
   border: 2px solid var(--black);
   background-color: coral;
   position: absolute;
@@ -2460,13 +2465,21 @@ padding-left: 10px;
   height: 100px;
 }
 .admin.carousel form .carouselActual .carouselItem .carouselInfo{
-  margin: auto;
+  /* margin: auto; */
+  height: 140px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: center;
 }
 .admin.carousel .carouselActual .carouselItem .carouselInfo a p{
   color: var(--magenta);
 }
 .admin.carousel form .carouselActual .carouselItem .carouselInfo p:nth-child(2){
   font-size: 13px;
+}
+.admin.carousel .carouselActual .carouselItem .carouselInfo p{
+  margin-bottom: 10px;
 }
 .admin.carousel form .carouselActual .carouselItem .carouselInfo label input{
   width: 40px;
@@ -2479,30 +2492,78 @@ padding-left: 10px;
   background-color: beige;
   border: 2px solid var(--black);
   border-radius: 6px;
-  /* width: 113%; */
-  /* position: absolute;
-  bottom: 58px; */
   height: 60px;
   margin: 10px;
+  line-height: 1.3;
+  padding: 5px;
+}
+.admin.carousel form .carouselActual .carouselItem .modificar:hover{
+  cursor: pointer;
 }
 .admin.carousel form .carouselActual .carouselItem .modificar p{
   margin-bottom: 10px;
 }
-/* .admin.carousel .agregarItem{
-  border: 2px solid black;
-} */
-
+.admin.carousel form .carouselActual .carouselItem.agregarItem{
+  height: 364px;
+  align-content: normal;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem:hover{
+  cursor: pointer;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem .circulo{
+  height: 100px;
+  width: 100px;
+  border: 2px solid var(--black);
+  border-radius: 50px;
+  border-radius: 100px;
+  margin: auto;
+  display: flex;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem .circulo .lineaVertical{
+  border: 1px solid var(--black);
+  height: 70px;
+  width: 0px;
+  margin: auto 0px;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem .circulo .lineaVHorizontal{
+  border: 1px solid var(--black);
+  width: 35px;
+  height: 0px;
+  margin: auto;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem .circulo .lineaVHorizontal:first-child{
+  margin-right: 0px;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem .circulo .lineaVHorizontal:last-child{
+  margin-left: 0px;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem p{
+  font-weight: bold;
+}
+  /* CONTENEDOR NOTICIAS: */
 .admin.carousel form .noticiasWrap{
-  width: 100%;
   border: 2px solid var(--blue);
   border-radius: 6px;
-  /* new */
-  width: 60%;
   position: absolute;
   z-index: 800;
-  top: 15px;
-  left: calc((100vw - 60%)/2);
   background-color: #ffffff;
+  width: 90%;
+  left: calc((98vw - 90%)/2);
+  top: -100px;
+}
+.admin.carousel form .noticiasWrap .cerrarNoticias{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: 2px solid var(--blue);
+  background-color: var(--grey);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  text-align: center;
+}
+.admin.carousel form .noticiasWrap .cerrarNoticias:hover{
+  cursor: pointer;
 }
 .admin.carousel form .noticiasWrap .noticiasHead{
   text-align: center;
@@ -2510,25 +2571,22 @@ padding-left: 10px;
 .admin.carousel form .noticiasWrap .noticiasHead p{
   color: var(--blue);
   font-size: 18px;
-  margin-bottom: 0px;
+  margin: 10px 0px;
 }
 .admin.carousel form .noticiasWrap .noticias{
-  /* height: 39vh; /* fallback */
-  /* height: calc(85vh - 345px); */
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
   padding: 0px 15px;
-  height: 55vh;
+  height: 70vh;
 }
-/* SCROLLBAR */
+/* SCROLLBAR LISTADO NOTICIAS*/
 /* width */
 .admin.carousel form .noticiasWrap .noticias::-webkit-scrollbar {
   width: 10px;
 }
 /* Track */
 .admin.carousel form .noticiasWrap .noticias::-webkit-scrollbar-track {
-  /* background: #f1f1f1; */
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   background-color: #F5F5F5;
@@ -2544,8 +2602,7 @@ padding-left: 10px;
 }
 /* FIN SCROLLBAR */
 .admin.carousel form .noticiasWrap .noticias .noticiasItem {
-  /* width: 60%; */
-  width: 80%;
+  width: 95%;
   margin: 3px auto;
   border: 2px solid var(--black);
   border-radius: 6px;
@@ -2553,8 +2610,8 @@ padding-left: 10px;
   flex-wrap: wrap;
 }
 .admin.carousel form .noticiasWrap .noticias .noticiasItem .itemId{
-  width: 20%;
-  text-align: center;
+  width: 25%;
+  text-align: left;
   padding: 5px;
 }
 .admin.carousel form .noticiasWrap .noticias .noticiasItem .itemId input{
@@ -2565,63 +2622,25 @@ padding-left: 10px;
   color: var(--magenta);
 }
 .admin.carousel form .noticiasWrap .noticias .noticiasItem .noticiasInfo{
-  width: 80%;
+  width: 75%;
   padding: 5px;
 }
 .admin.carousel form .noticiasWrap .noticias .noticiasItem .noticiasInfo a p{
   color: var(--magenta);
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
-.admin.carousel form .noticiasWrap .noticias .noticiasItem .inputs{
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .noticiasInfo p{
+  margin-bottom: 0px;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .agregar{
   width: 100%;
-  background-color: var(--grey);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
+  text-align: right;
 }
-.admin.carousel form .noticiasWrap .noticias .noticiasItem .inputs label span{
-  border-color: darkcyan;
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .agregar label{
+  left: -10px;
 }
-.admin.carousel form .noticiasWrap .noticias .noticiasItem .inputs label input:checked ~ span{
-  background-color: darkcyan;
-}
-.admin.carousel form .imagenesDisponibles{
-  width: 60%;
-  /* height: 114px; */
-  /* height: 55vh; */
-  overflow: scroll;
-  /* margin: 10px auto; */
-  border: 2px solid var(--black);
-  /* border-left: none; */
-  border-radius: 6px;
-  /* text-align: center; */
-  position: absolute;
-  z-index: 800;
-  top: 15px;
-  left: calc((100vw - 60%)/2);
-  background-color: #ffffff;
-}
-.admin.carousel form .imagenesDisponibles p{
-  margin: 5px auto;
-}
-.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: calc(55vh - 25px);
-  /* height: 55vh; */
-  overflow-y: scroll;
-}
-.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label{
-  width: 45%;
-  margin: 5px;
-}
-.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label input{
-  /* display: none; */
-}
-.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label input:checked ~ .carouselImagen{
-  border: 2px solid var(--black);
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .agregar p{
+  margin: 5px 10px;
 }
 .admin.carousel form .noticiasWrap .noticias .noticiaGris{
   color: grey;
@@ -2630,30 +2649,153 @@ padding-left: 10px;
 .admin.carousel form .noticiasWrap .noticias .noticiaGris .itemId label input, .admin.carousel form .noticiasWrap .noticias .noticiaGris .noticiasInfo a p{
   color: grey;
 }
+
+  /* CONTENEDOR IMAGENES: */
+.admin.carousel form .imagenesDisponibles{
+  border: 2px solid var(--blue);
+  border-radius: 6px;
+  position: absolute;
+  z-index: 800;
+  background-color: #ffffff;
+  width: 90%;
+  left: calc((98vw - 90%)/2);
+  top: -100px;
+}
+.admin.carousel form .imagenesDisponibles .cerrarImagenes{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: 2px solid var(--blue);
+  background-color: var(--grey);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  text-align: center;
+}
+.admin.carousel form .imagenesDisponibles .cerrarImagenes:hover{
+  cursor: pointer;
+}
+.admin.carousel form .imagenesDisponibles .noticiasHead{
+  text-align: center;
+}
+.admin.carousel form .imagenesDisponibles .noticiasHead p{
+  color: var(--blue);
+  font-size: 18px;
+  margin: 10px 0px;
+}
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: calc(70vh - 59px);
+  overflow-y: scroll;
+}
+/* SCROLLBAR LISTADO IMAGENES*/
+/* width */
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+/* Handle */
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 80px;
+}
+/* Handle on hover */
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* FIN SCROLLBAR */
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label{
+  width: 40%;
+  margin: 5px;
+}
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label input{
+  display: none;
+}
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label input:checked ~ .carouselImagen{
+  border: 2px solid var(--magenta);
+}
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap .noHover:hover{
+  cursor: default;
+  box-shadow: none;
+}
+.admin.carousel form .imagenesDisponibles .listo{
+  text-align: center;
+}
+.admin.carousel form .imagenesDisponibles .listo p{
+  color: var(--blue);
+  font-size: 16px;
+  margin: 10px 0px;
+}
+.admin.carousel form .imagenesDisponibles .listo p:first-child{
+  width: 25%;
+  margin: 10px auto;
+  border-radius: 6px;
+  padding: 5px;
+  border: 2px solid var(--blue);
+}
+.admin.carousel form .imagenesDisponibles .listo p:first-child:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+  /* FONDO GRIS: */
 .admin.carousel form .gris{
+  border-radius: 6px;
   background-color: rgba(0,0,0,0.6);
   width: 100%;
-  height: 100vh;
   position: absolute;
-  top: -50px;
   z-index: 700;
+  top: -110px;
+  height: calc(100vh - 100px);
+  -webkit-animation-name: fadein;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: ease;
+  animation-name: fadein;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .admin.carousel form .buttons{
-  /* position: fixed;
+  position: fixed;
   z-index: 600;
-  bottom: 0; */
+  bottom: 0;
   width: 98%;
-  /* background-color: #ffffff; */
-  /* border-radius: 6px 0px 0px 0px; */
+  background-color: #ffffff;
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
 }
 .admin.carousel form .buttonWrap{
   background-color: var(--green);
   border-radius: 6px;
-  width: 49%;
+  width: 30%;
   text-align: center;
-  margin: 10px auto;
+  margin: 10px 10px;
 }
 .admin.carousel form .buttonWrap button{
   width: 98%;
@@ -2661,16 +2803,16 @@ padding-left: 10px;
   border: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  line-height: 6px;
+  line-height: 18px;
   color: var(--grey);
-  padding: 15px 0;
+  padding: 8px 0;
 }
 .admin.carousel form .buttonWrap:last-child{
   background-color: var(--magenta);
 }
 .admin.carousel form .buttonWrap:last-child p{
   font-size: 16px;
-  line-height: 6px;
+  line-height: 18px;
   color: var(--grey);
   padding: 15px 0;
   margin-bottom: 0px;
@@ -3058,6 +3200,41 @@ padding-left: 10px;
     transform-origin: 0 0;
   }
   /* ************ END GENERAR NOTICIA SECTION - TABLET ************ */
+
+  /* ************ ADMINISTRAR CAROUSEL SECTION - TABLET ************ */
+  .admin.carousel form .buttonWrap button{
+  line-height: 6px;
+  padding: 15px 0;
+  }
+  .admin.carousel form .buttonWrap:last-child p{
+    line-height: 6px;
+  }
+  .admin.carousel form .noticiasWrap{
+    top: -10px;
+  }
+  .admin.carousel form .noticiasWrap .noticias{
+    height: 55vh;
+  }
+  .admin.carousel form .noticiasWrap .noticias .noticiasItem {
+    width: 80%;
+  }
+  .admin.carousel form .noticiasWrap .noticias .noticiasItem .itemId{
+    width: 20%;
+  }
+  .admin.carousel form .noticiasWrap .noticias .noticiasItem .noticiasInfo{
+    width: 80%;
+  }
+  .admin.carousel form .imagenesDisponibles{
+  top: -10px;
+  }
+  .admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap{
+    height: calc(55vh - 59px);
+  }
+  .admin.carousel form .gris{
+    top: -60px;
+  }
+
+  /* ************ END ADMINISTRAR CAROUSEL SECTION - TABLET ************ */
 
   } /*fin media query tablet*/
 
@@ -3854,6 +4031,25 @@ padding-left: 10px;
 
   /* ************ END GENERAR NOTICIA SECTION - DESKTOP ************ */
 
+  /* ************ ADMINISTRAR CAROUSEL SECTION - DESKTOP ************ */
+  .admin.carousel{
+    top: 122px;
+  }
+  .admin.carousel form .noticiasWrap{
+    width: 60%;
+    top: -5px;
+    left: calc((98vw - 60%)/2);
+  }
+  .admin.carousel form .imagenesDisponibles{
+    width: 60%;
+    top: -5px;
+    left: calc((98vw - 60%)/2);
+  }
+  .admin.carousel form .gris{
+    height: calc(100vh - 125px);
+  }
+  /* ************ END ADMINISTRAR CAROUSEL SECTION - DESKTOP ************ */
+
   } /*fin media query desktop*/
 
 /* ********************************************* */
@@ -3979,6 +4175,20 @@ padding-left: 10px;
    .container_donar h1{
     padding-top: 30px;
    }
+    .admin.carousel form .buttons{
+      /* max-width: 1880px;  y ajustar % de cada boton o:*/
+      width: 73%;
+      background-color: var(--grey);
+    }
+    .admin.carousel form .buttons {
+    bottom: 290px;
+    }
+    .admin.carousel form .noticiasWrap {
+    left: calc((73vw - 60%)/2);
+    }
+    .admin.carousel form .imagenesDisponibles{
+      left: calc((73vw - 60%)/2);
+    }
   }
 
 @media (min-width:3840px) { /*desktop 4K*/
