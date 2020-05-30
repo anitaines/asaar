@@ -64,6 +64,14 @@ Route::get('/generar-noticias', 'ReleaseController@create'); //falta auth
 
 Route::post('/generar-noticias', 'ReleaseController@store'); //falta auth
 
+Route::get('/generar-noticias-success', function () { //falta auth
+    return view('generar-noticias-success');
+});
+
 Route::get('/administrar-carousel', 'ReleaseController@carouselAdmin'); //falta auth
 
 Route::post('/administrar-carousel', 'ReleaseController@carouselStore'); //falta auth
+
+Route::get('/modificar-noticia', 'ReleaseController@edit'); //falta auth
+
+Route::post('/modificar-noticia', 'ReleaseController@update'); //falta auth

@@ -2393,6 +2393,46 @@ padding-left: 10px;
 /* ************ END GENERAR NOTICIA SECTION - MOBILE ************ */
 
 
+/* ************ NOTICIA SUCCESS SECTION - MOBILE ************ */
+.admin.success{
+  text-align: center;
+  width: 75%;
+  margin: 15px auto;
+  padding: 50px 0px;
+  border: 2px solid var(--magenta);
+  border-radius: 6px;
+}
+.admin.success p{
+  font-weight: bold;
+}
+.admin.success .buttons{
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+}
+.admin.success .buttons a{
+  width: 100%;
+  margin: 5px;
+}
+.admin.success .buttons a .button{
+  border-radius: 6px;
+  color: #ffffff;
+  padding: 5px;
+}
+.admin.success .buttons a .button:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin.success .buttons a .button.no{
+  background-color: var(--magenta);
+}
+.admin.success .buttons a .button.si{
+  background-color: var(--green);
+}
+/* ************ END NOTICIA SUCCESS SECTION - MOBILE ************ */
+
+
 /* ************ ADMINISTRAR CAROUSEL SECTION - MOBILE ************ */
 .admin.carousel{
   top: 90px;
@@ -2649,7 +2689,6 @@ padding-left: 10px;
 .admin.carousel form .noticiasWrap .noticias .noticiaGris .itemId label input, .admin.carousel form .noticiasWrap .noticias .noticiaGris .noticiasInfo a p{
   color: grey;
 }
-
   /* CONTENEDOR IMAGENES: */
 .admin.carousel form .imagenesDisponibles{
   border: 2px solid var(--blue);
@@ -2824,9 +2863,8 @@ padding-left: 10px;
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
-
-
 /* ************ END ADMINISTRAR CAROUSEL SECTION - MOBILE ************ */
+
 
 
 /* ********************************************* */
@@ -3200,6 +3238,20 @@ padding-left: 10px;
     transform-origin: 0 0;
   }
   /* ************ END GENERAR NOTICIA SECTION - TABLET ************ */
+
+
+  /* ************ NOTICIA SUCCESS SECTION - TABLET ************ */
+  .admin.success{
+    margin: 85px auto;
+  }
+  .admin.success .buttons{
+    flex-wrap: nowrap;
+  }
+  .admin.success .buttons a{
+    width: 45%;
+  }
+  /* ************ END NOTICIA SUCCESS SECTION - TABLET ************ */
+
 
   /* ************ ADMINISTRAR CAROUSEL SECTION - TABLET ************ */
   .admin.carousel form .buttonWrap button{

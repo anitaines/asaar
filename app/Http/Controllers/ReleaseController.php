@@ -310,8 +310,8 @@ class ReleaseController extends Controller
 
       $noticia->save();
 
-      return redirect('/home');
-      // next: redirect a adminCarousel con paremtros y flash? AGREGAR CAROUSEL A LA VALIDACION Y GUARDADO ---> no need
+      return redirect('/generar-noticias-success');
+
     }
 
     /**
