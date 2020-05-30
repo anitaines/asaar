@@ -13,7 +13,7 @@
   <main class="admin carousel">
     {{-- @dd($errors) --}}
 
-    <h4>VERSION DOS: Noticias actualmente en el carousel de inicio:</h4>
+    <h4>Noticias actualmente en el carousel de inicio:</h4>
 
     <p class="alert" style="color: #ffffff;">alert</p>
 
