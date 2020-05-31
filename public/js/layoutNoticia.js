@@ -7,13 +7,13 @@ function checkLayout(){
   let infoImgContainer = document.querySelector(".info_img_container");
 
   let boxUno = document.querySelector(".info_img_container .box1");
-  console.log(boxUno);
+  // console.log(boxUno);
   let logoAsaar = document.querySelector(".info_img_container .box1 img");
   let calendario = document.querySelector(".info_img_container .box1 .calendar");
-  console.log(calendario);
+  // console.log(calendario);
 
   let boxDos = document.querySelector(".info_img_container .box2");
-  console.log(boxDos);
+  // console.log(boxDos);
 
   let subtituloImagen = document.querySelector(".info_img_container .box3 div:last-child p:first-child");
   let detalleImagen = document.querySelector(".info_img_container .box3 div:last-child p:last-child");

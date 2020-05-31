@@ -1,5 +1,5 @@
 window.onload = function(){
-
+// DESACTIVAR SCRIPT LAyOUT NOTICIA???
   // Menú en mobile y tablet:
   let menuMobileTablet = document.querySelectorAll(".menuMobileTablet a");
 
@@ -316,6 +316,15 @@ window.onload = function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1").style.justifyContent="space-between";
       }
 
+    } else {
+      calendarioIframe.style.display ="none";
+      calendar.parentElement.nextElementSibling.style.display ="none";
+    }
+    checkLayout();
+    // Canvas:
+    setCanvas(canvasFacebook, imgCanvasFacebook);
+  });
+
       // completar mes:
       calendar.parentElement.nextElementSibling.children[0].addEventListener("input", function(){
         iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar .calendar_mes").firstElementChild.innerHTML = this.firstElementChild.value;
@@ -335,14 +344,14 @@ window.onload = function(){
         setCanvas(canvasFacebook, imgCanvasFacebook);
       });
 
-    } else {
-      calendarioIframe.style.display ="none";
-      calendar.parentElement.nextElementSibling.style.display ="none";
-    }
-    checkLayout();
-    // Canvas:
-    setCanvas(canvasFacebook, imgCanvasFacebook);
-  });
+  //   } else {
+  //     calendarioIframe.style.display ="none";
+  //     calendar.parentElement.nextElementSibling.style.display ="none";
+  //   }
+  //   checkLayout();
+  //   // Canvas:
+  //   setCanvas(canvasFacebook, imgCanvasFacebook);
+  // });
 
 
 
@@ -591,6 +600,12 @@ window.onload = function(){
   });
 
 
+  // Inicilizar Canvas:
+  if (imagenNoticiaCheckbox.firstElementChild.checked == true){
+    setCanvas(canvasFacebook, imgCanvasFacebook);
+  }
+
+
 
   // párrafo noticia:
   let parrafo = iframe.contentWindow.document.querySelector(".parrafo");
@@ -707,7 +722,9 @@ window.onload = function(){
       let imagenesAdicionales = iframe.contentWindow.document.querySelector("." + identificador);
       imagenesAdicionales.children[0].remove();
       // borrar thumbail en documento:
-      this.nextElementSibling.children[0].remove();
+      if (this.nextElementSibling.children[0]){
+        this.nextElementSibling.children[0].remove();
+      }
       // restablecer input:
       this.previousElementSibling.style.display="inline-block";
       this.previousElementSibling.value="";

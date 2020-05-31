@@ -324,6 +324,8 @@ class ReleaseController extends Controller
     // public function show(Release $release)
     {
       // $noticia = Release::find($id);
+      // - color tipo subtitularImagen está guardando bien?
+      // modificar en los dos archivos
 
       $noticia = Release::where('id', '=', $id)
       ->where('slug', '=', $slug)
@@ -338,9 +340,60 @@ class ReleaseController extends Controller
      * @param  \App\Release  $release
      * @return \Illuminate\Http\Response
      */
-    public function edit(Release $release)
+    // public function edit(Release $release)
+    public function edit($id)
     {
-        //
+      $imagenes = Image::orderBy('id', 'DESC')->get();
+      // dd($imagenes);
+      $mes = ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
+      $diaSemana = ["DOMINGO", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"];
+
+      $colorTipoTitular = [
+        "Magenta"=> "#AB2097",
+        "Verde"=> "#6ACF95",
+        "Naranja"=> "#FC8901",
+        "Cyan"=> "#34BFD2",
+        "Blanco"=> "#ffffff",
+        "Negro"=> "#454545",
+      ];
+      $colorFondoTitular = [
+        "Sin color"=> "transparent",
+        "Blanco"=> "rgba(255, 255, 255, 0.9)",
+        "Negro"=> "rgba(69, 69, 69, 0.9)",
+      ];
+
+      $colorTipoSubtitular = [
+        "Blanco"=> "#ffffff",
+        "Negro"=> "#454545",
+      ];
+      $colorFondoSubtitular = [
+        "Magenta"=> "#AB2097",
+        "Verde"=> "#6ACF95",
+        "Naranja"=> "#FC8901",
+        "Cyan"=> "#34BFD2",
+        "Blanco"=> "rgba(255, 255, 255, 0.9)",
+        "Negro"=> "rgba(69, 69, 69, 0.9)",
+        "Sin color"=> "transparent",
+      ];
+
+      $colorTipoResumen = [
+        "Magenta"=> "rgb(255, 105, 180)", // hotpink
+        "Verde"=> "rgb(0, 250, 154)", // mediumspringgreen
+        "Naranja"=> "rgb(255, 140, 0)", // darkorange
+        "Cyan"=> "rgb(0, 255, 255)", // cyan
+        "Blanco"=> "#ffffff",
+        "Negro"=> "rgb(69, 69, 69)",
+      ];
+      $colorFondoResumen = [
+        "Sin color"=> "transparent",
+        "Blanco"=> "rgba(255, 255, 255, 0.9)",
+        "Negro"=> "rgba(69, 69, 69, 0.9)",
+      ];
+
+      $noticia = Release::find($id);
+
+      return view("/modificar-noticia", compact('imagenes', 'mes', 'diaSemana', 'colorTipoTitular', 'colorFondoTitular', 'colorTipoSubtitular', 'colorFondoSubtitular', 'colorTipoResumen', 'colorFondoResumen', 'noticia'));
+
     }
 
     /**
@@ -350,9 +403,57 @@ class ReleaseController extends Controller
      * @param  \App\Release  $release
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Release $release)
+    // public function update(Request $request, Release $release)
+    public function update(Request $request, $id)
     {
-        //
+      dd($request);
+      $rules = [
+      'title' => ['required', 'string', 'max:255'],
+      'subtitle' => ['nullable','string', 'max:255'],
+      // 'imagenNoticia' => ['required', 'string', 'max:5'],
+      'imagenNoticia' => ['string', 'max:5'],
+      // 'imagen' => ['nullable', 'string', 'max:255'],
+      'imagen' => ['nullable', 'string'],
+      'filtroImagen' => ['nullable', 'string', 'max:25'],
+      'logoAsaar' => ['nullable', 'string', 'max:5'],
+      'calendar' => ['nullable', 'string', 'max:5'],
+      'mes' => ['nullable', 'string', 'max:25'],
+      'dia' => ['nullable', 'string', 'max:25'],
+      'numero' => ['nullable', 'string', 'max:5'],
+      'tituloImagen' => ['nullable','string', 'max:500'],
+      'colorTipoTitular' => ['nullable', 'string', 'max:30'],
+      'colorFondoTitular' => ['nullable', 'string', 'max:30'],
+      'recuadro' => ['nullable', 'string', 'max:5'],
+      'subtituloImagen' => ['nullable','string', 'max:500'],
+      'detalleImagen' => ['nullable','string', 'max:500'],
+      'colorTipoSubitular' => ['nullable', 'string', 'max:30'],
+      'colorFondoSubtitular' => ['nullable', 'string', 'max:30'],
+      'resumenImagen' => ['nullable','string', 'max:500'],
+      'colorTipoResumen' => ['nullable', 'string', 'max:30'],
+      'colorFondoResumen' => ['nullable', 'string', 'max:30'],
+      'rectificacionImagen' => ['nullable', 'string', 'max:255'],
+      'content' => ['nullable','string', 'max:3000'],
+      'filesMain' => ['nullable', 'file', 'image', 'max:2048'],
+      'filesPlus1' => ['nullable', 'file', 'image', 'max:2048'],
+      'filesPlus2' => ['nullable', 'file', 'image', 'max:2048'],
+      'filesPlus3' => ['nullable', 'file', 'image', 'max:2048'],
+      ];
+      $messages = [
+        'required' => 'Este campo debe estar completo.',
+        'max' => 'Este campo debe tener :max caracteres como máximo.',
+        'file' =>  'Error en la carga del archivo. Por favor volver a subir.',
+        'image' => 'El archivo de la imagen solo puede ser jpeg, jpg o png.',
+        'files.max' => 'El archivo de la imagen es demasiado grande, no debe superar 2MB.',
+        'filesPlus1.max' => 'El archivo de la imagen es demasiado grande, no debe superar 2MB.',
+        'filesPlus2.max' => 'El archivo de la imagen es demasiado grande, no debe superar 2MB.',
+        'filesPlus3.max' => 'El archivo de la imagen es demasiado grande, no debe superar 2MB.',
+      ];
+
+
+      $this->validate($request, $rules, $messages);
+
+      $noticia = Release::find($id);
+      // dd($noticia);
     }
 
     /**

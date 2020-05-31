@@ -1,7 +1,7 @@
 @extends("layouts.appAdmin")
 
 @section("title")
-  Generar noticias -
+  Modificar noticia -
   @endsection
 
 {{-- @section('defer')
@@ -10,19 +10,19 @@
 
 @section('content')
 {{-- @dd($errors) --}}
-  <main class="admin generar">
+  <main class="admin generar modificar">
 
     <div class="menuMobileTablet">
       <a class="menuInformacion"><p>Información</p></a>
       <a class="menuNoticia"><p>Noticia</p></a>
       <a class="menuImagen"><p>Imagen</p></a>
     </div>
-
+{{-- @dd($noticia) --}}
     <div class="input">
 
-      <h4>Ingresar la información:</h4>
+      <h4>Modificar noticia:</h4>
 
-      <form class="" action="/generar-noticias" method="post" enctype="multipart/form-data" autocomplete="off">
+      <form class="" action="/modificar-noticia/{{$noticia->id}}" method="post" enctype="multipart/form-data" autocomplete="off">
         @csrf
 
         @if ($errors->all())
@@ -31,45 +31,31 @@
 
         <div class="adminFormItem">
           <label for="title">1. Titular:</label>
-          <input id="title" type="text" name="title" @if ($errors->get('title'))
-          value=""
-          @else
-          value="{{ old('title') }}"
-        @endif autofocus>
-          {{-- @error('title')
-            <p style="color: red; width: 95%; margin: auto;">{{ $message }}</p>
-          @enderror --}}
+          <input id="title" type="text" name="title" value="{{$noticia->title}}" autofocus>
           <p class="alert title" style="color: red; width: 95%; margin: auto; display: none;"> </p>
         </div>
 
         <div class="adminFormItem">
           <label for="subtitle">2. Bajada titular:</label>
-          <input id="subtitle" type="text" name="subtitle" @if ($errors->get('subtitle'))
-          value=""
-          @else
-          value="{{ old('subtitle') }}"
-          @endif>
-          {{-- @error('subtitle')
-            <p style="color: red; width: 95%; margin: auto;">{{ $message }}</p>
-          @enderror --}}
+          <input id="subtitle" type="text" name="subtitle" value="{{$noticia->subtitle}}">
           <p class="alert subtitle" style="color: red; width: 95%; margin: auto; display: none;"> </p>
         </div>
 
         <div class="adminFormItem form_item form_item_checkbox">
           <label class="imagenNoticia checkbox-label">3. Incluir una imagen principal:
-            {{-- @if ($errors && old('imagenNoticia') == "si")
+            @if ($noticia->imagenNoticia == "si")
               <input type="checkbox" name="imagenNoticia" value="si" checked>
-            @else --}}
+            @else
               <input type="checkbox" name="imagenNoticia" value="si">
-            {{-- @endif --}}
+            @endif
             <span class="checkbox-custom">✓</span>
           </label>
 
-          {{-- @if ($errors && old('imagenNoticia') == "si")
+          @if ($noticia->imagenNoticia == "si")
           <div class="imagenesWrap">
-          @else --}}
+          @else
           <div class="imagenesWrap" style="display: none;">
-          {{-- @endif --}}
+          @endif
           <div class="imagenes">
 
             <div class="imagenesOpcionCarga">
@@ -78,9 +64,9 @@
             </div>
 
             @foreach ($imagenes as $key => $value)
-
+{{-- Y SI ARRANCO SIN IMAGEN EN LA NOTICIA?? --}}
               <label class="imagenLabel">
-                @if ($loop->last)
+                @if ($noticia->imagen == $value->name)
                   <input type="radio" name="imagen" value="{{$value->name}}" checked>
                 @else
                   <input type="radio" name="imagen" value="{{$value->name}}">
@@ -102,39 +88,68 @@
           <div class="filtroImagen">
             <p>Filtro imagen:</p>
             <label class=""> Ninguno
-              <input type="radio" name="filtroImagen" value="none" checked>
+              @if ($noticia->filtroImagen == "none")
+                <input type="radio" name="filtroImagen" value="none" checked>
+              @else
+                <input type="radio" name="filtroImagen" value="none">
+              @endif
               <div>✓</div>
             </label>
             <label class=""> Blanco y negro
-              <input type="radio" name="filtroImagen" value="grayscale(100%)">
+              @if ($noticia->filtroImagen == "grayscale(100%)")
+                <input type="radio" name="filtroImagen" value="grayscale(100%)" checked>
+              @else
+                <input type="radio" name="filtroImagen" value="grayscale(100%)">
+              @endif
               <div>✓</div>
             </label>
             <label class=""> Fuera de foco
-              <input type="radio" name="filtroImagen" value="blur(5px)">
+              @if ($noticia->filtroImagen == "blur(5px)")
+                <input type="radio" name="filtroImagen" value="blur(5px)" checked>
+              @else
+                <input type="radio" name="filtroImagen" value="blur(5px)">
+              @endif
               <div>✓</div>
             </label>
           </div>
 
           <div class="adminFormItem form_item form_item_checkbox">
               <label class="logoAsaar checkbox-label"> 3a. Incluir logo de la Asociación:
-                <input type="checkbox" name="logoAsaar" value="si">
+                @if ($noticia->logoAsaar == "si")
+                  <input type="checkbox" name="logoAsaar" value="si" checked>
+                @else
+                  <input type="checkbox" name="logoAsaar" value="si">
+                @endif
+
                 <span class="checkbox-custom">✓</span>
               </label>
           </div>
 
           <div class="adminFormItem form_item form_item_checkbox">
               <label class="calendar checkbox-label"> 3b. Incluir calendario:
-                <input type="checkbox" name="calendar" value="si">
+                @if ($noticia->calendar == "si")
+                  <input type="checkbox" name="calendar" value="si" checked>
+                @else
+                  <input type="checkbox" name="calendar" value="si">
+                @endif
                 <span class="checkbox-custom">✓</span>
               </label>
           </div>
 
+          @if ($noticia->calendar == "si")
+          <div class="info_calendar">
+          @else
           <div class="info_calendar" style="display: none;">
+          @endif
               <label> Mes:
                 <select class="" name="mes">
                   <option value="">Elegir:</option>
                   @for ($i = 0; $i < count($mes); $i++)
-                    <option value="{{$mes[$i]}}">{{$mes[$i]}}</option>
+                    @if ($noticia->mes == $mes[$i])
+                      <option value="{{$mes[$i]}}" selected>{{$mes[$i]}}</option>
+                    @else
+                      <option value="{{$mes[$i]}}">{{$mes[$i]}}</option>
+                    @endif
                   @endfor
                 </select>
               </label>
@@ -142,7 +157,11 @@
                 <select class="" name="dia">
                   <option value="">Elegir:</option>
                   @for ($i = 0; $i < count($diaSemana); $i++)
-                    <option value="{{$diaSemana[$i]}}">{{$diaSemana[$i]}}</option>
+                    @if ($noticia->dia == $diaSemana[$i])
+                      <option value="{{$diaSemana[$i]}}" selected>{{$diaSemana[$i]}}</option>
+                    @else
+                      <option value="{{$diaSemana[$i]}}">{{$diaSemana[$i]}}</option>
+                    @endif
                   @endfor
                 </select>
               </label>
@@ -150,7 +169,11 @@
                 <select class="" name="numero">
                   <option value="">Elegir:</option>
                   @for ($i = 1; $i < 32; $i++)
-                    <option value="{{$i}}">{{$i}}</option>
+                    @if ($noticia->numero == $i)
+                      <option value="{{$i}}" selected>{{$i}}</option>
+                    @else
+                      <option value="{{$i}}">{{$i}}</option>
+                    @endif
                   @endfor
                 </select>
               </label>
@@ -158,16 +181,20 @@
 
             <div class="adminFormItem form_item  adminFormItem_textarea">
               <label class="tituloImagen">3c. Titular sobre imagen:
-                <textarea  class="" name="tituloImagen" rows="5"></textarea>
+                <textarea  class="" name="tituloImagen" rows="5">{{$noticia->tituloImagen}}</textarea>
               </label>
               <p class="alert tituloImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
             </div>
 
+            @if ($noticia->tituloImagen != null)
+            <div class="colorTipoTitular">
+            @else
             <div class="colorTipoTitular" style="display: none;">
+            @endif
               <p>Color tipografía del titular:</p>
               @foreach ($colorTipoTitular as $key => $value)
                 <label> {{$key}}
-                @if ($loop->first)
+                @if ($noticia->colorTipoTitular == $value)
                   <input type="radio" name="colorTipoTitular" value="{{$value}}" checked>
                 @else
                   <input type="radio" name="colorTipoTitular" value="{{$value}}">
@@ -177,11 +204,15 @@
               @endforeach
             </div>
 
+            @if ($noticia->tituloImagen != null)
+            <div class="colorFondoTitular">
+            @else
             <div class="colorFondoTitular" style="display: none;">
+            @endif
               <p>Color fondo del titular:</p>
               @foreach ($colorFondoTitular as $key => $value)
                 <label> {{$key}}
-                @if ($loop->first)
+                @if ($noticia->colorFondoTitular == $value)
                   <input type="radio" name="colorFondoTitular" value="{{$value}}" checked>
                 @else
                   <input type="radio" name="colorFondoTitular" value="{{$value}}">
@@ -191,32 +222,44 @@
               @endforeach
             </div>
 
+            @if ($noticia->tituloImagen != null)
+            <div class="recuadroTitular form_item_checkbox">
+            @else
             <div class="recuadroTitular form_item_checkbox" style="display: none;">
+            @endif
                 <label class="recuadro checkbox-label"> Recuadro de titular:
-                  <input type="checkbox" name="recuadro" value="si" checked>
+                  @if ($noticia->recuadro == "si")
+                    <input type="checkbox" name="recuadro" value="si" checked>
+                  @else
+                    <input type="checkbox" name="recuadro" value="si">
+                  @endif
                   <span class="checkbox-custom">✓</span>
                 </label>
             </div>
 
             <div class="adminFormItem form_item adminFormItem_textarea">
               <label class="subtituloImagen">3d. Bajada de titular sobre imagen:
-                <textarea  class="" name="subtituloImagen" rows="5"></textarea>
+                <textarea  class="" name="subtituloImagen" rows="5">{{$noticia->subtituloImagen}}</textarea>
               </label>
               <p class="alert subtituloImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
             </div>
 
             <div class="adminFormItem form_item adminFormItem_textarea">
               <label class="detalleImagen">3e. Información adicional sobre imagen:
-                <textarea  class="" name="detalleImagen" rows="5"></textarea>
+                <textarea  class="" name="detalleImagen" rows="5">{{$noticia->detalleImagen}}</textarea>
               </label>
               <p class="alert detalleImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
             </div>
 
+            @if ($noticia->subtituloImagen != null || $noticia->detalleImagen != null)
+            <div class="colorTipoSubtitular">
+            @else
             <div class="colorTipoSubtitular" style="display: none;">
+            @endif
               <p>Color tipografía de bajada de titular e información adicional:</p>
               @foreach ($colorTipoSubtitular as $key => $value)
                 <label> {{$key}}
-                @if ($loop->first)
+                @if ($noticia->colorTipoSubtitular == $value)
                   <input type="radio" name="colorTipoSubtitular" value="{{$value}}" checked>
                 @else
                   <input type="radio" name="colorTipoSubtitular" value="{{$value}}">
@@ -226,11 +269,15 @@
               @endforeach
             </div>
 
+            @if ($noticia->subtituloImagen != null || $noticia->detalleImagen != null)
+            <div class="colorFondoSubtitular">
+            @else
             <div class="colorFondoSubtitular" style="display: none;">
+            @endif
               <p>Color fondo de bajada de titular e información adicional:</p>
               @foreach ($colorFondoSubtitular as $key => $value)
                 <label> {{$key}}
-                @if ($loop->first)
+                @if ($noticia->colorFondoSubtitular == $value)
                   <input type="radio" name="colorFondoSubtitular" value="{{$value}}" checked>
                 @else
                   <input type="radio" name="colorFondoSubtitular" value="{{$value}}">
@@ -242,16 +289,20 @@
 
             <div class="adminFormItem form_item adminFormItem_textarea">
               <label class="resumenImagen">3f. Resumen sobre imagen:
-                <textarea  class="" name="resumenImagen" rows="5"></textarea>
+                <textarea  class="" name="resumenImagen" rows="5">{{$noticia->resumenImagen}}</textarea>
               </label>
               <p class="alert resumenImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
             </div>
 
-            <div class="colorTipoResumen" style="display: none;">
+            @if ($noticia->resumenImagen != null)
+            <div class="colorTipoResumen">
+            @else
+              <div class="colorTipoResumen" style="display: none;">
+            @endif
               <p>Color tipografía de resumen:</p>
               @foreach ($colorTipoResumen as $key => $value)
                 <label> {{$key}}
-                @if ($key == "Naranja")
+                @if ($noticia->colorTipoResumen == $value)
                   <input type="radio" name="colorTipoResumen" value="{{$value}}" checked>
                 @else
                   <input type="radio" name="colorTipoResumen" value="{{$value}}">
@@ -261,11 +312,15 @@
               @endforeach
             </div>
 
+            @if ($noticia->resumenImagen != null)
+            <div class="colorFondoResumen">
+            @else
             <div class="colorFondoResumen" style="display: none;">
+            @endif
               <p>Color fondo de resumen:</p>
               @foreach ($colorFondoResumen as $key => $value)
                 <label> {{$key}}
-                @if ($key == "Negro")
+                @if ($noticia->colorFondoResumen == $value)
                   <input type="radio" name="colorFondoResumen" value="{{$value}}" checked>
                 @else
                   <input type="radio" name="colorFondoResumen" value="{{$value}}">
@@ -277,7 +332,7 @@
 
             <div class="adminFormItem form_item adminFormItem_textarea">
               <label class="rectificacionImagen">3g. Mensaje de rectificación sobre imagen:
-                <textarea  class="" name="rectificacionImagen" rows="5"></textarea>
+                <textarea  class="" name="rectificacionImagen" rows="5">{{$noticia->rectificacionImagen}}</textarea>
                 <p class="alert rectificacionImagen" style="color: red; width: 95%; margin: auto; display: none;"> </p>
               </label>
             </div>
@@ -287,7 +342,7 @@
 
         <div class="adminFormItem">
           <label for="content">4. Contenido de la noticia:</label>
-          <textarea  class="" id="content" name="content" rows="5"></textarea>
+          <textarea  class="" id="content" name="content" rows="5">{{$noticia->content}}</textarea>
           <p class="alert contentNoticia" style="color: red; width: 95%; margin: auto; display: none;"> </p>
         </div>
 
@@ -295,24 +350,39 @@
           <p>5. Subir imágenes adicionales</p>
           <div class="">
             <label for="filesPlus1">Imagen adicional 1:</label>
-            <input type="file" id="filesPlus1" name="filesPlus1">
-            <p class="remover" style="display:none;">Remover imagen</p>
+            @if ($noticia->filesPlus1 != null)
+              <input type="file" id="filesPlus1" name="filesPlus1" style="display:none;">
+              <p class="remover">Remover imagen</p>
+            @else
+              <input type="file" id="filesPlus1" name="filesPlus1">
+              <p class="remover" style="display:none;">Remover imagen</p>
+            @endif
             <div class=""></div>
             <p class="alert"></p>
           </div>
 
           <div class="">
             <label for="filesPlus2">Imagen adicional 2:</label>
-            <input type="file" id="filesPlus2" name="filesPlus2">
-            <p class="remover" style="display:none;">Remover imagen</p>
+            @if ($noticia->filesPlus2 != null)
+              <input type="file" id="filesPlus2" name="filesPlus2" style="display:none;">
+              <p class="remover">Remover imagen</p>
+            @else
+              <input type="file" id="filesPlus2" name="filesPlus2">
+              <p class="remover" style="display:none;">Remover imagen</p>
+            @endif
             <div class=""></div>
             <p class="alert"></p>
           </div>
 
           <div class="">
             <label for="filesPlus3">Imagen adicional 3:</label>
-            <input type="file" id="filesPlus3" name="filesPlus3">
-            <p class="remover" style="display:none;">Remover imagen</p>
+            @if ($noticia->filesPlus3 != null)
+              <input type="file" id="filesPlus3" name="filesPlus3" style="display:none;">
+              <p class="remover">Remover imagen</p>
+            @else
+              <input type="file" id="filesPlus3" name="filesPlus3">
+              <p class="remover" style="display:none;">Remover imagen</p>
+            @endif
             <div class=""></div>
             <p class="alert"></p>
           </div>
@@ -359,13 +429,19 @@
 
       <div class="wrap_iframe">
         <h4>Vista previa noticia:</h4>
-        <iframe id="output_iframe" src="{{ url('/plantilla-noticia') }}"></iframe>
+        {{-- <iframe id="output_iframe" src="{{ url('/plantilla-noticia') }}"></iframe> --}}
+        <iframe id="output_iframe" src="/noticias/{{$noticia->id}}/{{$noticia->slug}}"></iframe>
       </div>
 
       <div class="allCanvas">
         <h4>Vista previa imagen para redes sociales:</h4>
 
-        <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/Ali.jpg" alt="" style="display:none;">
+        @if ($noticia->imagenNoticia == "si")
+          <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/{{$noticia->imagen}}" alt="" style="display:none;">
+        @else
+          <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/Ali.jpg" alt="" style="display:none;">
+        @endif
+
         {{-- <img id="imgCanvasTwitter" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;"> --}}
 
         <div class="container_canvas">
@@ -389,6 +465,6 @@
   </main>
 
   <!-- Scripts -->
-  <script src="{{ asset('js/generar-noticias.js') }}"></script>
+  <script src="{{ asset('js/modificar-noticia.js') }}"></script>
 
   @endsection

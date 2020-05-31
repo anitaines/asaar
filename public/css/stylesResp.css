@@ -2393,6 +2393,13 @@ padding-left: 10px;
 /* ************ END GENERAR NOTICIA SECTION - MOBILE ************ */
 
 
+/* ************ MODIFICAR NOTICIA SECTION - MOBILE ************ */
+.admin.generar.modificar h4{
+  display: block;
+}
+/* ************ END MODIFICAR NOTICIA SECTION - MOBILE ************ */
+
+
 /* ************ NOTICIA SUCCESS SECTION - MOBILE ************ */
 .admin.success{
   text-align: center;

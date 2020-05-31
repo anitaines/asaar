@@ -72,6 +72,11 @@ Route::get('/administrar-carousel', 'ReleaseController@carouselAdmin'); //falta 
 
 Route::post('/administrar-carousel', 'ReleaseController@carouselStore'); //falta auth
 
-Route::get('/modificar-noticia', 'ReleaseController@edit'); //falta auth
+Route::get('/modificar-noticia/{id}', 'ReleaseController@edit'); //falta auth
 
-Route::post('/modificar-noticia', 'ReleaseController@update'); //falta auth
+Route::post('/modificar-noticia/{id}', 'ReleaseController@update'); //falta auth
+
+
+// Route::get('/editar_articulo/{id}', 'ArticleController@edit')->middleware('auth');
+//
+// Route::put('/editar_articulo/{id}', 'ArticleController@update')->middleware('auth');
