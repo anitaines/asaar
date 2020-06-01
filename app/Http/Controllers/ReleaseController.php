@@ -106,7 +106,7 @@ class ReleaseController extends Controller
      */
     public function store(Request $request)
     {
-      // dd($request);
+      dd($request);
       $rules = [
       'title' => ['required', 'string', 'max:255'],
       'subtitle' => ['nullable','string', 'max:255'],
@@ -324,8 +324,6 @@ class ReleaseController extends Controller
     // public function show(Release $release)
     {
       // $noticia = Release::find($id);
-      // - color tipo subtitularImagen está guardando bien?
-      // modificar en los dos archivos
 
       $noticia = Release::where('id', '=', $id)
       ->where('slug', '=', $slug)
@@ -454,6 +452,155 @@ class ReleaseController extends Controller
 
       $noticia = Release::find($id);
       // dd($noticia);
+
+      $noticia->slug = Str::slug($request->title, '-');
+
+      $noticia->title = $request->title;
+
+      $noticia->subtitle = $request->subtitle;
+
+      if($request->imagenNoticia == "si"){
+        $noticia->imagenNoticia = $request->imagenNoticia;
+
+        if (preg_match("/data:image/",$request->imagen) == 0){
+          $noticia->imagen = $request->imagen;
+        } else {
+          $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
+          $nombreFilesMain = basename($rutaImage);
+
+          $noticia->imagen = $nombreFilesMain;
+
+          $nuevaImagen = new Image;
+          $nuevaImagen->name = $nombreFilesMain;
+          $nuevaImagen->origin = "Uploaded";
+          $nuevaImagen->save();
+        }
+      } else {
+        $noticia->imagenNoticia = "no";
+        $noticia->imagen = null;
+      }
+
+      // Por las dudas:
+      if ($noticia->imagen == null){
+        $noticia->imagenNoticia = "no";
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->filtroImagen = $request->filtroImagen;
+      } else {
+        $noticia->filtroImagen = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->logoAsaar = $request->logoAsaar;
+      } else {
+        $noticia->logoAsaar = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->calendar = $request->calendar;
+        $noticia->mes = $request->mes;
+        $noticia->dia = $request->dia;
+        $noticia->numero = $request->numero;
+      } else {
+        $noticia->calendar = null;
+        $noticia->mes = null;
+        $noticia->dia = null;
+        $noticia->numero = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->tituloImagen = $request->tituloImagen;
+        if ($request->tituloImagen){
+          $noticia->colorTipoTitular = $request->colorTipoTitular;
+          $noticia->colorFondoTitular = $request->colorFondoTitular;
+          $noticia->recuadro = $request->recuadro;
+        } else{
+          $noticia->colorTipoTitular = null;
+          $noticia->colorFondoTitular = null;
+          $noticia->recuadro = null;
+        }
+      } else {
+        $noticia->tituloImagen = null;
+        $noticia->colorTipoTitular = null;
+        $noticia->colorFondoTitular = null;
+        $noticia->recuadro = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->subtituloImagen = $request->subtituloImagen;
+        $noticia->detalleImagen = $request->detalleImagen;
+        if ($noticia->subtituloImagen || $noticia->detalleImagen){
+          $noticia->colorTipoSubtitular = $request->colorTipoSubtitular;
+          $noticia->colorFondoSubtitular = $request->colorFondoSubtitular;
+        } else{
+          $noticia->colorTipoSubtitular = null;
+          $noticia->colorFondoSubtitular = null;
+        }
+      } else {
+        $noticia->subtituloImagen = null;
+        $noticia->detalleImagen = null;
+        $noticia->colorTipoSubtitular = null;
+        $noticia->colorFondoSubtitular = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->resumenImagen = $request->resumenImagen;
+        if ($noticia->resumenImagen){
+          $noticia->colorTipoResumen = $request->colorTipoResumen;
+          $noticia->colorFondoResumen = $request->colorFondoResumen;
+        } else{
+          $noticia->colorTipoResumen = null;
+          $noticia->colorFondoResumen = null;
+        }
+      } else {
+        $noticia->resumenImagen = null;
+        $noticia->colorTipoResumen = null;
+        $noticia->colorFondoResumen = null;
+      }
+
+      if ($request->imagenNoticia == "si"){
+        $noticia->rectificacionImagen = $request->rectificacionImagen;
+      } else {
+        $noticia->rectificacionImagen = null;
+      }
+
+      $noticia->content = $request->content;
+
+      if ($request->filesPlus1Removida && !$request->filesPlus1){
+        $noticia->filesPlus1 = null;
+      }
+      if ($request->filesPlus1) {
+        $rutafilesPlus1 = $request->filesPlus1->store("public/noticias/imagenesPlus");
+        $nombrefilesPlus1 = basename($rutafilesPlus1);
+
+        $noticia->filesPlus1 = $nombrefilesPlus1;
+      }
+
+      if ($request->filesPlus2Removida && !$request->filesPlus2){
+        $noticia->filesPlus2 = null;
+      }
+      if ($request->filesPlus2) {
+        $rutafilesPlus2 = $request->filesPlus2->store("public/noticias/imagenesPlus");
+        $nombrefilesPlus2 = basename($rutafilesPlus2);
+
+        $noticia->filesPlus2 = $nombrefilesPlus2;
+      }
+
+      if ($request->filesPlus3Removida && !$request->filesPlus3){
+        $noticia->filesPlus3 = null;
+      }
+      if ($request->filesPlus3) {
+        $rutafilesPlus3 = $request->filesPlus3->store("public/noticias/imagenesPlus");
+        $nombrefilesPlus3 = basename($rutafilesPlus3);
+
+        $noticia->filesPlus3 = $nombrefilesPlus3;
+      }
+
+      $noticia->save();
+
+      return redirect('/');
+
     }
 
     /**

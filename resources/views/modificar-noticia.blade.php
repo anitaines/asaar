@@ -64,12 +64,20 @@
             </div>
 
             @foreach ($imagenes as $key => $value)
-{{-- Y SI ARRANCO SIN IMAGEN EN LA NOTICIA?? --}}
+
               <label class="imagenLabel">
-                @if ($noticia->imagen == $value->name)
-                  <input type="radio" name="imagen" value="{{$value->name}}" checked>
+                @if ($noticia->imagenNoticia == "si")
+                  @if ($noticia->imagen == $value->name)
+                    <input type="radio" name="imagen" value="{{$value->name}}" checked>
+                  @else
+                    <input type="radio" name="imagen" value="{{$value->name}}">
+                  @endif
                 @else
-                  <input type="radio" name="imagen" value="{{$value->name}}">
+                  @if ($loop->last)
+                    <input type="radio" name="imagen" value="{{$value->name}}" checked>
+                  @else
+                    <input type="radio" name="imagen" value="{{$value->name}}">
+                  @endif
                 @endif
                 <div style="background-image: url('/storage/noticias/imagenesMain/{{$value->name}}');" class=""></div>
               </label>
@@ -353,9 +361,11 @@
             @if ($noticia->filesPlus1 != null)
               <input type="file" id="filesPlus1" name="filesPlus1" style="display:none;">
               <p class="remover">Remover imagen</p>
+              <input type="checkbox" name="filesPlus1Removida" value="si" style="display:none;">
             @else
               <input type="file" id="filesPlus1" name="filesPlus1">
               <p class="remover" style="display:none;">Remover imagen</p>
+              <input type="checkbox" name="" value="" style="display:none;">
             @endif
             <div class=""></div>
             <p class="alert"></p>
@@ -366,9 +376,11 @@
             @if ($noticia->filesPlus2 != null)
               <input type="file" id="filesPlus2" name="filesPlus2" style="display:none;">
               <p class="remover">Remover imagen</p>
+              <input type="checkbox" name="filesPlus2Removida" value="si" style="display:none;">
             @else
               <input type="file" id="filesPlus2" name="filesPlus2">
               <p class="remover" style="display:none;">Remover imagen</p>
+              <input type="checkbox" name="" value="" style="display:none;">
             @endif
             <div class=""></div>
             <p class="alert"></p>
@@ -379,9 +391,11 @@
             @if ($noticia->filesPlus3 != null)
               <input type="file" id="filesPlus3" name="filesPlus3" style="display:none;">
               <p class="remover">Remover imagen</p>
+              <input type="checkbox" name="filesPlus3Removida" value="si" style="display:none;">
             @else
               <input type="file" id="filesPlus3" name="filesPlus3">
               <p class="remover" style="display:none;">Remover imagen</p>
+              <input type="checkbox" name="" value="" style="display:none;">
             @endif
             <div class=""></div>
             <p class="alert"></p>

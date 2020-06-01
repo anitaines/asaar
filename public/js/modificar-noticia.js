@@ -362,46 +362,11 @@ window.onload = function(){
     iframe.contentWindow.document.querySelector(".info_img_container .box2").style.display = "block";
     iframe.contentWindow.document.querySelector(".info_img_container .box2 p").innerHTML = this.value.replace(/\n/g, "<br>");
 
-    document.querySelector(".recuadroTitular").style.display = "block";
-
-    // funcionalidad opción recuadro:
-    let recuadroTitular = document.querySelector(".recuadroTitular");
-    recuadroTitular.addEventListener("input", function(){
-      if (recuadroTitular.firstElementChild.firstElementChild.checked == true){
-        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "4px solid " + iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
-        // Canvas:
-        setCanvas(canvasFacebook, imgCanvasFacebook);
-      } else {
-        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "0px solid " + iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
-        // Canvas:
-        setCanvas(canvasFacebook, imgCanvasFacebook);
-      }
-    });
-
     document.querySelector(".colorTipoTitular").style.display = "block";
 
-    // funcionalidad thumbnails colores tipografía:
-    let opcionesColorTipo = document.querySelectorAll(".colorTipoTitular input");
-    for (var i = 0; i < opcionesColorTipo.length; i++) {
-      opcionesColorTipo[i].addEventListener("input", function(){
-        iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color = this.value;
-        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.borderColor = this.value;
-        // Canvas:
-        setCanvas(canvasFacebook, imgCanvasFacebook);
-      });
-    }
-
     document.querySelector(".colorFondoTitular").style.display = "block";
-    // funcionalidad thumbnails colores fondo:
-    let opcionesColorFondo = document.querySelectorAll(".colorFondoTitular input");
-    for (var i = 0; i < opcionesColorFondo.length; i++) {
-      opcionesColorFondo[i].addEventListener("input", function(){
-        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor = this.value;
-        // Canvas:
-        setCanvas(canvasFacebook, imgCanvasFacebook);
-      });
-    }
 
+    document.querySelector(".recuadroTitular").style.display = "block";
     } else {
       iframe.contentWindow.document.querySelector(".info_img_container .box2").style.display = "none";
 
@@ -420,6 +385,45 @@ window.onload = function(){
     setCanvas(canvasFacebook, imgCanvasFacebook);
   });
 
+    // funcionalidad opción recuadro:
+    let recuadroTitular = document.querySelector(".recuadroTitular");
+    recuadroTitular.addEventListener("input", function(){
+      if (recuadroTitular.firstElementChild.firstElementChild.checked == true){
+        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "4px solid " + iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
+        // Canvas:
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      } else {
+        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.border = "0px solid " + iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color;
+        // Canvas:
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      }
+    });
+
+    // funcionalidad thumbnails colores tipografía:
+    let opcionesColorTipo = document.querySelectorAll(".colorTipoTitular input");
+    for (var i = 0; i < opcionesColorTipo.length; i++) {
+      opcionesColorTipo[i].addEventListener("input", function(){
+        iframe.contentWindow.document.querySelector(".info_img_container .box2 p").style.color = this.value;
+        if (recuadroTitular.firstElementChild.firstElementChild.checked == true){
+          iframe.contentWindow.document.querySelector(".info_img_container .box2").style.borderColor = this.value;
+        }
+        // Canvas:
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
+    }
+
+    // funcionalidad thumbnails colores fondo:
+    let opcionesColorFondo = document.querySelectorAll(".colorFondoTitular input");
+    for (var i = 0; i < opcionesColorFondo.length; i++) {
+      opcionesColorFondo[i].addEventListener("input", function(){
+        iframe.contentWindow.document.querySelector(".info_img_container .box2").style.backgroundColor = this.value;
+        // Canvas:
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
+    }
+
+
+
 
 
   // incluir bajada titular sobre imagen:
@@ -432,29 +436,7 @@ window.onload = function(){
 
     document.querySelector(".colorTipoSubtitular").style.display = "block";
 
-    // funcionalidad thumbnails colores tipografía:
-    let opcionesColorTipoSubtitular = document.querySelectorAll(".colorTipoSubtitular input");
-    for (var i = 0; i < opcionesColorTipoSubtitular.length; i++) {
-      opcionesColorTipoSubtitular[i].addEventListener("input", function(){
-        iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color = this.value;
-
-        iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.color = this.value;
-
-        // Canvas:
-        setCanvas(canvasFacebook, imgCanvasFacebook);
-      });
-    }
-
     document.querySelector(".colorFondoSubtitular").style.display = "block";
-    // funcionalidad thumbnails colores fondo:
-    let opcionesColorFondoSubtitular = document.querySelectorAll(".colorFondoSubtitular input");
-    for (var i = 0; i < opcionesColorFondoSubtitular.length; i++) {
-      opcionesColorFondoSubtitular[i].addEventListener("input", function(){
-        iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor = this.value;
-        // Canvas:
-        setCanvas(canvasFacebook, imgCanvasFacebook);
-      });
-    }
 
   } else {
     if (this.value.length <= 0 && detalleImagen.value <= 0){
@@ -477,6 +459,31 @@ window.onload = function(){
     setCanvas(canvasFacebook, imgCanvasFacebook);
   });
 
+    // // funcionalidad thumbnails colores tipografía:
+    // let opcionesColorTipoSubtitular = document.querySelectorAll(".colorTipoSubtitular input");
+    // for (var i = 0; i < opcionesColorTipoSubtitular.length; i++) {
+    //   opcionesColorTipoSubtitular[i].addEventListener("input", function(){
+    //     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color = this.value;
+    //
+    //     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.color = this.value;
+    //
+    //     // Canvas:
+    //     setCanvas(canvasFacebook, imgCanvasFacebook);
+    //   });
+    // }
+    //
+    // // funcionalidad thumbnails colores fondo:
+    // let opcionesColorFondoSubtitular = document.querySelectorAll(".colorFondoSubtitular input");
+    // for (var i = 0; i < opcionesColorFondoSubtitular.length; i++) {
+    //   opcionesColorFondoSubtitular[i].addEventListener("input", function(){
+    //     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor = this.value;
+    //     // Canvas:
+    //     setCanvas(canvasFacebook, imgCanvasFacebook);
+    //   });
+    // }
+
+
+
 
 
   // incluir detalle información sobre imagen:
@@ -488,6 +495,29 @@ window.onload = function(){
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").innerHTML = this.value.replace(/\n/g, "<br>");
 
     document.querySelector(".colorTipoSubtitular").style.display = "block";
+
+    document.querySelector(".colorFondoSubtitular").style.display = "block";
+
+  } else {
+    if (this.value.length <= 0 && subtituloImagen.value <= 0){
+    iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.display = "none";
+
+    iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.display = "none";
+
+    document.querySelector(".colorTipoSubtitular").style.display = "none";
+
+    document.querySelector(".colorFondoSubtitular").style.display = "none";
+  } else {
+    iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.display = "none";
+  }
+  }
+  // validación:
+  validarDetalleImagen();
+
+  checkLayout();
+  // Canvas:
+  setCanvas(canvasFacebook, imgCanvasFacebook);
+});
 
     // funcionalidad thumbnails colores tipografía:
     let opcionesColorTipoSubtitular = document.querySelectorAll(".colorTipoSubtitular input");
@@ -502,7 +532,7 @@ window.onload = function(){
       });
     }
 
-    document.querySelector(".colorFondoSubtitular").style.display = "block";
+
     // funcionalidad thumbnails colores fondo:
     let opcionesColorFondoSubtitular = document.querySelectorAll(".colorFondoSubtitular input");
     for (var i = 0; i < opcionesColorFondoSubtitular.length; i++) {
@@ -513,26 +543,7 @@ window.onload = function(){
       });
     }
 
-    } else {
-      if (this.value.length <= 0 && subtituloImagen.value <= 0){
-      iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.display = "none";
 
-      iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.display = "none";
-
-      document.querySelector(".colorTipoSubtitular").style.display = "none";
-
-      document.querySelector(".colorFondoSubtitular").style.display = "none";
-    } else {
-      iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.display = "none";
-    }
-    }
-    // validación:
-    validarDetalleImagen();
-
-    checkLayout();
-    // Canvas:
-    setCanvas(canvasFacebook, imgCanvasFacebook);
-  });
 
 
 
@@ -544,26 +555,8 @@ window.onload = function(){
     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").innerHTML = this.value.replace(/\n/g, "<br>");
 
     document.querySelector(".colorTipoResumen").style.display = "block";
-    // funcionalidad thumbnails colores tipografía:
-    let opcionesColorTipoResumen = document.querySelectorAll(".colorTipoResumen input");
-    for (var i = 0; i < opcionesColorTipoResumen.length; i++) {
-      opcionesColorTipoResumen[i].addEventListener("input", function(){
-        iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color = this.value;
-        // Canvas:
-        setCanvas(canvasFacebook, imgCanvasFacebook);
-      });
-    }
 
     document.querySelector(".colorFondoResumen").style.display = "block";
-    // funcionalidad thumbnails colores fondo:
-    var opcionesColorFondoResumen = document.querySelectorAll(".colorFondoResumen input");
-    for (var i = 0; i < opcionesColorFondoResumen.length; i++) {
-      opcionesColorFondoResumen[i].addEventListener("input", function(){
-        iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor = this.value;
-        // Canvas:
-        setCanvas(canvasFacebook, imgCanvasFacebook);
-      });
-    }
 
     } else {
       iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.display = "none";
@@ -579,6 +572,27 @@ window.onload = function(){
     // Canvas:
     setCanvas(canvasFacebook, imgCanvasFacebook);
   });
+
+    // funcionalidad thumbnails colores tipografía:
+    let opcionesColorTipoResumen = document.querySelectorAll(".colorTipoResumen input");
+    for (var i = 0; i < opcionesColorTipoResumen.length; i++) {
+      opcionesColorTipoResumen[i].addEventListener("input", function(){
+        iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color = this.value;
+        // Canvas:
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
+    }
+
+    // funcionalidad thumbnails colores fondo:
+    var opcionesColorFondoResumen = document.querySelectorAll(".colorFondoResumen input");
+    for (var i = 0; i < opcionesColorFondoResumen.length; i++) {
+      opcionesColorFondoResumen[i].addEventListener("input", function(){
+        iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child").style.backgroundColor = this.value;
+        // Canvas:
+        setCanvas(canvasFacebook, imgCanvasFacebook);
+      });
+    }
+
 
 
 
@@ -729,6 +743,8 @@ window.onload = function(){
       this.previousElementSibling.style.display="inline-block";
       this.previousElementSibling.value="";
       this.style.display="none";
+      // enviar en el form la infomación de que la imagen fue removida:
+      this.nextElementSibling.checked = true;
     });
   }
 
@@ -1075,7 +1091,9 @@ window.onload = function(){
       imprimirTexto (canvas, ctx,lineasSubtitular, fontSubtitular, colorTipoSubitular, lineHeightSubtitular, factorXsubtitular, posInicialYsubtitular);
 
       // Detalle:
-      imprimirTexto (canvas, ctx,lineasDetalle, fontDetalle, colorTipoSubitular, lineHeightDetalle, factorXdetalle, posInicialYdetalle);
+      var colorTipoDetalle = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.color;
+
+      imprimirTexto (canvas, ctx,lineasDetalle, fontDetalle, colorTipoDetalle, lineHeightDetalle, factorXdetalle, posInicialYdetalle);
 
       // Resumen:
       var colorTipoResumen = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child p").style.color;
