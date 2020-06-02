@@ -106,7 +106,7 @@ class ReleaseController extends Controller
      */
     public function store(Request $request)
     {
-      dd($request);
+      // dd($request);
       $rules = [
       'title' => ['required', 'string', 'max:255'],
       'subtitle' => ['nullable','string', 'max:255'],
@@ -212,7 +212,7 @@ class ReleaseController extends Controller
         $noticia->logoAsaar = null;
       }
 
-      if ($request->imagenNoticia == "si"){
+      if ($request->imagenNoticia == "si" && $request->calendar == "si"){
         $noticia->calendar = $request->calendar;
         $noticia->mes = $request->mes;
         $noticia->dia = $request->dia;
@@ -404,7 +404,7 @@ class ReleaseController extends Controller
     // public function update(Request $request, Release $release)
     public function update(Request $request, $id)
     {
-      dd($request);
+      // dd($request);
       $rules = [
       'title' => ['required', 'string', 'max:255'],
       'subtitle' => ['nullable','string', 'max:255'],
@@ -497,7 +497,7 @@ class ReleaseController extends Controller
         $noticia->logoAsaar = null;
       }
 
-      if ($request->imagenNoticia == "si"){
+      if ($request->imagenNoticia == "si" && $request->calendar == "si"){
         $noticia->calendar = $request->calendar;
         $noticia->mes = $request->mes;
         $noticia->dia = $request->dia;

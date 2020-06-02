@@ -96,7 +96,8 @@
           <div class="filtroImagen">
             <p>Filtro imagen:</p>
             <label class=""> Ninguno
-              @if ($noticia->filtroImagen == "none")
+              {{-- @if ($noticia->imagenNoticia != "si") --}}
+              @if ($noticia->imagenNoticia != "si" || $noticia->filtroImagen == "none")
                 <input type="radio" name="filtroImagen" value="none" checked>
               @else
                 <input type="radio" name="filtroImagen" value="none">
@@ -202,11 +203,19 @@
               <p>Color tipografía del titular:</p>
               @foreach ($colorTipoTitular as $key => $value)
                 <label> {{$key}}
-                @if ($noticia->colorTipoTitular == $value)
-                  <input type="radio" name="colorTipoTitular" value="{{$value}}" checked>
-                @else
-                  <input type="radio" name="colorTipoTitular" value="{{$value}}">
-                @endif
+                  @if ($noticia->imagenNoticia == "si" && $noticia->tituloImagen != null)
+                    @if ($noticia->colorTipoTitular == $value)
+                      <input type="radio" name="colorTipoTitular" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorTipoTitular" value="{{$value}}">
+                    @endif
+                  @else
+                    @if ($loop->first)
+                      <input type="radio" name="colorTipoTitular" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorTipoTitular" value="{{$value}}">
+                    @endif
+                  @endif
                   <div style="background-color: {{$value}};"></div>
                 </label>
               @endforeach
@@ -220,11 +229,19 @@
               <p>Color fondo del titular:</p>
               @foreach ($colorFondoTitular as $key => $value)
                 <label> {{$key}}
-                @if ($noticia->colorFondoTitular == $value)
-                  <input type="radio" name="colorFondoTitular" value="{{$value}}" checked>
-                @else
-                  <input type="radio" name="colorFondoTitular" value="{{$value}}">
-                @endif
+                  @if ($noticia->imagenNoticia == "si" && $noticia->tituloImagen != null)
+                    @if ($noticia->colorFondoTitular == $value)
+                      <input type="radio" name="colorFondoTitular" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorFondoTitular" value="{{$value}}">
+                    @endif
+                  @else
+                    @if ($loop->first)
+                      <input type="radio" name="colorFondoTitular" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorFondoTitular" value="{{$value}}">
+                    @endif
+                  @endif
                   <div style="background-color: {{$value}};"></div>
                 </label>
               @endforeach
@@ -236,10 +253,14 @@
             <div class="recuadroTitular form_item_checkbox" style="display: none;">
             @endif
                 <label class="recuadro checkbox-label"> Recuadro de titular:
-                  @if ($noticia->recuadro == "si")
-                    <input type="checkbox" name="recuadro" value="si" checked>
+                  @if ($noticia->imagenNoticia == "si" && $noticia->tituloImagen != null)
+                    @if ($noticia->recuadro == "si")
+                      <input type="checkbox" name="recuadro" value="si" checked>
+                    @else
+                      <input type="checkbox" name="recuadro" value="si">
+                    @endif
                   @else
-                    <input type="checkbox" name="recuadro" value="si">
+                    <input type="checkbox" name="recuadro" value="si" checked>
                   @endif
                   <span class="checkbox-custom">✓</span>
                 </label>
@@ -267,11 +288,19 @@
               <p>Color tipografía de bajada de titular e información adicional:</p>
               @foreach ($colorTipoSubtitular as $key => $value)
                 <label> {{$key}}
-                @if ($noticia->colorTipoSubtitular == $value)
-                  <input type="radio" name="colorTipoSubtitular" value="{{$value}}" checked>
-                @else
-                  <input type="radio" name="colorTipoSubtitular" value="{{$value}}">
-                @endif
+                  @if ($noticia->imagenNoticia == "si" && ($noticia->subtituloImagen != null || $noticia->detalleImagen != null))
+                    @if ($noticia->colorTipoSubtitular == $value)
+                      <input type="radio" name="colorTipoSubtitular" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorTipoSubtitular" value="{{$value}}">
+                    @endif
+                  @else
+                    @if ($loop->first)
+                      <input type="radio" name="colorTipoSubtitular" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorTipoSubtitular" value="{{$value}}">
+                    @endif
+                  @endif
                   <div style="background-color: {{$value}};"></div>
                 </label>
               @endforeach
@@ -285,11 +314,19 @@
               <p>Color fondo de bajada de titular e información adicional:</p>
               @foreach ($colorFondoSubtitular as $key => $value)
                 <label> {{$key}}
-                @if ($noticia->colorFondoSubtitular == $value)
-                  <input type="radio" name="colorFondoSubtitular" value="{{$value}}" checked>
-                @else
-                  <input type="radio" name="colorFondoSubtitular" value="{{$value}}">
-                @endif
+                  @if ($noticia->imagenNoticia == "si" && ($noticia->subtituloImagen != null || $noticia->detalleImagen != null))
+                    @if ($noticia->colorFondoSubtitular == $value)
+                      <input type="radio" name="colorFondoSubtitular" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorFondoSubtitular" value="{{$value}}">
+                    @endif
+                  @else
+                    @if ($loop->first)
+                      <input type="radio" name="colorFondoSubtitular" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorFondoSubtitular" value="{{$value}}">
+                    @endif
+                  @endif
                   <div style="background-color: {{$value}};"></div>
                 </label>
               @endforeach
@@ -310,11 +347,19 @@
               <p>Color tipografía de resumen:</p>
               @foreach ($colorTipoResumen as $key => $value)
                 <label> {{$key}}
-                @if ($noticia->colorTipoResumen == $value)
-                  <input type="radio" name="colorTipoResumen" value="{{$value}}" checked>
-                @else
-                  <input type="radio" name="colorTipoResumen" value="{{$value}}">
-                @endif
+                  @if ($noticia->imagenNoticia == "si" && $noticia->resumenImagen != null)
+                    @if ($noticia->colorTipoResumen == $value)
+                      <input type="radio" name="colorTipoResumen" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorTipoResumen" value="{{$value}}">
+                    @endif
+                  @else
+                    @if ($key == "Naranja")
+                      <input type="radio" name="colorTipoResumen" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorTipoResumen" value="{{$value}}">
+                    @endif
+                  @endif
                   <div style="background-color: {{$value}};"></div>
                 </label>
               @endforeach
@@ -328,11 +373,19 @@
               <p>Color fondo de resumen:</p>
               @foreach ($colorFondoResumen as $key => $value)
                 <label> {{$key}}
-                @if ($noticia->colorFondoResumen == $value)
-                  <input type="radio" name="colorFondoResumen" value="{{$value}}" checked>
-                @else
-                  <input type="radio" name="colorFondoResumen" value="{{$value}}">
-                @endif
+                  @if ($noticia->imagenNoticia == "si" && $noticia->resumenImagen != null)
+                    @if ($noticia->colorFondoResumen == $value)
+                      <input type="radio" name="colorFondoResumen" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorFondoResumen" value="{{$value}}">
+                    @endif
+                  @else
+                    @if ($key == "Negro")
+                      <input type="radio" name="colorFondoResumen" value="{{$value}}" checked>
+                    @else
+                      <input type="radio" name="colorFondoResumen" value="{{$value}}">
+                    @endif
+                  @endif
                   <div style="background-color: {{$value}};"></div>
                 </label>
               @endforeach
@@ -367,7 +420,11 @@
               <p class="remover" style="display:none;">Remover imagen</p>
               <input type="checkbox" name="" value="" style="display:none;">
             @endif
-            <div class=""></div>
+            <div class="">
+              @if ($noticia->filesPlus1 != null)
+                <div class="" style="background-image: url('/storage/noticias/imagenesPlus/{{$noticia->filesPlus1}}'); height: 150px"></div>
+              @endif
+            </div>
             <p class="alert"></p>
           </div>
 
@@ -382,7 +439,11 @@
               <p class="remover" style="display:none;">Remover imagen</p>
               <input type="checkbox" name="" value="" style="display:none;">
             @endif
-            <div class=""></div>
+            <div class="">
+              @if ($noticia->filesPlus2 != null)
+                <div class="" style="background-image: url('/storage/noticias/imagenesPlus/{{$noticia->filesPlus2}}'); height: 150px"></div>
+              @endif
+            </div>
             <p class="alert"></p>
           </div>
 
@@ -397,7 +458,11 @@
               <p class="remover" style="display:none;">Remover imagen</p>
               <input type="checkbox" name="" value="" style="display:none;">
             @endif
-            <div class=""></div>
+            <div class="">
+              @if ($noticia->filesPlus3 != null)
+                <div class="" style="background-image: url('/storage/noticias/imagenesPlus/{{$noticia->filesPlus3}}'); height: 150px"></div>
+              @endif
+            </div>
             <p class="alert"></p>
           </div>
         </div>
@@ -430,7 +495,7 @@
 
         <div class="buttonWrap">
           <button class="downloadCanvas uploadNews"  type="submit">
-            <p>7. Publicar noticia</p>
+            <p>7. Modificar noticia</p>
             {{-- <p>Procesando</p> --}}
           </button>
         </div>

@@ -689,7 +689,7 @@ window.onload = function(){
           let newThumbnail = `
                 <div class="" style="background-image: url('${e.target.result}'); height: 150px"></div>
                   `;
-          document.getElementById(evt.target.id).nextElementSibling.nextElementSibling.innerHTML += newThumbnail;
+          document.getElementById(evt.target.id).nextElementSibling.nextElementSibling.nextElementSibling.innerHTML += newThumbnail;
 
           document.getElementById(`${evt.target.id}`).style.display="none";
           document.getElementById(`${evt.target.id}`).nextElementSibling.style.display="block";
@@ -736,9 +736,9 @@ window.onload = function(){
       let imagenesAdicionales = iframe.contentWindow.document.querySelector("." + identificador);
       imagenesAdicionales.children[0].remove();
       // borrar thumbail en documento:
-      if (this.nextElementSibling.children[0]){
-        this.nextElementSibling.children[0].remove();
-      }
+      // if (this.nextElementSibling.nextElementSibling.children[0]){
+        this.nextElementSibling.nextElementSibling.children[0].remove();
+      // }
       // restablecer input:
       this.previousElementSibling.style.display="inline-block";
       this.previousElementSibling.value="";
