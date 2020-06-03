@@ -1998,6 +1998,144 @@ text-align: left;
 
 
 /* ADMIN SECTION */
+/* ************ CONTROL PANEL SECTION - MOBILE ************ */
+  /* Contenedor noticias: */
+.admin.cPanel .container .noticias{
+  width: 77%;
+  /* margin: auto; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 65px;
+}
+.admin.cPanel .container .noticias .noticiaItem{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 190px;
+  margin: 10px;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  text-align: center;
+  background-color: #ffffff;
+}
+.admin.cPanel .container .noticias .noticiaItem .eliminar{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  position: relative;
+  background-color: beige;
+  border-bottom: 2px solid var(--black);
+}
+.admin.cPanel .container .noticias .noticiaItem .eliminar:hover{
+  cursor: pointer;
+}
+.admin.cPanel .container .noticias .noticiaItem .eliminar p{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+.admin.cPanel .container .noticias .noticiaItem .eliminar .cruz{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: 2px solid var(--black);
+  background-color: coral;
+  position: absolute;
+  top: -12px;
+  right: -2px;
+}
+.admin.cPanel .container .noticias .noticiaItem .eliminar .cruz p{
+  width: 100%;
+  font-size: 17px;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaImagen{
+  width: 190px;
+  height: 100px;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaInfo{
+  /* margin: auto; */
+  height: 140px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: center;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaInfo a p{
+  color: var(--magenta);
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaInfo p:nth-child(2){
+  font-size: 13px;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaInfo p{
+  margin-bottom: 10px;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaInfo label input{
+  width: 40px;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--magenta);
+}
+.admin.cPanel .container .noticias .noticiaItem .modificar{
+  background-color: beige;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  height: 60px;
+  margin: 10px;
+  line-height: 1.3;
+  padding: 5px;
+}
+.admin.cPanel .container .noticias .noticiaItem .modificar:hover{
+  cursor: pointer;
+}
+.admin.cPanel .container .noticias .noticiaItem .modificar p{
+  margin-bottom: 10px;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem{
+  height: 364px;
+  align-content: normal;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem:hover{
+  cursor: pointer;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo{
+  height: 100px;
+  width: 100px;
+  border: 2px solid var(--black);
+  border-radius: 50px;
+  border-radius: 100px;
+  margin: auto;
+  display: flex;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo .lineaVertical{
+  border: 1px solid var(--black);
+  height: 70px;
+  width: 0px;
+  margin: auto 0px;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo .lineaVHorizontal{
+  border: 1px solid var(--black);
+  width: 35px;
+  height: 0px;
+  margin: auto;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo .lineaVHorizontal:first-child{
+  margin-right: 0px;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo .lineaVHorizontal:last-child{
+  margin-left: 0px;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem p{
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+/* ************ END CONTROL PANEL SECTION - MOBILE ************ */
+
+
 /* ************ GENERAR NOTICIA SECTION - MOBILE ************ */
 .admin{
   position: relative;
@@ -2033,9 +2171,9 @@ text-align: left;
   text-align: center;
   margin-bottom: 30px;
 }
-.admin .input h4{
+/* .admin .input h4{
   display: none;
-}
+} */
 .admin .input{
   width: 100%;
 }

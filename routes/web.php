@@ -60,7 +60,9 @@ Route::get('/noticias/{id}/{slug}', 'ReleaseController@show');
 //     return view('generar-noticias');
 // });
 
-Route::get('/generar-noticias', 'ReleaseController@create'); //falta auth
+Route::get('/control-panel', 'ReleaseController@cPanel'); //falta auth
+
+Route::delete('/eliminar-noticia/{id}', 'ReleaseController@destroy'); //falta auth
 
 Route::post('/generar-noticias', 'ReleaseController@store'); //falta auth
 

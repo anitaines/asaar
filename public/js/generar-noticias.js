@@ -236,7 +236,9 @@ window.onload = function(){
           // Volver a la imagen precargada que haya quedado "checked" en el iframe y canvas o a imagen default:
           let imagenChecked = document.querySelector(".imagenLabel input:checked");
           if (imagenChecked == null){
-            document.querySelector(".imagenLabel input").checked = true;
+            // document.querySelector(".imagenLabel input").checked = true;
+            // console.log(document.querySelector(".imagenes").lastElementChild);
+            document.querySelector(".imagenes").lastElementChild.firstElementChild.checked = true;
 
             imagenPrincipal.style.backgroundImage = "url(/storage/noticias/imagenesMain/Ali.jpg)";
 
@@ -256,7 +258,8 @@ window.onload = function(){
 
       let imagenChecked = document.querySelector(".imagenLabel input:checked");
       if (imagenChecked == null){
-        document.querySelector(".imagenLabel input").checked = true;
+        // document.querySelector(".imagenLabel input").checked = true;
+        document.querySelector(".imagenes").lastElementChild.firstElementChild.checked = true;
 
         imagenPrincipal.style.backgroundImage = "url(/storage/noticias/imagenesMain/Ali.jpg)";
 

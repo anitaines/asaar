@@ -20,7 +20,7 @@
 
     <div class="input">
 
-      <h4>Ingresar la información:</h4>
+      <h4>Nueva noticia:</h4>
 
       <form class="" action="/generar-noticias" method="post" enctype="multipart/form-data" autocomplete="off">
         @csrf

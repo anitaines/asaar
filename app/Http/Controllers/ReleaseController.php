@@ -604,14 +604,47 @@ class ReleaseController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Display a listing of the resource.
      *
-     * @param  \App\Release  $release
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Release $release)
+    public function cPanel()
     {
-        //
+      $colores = ["#AB2097","#6ACF95","#FC8901","#34BFD2"];
+
+      // $noticiasAll = Release::all()->SortByDesc('id');
+      // funciona cualquiera de los dos:
+      // dd($noticiasAll[0]->title);
+      // dd($noticiasAll[0]["title"]);
+
+      // para usar este método tiene que llamar arriba a use Illuminate\Support\Facades\DB;
+      $noticiasAll= DB::table('releases')
+                ->orderBy('id', 'desc')
+                ->get();
+                // ->paginate(12);
+      // dd($noticiasAll);
+      // dd($noticiasAll[0]->title);
+      // dd($noticiasAll[0]["title"]); NO FUNCIONA: "Cannot use object of type stdClass as array"
+
+      // $noticiasAll = Release::paginate(3)->SortByDesc('id');
+
+      return view("/control-panel", compact('noticiasAll', 'colores'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * param \App\Release  $release
+     * @param int  $id
+     * @return \Illuminate\Http\Response
+     */
+    // public function destroy(Release $release)
+    public function destroy($id)
+    {
+        // dd($id);
+        $borrarNoticia = Release::find($id);
+        $borrarNoticia->delete();
+
+        return redirect("/control-panel");
     }
 
 
