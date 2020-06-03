@@ -717,5 +717,64 @@ class ReleaseController extends Controller
 
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createImage()
+    {
+      $imagenes = Image::orderBy('id', 'DESC')->get();
+      // dd($imagenes);
+      $mes = ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
+      $diaSemana = ["DOMINGO", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"];
+
+      $colorTipoTitular = [
+        "Magenta"=> "#AB2097",
+        "Verde"=> "#6ACF95",
+        "Naranja"=> "#FC8901",
+        "Cyan"=> "#34BFD2",
+        "Blanco"=> "#ffffff",
+        "Negro"=> "#454545",
+      ];
+      $colorFondoTitular = [
+        "Sin color"=> "transparent",
+        "Blanco"=> "rgba(255, 255, 255, 0.9)",
+        "Negro"=> "rgba(69, 69, 69, 0.9)",
+      ];
+
+      $colorTipoSubtitular = [
+        "Blanco"=> "#ffffff",
+        "Negro"=> "#454545",
+      ];
+      $colorFondoSubtitular = [
+        "Magenta"=> "#AB2097",
+        "Verde"=> "#6ACF95",
+        "Naranja"=> "#FC8901",
+        "Cyan"=> "#34BFD2",
+        "Blanco"=> "rgba(255, 255, 255, 0.9)",
+        "Negro"=> "rgba(69, 69, 69, 0.9)",
+        "Sin color"=> "transparent",
+      ];
+
+      $colorTipoResumen = [
+        "Magenta"=> "rgb(255, 105, 180)", // hotpink
+        "Verde"=> "rgb(0, 250, 154)", // mediumspringgreen
+        "Naranja"=> "rgb(255, 140, 0)", // darkorange
+        "Cyan"=> "rgb(0, 255, 255)", // cyan
+        "Blanco"=> "#ffffff",
+        "Negro"=> "rgb(69, 69, 69)",
+      ];
+      $colorFondoResumen = [
+        "Sin color"=> "transparent",
+        "Blanco"=> "rgba(255, 255, 255, 0.9)",
+        "Negro"=> "rgba(69, 69, 69, 0.9)",
+      ];
+
+
+      return view("/generar-imagen", compact('imagenes', 'mes', 'diaSemana', 'colorTipoTitular', 'colorFondoTitular', 'colorTipoSubtitular', 'colorFondoSubtitular', 'colorTipoResumen', 'colorFondoResumen'));
+
+    }
+
 
 }

@@ -76,6 +76,8 @@ Route::get('/modificar-noticia/{id}', 'ReleaseController@edit'); //falta auth
 
 Route::post('/modificar-noticia/{id}', 'ReleaseController@update'); //falta auth
 
+Route::get('/generar-imagen', 'ReleaseController@createImage'); //falta auth
+
 
 // Route::get('/editar_articulo/{id}', 'ArticleController@edit')->middleware('auth');
 //

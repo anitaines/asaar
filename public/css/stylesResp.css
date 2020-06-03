@@ -2399,6 +2399,24 @@ padding-left: 10px;
 }
 /* ************ END MODIFICAR NOTICIA SECTION - MOBILE ************ */
 
+/* ************ GENERAR IMAGEN SECTION - MOBILE ************ */
+.admin.generar.imagen{
+  justify-content: space-around;
+}
+.admin.generar.imagen h4{
+  display: block;
+}
+.admin.generar.imagen .input{
+  width: 40%;
+}
+.admin.generar.imagen .output{
+  width: 50%;
+}
+.admin.generar.imagen .output .allCanvas{
+  width: 86%;
+}
+/* ************ END GENERAR IMAGEN SECTION - MOBILE ************ */
+
 
 /* ************ NOTICIA SUCCESS SECTION - MOBILE ************ */
 .admin.success{
