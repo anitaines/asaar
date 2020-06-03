@@ -2211,7 +2211,8 @@ text-align: left;
   flex-wrap: wrap;
   width: 90%;
   margin: auto;
-  padding-left: 54px;
+  /* padding-left: 54px; */
+  text-align: center;
   border: 2px solid var(--magenta);
   border-radius: 6px;
 }
@@ -2393,31 +2394,6 @@ padding-left: 10px;
 /* ************ END GENERAR NOTICIA SECTION - MOBILE ************ */
 
 
-/* ************ MODIFICAR NOTICIA SECTION - MOBILE ************ */
-.admin.generar.modificar h4{
-  display: block;
-}
-/* ************ END MODIFICAR NOTICIA SECTION - MOBILE ************ */
-
-/* ************ GENERAR IMAGEN SECTION - MOBILE ************ */
-.admin.generar.imagen{
-  justify-content: space-around;
-}
-.admin.generar.imagen h4{
-  display: block;
-}
-.admin.generar.imagen .input{
-  width: 40%;
-}
-.admin.generar.imagen .output{
-  width: 50%;
-}
-.admin.generar.imagen .output .allCanvas{
-  width: 86%;
-}
-/* ************ END GENERAR IMAGEN SECTION - MOBILE ************ */
-
-
 /* ************ NOTICIA SUCCESS SECTION - MOBILE ************ */
 .admin.success{
   text-align: center;
@@ -2456,6 +2432,73 @@ padding-left: 10px;
   background-color: var(--green);
 }
 /* ************ END NOTICIA SUCCESS SECTION - MOBILE ************ */
+
+
+/* ************ MODIFICAR NOTICIA SECTION - MOBILE ************ */
+.admin.generar.modificar h4{
+  display: block;
+}
+/* ************ END MODIFICAR NOTICIA SECTION - MOBILE ************ */
+
+
+/* ************ GENERAR IMAGEN SECTION - MOBILE ************ */
+.admin.generar.imagen{
+  justify-content: space-evenly;
+}
+.admin.generar.imagen h4{
+  display: block;
+  margin-bottom: 15px;
+}
+.admin.generar.imagen .input{
+  width: 100%;
+}
+.admin.generar.imagen .input form{
+  height: 77vh;
+}
+.admin.generar.imagen .input form .adminFormItem.form_item.form_item_checkbox .imagenNoticia.checkbox-label{
+  left: 0px;
+  text-align: center;
+  width: 100%;
+}
+.admin.generar.imagen .output{
+  width: 100%;
+}
+.admin.generar.imagen .output .allCanvas{
+  width: 100%;
+  /* min-width: 485px; */
+  height: auto;
+  overflow: hidden;
+}
+.admin.generar.imagen .output .allCanvas .wrapCanvasFacebook {
+  width: 315px;
+  height: 315px;
+  /* width: 76%;
+  height: 500px; */
+  margin: auto;
+}
+#canvasFacebookDos{
+  border: 1px solid var(--black);
+  -webkit-transform: scale(0.26);
+  transform: scale(0.26);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+.admin.generar.imagen .output .allCanvas .downloadCanvas{
+  background-color: var(--orange);
+  border-radius: 6px;
+  width: 50%;
+  text-align: center;
+  margin: 10px auto;
+}
+.admin.generar.imagen .output .allCanvas .downloadCanvas:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin.generar.imagen .output .allCanvas .downloadCanvas p{
+  color: var(--grey);
+  padding: 10px 0px;
+}
+/* ************ END GENERAR IMAGEN SECTION - MOBILE ************ */
 
 
 /* ************ ADMINISTRAR CAROUSEL SECTION - MOBILE ************ */
@@ -3277,6 +3320,23 @@ padding-left: 10px;
   }
   /* ************ END NOTICIA SUCCESS SECTION - TABLET ************ */
 
+
+  /* ************ GENERAR IMAGEN SECTION - TABLET ************ */
+  .admin.generar.imagen .output .allCanvas{
+    min-width: 485px;
+  }
+  .admin.generar.imagen .output .allCanvas .wrapCanvasFacebook {
+    width: 485px;
+    height: 485px;
+  }
+  #canvasFacebookDos{
+    -webkit-transform: scale(0.4);
+    transform: scale(0.4);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+
+  /* ************ END GENERAR IMAGEN SECTION - TABLET ************ */
 
   /* ************ ADMINISTRAR CAROUSEL SECTION - TABLET ************ */
   .admin.carousel form .buttonWrap button{
@@ -4107,6 +4167,20 @@ padding-left: 10px;
   }
 
   /* ************ END GENERAR NOTICIA SECTION - DESKTOP ************ */
+
+
+  /* ************ GENERAR IMAGEN SECTION - DESKTOP ************ */
+  .admin.generar.imagen .input{
+    width: 40%;
+  }
+  .admin.generar.imagen .output{
+    width: 45%;
+  }
+  .admin.generar.imagen .output .allCanvas{
+    overflow: unset;
+  }
+  /* ************ END GENERAR IMAGEN SECTION - DESKTOP ************ */
+
 
   /* ************ ADMINISTRAR CAROUSEL SECTION - DESKTOP ************ */
   .admin.carousel{

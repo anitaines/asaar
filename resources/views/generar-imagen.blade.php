@@ -248,19 +248,19 @@
         </div>
 
 
-        <div class="downloadCanvas">
+        {{-- <div class="downloadCanvas">
           <a id="linkFacebook">
             <p>6. Descargar imagen para</p>
             <p>redes sociales</p>
           </a>
-        </div>
+        </div> --}}
 
 
-        <div class="buttonWrap">
+        {{-- <div class="buttonWrap" style="display: none;">
           <button class="downloadCanvas uploadNews"  type="button">
-            <p>7. Publicar noticia</p>
+            <p></p>
           </button>
-        </div>
+        </div> --}}
 
       </form>
 
@@ -273,13 +273,19 @@
 
         <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/Ali.jpg" alt="" style="display:none;">
 
-        <div class="container_canvas">
+        {{-- <div class="container_canvas"> --}}
 
           <div class="wrapCanvasFacebook">
-            <canvas id="canvasFacebook" width="1200px" height="1200px"></canvas>
+            <canvas id="canvasFacebookDos" width="1200px" height="1200px"></canvas>
           </div>
 
+        {{-- </div> --}}
+        <div class="downloadCanvas">
+          <a id="linkFacebook">
+            <p>Descargar imagen</p>
+          </a>
         </div>
+
       </div>
 
     </div>

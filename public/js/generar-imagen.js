@@ -21,12 +21,10 @@ window.onload = function(){
       switch (this.className) {
         case "menuInformacion":
           menuInformacion.style.display = "block";
-          menuNoticia.style.display = "none";
           menuImagen.style.display = "none";
           break;
         case "menuImagen":
           menuInformacion.style.display = "none";
-          menuNoticia.style.display = "none";
           menuImagen.style.display = "block";
           break;
         default:
@@ -42,7 +40,7 @@ window.onload = function(){
   let imgCanvasFacebook = document.getElementById('imgCanvasFacebook');
 
   // canvas:
-  let canvasFacebook = document.getElementById("canvasFacebook");
+  let canvasFacebook = document.getElementById("canvasFacebookDos");
 
 
   // funcionalidad opción de carga de imágenes:
@@ -390,7 +388,7 @@ window.onload = function(){
   });
 
 
-  // VALIDAR SUBMIT:
+  // PREVENT SUBMIT:
   let form = document.querySelector('form');
   form.onsubmit = function(event){
     event.preventDefault();
