@@ -509,7 +509,7 @@
       <div class="wrap_iframe">
         <h4>Vista previa noticia:</h4>
         {{-- <iframe id="output_iframe" src="{{ url('/plantilla-noticia') }}"></iframe> --}}
-        <iframe id="output_iframe" src="/noticias/{{$noticia->id}}/{{$noticia->slug}}"></iframe>
+        <iframe id="output_iframe" src="/noticia/{{$noticia->id}}/{{$noticia->slug}}"></iframe>
       </div>
 
       <div class="allCanvas">

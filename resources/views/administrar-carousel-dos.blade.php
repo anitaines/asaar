@@ -40,7 +40,7 @@
               background-size: cover;
               background-position: center;"></div>
             <div class="carouselInfo">
-              <a href="/noticias/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
+              <a href="/noticia/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
                 <p>{{$value->title}}</p>
               </a>
               <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>
@@ -104,7 +104,7 @@
                 </label>
               </div>
               <div class="noticiasInfo">
-                <a href="/noticias/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
+                <a href="/noticia/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
                   <p>{{$value->title}}</p>
                 </a>
                 <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>

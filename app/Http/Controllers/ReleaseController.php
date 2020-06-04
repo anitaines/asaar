@@ -327,7 +327,8 @@ class ReleaseController extends Controller
 
       $noticia = Release::where('id', '=', $id)
       ->where('slug', '=', $slug)
-      ->first();
+      // ->first();
+      ->firstOrFail();
       // dd($noticia);
       return view("/plantilla-noticia", compact('noticia'));
     }
@@ -388,7 +389,8 @@ class ReleaseController extends Controller
         "Negro"=> "rgba(69, 69, 69, 0.9)",
       ];
 
-      $noticia = Release::find($id);
+      $noticia = Release::findOrFail($id);
+      // dd($noticia);
 
       return view("/modificar-noticia", compact('imagenes', 'mes', 'diaSemana', 'colorTipoTitular', 'colorFondoTitular', 'colorTipoSubtitular', 'colorFondoSubtitular', 'colorTipoResumen', 'colorFondoResumen', 'noticia'));
 
@@ -450,7 +452,7 @@ class ReleaseController extends Controller
 
       $this->validate($request, $rules, $messages);
 
-      $noticia = Release::find($id);
+      $noticia = Release::findOrFail($id);
       // dd($noticia);
 
       $noticia->slug = Str::slug($request->title, '-');
@@ -634,14 +636,16 @@ class ReleaseController extends Controller
     /**
      * Remove the specified resource from storage.
      * param \App\Release  $release
-     * @param int  $id
+     * param int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     // public function destroy(Release $release)
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        // dd($id);
-        $borrarNoticia = Release::find($id);
+        // dd($request);
+        $borrarNoticia = Release::findOrFail($request->idNoticia);
+        // dd($borrarNoticia);
         $borrarNoticia->delete();
 
         return redirect("/control-panel");
@@ -736,7 +740,7 @@ class ReleaseController extends Controller
         if ($request->modificarNoticiaCarousel){
           foreach ($request->modificarNoticiaCarousel as $key => $value){
 
-              $noticia = Release::find($key);
+              $noticia = Release::findOrFail($key);
 
               $noticia->carousel = $value;
 

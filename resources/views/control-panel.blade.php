@@ -14,22 +14,29 @@
 
     <h4>Panel de control</h4>
 
-    <div class="crearImagen">
-
-    </div>
-
-    <div class="adminCarousel">
-
-    </div>
-
-    <div class="adminImagenes">
-
-    </div>
-
     <div class="container">
 
+      <a class="crearImagen" href="/generar-imagen">
+        <div>
+          <p>Crear imagen para redes sociales</p>
+        </div>
+      </a>
+
+      <a class="adminCarousel" href="/administrar-carousel">
+        <div>
+          <p>Administrar carousel de inicio</p>
+        </div>
+      </a>
+
+      <a class="adminImagenes" href="#">
+        <div>
+          <p>Administrar imágenes guardadas</p>
+        </div>
+      </a>
+
       <div class="noticias">
-        <a href="/generar-noticias">
+
+        <a class="agregarItemA" href="/generar-noticias">
           <div class="noticiaItem agregarItem">
             <div class="circulo">
               <div class="lineaVHorizontal"></div>
@@ -39,15 +46,14 @@
             <p>Nueva noticia</p>
           </div>
         </a>
+
         @foreach ($noticiasAll as $key => $value)
           <div class="noticiaItem">
-            <form class="" action="/eliminar-noticia/{{$value->id}}" method="post" autocomplete="off">
-              {{-- @csrf --}}
-              {{-- <input type="checkbox" name="" value="" style="display: none;"> --}}
-
+            <form class="" action="/eliminar-noticia" method="post" autocomplete="off">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <button type="submit" name="button">submit</button>
+              <input type="hidden" name="idNoticia" value="{{$value->id}}">
+              {{-- <button type="submit" name="button">submit</button> --}}
             </form>
             <div class="eliminar">
               <p>Eliminar</p>
@@ -66,7 +72,7 @@
                 height: 100px;"></div>
             @endif
             <div class="noticiaInfo">
-              <a href="/noticias/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
+              <a href="/noticia/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
                 <p>{{$value->title}}</p>
               </a>
               <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>

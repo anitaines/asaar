@@ -53,7 +53,7 @@ Route::get('/plantilla-noticia', function () {
 
 Route::get('/noticias', 'ReleaseController@index');
 
-Route::get('/noticias/{id}/{slug}', 'ReleaseController@show');
+Route::get('/noticia/{id}/{slug}', 'ReleaseController@show');
 
 // CREAR CONTROLADORES Y AUTH EN ESTE LINK:
 // Route::get('/generar-noticias', function () {
@@ -62,7 +62,7 @@ Route::get('/noticias/{id}/{slug}', 'ReleaseController@show');
 
 Route::get('/control-panel', 'ReleaseController@cPanel'); //falta auth
 
-Route::delete('/eliminar-noticia/{id}', 'ReleaseController@destroy'); //falta auth
+Route::delete('/eliminar-noticia', 'ReleaseController@destroy'); //falta auth
 
 Route::post('/generar-noticias', 'ReleaseController@store'); //falta auth
 
@@ -70,15 +70,17 @@ Route::get('/generar-noticias-success', function () { //falta auth
     return view('generar-noticias-success');
 });
 
-Route::get('/administrar-carousel', 'ReleaseController@carouselAdmin'); //falta auth
-
-Route::post('/administrar-carousel', 'ReleaseController@carouselStore'); //falta auth
-
 Route::get('/modificar-noticia/{id}', 'ReleaseController@edit'); //falta auth
 
 Route::post('/modificar-noticia/{id}', 'ReleaseController@update'); //falta auth
 
 Route::get('/generar-imagen', 'ReleaseController@createImage'); //falta auth
+
+Route::get('/administrar-carousel', 'ReleaseController@carouselAdmin'); //falta auth
+
+Route::post('/administrar-carousel', 'ReleaseController@carouselStore'); //falta auth
+
+Route::get('/administrar-imagenes', 'ImageController@index'); //falta auth
 
 
 // Route::get('/editar_articulo/{id}', 'ArticleController@edit')->middleware('auth');

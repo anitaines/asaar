@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ImageController extends Controller
 {
@@ -14,7 +15,18 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+      // $imagenes = Image::orderBy('id', 'DESC')->get();
+
+      // para usar este método tiene que llamar arriba a use Illuminate\Support\Facades\DB;
+      $imagenes = DB::table('images')
+        ->where('origin', '=', 'uploaded')
+        ->orderBy('id', 'desc')
+        ->get();
+
+      // dd($imagenes);
+      // dd($imagenes[0]->origin);
+
+      return view("/administrar-imagenes", compact('imagenes'));
     }
 
     /**

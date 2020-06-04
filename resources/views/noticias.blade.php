@@ -47,7 +47,7 @@
 
         @foreach ($noticiasAll as $key => $value)
           <div class="wrap_noticias_item">
-            <a href="/noticias/{{$value->id}}/{{$value->slug}}">
+            <a href="/noticia/{{$value->id}}/{{$value->slug}}">
               @if ($value->imagenNoticia == "si")
                   <div class="con_imagen" style="background-image: url('/storage/noticias/imagenesMain/{{$value->imagen}}');
                   background-repeat: no-repeat;

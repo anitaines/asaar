@@ -272,7 +272,7 @@
           Tweet</a>
 
           @if (isset($noticia))
-            <a href="mailto:?subject={{$noticia->title}}&body=Novedades%3A%20http%3A%2F%2Fasperger.org.ar%2F{{$noticia->id}}%2F{{$noticia->slug}}" target="_blank" rel="noopener noreferrer">
+            <a href="mailto:?subject={{$noticia->title}}&body=Novedades%3A%20http%3A%2F%2Fasperger.org.ar%2Fnoticia%2F{{$noticia->id}}%2F{{$noticia->slug}}" target="_blank" rel="noopener noreferrer">
           @else
             <a href="" target="_blank" rel="noopener noreferrer">
           @endif

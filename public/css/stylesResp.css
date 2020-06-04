@@ -1999,9 +1999,39 @@ text-align: left;
 
 /* ADMIN SECTION */
 /* ************ CONTROL PANEL SECTION - MOBILE ************ */
-  /* Contenedor noticias: */
+.admin.cPanel{
+  top: 80px;
+}
+.admin.cPanel h4{
+  margin-bottom: 8px;
+}
+.admin.cPanel .container{
+  width: 95%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.admin.cPanel .container .crearImagen, .admin.cPanel .container .adminCarousel, .admin.cPanel .container .adminImagenes{
+  width: 95%;
+  height: 80px;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  background-color: #ffffff;
+  margin: 5px 10px;
+}
+.admin.cPanel .container .crearImagen:hover, .admin.cPanel .container .adminCarousel:hover, .admin.cPanel .container .adminImagenes:hover{
+  color: var(--black);
+  background-color: var(--blue);
+}
+.admin.cPanel .container .crearImagen p, .admin.cPanel .container .adminCarousel p, .admin.cPanel .container .adminImagenes p{
+  text-align: center;
+  padding: 15px 10px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
 .admin.cPanel .container .noticias{
-  width: 77%;
+  width: 100%;
   /* margin: auto; */
   display: flex;
   justify-content: center;
@@ -2031,6 +2061,8 @@ text-align: left;
 }
 .admin.cPanel .container .noticias .noticiaItem .eliminar:hover{
   cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
 }
 .admin.cPanel .container .noticias .noticiaItem .eliminar p{
   width: 100%;
@@ -2086,10 +2118,12 @@ text-align: left;
   height: 60px;
   margin: 10px;
   line-height: 1.3;
-  padding: 5px;
+  padding: 9px 15px;
 }
 .admin.cPanel .container .noticias .noticiaItem .modificar:hover{
   cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
 }
 .admin.cPanel .container .noticias .noticiaItem .modificar p{
   margin-bottom: 10px;
@@ -2098,8 +2132,13 @@ text-align: left;
   height: 364px;
   align-content: normal;
 }
+.admin.cPanel .container .noticias .agregarItemA:hover{
+  color: var(--black);
+}
 .admin.cPanel .container .noticias .noticiaItem.agregarItem:hover{
   cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
 }
 .admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo{
   height: 100px;
@@ -2686,6 +2725,8 @@ padding-left: 10px;
 }
 .admin.carousel form .carouselActual .carouselItem .eliminar:hover{
   cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
 }
 .admin.carousel form .carouselActual .carouselItem .eliminar p{
   width: 100%;
@@ -2745,6 +2786,8 @@ padding-left: 10px;
 }
 .admin.carousel form .carouselActual .carouselItem .modificar:hover{
   cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
 }
 .admin.carousel form .carouselActual .carouselItem .modificar p{
   margin-bottom: 10px;
@@ -2755,6 +2798,8 @@ padding-left: 10px;
 }
 .admin.carousel form .carouselActual .carouselItem.agregarItem:hover{
   cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
 }
 .admin.carousel form .carouselActual .carouselItem.agregarItem .circulo{
   height: 100px;
@@ -3423,6 +3468,17 @@ padding-left: 10px;
 
 
   /* ADMIN SECTION */
+  /* ************ CONTROL PANEL SECTION - TABLET ************ */
+  .admin.cPanel{
+    top: 125px;
+  }
+  .admin.cPanel .container .crearImagen, .admin.cPanel .container .adminCarousel, .admin.cPanel .container .adminImagenes{
+    width: 30%;
+    margin: 15px 10px;
+  }
+
+  /* ************ END CONTROL PANEL SECTION - TABLET ************ */
+
   /* ************ GENERAR NOTICIA SECTION - TABLET ************ */
   .admin{
     top: 135px;
