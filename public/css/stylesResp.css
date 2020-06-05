@@ -1998,6 +1998,63 @@ text-align: left;
 
 
 /* ADMIN SECTION */
+/* ADMIN HEADER - MOBILE*/
+.admin_header .menu_container_line1{
+  align-items: center;
+}
+.admin_header .divh1_header_nav{
+  background-color: var(--magenta);
+  height: 32px;
+}
+.admin_header .divh1_header_nav h1{
+  font-size: 20px;
+}
+.admin_header .header_nav{
+  background-color: var(--magenta);
+  height: 38px;
+}
+.admin_header .a_header_nav{
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+  text-align: center;
+  margin: 0px 10px;
+}
+.admin_header .a_header_nav:hover{
+  color: var(--green);
+}
+/* .admin_header .header_nav .separador{
+  border: 1px solid var(--grey);
+  height: 38px;
+  width: 0px;
+} */
+.admin_header .div_header_nav2, .admin_header .div_header_nav2_992v{
+  background-color: var(--orange);
+  width: 116px;
+  height: 47px;
+  border-radius: 0px;
+  font-size: 16px;
+  padding: 3px;
+  font-weight: bold;
+  line-height: 19px;
+  text-align: center;
+  margin-left: 0px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin_header .container_header_nav2 a, .admin_header .container_header_nav2_992v a{
+  padding: 0px;
+  margin-left: 15px;
+}
+.admin_header .button-newMobile{
+  background-color: var(--magenta);
+  height: 47px;
+  line-height: 48px;
+}
+/* ADMIN HEADER - MOBILE*/
+
 /* ************ CONTROL PANEL SECTION - MOBILE ************ */
 .admin.cPanel{
   top: 80px;
@@ -3116,6 +3173,72 @@ padding-left: 10px;
 }
 /* ************ END ADMINISTRAR CAROUSEL SECTION - MOBILE ************ */
 
+
+/* ************ ADMINISTRAR IMAGENES GUARDADAS SECTION - MOBILE ************ */
+.admin.adminImagenes p:nth-child(2){
+  width: 75%;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+.admin.adminImagenes .imagenes{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.admin.adminImagenes .imagenes .imagenItem{
+  width: 30%;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  margin: 10px;
+  height: fit-content;
+}
+.admin.adminImagenes .imagenes .imagenItem .eliminar{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  position: relative;
+  background-color: beige;
+  border-bottom: 2px solid var(--black);
+}
+.admin.adminImagenes .imagenes .imagenItem .eliminar:hover{
+  cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
+}
+.admin.adminImagenes .imagenes .imagenItem .eliminar p{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+.admin.adminImagenes .imagenes .imagenItem .eliminar .cruz{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: 2px solid var(--black);
+  background-color: coral;
+  position: absolute;
+  top: -12px;
+  right: -2px;
+}
+.admin.adminImagenes .imagenes .imagenItem .eliminar .cruz p{
+  width: 100%;
+  font-size: 17px;
+}
+.admin.adminImagenes .imagenes .imagenItem .divImagen img{
+  width: 100%;
+}
+.admin.adminImagenes .imagenes .cero{
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  margin: 30px auto;
+}
+/* ************ END ADMINISTRAR IMAGENES GUARDADAS SECTION - MOBILE ************ */
 
 
 /* ********************************************* */

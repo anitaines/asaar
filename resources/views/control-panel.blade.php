@@ -28,7 +28,7 @@
         </div>
       </a>
 
-      <a class="adminImagenes" href="#">
+      <a class="adminImagenes" href="/administrar-imagenes">
         <div>
           <p>Administrar imágenes guardadas</p>
         </div>

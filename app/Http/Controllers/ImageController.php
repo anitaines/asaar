@@ -87,11 +87,17 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Image  $image
+     * param  \App\Image  $image
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image)
+    public function destroy(Request $request)
     {
-        //
+      // dd($request);
+      $borrarImagen = Image::findOrFail($request->idImagen);
+      // dd($borrarImagen);
+      $borrarImagen->delete();
+
+      return redirect("/administrar-imagenes");
     }
 }

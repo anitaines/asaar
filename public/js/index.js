@@ -99,23 +99,16 @@ function showSlides(n){
   // reverse transition
   let aPrev = document.querySelector(".prev");
   let mySlides = document.querySelectorAll(".mySlides");
-  aPrev.addEventListener("click", function(){
-    for (var i = 0; i < mySlides.length; i++) {
-      mySlides[i].classList.remove("transition-news");
-      mySlides[i].classList.add("transition-news-back");
 
-      // setTimeout(function(){reset()}, 4000);
+  if (aPrev != null){
+    aPrev.addEventListener("click", function(){
+      for (var i = 0; i < mySlides.length; i++) {
+        mySlides[i].classList.remove("transition-news");
+        mySlides[i].classList.add("transition-news-back");
+      }
+    });
+  }
 
-    }
-  });
-
-  // function reset(){
-  //   for (var i = 0; i < mySlides.length; i++) {
-  //     console.log("reseteé " + mySlides[i]);
-  //     mySlides[i].classList.remove("transition-news-back");
-  //     mySlides[i].classList.add("transition-news");
-  //   }
-  // }
 
 
 

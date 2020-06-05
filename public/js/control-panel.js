@@ -15,7 +15,7 @@ window.onload = function(){
 
 
       if (window.confirm(mensaje)) {
-        console.log("confirmado");
+        // console.log("confirmado");
         form.submit();
       // } else {
       //   console.log("cancelado");

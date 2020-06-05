@@ -31,14 +31,14 @@
 
     {{-- @yield('defer') --}}
 
-    <header id="header" class="main_header">
+    <header id="header" class="main_header admin_header">
 
       <div class="header_itemsContainer">
 
         <div class="div_header_logo">
-          <a href="/">
+          {{-- <a href="/"> --}}
             <img class="img_header_logo"src="/media/logos/logo.svg" alt="Logotipo Asociación Asperger Argentina">
-          </a>
+          {{-- </a> --}}
         </div>
 
         <div class="menu_container">
@@ -46,121 +46,66 @@
           <div class="div_header_nav">
 
             <div class="menu_container_line1">
-            {{-- <div class="divh1_header_nav">
-              <h1 class="h1_header_nav">ASOCIACIÓN ASPERGER ARGENTINA</h1>
-              </div> --}}
+            <div class="divh1_header_nav">
+              <h1 class="h1_header_nav">Sitio interno - AsAAr</h1>
+              </div>
 
               {{-- DESKTOP SMALL --}}
-            {{-- <div class="container_header_nav2_992v">
-                <div class="div_header_nav2_992v">
-                  <a class="a_header_nav2_992v" href="#">Noticias</a>
-                  </div>
-                <div class="div_header_nav2_992v">
-                  <a class="a_header_nav2_992v" href="/donar">DONAR</a>
-                  </div>
-              </div> --}}
+            <div class="container_header_nav2_992v">
+                {{-- <div class="div_header_nav2_992v"> --}}
+                  <a class="a_header_nav2_992v" href="#"><div class="div_header_nav2_992v">Cambiar contraseña</div></a>
+                  {{-- </div> --}}
+                {{-- <div class="div_header_nav2_992v"> --}}
+                  <a class="a_header_nav2_992v" href="/"><div class="div_header_nav2_992v">Log-out</div></a>
+                  {{-- </div> --}}
+              </div>
 
               </div>
 
               {{-- NAV DESKTOP --}}
-            {{-- <nav class="header_nav">
-              <a class="a_header_nav" href="/">Inicio</a>
+            <nav class="header_nav">
+              <a class="a_header_nav" href="/control-panel">Panel de control</a>
+              {{-- <div class="separador"></div> --}}
+              <a class="a_header_nav" href="/generar-noticias">Nueva noticia</a>
 
-              <div class="dropdown">
-                <a class="a_header_nav" href="/quienes-somos">Quiénes somos</a>
-                <div class="dropdown-content">
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/quienes-somos">- Sobre la Asociación</a>
-                  </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/quienes-somos#mision">- Misión</a>
-                  </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/quienes-somos#autoridades">- Autoridades</a>
-                  </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/quienes-somos#ayudar">- Cómo ayudar</a>
-                  </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/quienes-somos#diptico">- Díptico</a>
-                  </div>
-                  </div>
-                </div>
+              <a class="a_header_nav" href="/generar-imagen">Crear imagen para redes sociales</a>
 
-              <div class="dropdown">
-                <a class="a_header_nav" href="/asperger-cea">Asperger/CEA</a>
-                <div class="dropdown-content">
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/asperger-cea">- Sobre el síndrome</a>
-                    </div>
-                  <div id="diagnosticoNavDesktop" class="dropdown-item">
-                    <a class="a_header_nav" href="/asperger-cea#diagnosticos">- Diagnóstico</a>
-                    </div>
-                  <div id="intervencionesNavDesktop" class="dropdown-item">
-                    <a class="a_header_nav" href="/asperger-cea#intervenciones">- Intervenciones</a>
-                    </div>
-                  </div>
-                </div>
+              <a class="a_header_nav" href="/administrar-carousel">Administrar carousel de inicio</a>
 
-              <div class="dropdown">
-                <a class="a_header_nav" href="/actividades">Actividades</a>
-                <div class="dropdown-content">
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades">- Jornadas y Congresos</a>
-                    </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades#debates">- Charlas/Debates</a>
-                    </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades#taller">- Taller de padres</a>
-                    </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades#grupos">- Grupos de pertenencia</a>
-                    </div>
-                  </div>
-                </div>
+              <a class="a_header_nav" href="/administrar-imagenes">Administrar imágenes guardadas</a>
 
-              <a id="bibliotecaNavDesktop" class="a_header_nav" href="/asperger-cea#biblioteca">Biblioteca</a>
-              <a class="a_header_nav" href="/asociarse">Asociarse</a>
-              <a class="a_header_nav" href="/contacto">Contacto</a>
-              </nav> --}}
-            </div>
+            </nav>
+          </div>
 
           <div class="container_header_nav2">
-            {{-- <div class="div_header_nav2">
-              <a class="a_header_nav2" href="#">Noticias</a>
-              </div>
-            <div class="div_header_nav2">
-              <a class="a_header_nav2" href="/donar">DONAR</a>
-              </div> --}}
+            {{-- <div class="div_header_nav2"> --}}
+              <a class="a_header_nav2" href="#"><div class="div_header_nav2">Cambiar contraseña</div></a>
+              {{-- </div> --}}
+            {{-- <div class="div_header_nav2"> --}}
+              <a class="a_header_nav2" href="/"><div class="div_header_nav2">Log-out</div></a>
+              {{-- </div> --}}
 
               {{-- NAV MOBILE --}}
-              {{-- <div class="dropdown-newMobile">
+              <div class="dropdown-newMobile">
                 <p class="button-newMobile">Menú ▼</p>
                 <div class="dropdown-content-newMobile dropdown-content-display">
                   <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/">Inicio -</a>
+                    <a class="a_header_nav" href="/control-panel">Panel de control -</a>
                     </div>
                   <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/quienes-somos">Quiénes somos -</a>
+                    <a class="a_header_nav" href="/generar-noticias">Nueva noticia -</a>
                     </div>
                   <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/asperger-cea">Asperger/CEA -</a>
+                    <a class="a_header_nav" href="/generar-imagen">Crear imagen para redes sociales -</a>
                     </div>
                   <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/actividades">Actividades -</a>
+                    <a class="a_header_nav" href="/administrar-carousel">Administrar carousel de inicio -</a>
                     </div>
                   <div class="dropdown-item-newMobile">
-                    <a id="bibliotecaNavMobile" class="a_header_nav" href="/asperger-cea#biblioteca">Biblioteca -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/asociarse">Asociarse -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/contacto">Contacto -</a>
+                    <a class="a_header_nav" href="/administrar-imagenes">Administrar imágenes guardadas -</a>
                     </div>
                   </div>
-                </div> --}}
+                </div>
 
             </div>
           </div>
@@ -170,7 +115,7 @@
 
     @yield('content')
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/linksNav.js') }}"></script> --}}
+    <script src="{{ asset('js/linksNavAdmin.js') }}"></script>
 
     </body>
 
