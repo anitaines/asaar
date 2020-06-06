@@ -3189,7 +3189,7 @@ padding-left: 10px;
   margin: auto;
 }
 .admin.adminImagenes .imagenes .imagenItem{
-  width: 30%;
+  width: 100%;
   border: 2px solid var(--black);
   border-radius: 6px;
   margin: 10px;
@@ -3689,6 +3689,13 @@ padding-left: 10px;
   }
 
   /* ************ END ADMINISTRAR CAROUSEL SECTION - TABLET ************ */
+
+
+  /* ************ ADMINISTRAR IMAGENES GUARDADAS SECTION - TABLET ************ */
+  .admin.adminImagenes .imagenes .imagenItem{
+    width: 30%;
+  }
+  /* ************ END ADMINISTRAR IMAGENES GUARDADAS SECTION - TABLET ************ */
 
   } /*fin media query tablet*/
 
