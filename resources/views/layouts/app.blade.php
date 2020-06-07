@@ -44,233 +44,147 @@
 
     @yield('defer')
 
-    {{-- <header id="header" class="main_header">
+    <header id="header" class="main-header">
 
-      <div class="header_itemsContainer">
-
-        <div class="div_header_logo">
-          <a href="/">
-            <img class="img_header_logo"src="/media/logos/logo.svg" alt="Logotipo Asociación Asperger Argentina">
-          </a>
-        </div>
-
-        <div class="menu_container">
-
-          <div class="div_header_nav">
-
-            <div class="menu_container_line1">
-            <div class="divh1_header_nav">
-              <h1 class="h1_header_nav">Asociación Asperger Argentina</h1>
-              </div>
-
-              DESKTOP SMALL
-            <div class="container_header_nav2_992v">
-                <div class="div_header_nav2_992v">
-                  <a class="a_header_nav2_992v" href="/noticias">Noticias</a>
-                  </div>
-                <div class="div_header_nav2_992v">
-                  <a class="a_header_nav2_992v" href="/donar">DONAR</a>
-                  </div>
-              </div>
-
-              </div>
-
-              NAV DESKTOP
-            <nav class="header_nav">
-              <a class="a_header_nav" href="/">Inicio</a>
-
-              <div class="dropdown">
-                <a class="a_header_nav" href="/quienes-somos">Quiénes somos</a>
-                <div class="dropdown-content">
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/quienes-somos">- Sobre la Asociación</a>
-                  </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/quienes-somos#mision">- Misión</a>
-                  </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/quienes-somos#autoridades">- Autoridades</a>
-                  </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/quienes-somos#ayudar">- Cómo ayudar</a>
-                  </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/quienes-somos#diptico">- Díptico</a>
-                  </div>
-                  </div>
-                </div>
-
-              <div class="dropdown">
-                <a class="a_header_nav" href="/asperger-cea">Asperger/CEA</a>
-                <div class="dropdown-content">
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/asperger-cea">- Sobre el síndrome</a>
-                    </div>
-                  <div id="diagnosticoNavDesktop" class="dropdown-item">
-                    <a class="a_header_nav" href="/asperger-cea#diagnosticos">- Diagnóstico</a>
-                    </div>
-                  <div id="intervencionesNavDesktop" class="dropdown-item">
-                    <a class="a_header_nav" href="/asperger-cea#intervenciones">- Intervenciones</a>
-                    </div>
-                  </div>
-                </div>
-
-              <div class="dropdown">
-                <a class="a_header_nav" href="/actividades">Actividades</a>
-                <div class="dropdown-content">
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades">- Jornadas y Congresos</a>
-                    </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades#debates">- Charlas/Debates</a>
-                    </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades#taller">- Taller de padres</a>
-                    </div>
-                  <div class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades#grupos">- Grupos de pertenencia</a>
-                    </div>
-                  </div>
-                </div>
-
-              <a id="bibliotecaNavDesktop" class="a_header_nav" href="/asperger-cea#biblioteca">Biblioteca</a>
-              <a class="a_header_nav" href="/asociarse">Asociarse</a>
-              <a class="a_header_nav" href="/contacto">Contacto</a>
-              </nav>
-            </div>
-
-          <div class="container_header_nav2">
-            <div class="div_header_nav2">
-              <a class="a_header_nav2" href="/noticias">Noticias</a>
-              </div>
-            <div class="div_header_nav2">
-              <a class="a_header_nav2" href="/donar">DONAR</a>
-              </div>
-
-              NAV MOBILE
-              <div class="dropdown-newMobile">
-                <p class="button-newMobile">Menú ▼</p>
-                <div class="dropdown-content-newMobile dropdown-content-display">
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/">Inicio -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/quienes-somos">Quiénes somos -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/asperger-cea">Asperger/CEA -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/actividades">Actividades -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a id="bibliotecaNavMobile" class="a_header_nav" href="/asperger-cea#biblioteca">Biblioteca -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/asociarse">Asociarse -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/contacto">Contacto -</a>
-                    </div>
-                  </div>
-                </div>
-
-            </div>
-          </div>
-        </div>
-      </header> --}}
-
-    <header id="header" class="main_header">
-
-      <div class="div_header_logo">
+      <div class="logo-container">
         <a href="/">
-          <img class="img_header_logo"src="/media/logos/logo.svg" alt="Logotipo Asociación Asperger Argentina">
+          <img src="/media/logos/logo.svg" alt="Logotipo Asociación Asperger Argentina">
         </a>
       </div>
 
-      <nav class="desktop">
+      <nav class="mobile-nav">
+        <div class="h1-container">
+          <h1>Asociación Asperger Argentina</h1>
+        </div>
+
+        <div class="bloque2">
+          <a href="/noticias">
+            <div class="menu-button">Noticias</div>
+          </a>
+          <a href="/donar">
+            <div class="menu-button">DONAR</div>
+          </a>
+        </div>
+
+        <div class="dropdown-newMobile">
+          <p class="button-newMobile">Menú ▼</p>
+          <ul class="dropdown-content-newMobile dropdown-content-display">
+            <li class="dropdown-item-newMobile">
+              <a href="/">Inicio -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a href="/quienes-somos">Quiénes somos -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a href="/asperger-cea">Asperger/CEA -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a href="/actividades">Actividades -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a id="bibliotecaNavMobile" href="/asperger-cea#biblioteca">Biblioteca -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a href="/asociarse">Asociarse -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a href="/contacto">Contacto -</a>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+
+      <nav class="desktop-nav">
         <div class="bloque1">
 
-          <div class="divh1_header_nav">
-            <h1 class="h1_header_nav">Asociación Asperger Argentina</h1>
+          <div class="h1-container">
+            <h1>Asociación Asperger Argentina</h1>
           </div>
 
-          <ul>
+          <div class="bloque2 desktop-small">
+            <a href="/noticias">
+              <div class="menu-button">Noticias</div>
+            </a>
+            <a href="/donar">
+              <div class="menu-button">DONAR</div>
+            </a>
+          </div>
+
+          <ul class="menu-list">
             <li>
-              <a class="a_header_nav" href="/">Inicio</a>
+              <a href="/">Inicio</a>
             </li>
             <li class="dropdown">
-              <a class="a_header_nav" href="/quienes-somos">Quiénes somos</a>
+              <a href="/quienes-somos">Quiénes somos</a>
               <ul class="dropdown-content">
                 <li class="dropdown-item">
-                  <a class="a_header_nav" href="/quienes-somos">- Sobre la Asociación</a>
+                  <a href="/quienes-somos">- Sobre la Asociación</a>
                 </li>
                 <li class="dropdown-item">
-                  <a class="a_header_nav" href="/quienes-somos#mision">- Misión</a>
+                  <a href="/quienes-somos#mision">- Misión</a>
                 </li>
                 <li class="dropdown-item">
-                  <a class="a_header_nav" href="/quienes-somos#autoridades">- Autoridades</a>
+                  <a href="/quienes-somos#autoridades">- Autoridades</a>
                 </li>
                 <li class="dropdown-item">
-                  <a class="a_header_nav" href="/quienes-somos#ayudar">- Cómo ayudar</a>
+                  <a href="/quienes-somos#ayudar">- Cómo ayudar</a>
                 </li>
                 <li class="dropdown-item">
-                  <a class="a_header_nav" href="/quienes-somos#diptico">- Díptico</a>
+                  <a href="/quienes-somos#diptico">- Díptico</a>
                 </li>
               </ul>
             </li>
             <li class="dropdown">
-              <a class="a_header_nav" href="/asperger-cea">Asperger/CEA</a>
+              <a href="/asperger-cea">Asperger/CEA</a>
               <ul class="dropdown-content">
                 <li class="dropdown-item">
-                  <a class="a_header_nav" href="/asperger-cea">- Sobre el síndrome</a>
+                  <a href="/asperger-cea">- Sobre el síndrome</a>
                 </li>
                 <li id="diagnosticoNavDesktop" class="dropdown-item">
-                  <a class="a_header_nav" href="/asperger-cea#diagnosticos">- Diagnóstico</a>
+                  <a href="/asperger-cea#diagnosticos">- Diagnóstico</a>
                 </li>
                 <li id="intervencionesNavDesktop" class="dropdown-item">
-                  <a class="a_header_nav" href="/asperger-cea#intervenciones">- Intervenciones</a>
+                  <a href="/asperger-cea#intervenciones">- Intervenciones</a>
                 </li>
                 </ul>
               </li>
               <li class="dropdown">
-                <a class="a_header_nav" href="/actividades">Actividades</a>
+                <a href="/actividades">Actividades</a>
                 <ul class="dropdown-content">
                   <li class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades">- Jornadas y Congresos</a>
+                    <a href="/actividades">- Jornadas y Congresos</a>
                   </li>
                   <li class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades#debates">- Charlas/Debates</a>
+                    <a href="/actividades#debates">- Charlas/Debates</a>
                   </li>
                   <li class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades#taller">- Taller de padres</a>
+                    <a href="/actividades#taller">- Taller de padres</a>
                   </li>
                   <li class="dropdown-item">
-                    <a class="a_header_nav" href="/actividades#grupos">- Grupos de pertenencia</a>
+                    <a href="/actividades#grupos">- Grupos de pertenencia</a>
                   </li>
                   </ul>
                 </li>
                 <li>
-                  <a id="bibliotecaNavDesktop" class="a_header_nav" href="/asperger-cea#biblioteca">Biblioteca</a>
+                  <a id="bibliotecaNavDesktop" href="/asperger-cea#biblioteca">Biblioteca</a>
                 </li>
                 <li>
-                  <a class="a_header_nav" href="/asociarse">Asociarse</a>
+                  <a href="/asociarse">Asociarse</a>
                 </li>
                 <li>
-                  <a class="a_header_nav" href="/contacto">Contacto</a>
+                  <a href="/contacto">Contacto</a>
                 </li>
           </ul>
         </div>
 
-        <div class="bloque2">
-          <ul>
-            <li class="div_header_nav2">
-              <a class="a_header_nav2" href="/noticias">Noticias</a>
-            </li>
-            <li class="div_header_nav2">
-              <a class="a_header_nav2" href="/donar">DONAR</a>
-            </li>
-          </ul>
+        <div class="bloque2 desktop-large">
+          <a href="/noticias">
+            <div class="menu-button">Noticias</div>
+          </a>
+          <a href="/donar">
+            <div class="menu-button">DONAR</div>
+          </a>
         </div>
 
       </nav>

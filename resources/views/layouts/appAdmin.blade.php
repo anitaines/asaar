@@ -31,86 +31,98 @@
 
     {{-- @yield('defer') --}}
 
-    <header id="header" class="main_header admin_header">
+    <header id="header" class="main-header admin-header">
 
-      <div class="header_itemsContainer">
+      <div class="logo-container">
+        <a href="/">
+          <img src="/media/logos/logo.svg" alt="Logotipo Asociación Asperger Argentina">
+        </a>
+      </div>
 
-        <div class="div_header_logo">
-          {{-- <a href="/"> --}}
-            <img class="img_header_logo"src="/media/logos/logo.svg" alt="Logotipo Asociación Asperger Argentina">
-          {{-- </a> --}}
+      <nav class="mobile-nav">
+        <div class="h1-container">
+          <h1>Sitio interno - AsAAr</h1>
         </div>
 
-        <div class="menu_container">
-
-          <div class="div_header_nav">
-
-            <div class="menu_container_line1">
-            <div class="divh1_header_nav">
-              <h1 class="h1_header_nav">Sitio interno - AsAAr</h1>
-              </div>
-
-              {{-- DESKTOP SMALL --}}
-            <div class="container_header_nav2_992v">
-                {{-- <div class="div_header_nav2_992v"> --}}
-                  <a class="a_header_nav2_992v" href="#"><div class="div_header_nav2_992v">Cambiar contraseña</div></a>
-                  {{-- </div> --}}
-                {{-- <div class="div_header_nav2_992v"> --}}
-                  <a class="a_header_nav2_992v" href="/"><div class="div_header_nav2_992v">Log-out</div></a>
-                  {{-- </div> --}}
-              </div>
-
-              </div>
-
-              {{-- NAV DESKTOP --}}
-            <nav class="header_nav">
-              <a class="a_header_nav" href="/control-panel">Panel de control</a>
-              {{-- <div class="separador"></div> --}}
-              <a class="a_header_nav" href="/generar-noticias">Nueva noticia</a>
-
-              <a class="a_header_nav" href="/generar-imagen">Crear imagen para redes sociales</a>
-
-              <a class="a_header_nav" href="/administrar-carousel">Administrar carousel de inicio</a>
-
-              <a class="a_header_nav" href="/administrar-imagenes">Administrar imágenes guardadas</a>
-
-            </nav>
-          </div>
-
-          <div class="container_header_nav2">
-            {{-- <div class="div_header_nav2"> --}}
-              <a class="a_header_nav2" href="#"><div class="div_header_nav2">Cambiar contraseña</div></a>
-              {{-- </div> --}}
-            {{-- <div class="div_header_nav2"> --}}
-              <a class="a_header_nav2" href="/"><div class="div_header_nav2">Log-out</div></a>
-              {{-- </div> --}}
-
-              {{-- NAV MOBILE --}}
-              <div class="dropdown-newMobile">
-                <p class="button-newMobile">Menú ▼</p>
-                <div class="dropdown-content-newMobile dropdown-content-display">
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/control-panel">Panel de control -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/generar-noticias">Nueva noticia -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/generar-imagen">Crear imagen para redes sociales -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/administrar-carousel">Administrar carousel de inicio -</a>
-                    </div>
-                  <div class="dropdown-item-newMobile">
-                    <a class="a_header_nav" href="/administrar-imagenes">Administrar imágenes guardadas -</a>
-                    </div>
-                  </div>
-                </div>
-
-            </div>
-          </div>
+        <div class="bloque2">
+          <a href="#">
+            <div class="menu-button">Cambiar contraseña</div>
+          </a>
+          <a href="/">
+            <div class="menu-button">Log-out</div>
+          </a>
         </div>
-      </header>
+
+        <div class="dropdown-newMobile">
+          <p class="button-newMobile">Menú ▼</p>
+          <ul class="dropdown-content-newMobile dropdown-content-display">
+            <li class="dropdown-item-newMobile">
+              <a href="/control-panel">Panel de control -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a href="/generar-noticias">Nueva noticia -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a href="/generar-imagen">Crear imagen para redes sociales -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a href="/administrar-carousel">Administrar carousel de inicio -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a href="/administrar-imagenes">Administrar imágenes guardadas -</a>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+
+      <nav class="desktop-nav">
+        <div class="bloque1">
+
+          <div class="h1-container">
+            <h1>Sitio interno - AsAAr</h1>
+          </div>
+
+          <div class="bloque2 desktop-small">
+            <a href="#">
+              <div class="menu-button">Cambiar contraseña</div>
+            </a>
+            <a href="/">
+              <div class="menu-button">Log-out</div>
+            </a>
+          </div>
+
+          <ul class="menu-list">
+            <li>
+              <a href="/control-panel">Panel de control</a>
+            </li>
+            <li>
+              <a href="/generar-noticias">Nueva noticia</a>
+            </li>
+            <li>
+              <a href="/generar-imagen">Crear imagen para redes sociales</a>
+            </li>
+            <li>
+              <a href="/administrar-carousel">Administrar carousel de inicio</a>
+            </li>
+            <li>
+              <a href="/administrar-imagenes">Administrar imágenes guardadas</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bloque2 desktop-large">
+          <a href="#">
+            <div class="menu-button">Cambiar contraseña</div>
+          </a>
+          <a href="/">
+            <div class="menu-button">Log-out</div>
+          </a>
+        </div>
+
+      </nav>
+
+    </header>
 
 
     @yield('content')
