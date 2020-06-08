@@ -2000,6 +2000,12 @@ padding-right: 0.5rem;
 
 /* END ADMIN HEADER - MOBILE*/
 
+/* ************ LOGIN SECTION - MOBILE ************ */
+.container{
+  margin-top: 150px;
+}
+/* ************ END LOGIN SECTION - MOBILE ************ */
+
 /* ************ CONTROL PANEL SECTION - MOBILE ************ */
 .admin.cPanel{
   top: 80px;

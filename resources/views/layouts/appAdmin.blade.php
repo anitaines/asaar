@@ -49,7 +49,7 @@
             <div class="menu-button">Cambiar contraseña</div>
           </a> --}}
           <a href="/">
-            <div class="menu-button">Log-out</div>
+            <div class="menu-button">Logout</div>
           </a>
         </div>
 
@@ -91,7 +91,7 @@
               <div class="menu-button">Cambiar contraseña</div>
             </a>
             <a href="/">
-              <div class="menu-button">Log-out</div>
+              <div class="menu-button">Logout</div>
             </a>
           </div>
 
@@ -119,7 +119,7 @@
             <div class="menu-button">Cambiar contraseña</div>
           </a>
           <a href="/">
-            <div class="menu-button">Log-out</div>
+            <div class="menu-button">Logout</div>
           </a>
         </div>
 
