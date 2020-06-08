@@ -1991,6 +1991,9 @@ padding-right: 0.5rem;
 .main-header.admin-header .mobile-nav .dropdown-item-newMobile:hover{
   background-color: var(--magenta);
 }
+.main-header.admin-header .mobile-nav .bloque2 {
+  justify-content: flex-end;
+}
 .main-header.admin-header .mobile-nav .bloque2 .menu-button{
   background-color: var(--orange);
 }
@@ -3128,6 +3131,7 @@ padding-left: 10px;
   width: 90%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin: auto;
 }
 .admin.adminImagenes .imagenes .imagenItem{
@@ -3189,7 +3193,7 @@ padding-left: 10px;
   /* HEADER - TABLET*/
   .main-header .mobile-nav .h1-container{
     width: 50%;
-    height: 40px;
+    height: 38px;
     display: block;
     text-transform: uppercase;
     font-size: 15px;
@@ -3520,6 +3524,12 @@ padding-left: 10px;
 
 
   /* ADMIN SECTION */
+  /* ADMIN HEADER - TABLET */
+  .main-header.admin-header .mobile-nav .h1-container{
+    background-color: var(--magenta);
+  }
+  /* END ADMIN HEADER - TABLET */
+
   /* ************ CONTROL PANEL SECTION - TABLET ************ */
   .admin.cPanel{
     top: 125px;
@@ -4341,6 +4351,50 @@ padding-left: 10px;
 
 
   /* ADMIN SECTION */
+  /* ADMIN HEADER - DESKTOP*/
+  .main-header.admin-header .desktop-nav .bloque1 .h1-container {
+    display: none;
+    background-color: var(--magenta);
+    width: 460px;
+    height: 33px;
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .h1-container h1 {
+    font-size: 20px;
+    line-height: 33px;
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .menu-list {
+    background-color: var(--magenta);
+    height: 40px;
+    width: 99%;
+    margin-top: 10px;
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .menu-list li {
+    text-align: center;
+    line-height: 15px;
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .menu-list li a:hover{
+    color: var(--green);
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .menu-list a {
+    line-height: 16px;
+  }
+  .main-header.admin-header .desktop-nav .bloque2 a{
+    font-size: 18px;
+    line-height: 18px;
+  }
+  .main-header.admin-header .desktop-nav .bloque2 .menu-button{
+    background-color: var(--orange);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .main-header.admin-header .desktop-nav .bloque2.desktop-small{
+    margin-left: 70%;
+  }
+
+  /* END ADMIN HEADER - DESKTOP*/
+
   /* ************ GENERAR NOTICIA SECTION - DESKTOP ************ */
   .admin{
     top: 132px;
@@ -4359,8 +4413,8 @@ padding-left: 10px;
     width: 30%;
   }
   .admin .input form{
-    /* height: 74vh; */
-    height: 82vh;
+    height: 74vh;
+    /* height: 82vh; */
     overflow-y: scroll;
   }
   /* SCROLLBAR */
@@ -4514,6 +4568,9 @@ padding-left: 10px;
   }
   .main-header .desktop-nav .bloque1{
     width: 75%;
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .menu-list{
+    margin-top: 0px;
   }
   /* END HEADER - desktop large */
 

@@ -20,6 +20,8 @@ Route::get('/', 'ReleaseController@carousel');
 
 Route::get('/home', 'ReleaseController@carousel');
 
+Route::get('/index', 'ReleaseController@carousel');
+
 
 // Sección Asperger
 Route::get('/asperger-cea', 'AspergerController@index');

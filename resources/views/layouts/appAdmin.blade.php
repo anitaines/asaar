@@ -34,7 +34,7 @@
     <header id="header" class="main-header admin-header">
 
       <div class="logo-container">
-        <a href="/">
+        <a href="/control-panel">
           <img src="/media/logos/logo.svg" alt="Logotipo Asociación Asperger Argentina">
         </a>
       </div>
@@ -45,9 +45,9 @@
         </div>
 
         <div class="bloque2">
-          <a href="#">
+          {{-- <a href="#">
             <div class="menu-button">Cambiar contraseña</div>
-          </a>
+          </a> --}}
           <a href="/">
             <div class="menu-button">Log-out</div>
           </a>
@@ -70,6 +70,9 @@
             </li>
             <li class="dropdown-item-newMobile">
               <a href="/administrar-imagenes">Administrar imágenes guardadas -</a>
+            </li>
+            <li class="dropdown-item-newMobile">
+              <a href="/administrar-imagenes">Cambiar contraseña -</a>
             </li>
           </ul>
         </div>

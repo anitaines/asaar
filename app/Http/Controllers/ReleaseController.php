@@ -601,7 +601,7 @@ class ReleaseController extends Controller
 
       $noticia->save();
 
-      return redirect('/');
+      return redirect('/control-panel');
 
     }
 
@@ -749,8 +749,7 @@ class ReleaseController extends Controller
           }
         }
 
-        return redirect('/home');
-        // corregir para que despues de guardar vaya al panel de control
+        return redirect('/control-panel');
 
     }
 

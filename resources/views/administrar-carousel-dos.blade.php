@@ -159,7 +159,7 @@
           </button>
         </div>
         <div class="buttonWrap">
-          <a class="reset"  href="/index">
+          <a class="reset"  href="/control-panel">
             <p>Cancelar</p>
           </a>
         </div>

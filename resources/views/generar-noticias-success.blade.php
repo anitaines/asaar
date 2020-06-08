@@ -17,7 +17,7 @@
     <p>¿Agregar la noticia al carousel de noticias de la página de inicio?</p>
 
     <div class="buttons">
-      <a href="/home">
+      <a href="/control-panel">
         <div class="button no">
           NO
         </div>
