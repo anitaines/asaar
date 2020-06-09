@@ -14,14 +14,19 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+
+// Rutas auth CON registro:
+// Auth::routes();
+
+// Rutas auth SIN registro:
+Auth::routes(['register' => false]);
+
 
 // Inicio
 Route::get('/', 'ReleaseController@carousel');
 
-// Route::get('/home', 'ReleaseController@carousel');
+Route::get('/home', 'ReleaseController@carousel');
 
 Route::get('/index', 'ReleaseController@carousel');
 
@@ -99,6 +104,20 @@ Route::get('/administrar-imagenes', 'ImageController@index')->middleware('auth')
 Route::delete('/eliminar-imagen', 'ImageController@destroy')->middleware('auth'); //falta auth
 
 
-// Route::get('/editar_articulo/{id}', 'ArticleController@edit')->middleware('auth');
+// Cambiar password de usuario
+// Route::get('/changepassword', function() {
+//     $user = App\User::where('username', 'acá va el nombre de usuario')->firstOrFail();
+//     $user->password = Hash::make('acá va la contraseña nueva');
+//     $user->save();
 //
-// Route::put('/editar_articulo/{id}', 'ArticleController@update')->middleware('auth');
+//     echo 'Password changed successfully.';
+// });
+
+
+// Eliminar usuario
+// Route::get('/deleteuser', function() {
+//     $user = App\User::where('username', 'acá va el nombre de usuario')->firstOrFail();
+//     $user->delete();
+//
+//     echo 'User removed successfully.';
+// });

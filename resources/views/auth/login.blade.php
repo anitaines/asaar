@@ -8,39 +8,39 @@
 
   <main class="admin login">
     <h4>Iniciar sesión:</h4>
-
+    {{-- @dd($errors) --}}
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <div class="">
-            <label for="email" class="">E-mail:</label>
+        <div class="form-item">
+            <label for="username" class="">Usuario:</label>
 
             <div class="">
-                <input type="text" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
+                <input id="username" type="text" name="username" value="{{ old('username') }}" autofocus>
 
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
+                @error('username')
+                    <div class="" style="color: red;" role="alert">
                         <strong>{{ $message }}</strong>
-                    </span>
+                    </div>
                 @enderror
             </div>
         </div>
 
-        <div class="">
+        <div class="form-item">
             <label for="password" class="">Contraseña:</label>
 
             <div class="">
-                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">
 
                 @error('password')
-                    <span class="invalid-feedback" role="alert">
+                    <div class="" style="color: red;" role="alert">
                         <strong>{{ $message }}</strong>
-                    </span>
+                    </div>
                 @enderror
             </div>
         </div>
 
-        <div class="">
+        <div class="form-item">
             <div class="">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>

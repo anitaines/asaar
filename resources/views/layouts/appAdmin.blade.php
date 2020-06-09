@@ -48,8 +48,14 @@
           {{-- <a href="#">
             <div class="menu-button">Cambiar contraseña</div>
           </a> --}}
-          <a href="/">
-            <div class="menu-button">Logout</div>
+          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+            <div class="menu-button">
+              Logout
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+            </div>
           </a>
         </div>
 
@@ -71,9 +77,9 @@
             <li class="dropdown-item-newMobile">
               <a href="/administrar-imagenes">Administrar imágenes guardadas -</a>
             </li>
-            <li class="dropdown-item-newMobile">
+            {{-- <li class="dropdown-item-newMobile">
               <a href="/administrar-imagenes">Cambiar contraseña -</a>
-            </li>
+            </li> --}}
           </ul>
         </div>
 
@@ -87,11 +93,17 @@
           </div>
 
           <div class="bloque2 desktop-small">
-            <a href="#">
+            {{-- <a href="#">
               <div class="menu-button">Cambiar contraseña</div>
-            </a>
-            <a href="/">
-              <div class="menu-button">Logout</div>
+            </a> --}}
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+              <div class="menu-button">
+                Logout
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+              </div>
             </a>
           </div>
 
@@ -115,11 +127,17 @@
         </div>
 
         <div class="bloque2 desktop-large">
-          <a href="#">
+          {{-- <a href="#">
             <div class="menu-button">Cambiar contraseña</div>
-          </a>
-          <a href="/">
-            <div class="menu-button">Logout</div>
+          </a> --}}
+          <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+            <div class="menu-button">
+              Logout
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+            </div>
           </a>
         </div>
 
