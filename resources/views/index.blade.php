@@ -57,64 +57,53 @@
               </div>
             @endfor
 
+          </div>
+
+          @if (count($noticiasCarousel) > 0)
+            <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
+            <a class="next" onclick='plusSlides(1)'>&#10095;</a>
+
+            <div class="dotContainer" style='text-align: center;'>
+                @for ($i=0; $i <= count($noticiasCarousel); $i++)
+                  <span class="dot" onclick='currentSlide({{$i +1 }})'></span>
+                @endfor
             </div>
+          @endif
 
-            @if (count($noticiasCarousel) > 0)
-              <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
-              <a class="next" onclick='plusSlides(1)'>&#10095;</a>
+      <a class="downScroll" href="#sitio">&#10095;</a>
 
-              <div class="dotContainer" style='text-align: center;'>
-                {{-- <span class="dot" onclick='currentSlide(1)'></span>
-                <span class="dot" onclick='currentSlide(2)'></span>
-                <span class="dot" onclick='currentSlide(3)'></span>
-                <span class="dot" onclick='currentSlide(4)'></span> --}}
-                  @for ($i=0; $i <= count($noticiasCarousel); $i++)
-                    <span class="dot" onclick='currentSlide({{$i +1 }})'></span>
-                  @endfor
-              </div>
-            @endif
-
-            <a class="downScroll" href="#down">&#10095;</a>
-
-          <!-- </div> -->
-
-      {{-- </div> --}}
-      {{-- fin slideshow-container --}}
-
-      <div id="down" class="down"></div>
+      <div id="sitio" class="down"></div>
 
       <div class="carousel_colors">
         <div class="green"></div>
         <div class="orange"></div>
         <div class="blue"></div>
-        </div>
-
       </div>
-      {{-- fin slideshow-container --}}
+
+    </div>
 
   <div class="info_container">
     <div class="asoc_container">
       <p class="p_asoc_container">La <b>Asociación Asperger Argentina</b> (AsAAr) es una <b>organización sin fines de lucro</b> formada por un <b>grupo de padres</b> que, al haber tomado conocimiento de la situación en la que estaban inmersos sus hijos, decidieron organizarse en pos del bienestar de las personas con el síndrome.</p>
 
-        <a class="a_asoc_container" href="/quienes-somos"><div class="div_a_asoc_container">Leer más sobre la Asociación</div></a>
+      <a class="a_asoc_container" href="/quienes-somos"><div class="div_a_asoc_container">Leer más sobre la Asociación</div></a>
 
-        <a class="a_asoc_container" href="/actividades"><div class="div_a_asoc_container">Actividades</div></a>
+      <a class="a_asoc_container" href="/actividades"><div class="div_a_asoc_container">Actividades</div></a>
+    </div>
 
-      </div>
     <div class="asperger_container">
       <p class="p_asperger_container">El <b>Síndrome de Asperger</b> es una condición del neurodesarrollo, una variación del desarrollo que acompaña a las personas durante toda la vida. Influye en la forma en que éstas dan sentido al mundo, procesan la información y se relacionan con los otros.</p>
 
-        <a class="a_asperger_container" href="/asperger-cea"><div class="div_a_asperger_container">Información sobre Asperger / CEA</div></a>
+      <a class="a_asperger_container" href="/asperger-cea"><div class="div_a_asperger_container">Información sobre Asperger / CEA</div></a>
 
-        <a class="a_asperger_container" href="/asperger-cea#diagnosticos"><div class="div_a_asperger_container">Criterios Diagnósticos</div></a>
+      <a class="a_asperger_container" href="/asperger-cea#diagnosticos"><div class="div_a_asperger_container">Criterios Diagnósticos</div></a>
 
-        <a class="a_asperger_container" href="/asperger-cea#intervenciones"><div class="div_a_asperger_container">Intervenciones / Tratamientos</div></a>
+      <a class="a_asperger_container" href="/asperger-cea#intervenciones"><div class="div_a_asperger_container">Intervenciones / Tratamientos</div></a>
 
-      </div>
     </div>
+  </div>
 
   <div class="separador">
-    {{-- <img class="img_separador" src="/media/hands.jpg" alt="Muchas manos levantadas"> --}}
     <img class="img_separador"
     srcset="
     /media/home/2580120crop_desktop3x.jpg 1920w,
@@ -127,7 +116,7 @@
 
     <p class="p_separador_invisible">La AsAAr acompaña a las familias brindando asesoramiento, información y contención; y compartiendo experiencias en un plano de igualdad entre todas las familias unidas por una misma circunstancia de vida.</p>
     <p class="p_separador">La AsAAr acompaña a las familias brindando asesoramiento, información y contención; y compartiendo experiencias en un plano de igualdad entre todas las familias unidas por una misma circunstancia de vida.</p>
-    </div>
+  </div>
 
   <div class="closing">
     <div class="donate">
@@ -142,30 +131,29 @@
       <p class="p_donate"><b>¡Muchas gracias!</b></p>
       <div class="div_donate">
         <a class="a_donate" href="/donar">DONAR</a>
-        </div>
-      </div>
-    <div class="facebook">
-
-      <div class="fb-desktop">
-        <div class="fb-page" data-href="https://www.facebook.com/AsociacionAspergerArgentina/" data-tabs="timeline" data-width="483" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/AsociacionAspergerArgentina/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AsociacionAspergerArgentina/">Asociacion Asperger Argentina</a></blockquote></div>
-        </div>
       </div>
     </div>
+    <div class="facebook">
+      <div class="fb-desktop">
+        <div class="fb-page" data-href="https://www.facebook.com/AsociacionAspergerArgentina/" data-tabs="timeline" data-width="483" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/AsociacionAspergerArgentina/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AsociacionAspergerArgentina/">Asociacion Asperger Argentina</a></blockquote></div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="facebook-footer">
       <div class="fb-mobile">
         <div class="fb-page" data-href="https://www.facebook.com/AsociacionAspergerArgentina/" data-tabs="timeline" data-width="483" data-height="370" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/AsociacionAspergerArgentina/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/AsociacionAspergerArgentina/">Asociacion Asperger Argentina</a></blockquote></div>
-        </div>
-        </div>
+      </div>
+    </div>
     <div class="container_logo_footer">
       <div class="logo_footer">
         <img class="img_footer_logo"src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina">
         <p class="p_footer">Sitio oficial</p>
         <p class="p_footer">Copyright 2003-2020</p>
-        </div>
-      <div class="vl_footer"> </div>
       </div>
+      <div class="vl_footer"> </div>
+    </div>
     <div class="contact_footer">
       <p class="p_contact_footer"><b>TELÉFONO:</b> (011) 4931-2712</p>
       <p class="p_contact_footer">(De lunes a viernes de 14:00 a 18:00 hs.)</p>
@@ -182,31 +170,8 @@
         <a class="a_socialmedia_footer" href="https://www.instagram.com/asociacionasperger/" target="_blank" rel="noreferrer"><img class="img_socialmedia_footer" src="/media/socialMedia/instagram.svg" alt="Logo Instagram"></a>
 
         <a class="a_socialmedia_footer" href="https://www.linkedin.com/company/asociaci%C3%B3n-asperger-argentina/about/" target="_blank" rel="noreferrer"><img class="img_socialmedia_footer" src="/media/socialMedia/linkedin.svg" alt="Logo Linkedin"></a>
-        </div>
       </div>
-    {{-- <div class="newsletter_footer">
-      <p class="p_newsletter_footer">Recibir novedades por mail:</p>
-      <form class="form_newsletter_footer" action="/" method="post">
-        @csrf
-        <input type="hidden" name="_method" value="PUT">
-        <div class="form_item">
-          <label class="label_newsletter_footer" for="nombre">NOMBRE</label>
-          <input class="input_newsletter_footer" type="text" id="nombre" name="name" value="">
-          </div>
-        <div class="form_item">
-          <label class="label_newsletter_footer"  for="apellido">APELLIDO</label>
-          <input class="input_newsletter_footer" type="text" id="apellido" name="surname" value="">
-          </div>
-        <div class="form_item">
-          <label class="label_newsletter_footer" for="email">E-MAIL</label>
-          <input class="input_newsletter_footer" type="text" id="email" name="email" value="">
-          </div>
-        <button class="buton_newsletter_footer"  type="submit" disabled>
-          <p>Suscribirse a nuestras novedades</p>
-          <p>Procesando</p>
-        </button>
-        </form>
-    </div> --}}
+    </div>
 
     <!-- Begin Mailchimp Signup Form -->
       <div id="mc_embed_signup" class="newsletter_footer">
@@ -233,7 +198,7 @@
             <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5ef693025dfac788bcbc56790_3ad72c438f" tabindex="-1" value=""></div>
             <div class="clear"><input class="buton_newsletter_footer" type="submit" value="Suscribirse a nuestras novedades" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
           </div>
-          </form>
+        </form>
       </div>
       <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[0]='EMAIL';ftypes[0]='email'; /*
        * Translated default messages for the $ validation plugin.
@@ -261,7 +226,6 @@
     <!--End mc_embed_signup-->
 
     </footer>
-
 
     <script src="{{ asset('js/index.js') }}"></script>
 

@@ -11,20 +11,20 @@
     <nav class="nav_aspergerCEA">
       <div class="link_quienesSomos">
         <a class="a_nav_aspergerCEA" href="#quienesSomos">- QUIÉNES SOMOS</a>
-        </div>
+      </div>
       <div class="link_mision">
         <a class="a_nav_aspergerCEA" href="#mision">- NUESTRA MISIÓN Y VISIÓN</a>
-        </div>
+      </div>
       <div class="link_autoridades">
         <a class="a_nav_aspergerCEA" href="#autoridades">- AUTORIDADES</a>
-        </div>
+      </div>
       <div class="link_ayudar">
         <a class="a_nav_aspergerCEA" href="#ayudar">- CÓMO AYUDAR</a>
-        </div>
+      </div>
       <div class="link_diptico">
         <a class="a_nav_aspergerCEA" href="#diptico">- DÍPTICO</a>
-        </div>
-      </nav>
+      </div>
+    </nav>
 
 
 
@@ -35,16 +35,16 @@
 
           <p class="p_aspergerCEA">La <b>Asociación Asperger Argentina</b> (AsAAr) es una <b>organización sin fines de lucro</b> con personería jurídica, aprobada en IGJ el 14 de noviembre de 2003. Surgió por inquietud de un <b>grupo de padres</b> que, al haber tomado conocimiento de la situación en la que estaban inmersos sus hijos, decidieron organizarse en pos del bienestar de las personas con el síndrome. Asimismo, <b>la Asociación se propone orientar y contener a aquellos padres que tienen “sospechas”, o que han recibido recientemente el diagnóstico de alguno de sus hijos o propio</b>. Un diagnóstico precoz es la clave para que las familias puedan seleccionar los pasos a seguir y los apoyos necesarios a temprana edad y, de esta forma, tener una mejor calidad de vida. La <b>AsAAr acompaña a las familias brindando asesoramiento, información y contención</b>; y compartiendo experiencias en un plano de igualdad entre todas las familias unidas por una misma circunstancia de vida.</p>
 
-          </div>
+        </div>
 
-          <div class="carousel_colors">
+        <div class="carousel_colors">
             <div class="green"></div>
             <div class="orange"></div>
             <div class="blue"></div>
-            </div>
-      </main>
+        </div>
+    </main>
 
-      {{-- NUESTRA MISIÓN Y VISIÓN --}}
+    {{-- NUESTRA MISIÓN Y VISIÓN --}}
     <main id="mision" class="main_aspergerCEA main_mision">
         <h2 class="h1_aspergerCEA h1_mision">Nuestra misión y visión</h2>
 
@@ -64,7 +64,7 @@
 
             <p class="p_aspergerCEA">Somos parte integrante del <a href="https://grupoart24.org/"  target="_blank" rel="noreferrer">Grupo Art. 24 por la Educación Inclusiva</a>, que actualmente cuenta en su red con más de 130 organizaciones de la sociedad civil a nivel nacional; y de <a href="http://redea.org.ar/" target="_blank" rel="noreferrer">Red Espectro Autista (RedEA)</a>, conformado por organizaciones de padres y profesionales, comprometidas en el área de la salud.</p>
 
-            </div>
+          </div>
 
           <a href="/asperger-cea"><p class="p_aspergerCEA button_quienesSomos">Qué es el Asperger y CEA?</p></a>
 
@@ -72,15 +72,15 @@
             <div class="green"></div>
             <div class="orange"></div>
             <div class="blue"></div>
-            </div>
-      </main>
+          </div>
+    </main>
 
     {{-- AUTORIDADES --}}
     <main id="autoridades" class="main_aspergerCEA main_autoridades">
-          <h2 class="h1_aspergerCEA h1_autoridades">Autoridades</h2>
-          <h3 class="h3_aspergerCEA">Comisión Directiva</h3>
+        <h2 class="h1_aspergerCEA h1_autoridades">Autoridades</h2>
+        <h3 class="h3_aspergerCEA">Comisión Directiva</h3>
 
-          <div class="comisionDirectiva">
+        <div class="comisionDirectiva">
 
             <div class="card_container">
               <img src="/media/autoridades/lopez.jpg" alt="Sra. Andrea Alejandra Lopez">

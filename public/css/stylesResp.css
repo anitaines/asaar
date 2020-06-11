@@ -262,6 +262,9 @@ img,svg {
     display: inline-block;
     transition: background-color .6s ease;
 }
+.dot:first-child{
+  margin-left: 17px;
+}
 .active,
 .dot:hover {
     background-color: rgba(171, 32, 151, 0.5);

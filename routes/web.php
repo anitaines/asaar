@@ -11,11 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
 // Rutas auth CON registro:
 // Auth::routes();
 
@@ -66,42 +61,50 @@ Route::get('/noticia/{id}/{slug}', 'ReleaseController@show');
 
 // ADMIN:
 // Control panel
-Route::get('/control-panel', 'ReleaseController@cPanel')->middleware('auth'); //falta auth
+Route::get('/control-panel', 'ReleaseController@cPanel')->middleware('auth');
 
 // Eliminar noticia
-Route::delete('/eliminar-noticia', 'ReleaseController@destroy')->middleware('auth'); //falta auth
+Route::get('/eliminar-noticia', function () {
+    abort(404);
+});
+
+Route::delete('/eliminar-noticia', 'ReleaseController@destroy')->middleware('auth');
 
 // Crear noticia
 Route::get('/plantilla-noticia', function () {
     return view('plantilla-noticia');
-})->middleware('auth'); //middelware?? esta ruta se accede logueado y solo se usa en iframe
+})->middleware('auth'); // a esta ruta se accede logueado y solo se usa en iframe
 
-Route::get('/generar-noticias', 'ReleaseController@create')->middleware('auth'); //falta auth
+Route::get('/generar-noticias', 'ReleaseController@create')->middleware('auth');
 
-Route::post('/generar-noticias', 'ReleaseController@store')->middleware('auth'); //falta auth
+Route::post('/generar-noticias', 'ReleaseController@store')->middleware('auth');
 
-Route::get('/generar-noticias-success', function () { //falta auth
+Route::get('/generar-noticias-success', function () {
     return view('generar-noticias-success');
 })->middleware('auth');
 
 // Modificar noticia
-Route::get('/modificar-noticia/{id}', 'ReleaseController@edit')->middleware('auth'); //falta auth
+Route::get('/modificar-noticia/{id}', 'ReleaseController@edit')->middleware('auth');
 
 Route::post('/modificar-noticia/{id}', 'ReleaseController@update')->middleware('auth'); //falta auth
 
 // Crear imagen para redes sociales
-Route::get('/generar-imagen', 'ReleaseController@createImage')->middleware('auth'); //falta auth
+Route::get('/generar-imagen', 'ReleaseController@createImage')->middleware('auth');
 
 // Administrar carousel inicio
-Route::get('/administrar-carousel', 'ReleaseController@carouselAdmin')->middleware('auth'); //falta auth
+Route::get('/administrar-carousel', 'ReleaseController@carouselAdmin')->middleware('auth');
 
 Route::post('/administrar-carousel', 'ReleaseController@carouselStore')->middleware('auth'); //falta auth
 
 // Administrar imágenes guardadas
-Route::get('/administrar-imagenes', 'ImageController@index')->middleware('auth'); //falta auth
+Route::get('/administrar-imagenes', 'ImageController@index')->middleware('auth');
 
 // Eliminar imagen guardada
-Route::delete('/eliminar-imagen', 'ImageController@destroy')->middleware('auth'); //falta auth
+Route::get('/eliminar-imagen', function () {
+    abort(404);
+});
+
+Route::delete('/eliminar-imagen', 'ImageController@destroy')->middleware('auth');
 
 
 // Cambiar password de usuario

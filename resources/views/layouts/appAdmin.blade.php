@@ -12,7 +12,6 @@
       <!-- CSRF Token -->
       <meta name="csrf-token" content="{{ csrf_token() }}">
 
-      {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
       <title>@yield("title") Asociación Asperger Argentina</title>
 
       <link rel="icon" href="/media/logos/favicon.png" sizes="any" type="image/png">
@@ -23,13 +22,11 @@
       <link href="https://fonts.googleapis.com/css2?family=Gidugu&display=swap" rel="stylesheet">
 
       <!-- Styles -->
-      <link rel="stylesheet" href="/css/stylesResp.css">
+      <link rel="stylesheet" href="{{asset('/css/stylesResp.css')}}">
 
   </head>
 
   <body>
-
-    {{-- @yield('defer') --}}
 
     <header id="header" class="main-header admin-header">
 
@@ -40,9 +37,9 @@
       </div>
 
       <nav class="mobile-nav">
-        <div class="h1-container">
+        {{-- <div class="h1-container">
           <h1>Sitio interno - AsAAr</h1>
-        </div>
+        </div> --}}
 
         <div class="bloque2">
           {{-- <a href="#">
@@ -145,10 +142,23 @@
 
     </header>
 
-
     @yield('content')
+
     <!-- Scripts -->
-    <script src="{{ asset('js/linksNavAdmin.js') }}"></script>
+    {{-- <script src="{{ asset('js/linksNavAdmin.js') }}"></script> --}}
+    <script>
+    var dropdownMobile = document.querySelector(".button-newMobile");
+    var dropdownMobileContent = document.querySelector(".dropdown-content-newMobile");
+
+    dropdownMobile.onclick = function(){
+      dropdownMobileContent.classList.toggle("dropdown-content-display");
+      if (dropdownMobile.innerHTML == "Menú ▲"){
+        dropdownMobile.innerHTML = "Menú ▼";
+      }else{
+        dropdownMobile.innerHTML = "Menú ▲";
+      }
+    }
+    </script>
 
     </body>
 
