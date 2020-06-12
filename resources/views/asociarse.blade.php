@@ -19,11 +19,11 @@
         @if (session('success'))
           <div class="alert-success">
             <p class="p_aspergerCEA">{{ session('success') }}</p>
-            </div>
-          @else
-            <h3 class="h3_aspergerCEA">Para asociarse complete el siguiente formulario:</h3>
-            <p class="p_aspergerCEA">(Todos los campos son obligatorios)</p>
-            <div class="container_form">
+          </div>
+        @else
+          <h3 class="h3_aspergerCEA">Para asociarse complete el siguiente formulario:</h3>
+          <p class="p_aspergerCEA">(Todos los campos son obligatorios)</p>
+          <div class="container_form">
               <form class="form_newsletter_footer" action="/asociarse" method="post">
                 @csrf
 
@@ -32,7 +32,7 @@
                     <p class="error-message">Algunos campos presentan errores</p>
                     <p class="error-message">Revisar los campos marcados con ❌</p>
                     </div>
-                  @endif
+                @endif
 
                 <div class="form_item">
                   <label class="label_newsletter_footer" for="name">
@@ -322,42 +322,6 @@
                     @error('payment') <p class="error-message">{{ $message }}</p> @enderror
                 </div>
 
-                {{-- <div class="form_item">
-                  <label class="label_newsletter_footer" for="estatuto">
-                    @if ($errors->get('estatuto'))
-                      <span class="error-message-cross">❌</span> Declaro conocer el Estatuto de la AsAAr
-                    @elseif ($errors->all() != null && !$errors->get('estatuto'))
-                        <span class="error-message-checked">✓</span> Declaro conocer el Estatuto de la AsAAr
-                        @else
-                        Declaro conocer el Estatuto de la AsAAr
-                    @endif
-                    </label>
-                  @if (old('estatuto') && old('estatuto') == "sí")
-                    <input class="input_newsletter_footer" type="checkbox" id="estatuto" name="estatuto" value="sí" checked>
-                  @else
-                    <input class="input_newsletter_footer" type="checkbox" id="estatuto" name="estatuto" value="sí">
-                  @endif
-                  @error('estatuto') <p class="error-message">{{ $message }}</p> @enderror
-							    </div> --}}
-
-                {{-- <div class="form_item">
-                  <label class="label_newsletter_footer" for="payment">
-                    @if ($errors->get('payment'))
-                      <span class="error-message-cross">❌</span> Acepto el pago de la cuota social
-                    @elseif ($errors->all() != null && !$errors->get('payment'))
-                        <span class="error-message-checked">✓</span> Acepto el pago de la cuota social
-                        @else
-                        Acepto el pago de la cuota social
-                    @endif
-                    </label>
-                  @if (old('payment') && old('payment') == "sí")
-                    <input class="input_newsletter_footer" type="checkbox" id="payment" name="payment" value="sí" checked>
-                    @else
-                    <input class="input_newsletter_footer" type="checkbox" id="payment" name="payment" value="sí">
-                    @endif
-                  @error('payment') <p class="error-message">{{ $message }}</p> @enderror
-							    </div> --}}
-
                  <div class="form_item">
                    <label class="label_newsletter_footer customLabel"  for="paymentType">
                      @if ($errors->get('paymentType'))
@@ -402,15 +366,15 @@
                 </form>
 
               </div>
-            @endif
-      </main>
+        @endif
+    </main>
 
     <div class="carousel_colors">
       <div class="green"></div>
       <div class="orange"></div>
       <div class="blue"></div>
-      </div>
-
     </div>
+
+  </div>
 
   @endsection

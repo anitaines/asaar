@@ -4,10 +4,6 @@
   Administrar imágenes guardadas -
   @endsection
 
-{{-- @section('defer')
-
-  @endsection --}}
-
 @section('content')
 
   <main class="admin adminImagenes">

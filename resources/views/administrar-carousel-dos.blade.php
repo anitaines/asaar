@@ -4,10 +4,6 @@
   Administrar carousel -
   @endsection
 
-{{-- @section('defer')
-
-  @endsection --}}
-
 @section('content')
 
   <main class="admin carousel">

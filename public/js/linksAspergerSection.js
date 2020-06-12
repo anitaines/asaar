@@ -6,20 +6,15 @@ document.documentElement.style.scrollBehavior = "auto";
 
 // Capturando todos los elementos que voy a necesitar:
 var aspergerCEALink = document.querySelector(".link_aspergerCEA a");
-// var aspergerCEADiv = document.querySelector(".intro_aspergerCEA");
 
 var diagnosticosLink = document.querySelector(".link_diagnosticos a");
-// var diagnosticosDiv = document.querySelector(".main_diagnosticos");
 
 var intervencionesLink = document.querySelector(".link_intervenciones a");
-// var intervencionesDiv = document.querySelector(".main_intervenciones");
 
 var bibliotecaLink = document.querySelector(".link_biblioteca a");
-// var bibliotecaDiv = document.querySelector(".main_biblioteca");
 
 
 // Acciones:
-
 aspergerCEALink.onclick = function (){
   underline (this);
 }
@@ -36,30 +31,6 @@ bibliotecaLink.onclick = function (){
   underline (this);
 }
 
-// let observer = new IntersectionObserver((entries, observer) => {
-//   entries.forEach(entry => {
-//       if(entry.isIntersecting){
-//             switch (entry.target.className) {
-//               case "h1_aspergerCEA h1_intro_aspergerCEA":
-//                 underline (aspergerCEALink);
-//                 break;
-//               case "h1_aspergerCEA h1_diagnosticos":
-//                   underline (diagnosticosLink);
-//                 break;
-//               case "h1_aspergerCEA h1_intervenciones":
-//                   underline (intervencionesLink);
-//                 break;
-//               case "h1_aspergerCEA h1_biblioteca":
-//                   underline (bibliotecaLink);
-//                 break;
-//               default:
-//                 underline (aspergerCEALink);
-//             }
-//         }
-//       });
-//   }, {rootMargin: "-15% 0% -50% 0%"});
-//
-// document.querySelectorAll('.h1_aspergerCEA').forEach(h1 => { observer.observe(h1) });
 
 let observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {

@@ -4,10 +4,6 @@
   Generar noticias -
   @endsection
 
-{{-- @section('defer')
-
-  @endsection --}}
-
 @section('content')
 
   <main class="admin success">

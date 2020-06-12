@@ -4,10 +4,6 @@
   Panel de control -
   @endsection
 
-{{-- @section('defer')
-
-  @endsection --}}
-
 @section('content')
 
   <main class="admin cPanel">

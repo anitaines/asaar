@@ -116,7 +116,7 @@
       <div class="green"></div>
       <div class="orange"></div>
       <div class="blue"></div>
-      </div>
+    </div>
 
   </div>
 

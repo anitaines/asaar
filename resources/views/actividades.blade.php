@@ -11,17 +11,17 @@
     <nav class="nav_aspergerCEA">
       <div class="link_congresos">
         <a class="a_nav_aspergerCEA" href="#congresos">- JORNADAS Y CONGRESOS</a>
-        </div>
+      </div>
       <div class="link_debates">
         <a class="a_nav_aspergerCEA" href="#debates">- CHARLAS/ DEBATES</a>
-        </div>
+      </div>
       <div class="link_taller">
         <a class="a_nav_aspergerCEA" href="#taller">- TALLER DE PADRES</a>
-        </div>
+      </div>
       <div class="link_grupos">
         <a class="a_nav_aspergerCEA" href="#grupos">- GRUPOS DE PERTENENCIA</a>
-        </div>
-      </nav>
+      </div>
+    </nav>
 
 
 
@@ -30,18 +30,18 @@
       <h1 class="h1_aspergerCEA h1_congresos">Nuestras Actividades</h1>
       <h2 class="h1_aspergerCEA">Jornadas y Congresos</h2>
 
-          <p class="p_aspergerCEA">Con el propósito de difundir información acerca del Síndrome de Asperger la AsAAr organización y continúa organizando Jornadas destinadas a Padres, Maestros, Profesionales de la salud y la educación y cualquier persona interesada en informarse acerca del SA. Tenemos el privilegio de contar con la participación de distinguidos especialistas a quienes agradecemos por toda su colaboración.</p>
+      <p class="p_aspergerCEA">Con el propósito de difundir información acerca del Síndrome de Asperger la AsAAr organización y continúa organizando Jornadas destinadas a Padres, Maestros, Profesionales de la salud y la educación y cualquier persona interesada en informarse acerca del SA. Tenemos el privilegio de contar con la participación de distinguidos especialistas a quienes agradecemos por toda su colaboración.</p>
 
-          <h3 class="h3_aspergerCEA"><a href="https://www.youtube.com/playlist?list=PLHN3RoZSVRtQZsIbrO9aDdMjAise5WPEE" target="_blank" rel="noreferrer">Jornada en Salta sobre Síndrome de Asperger</a></h3>
+      <h3 class="h3_aspergerCEA"><a href="https://www.youtube.com/playlist?list=PLHN3RoZSVRtQZsIbrO9aDdMjAise5WPEE" target="_blank" rel="noreferrer">Jornada en Salta sobre Síndrome de Asperger</a></h3>
 
-          <div class="detalle_box_diagnosticos">
-            <p class="p_aspergerCEA">- Dr. Ernesto Wahlberg</p>
-            <p class="p_aspergerCEA">- Lic. Noemí Dominiani</p>
-            <p class="p_aspergerCEA">- Sr. Rodolfo Geloso</p>
-            <p class="p_aspergerCEA">- Actividades de los Grupos de Padres en Jujuy y Salta</p>
-            <p class="p_aspergerCEA">- Mg. Verónica Martorello</p>
-            <p class="p_aspergerCEA">- Lic. Elizabeth Guerrero Alvarado</p>
-          </div>
+      <div class="detalle_box_diagnosticos">
+        <p class="p_aspergerCEA">- Dr. Ernesto Wahlberg</p>
+        <p class="p_aspergerCEA">- Lic. Noemí Dominiani</p>
+        <p class="p_aspergerCEA">- Sr. Rodolfo Geloso</p>
+        <p class="p_aspergerCEA">- Actividades de los Grupos de Padres en Jujuy y Salta</p>
+        <p class="p_aspergerCEA">- Mg. Verónica Martorello</p>
+        <p class="p_aspergerCEA">- Lic. Elizabeth Guerrero Alvarado</p>
+      </div>
 
       <div class="box_diagnosticos">
 
@@ -318,8 +318,6 @@
 
         <a href="/noticias"><p class="p_aspergerCEA button_quienesSomos">Noticias</p></a>
 
-        {{-- <p class="p_aspergerCEA"><b>También puede suscribirse a nuestro newsletter para mantenerse al tanto de las novedades:</b></p> --}}
-
       </main>
 
       <main class="main_aspergerCEA">
@@ -327,8 +325,8 @@
             <div class="green"></div>
             <div class="orange"></div>
             <div class="blue"></div>
-          </div>
-        </main>
+        </div>
+      </main>
 
     </div>
 

@@ -11,17 +11,17 @@
     <nav class="nav_aspergerCEA">
       <div class="link_aspergerCEA">
         <a class="a_nav_aspergerCEA" href="#aspergerCea">- ASPERGER/ CEA</a>
-        </div>
+      </div>
       <div class="link_diagnosticos">
         <a class="a_nav_aspergerCEA" href="#diagnosticos">- DIAGNÓSTICOS</a>
-        </div>
+      </div>
       <div class="link_intervenciones">
         <a class="a_nav_aspergerCEA" href="#intervenciones">- INTERVENCIONES</a>
-        </div>
+      </div>
       <div class="link_biblioteca">
         <a class="a_nav_aspergerCEA" href="#biblioteca">- BIBLIOTECA</a>
-        </div>
-      </nav>
+      </div>
+    </nav>
 
     {{-- ASPERGER/CEA   --}}
     <main id="aspergerCea" class="main_aspergerCEA intro_aspergerCEA">
@@ -31,21 +31,21 @@
 
         <div class="box_aspergerCEA">
           <p class="p_aspergerCEA">El <b>Síndrome de Asperger</b> es una condición del neurodesarrollo, una variación del desarrollo que acompaña a las personas durante toda la vida. Influye en la forma en que éstas dan sentido al mundo, procesan la información y se relacionan con los otros.</p>
-          </div>
+        </div>
         <div class="box_aspergerCEA">
           <p class="p_aspergerCEA">Aunque se desconoce su causa, hay fuerte consenso en la comunidad científica en señalar que es de orden neuro-biológico. De la misma manera, hay una aceptación universal acerca de que el mismo no se produce por problemas afectivos ni por el tipo de educación recibida. Tiene una mayor incidencia en varones que en mujeres y en éstas, se manifiesta de una manera más sutil y encubierta.</p>
-          </div>
+        </div>
         <div class="box_aspergerCEA">
           <p class="p_aspergerCEA">Con anterioridad fue incluido entre los Trastornos Generalizados del Desarrollo (TGD) y en el presente se encuentra <b>incorporado dentro de los Trastornos del Espectro Autista (TEA)</b>. Asimismo, el término trastorno está siendo reemplazado por el de <b>Condición (CEA)</b>, conforme se entiende que el mismo es sólo una variación más de la diversidad humana.</p>
 
-            <a class="a_box_aspergerCEA" href="https://www.youtube.com/watch?v=6s3QbLJNvzE" target="_blank" rel="noreferrer"><div class="subbox_aspergerCEA">Saber más acerca de las Condiciones del Espectro Autista</div></a>
-
-          </div>
+          <a class="a_box_aspergerCEA" href="https://www.youtube.com/watch?v=6s3QbLJNvzE" target="_blank" rel="noreferrer"><div class="subbox_aspergerCEA">Saber más acerca de las Condiciones del Espectro Autista</div></a>
 
         </div>
 
-        <h3 class="h3_aspergerCEA">Características</h3>
-        <div class="container2_aspergerCEA">
+      </div>
+
+      <h3 class="h3_aspergerCEA">Características</h3>
+      <div class="container2_aspergerCEA">
           <p class="p_aspergerCEA">En una sociedad con una marcada inclinación a homogeneizar y a medir a los semejantes con los parámetros dominantes, no es de extrañar que las personas con Síndrome de Asperger sean consideras raras o con conductas desadaptadas, ya que <b>presentan una manera distinta de pensar y relacionarse</b>, y en muchos casos, esto puede llegar a provocar inquietud. Sin embargo, <b>sus acciones nunca persiguen una finalidad perturbadora</b>, muy por el contrario, como todos, necesitan ser respetados en su singularidad, aceptados y amados.</p>
           <p class="p_aspergerCEA">Entre sus características, teniendo mucho cuidado en no desatender que cada persona es única y particular, existen rasgos que pueden considerarse altamente positivos y otros en los que suelen presentar dificultades. En el primer grupo encontramos las capacidades relacionadas con la inteligencia dura, racional, unívoca, híper-lógica; en el segundo, aquellas vinculadas a la inteligencia blanda, emocional, con pluralidad de significados, que cobran mucha importancia a la hora de relacionarse e insertarse en todo tipo de entornos sociales.</p>
           <p class="p_aspergerCEA">Algunos aspectos distintivos del primer grupo, son la <b>memoria</b> (en muchos casos verdaderamente prodigiosa), el <b>apego al detalle</b> (capturando datos inasibles para otros observadores), la facilidad para la matemática, <b>la tecnología, el pensamiento lógico, la estructuración, la focalización en un interés dominante, la concentración y perseverancia en ese interés</b>.</p>
@@ -58,32 +58,32 @@
           <p class="p_aspergerCEA">Hoy en día, con la revolución y el cambio de paradigma en torno a la discapacidad como modelo social, existen muchos interrogantes formulados por los mismos interesados. <b>¿Se es Asperger? ¿Se tiene Síndrome de Asperger? ¿Es realmente una discapacidad? Y si lo es, ¿qué tipo de discapacidad? ¿Somos todos en algún momento de la vida discapacitados? ¿Es una variación de la diversidad humana y de la riqueza inherente a la heterogeneidad? ¿Es necesario hacer terapias para corregir los defícits? ¿Las familias deben empoderarse para ayudar a la persona con Síndrome de Asperger a alcanzar los objetivos deseados? ¿Alcanza con promover un cambio en el entorno que apunte a la comprensión?</b> Éstos son sólo algunos de los nuevos interrogantes que desde esta Asociación ponemos en común para ir construyendo colectivamente el conocimiento necesario para mejorar la realidad de nuestros seres queridos y al mismo tiempo, para mejorarnos a nosotros como personas, involucrándonos en ese cambio.
           </p>
 
-          </div>
+      </div>
 
-          <div class="carousel_colors">
-            <div class="green"></div>
-            <div class="orange"></div>
-            <div class="blue"></div>
-            </div>
-      </main>
+      <div class="carousel_colors">
+        <div class="green"></div>
+        <div class="orange"></div>
+        <div class="blue"></div>
+      </div>
+    </main>
 
       {{-- DIAGNOSTICOS --}}
-      <main id="diagnosticos" class="main_aspergerCEA main_diagnosticos">
+    <main id="diagnosticos" class="main_aspergerCEA main_diagnosticos">
         <h2 class="h1_aspergerCEA h1_diagnosticos">Diagnósticos</h2>
         <h3 class="h3_aspergerCEA">Criterios Diagnósticos</h3>
         <div class="container1_diagnósticos">
           <div class="box_diagnosticos">
               <a class="a_box_aspergerCEA" href="http://espectroautista.info/gillberg.html" target="_blank" rel="noreferrer"><div class="a_box_aspergerCEA_container">Criterios de Gillberg para el diagnóstico del Síndrome de Asperger</div></a>
 
-            <div class="subbox_diagnosticos"></div>
-            </div>
+              <div class="subbox_diagnosticos"></div>
+          </div>
 
           <div class="box_diagnosticos">
               <div class="subbox_diagnosticos"></div>
 
                 <a class="a_box_aspergerCEA" href="http://espectroautista.info/dsm5.html" target="_blank" rel="noreferrer"><div class="a_box_aspergerCEA_container">Criterios diagnósticos según el DSM-5</div></a>
-              </div>
           </div>
+        </div>
         <h3 class="h3_aspergerCEA">Escalas y Cuestionarios</h3>
         <div class="container1b_diagnósticos">
           <p class="p_aspergerCEA">Existen cuestionarios que permiten identificar qué personas (niños, adolescentes o adultos) en la población general podrían tener Síndrome de Asperger (CEA).</p>
@@ -208,11 +208,11 @@
             <div class="green"></div>
             <div class="orange"></div>
             <div class="blue"></div>
-            </div>
-          </main>
+          </div>
+    </main>
 
-        {{-- INTERVENCIONES --}}
-        <main id="intervenciones" class="main_aspergerCEA main_intervenciones">
+    {{-- INTERVENCIONES --}}
+    <main id="intervenciones" class="main_aspergerCEA main_intervenciones">
           <h2 class="h1_aspergerCEA h1_intervenciones">Intervenciones</h2>
           <h3 class="h3_aspergerCEA">Intervenciones / Tratamientos</h3>
           <p class="p_aspergerCEA">Principales Características y Estrategias de Intervención para personas con Síndrome de Asperger: Los videos también se encuentran disponibles en nuestro <a href="https://www.youtube.com/channel/UCOl2EpPpSQxKUZP2UmpR_jQ"  target="_blank" rel="noreferrer">Canal de YouTube</a>.</p>
@@ -337,8 +337,8 @@
 
           </main>
 
-        {{-- BIBLIOTECA --}}
-        <main id="biblioteca" class="main_aspergerCEA main_biblioteca">
+    {{-- BIBLIOTECA --}}
+    <main id="biblioteca" class="main_aspergerCEA main_biblioteca">
           <h2 class="h1_aspergerCEA h1_biblioteca">Biblioteca</h2>
 
           <div class="libros_container">
@@ -393,9 +393,6 @@
           <div class="librosGratis_container">
             {{-- 1 --}}
             <div class="librosGratis_item">
-              {{-- <div class="descargarLibro">
-                <p class="p_librosGratis_item">Descargar</p>
-              </div> --}}
               <p class="p_librosGratis_item">Un acercamiento al Síndrome de Asperger, Una guía Teórico – Práctica</p>
               <a class="a_librosGratis_item" href="/media/libros/Acercamiento-al-Sindrome-de-Asperger-Una-guia-Teorico-Practica.pdf" target="_blank">
                 <div class="librosGratis_item_overlay" style="background-image: url('/media/libros/Acercamiento-al-Sindrome-de-Asperger-Una-guia-Teorico-Practica.png'); height: 275px; background-repeat: no-repeat; background-size: cover; background-position: center;"></div>
@@ -533,7 +530,7 @@
               </div>
             </main>
 
-    </div>
+  </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/linksAspergerSection.js') }}"></script>

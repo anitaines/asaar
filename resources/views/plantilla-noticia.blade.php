@@ -8,10 +8,6 @@
   @endif
   @endsection
 
-{{-- @section('defer')
-
-  @endsection --}}
-
 @section('content')
 
   {{-- PREMISA:
@@ -40,9 +36,15 @@
       @endif
 
       @if (isset($noticia))
-        <p>Fecha de publicación: {{$noticia->created_at->format('d-F-Y')}}</p>
+        @php
+          $fecha = Carbon\Carbon::parse($noticia->created_at)->locale('es');
+        @endphp
+        <p>Fecha de publicación: {{$fecha->isoFormat('D-MMMM-YYYY')}}</p>
       @else
-        <p>Fecha de publicación: {{Carbon\Carbon::now('America/Argentina/Buenos_Aires')->format('d-F-Y')}}</p>
+        @php
+          $fecha = Carbon\Carbon::now('America/Argentina/Buenos_Aires')->locale('es');
+        @endphp
+        <p>Fecha de publicación: {{$fecha->isoFormat('D-MMMM-YYYY')}}</p>
       @endif
 
       @if (isset($noticia) && $noticia->imagenNoticia == "si")

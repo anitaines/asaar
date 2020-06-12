@@ -87,56 +87,56 @@
               <div class="">
                 <p class="p_aspergerCEA">Sra. Andrea Alejandra Lopez</p>
                 <p class="p_aspergerCEA">Presidente</p>
-                </div>
               </div>
+            </div>
 
             <div class="card_container">
               <img src="/media/autoridades/hemsi.jpg" alt="Lic.Viviana Raquel Hemsi">
               <div class="">
                 <p class="p_aspergerCEA">Lic.Viviana Raquel Hemsi</p>
                 <p class="p_aspergerCEA">Secretaria</p>
-                </div>
               </div>
+            </div>
 
             <div class="card_container">
               <img src="/media/autoridades/ocello.jpg" alt="Dra. Estela Iluminada Ocello">
               <div class="">
                 <p class="p_aspergerCEA">Dra. Estela Iluminada Ocello</p>
                 <p class="p_aspergerCEA">Tesorera</p>
-                </div>
               </div>
+            </div>
 
             <div class="card_container">
               <img src="/media/autoridades/mira.jpg" alt="Arq. Eduardo Marcelo Mira">
               <div class="">
                 <p class="p_aspergerCEA">Arq. Eduardo Marcelo Mira</p>
                 <p class="p_aspergerCEA">Vocal Titular 1°</p>
-                </div>
               </div>
+            </div>
 
             <div class="card_container">
               <img src="/media/autoridades/spasaro.jpg" alt="Sr. Francisco Orlando Spasaro">
               <div class="">
                 <p class="p_aspergerCEA">Sr. Francisco Orlando Spasaro</p>
                 <p class="p_aspergerCEA">Vocal Titular 2°</p>
-                </div>
               </div>
+            </div>
 
             <div class="card_container">
               <img src="/media/autoridades/santos.jpg" alt="Sr. Segundo de los Santos">
               <div class="">
                 <p class="p_aspergerCEA">Sr. Segundo de los Santos</p>
                 <p class="p_aspergerCEA">Vocal Suplente 1°</p>
-                </div>
               </div>
+            </div>
 
             <div class="card_container">
               <img src="/media/autoridades/livovich.jpg" alt="">
               <div class="Sra. Elena Adriana Livovich">
                 <p class="p_aspergerCEA">Sra. Elena Adriana Livovich</p>
                 <p class="p_aspergerCEA">Vocal Suplente 2°</p>
-                </div>
               </div>
+            </div>
 
             </div>
 
@@ -147,17 +147,17 @@
             <div class="card_container">
               <p class="p_aspergerCEA">Sr. Julio Cesar Gómez</p>
               <p class="p_aspergerCEA">Revisor de Cuentas Titular</p>
-              </div>
+            </div>
             <div class="card_container">
               <p class="p_aspergerCEA">Sr. Fernando Aníbal Bergman</p>
               <p class="p_aspergerCEA">Revisor de Cuentas Suplente 1°</p>
-              </div>
+            </div>
             <div class="card_container">
               <p class="p_aspergerCEA">Dra. María Sofía Bruno</p>
               <p class="p_aspergerCEA">Revisor de Cuentas Suplente 2°</p>
-              </div>
-
             </div>
+
+          </div>
 
           <h3 class="h3_aspergerCEA">Subcomisiones</h3>
 
@@ -168,58 +168,58 @@
 
               <div class="card_container">
                 <p class="p_aspergerCEA">Elena Livovich</p>
-                </div>
+              </div>
               <div class="card_container">
                 <p class="p_aspergerCEA">Patricia Iglesias</p>
-                </div>
               </div>
+            </div>
 
             <div class="subcomision">
               <h3 class="h3_aspergerCEA">Comisión de Diseño</h3>
 
               <div class="card_container">
                 <p class="p_aspergerCEA">Celeste</p>
-                </div>
+              </div>
               <div class="card_container">
                   <p class="p_aspergerCEA">Majo</p>
-                  </div>
+              </div>
               <div class="card_container">
                   <p class="p_aspergerCEA">Cecilia</p>
-                  </div>
+              </div>
               <div class="card_container">
                   <p class="p_aspergerCEA">Yésica</p>
-                  </div>
+              </div>
               <div class="card_container">
                   <p class="p_aspergerCEA">Jazmín</p>
-                  </div>
+              </div>
               <div class="card_container">
                   <p class="p_aspergerCEA">Juan Pablo</p>
-                  </div>
+              </div>
               <div class="card_container">
                   <p class="p_aspergerCEA">Ale</p>
-                  </div>
               </div>
+            </div>
 
             <div class="subcomision">
               <h3 class="h3_aspergerCEA">Comisión de Grupos</h3>
 
               <div class="card_container">
                 <p class="p_aspergerCEA">Viviana Hemsi</p>
-                </div>
+              </div>
               <div class="card_container">
                 <p class="p_aspergerCEA">Débora Miranda</p>
-                </div>
               </div>
+            </div>
 
             <div class="subcomision">
               <h3 class="h3_aspergerCEA">Comisión de Administración</h3>
 
               <div class="card_container">
                 <p class="p_aspergerCEA">Estela Ocello</p>
-                </div>
               </div>
-
             </div>
+
+          </div>
 
           <a href="/actividades"><p class="p_aspergerCEA button_quienesSomos">Conocé nuestras actividades</p></a>
 
@@ -227,9 +227,9 @@
             <div class="green"></div>
             <div class="orange"></div>
             <div class="blue"></div>
-            </div>
+          </div>
 
-      </main>
+    </main>
 
     {{-- COMO AYUDAR --}}
     <main id="ayudar" class="main_aspergerCEA main_ayudar">
@@ -249,9 +249,9 @@
         <div class="green"></div>
         <div class="orange"></div>
         <div class="blue"></div>
-        </div>
+      </div>
 
-      </main>
+    </main>
 
     {{-- DIPTICO --}}
     <main id="diptico" class="main_aspergerCEA main_diptico">
@@ -267,19 +267,19 @@
         <div class="img_diptico">
           <a href="/media/diptico/Diptico-2016-para-difundir-frente.jpg" target="_blank"><img src="/media/diptico/Diptico-2016-para-difundir-frente.jpg" alt="Díptico Asociación 1"></a>
           <a href="/media/diptico/Diptico-2016-para-difundir.jpg" target="_blank"><img src="/media/diptico/Diptico-2016-para-difundir.jpg" alt="Díptico Asociación 2"></a>
-          </div>
+        </div>
 
-      </main>
+    </main>
 
-      <main class="main_aspergerCEA">
+    <main class="main_aspergerCEA">
         <div class="carousel_colors">
             <div class="green"></div>
             <div class="orange"></div>
             <div class="blue"></div>
-          </div>
-        </main>
+        </div>
+    </main>
 
-    </div>
+  </div>
 
 
   <!-- Scripts -->

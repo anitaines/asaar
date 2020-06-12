@@ -38,8 +38,6 @@
 
   <body>
 
-    @yield('defer')
-
     <header id="header" class="main-header">
 
       <div class="logo-container">

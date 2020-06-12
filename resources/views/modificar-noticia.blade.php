@@ -4,10 +4,6 @@
   Modificar noticia -
   @endsection
 
-{{-- @section('defer')
-
-  @endsection --}}
-
 @section('content')
 {{-- @dd($errors) --}}
   <main class="admin generar modificar">
