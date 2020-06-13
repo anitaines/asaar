@@ -3502,8 +3502,6 @@ padding-left: 10px;
   .main_detalle_noticias .wrap_img .info_img_container .box3 div:last-child p:first-child{
     font-size: 23px;
   }
-
-
   .container_detalle_noticias footer{
     flex-direction: row;
     flex-wrap: nowrap;
@@ -3518,35 +3516,36 @@ padding-left: 10px;
 
 
   /* ************ NOTICIAS SECTION - TABLET ************ */
+  .main_contacto.main_noticias .wrap_noticias_all{
+    width: 90%;
+    margin: auto;
+  }
   .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item a{
     display: flex;
     flex-wrap: wrap;
   }
   .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item .con_imagen, .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item .sin_imagen{
-    height: 185px;
+    height: 250px;
     width: 40%;
-    /* border-radius: 6px 6px 0px 0px; */
     display: block;
   }
   .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item .info{
     width: 55%;
+    height: 250px;
   }
   .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item .contenido-container{
     display: block;
     width: 100%;
     padding: 10px 10px 0px 10px;
-  }
-  .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item .contenido-container .contenido{
-    margin: 0;
-  }
-  .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item .contenido-container .contenido:nth-last-child(2){
-    /* color: #454545d9; */
-  }
-  .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item .contenido-container .contenido:last-child{
-    /* color: #454545ad; */
-    /* font-size: 14px; */
-    /* color: #454545d9; */
     margin-bottom: -8px;
+  }
+  .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item .info .contenido-container .contenido{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--black);
+    text-align: center;
+    margin: 0;
+    padding: 5px;
   }
   .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item .ampliar{
     width: 100%;
@@ -4383,8 +4382,8 @@ padding-left: 10px;
 
 
   /* ************ NOTICIAS SECTION - DESKTOP ************ */
-  .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item{
-    width: 20%;
+  .main_contacto.main_noticias .wrap_noticias_all{
+    width: 80%;
   }
   /* ************ END NOTICIAS SECTION - DESKTOP ************ */
 

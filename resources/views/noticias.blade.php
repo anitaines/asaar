@@ -33,23 +33,22 @@
                 <p>Fecha de publicación: {{$fecha->isoFormat('D-MMMM-YYYY')}}</p>
                 <p>{{$value->title}}</p>
                 <p>{{$value->subtitle}}</p>
+                <div class="contenido-container">
+                  @php
+                    $lineasParrafo = explode("\n",$value->content);
+                  @endphp
+                  @if (count($lineasParrafo) > 5)
+                    @for ($i=0; $i < 5; $i++)
+                      <p class="contenido">{{$lineasParrafo[$i]}}</p>
+                    @endfor
+                  @else
+                    @for ($i=0; $i < count($lineasParrafo); $i++)
+                      <p class="contenido">{{$lineasParrafo[$i]}}</p>
+                    @endfor
+                  @endif
+                </div>
               </div>
-              {{-- <p class="contenido">{{$value->content}}</p> --}}
-              <div class="contenido-container">
-                @php
-                  $lineasParrafo = explode("\n",$value->content);
-                @endphp
-                @if (count($lineasParrafo) > 5)
-                  @for ($i=0; $i < 5; $i++)
-                    <p class="contenido">{{$lineasParrafo[$i]}}</p>
-                  @endfor
-                @else
-                  @for ($i=0; $i < count($lineasParrafo); $i++)
-                    <p class="contenido">{{$lineasParrafo[$i]}}</p>
-                  @endfor
-                @endif
-              </div>
-
+        
               <p class="ampliar">Ver noticia</p>
             </a>
           </div>
