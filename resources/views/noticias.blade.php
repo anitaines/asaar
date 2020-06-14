@@ -18,12 +18,12 @@
           <div class="wrap_noticias_item">
             <a href="/noticia/{{$value->id}}/{{$value->slug}}">
               @if ($value->imagenNoticia == "si")
-                  <div class="con_imagen" style="background-image: url('/storage/noticias/imagenesMain/{{$value->imagen}}');
+                  <div class="imagen" style="background-image: url('/storage/noticias/imagenesMain/thumbnails/{{$value->imagen}}');
                   background-repeat: no-repeat;
                   background-size: cover;
                   background-position: center;"></div>
               @else
-                  <div class="sin_imagen" style="background-color: {{$colores[rand(0,3)]}};"></div>
+                  <div class="imagen" style="background-color: {{$colores[rand(0,3)]}};"></div>
               @endif
 
               @php
@@ -48,7 +48,7 @@
                   @endif
                 </div>
               </div>
-        
+
               <p class="ampliar">Ver noticia</p>
             </a>
           </div>
