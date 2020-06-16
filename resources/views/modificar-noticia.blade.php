@@ -75,7 +75,7 @@
                     <input type="radio" name="imagen" value="{{$value->name}}">
                   @endif
                 @endif
-                <div style="background-image: url('/storage/noticias/imagenesMain/{{$value->name}}');" class=""></div>
+                <div style="background-image: url('/storage/noticias/imagenesMain/thumbnails/{{$value->name}}');" class=""></div>
               </label>
 
             @endforeach
@@ -512,9 +512,9 @@
         <h4>Vista previa imagen para redes sociales:</h4>
 
         @if ($noticia->imagenNoticia == "si")
-          <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/{{$noticia->imagen}}" alt="" style="display:none;">
+          <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/desktop/{{$noticia->imagen}}" alt="" style="display:none;">
         @else
-          <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/Ali.jpg" alt="" style="display:none;">
+          <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/desktop/Ali.jpg" alt="" style="display:none;">
         @endif
 
         {{-- <img id="imgCanvasTwitter" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;"> --}}

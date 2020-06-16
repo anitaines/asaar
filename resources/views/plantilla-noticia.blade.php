@@ -36,6 +36,17 @@
     <main class="main_contacto main_detalle_noticias">
 
       {{-- <h1 class="h1_aspergerCEA h1_congresos">Noticias</h1> --}}
+      @if (isset($noticia))
+        @php
+          $fecha = Carbon\Carbon::parse($noticia->created_at)->locale('es');
+        @endphp
+        <p class="fecha">Fecha de publicación: {{$fecha->isoFormat('D-MMMM-YYYY')}}</p>
+      @else
+        @php
+          $fecha = Carbon\Carbon::now('America/Argentina/Buenos_Aires')->locale('es');
+        @endphp
+        <p class="fecha">Fecha de publicación: {{$fecha->isoFormat('D-MMMM-YYYY')}}</p>
+      @endif
 
       @if (isset($noticia))
         <h3 class="h3_aspergerCEA">{{$noticia->title}}</h3>
@@ -47,18 +58,6 @@
         <h4>{{$noticia->subtitle}}</h4>
       @else
         <h4 style="display:none;"></h4>
-      @endif
-
-      @if (isset($noticia))
-        @php
-          $fecha = Carbon\Carbon::parse($noticia->created_at)->locale('es');
-        @endphp
-        <p>Fecha de publicación: {{$fecha->isoFormat('D-MMMM-YYYY')}}</p>
-      @else
-        @php
-          $fecha = Carbon\Carbon::now('America/Argentina/Buenos_Aires')->locale('es');
-        @endphp
-        <p>Fecha de publicación: {{$fecha->isoFormat('D-MMMM-YYYY')}}</p>
       @endif
 
       @if (isset($noticia) && $noticia->imagenNoticia == "si")
@@ -201,7 +200,7 @@
       {{-- SETEOS imagen PARA PLANTILLA: --}}
       @else
       <div class="wrap_img" style="display: none;">
-        <div class="img_container" style="background-image: url('/storage/noticias/imagenesMain/Ali.jpg');"></div>
+        <div class="img_container" style="background-image: url('/storage/noticias/imagenesMain/desktop/Ali.jpg');"></div>
 
         <div class="info_img_container">
           <div class="box1">
@@ -239,22 +238,21 @@
       </div>
 
       @if (isset($noticia) && $noticia->content)
-        {{-- <p class="parrafo" > {{$noticia->content}} </p> --}}
         @php
           $parrafos = explode("\n",$noticia->content);
         @endphp
         @for ($i=0; $i < count($parrafos); $i++)
-          {{-- <p>string length: {{strlen($parrafos[$i])}}</p> --}}
           @if (strlen($parrafos[$i]) > 1)
             <p class="parrafo">{{$parrafos[$i]}}</p>
           @else
             <br>
           @endif
         @endfor
+        <p class="parrafoNuevo" style="display:none;"></p>
       @else
-        <p class="parrafo" style="display:none;"></p>
+        <p class="parrafoNuevo" style="display:none;"></p>
       @endif
-@dd($noticia->content)
+
       <div class="imagenesAdicionales">
         @if (isset($noticia) && $noticia->filesPlus1)
         <div class="filesPlus1">
@@ -433,84 +431,82 @@
 
     // setParrafo(parrafo);
 
-    function setParrafo(p){
-      // console.log(p);
-      var nuevoParrafo = " <br> " + p.innerHTML.replace(/\n/g, " <br> ");
+    // function setParrafo(p){
+    //   // console.log(p);
+    //   var nuevoParrafo = " <br> " + p.innerHTML.replace(/\n/g, " <br> ");
+    //
+    //   var parrafoLineasArray = nuevoParrafo.split(" ");
+    //
+    //   var aMail = parrafoLineasArray.filter(filtrarMail);
+    //
+    //   function filtrarMail(value){
+    //     return value.includes("@");
+    //   }
+    //
+    //   var aWeb = parrafoLineasArray.filter(filtrarWeb);
+    //
+    //   function filtrarWeb(value){
+    //     var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gi;
+    //     return regex.test(value);
+    //   }
+    //
+    //   for (var i = 0; i < aMail.length; i++) {
+    //     nuevoParrafo = nuevoParrafo.replace(" "+aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
+    //   }
+    //
+    //   for (var i = 0; i < aWeb.length; i++) {
+    //     if (aWeb[i].includes("http://") || aWeb[i].includes("https://")){
+    //       nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+    //     } else {
+    //       nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="http://' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+    //     }
+    //   }
+    //
+    //   p.innerHTML = nuevoParrafo;
+    // }
 
-      var parrafoLineasArray = nuevoParrafo.split(" ");
+    var parrafos = document.querySelectorAll(".parrafo");
 
-      var aMail = parrafoLineasArray.filter(filtrarMail);
-
-      function filtrarMail(value){
-        return value.includes("@");
-      }
-
-      var aWeb = parrafoLineasArray.filter(filtrarWeb);
-
-      function filtrarWeb(value){
-        var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gi;
-        return regex.test(value);
-      }
-
-      for (var i = 0; i < aMail.length; i++) {
-        nuevoParrafo = nuevoParrafo.replace(" "+aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
-      }
-
-      for (var i = 0; i < aWeb.length; i++) {
-        if (aWeb[i].includes("http://") || aWeb[i].includes("https://")){
-          nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
-        } else {
-          nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="http://' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
-        }
-      }
-
-      p.innerHTML = nuevoParrafo;
+    for (var i = 0; i < parrafos.length; i++) {
+      setParrafoAccesible(parrafos[i]);
     }
 
-    // setParrafoAccesible(parrafo);
-
     function setParrafoAccesible(p) {
-      // console.log(p.innerHTML);
-      var nuevoParrafo = p.innerHTML.split("\n");
-      // console.log(nuevoParrafo);
+      // Capturar el contenido del elemento p:
+      var texto = p.innerHTML;
+      // console.log("texto original: " + texto);
 
-      // var parrafo = p.innerHTML;
-      // console.log(parrafo);
+      // Transformar el contenido en un array de palabras para poder filtrarlo:
+      var arrayPalabras = texto.trim().split(" ");
 
-      // p.innerHTML = "";
+      // La variable va a guardar todas las palabras que contengan @:
+      var aMail = arrayPalabras.filter(filtrarMail);
+      // console.log(aMail);
 
-      for (var i = 0; i < nuevoParrafo.length; i++) {
+      // La variable va a guardar todas las palabras que contengan un patrón de url:
+      var aWeb = arrayPalabras.filter(filtrarWeb);
+      // console.log("arrayPalabras: " + arrayPalabras);
+      // console.log("aWeb detectado: " + aWeb);
 
-        var palabrasArray = nuevoParrafo[i].split(" ");
-        console.log(palabrasArray);
-
-        var aMail = palabrasArray.filter(filtrarMail);
-
-        var aWeb = palabrasArray.filter(filtrarWeb);
-
-        for (var i = 0; i < aMail.length; i++) {
-          nuevoParrafo[i] = nuevoParrafo[i].replace(" "+aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
-        }
-
-        for (var i = 0; i < aWeb.length; i++) {
-          if (aWeb[i].includes("http://") || aWeb[i].includes("https://")){
-            nuevoParrafo[i] = nuevoParrafo[i].replace(" "+aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
-          } else {
-            parrafo = parrafo.replace(" "+aWeb[i], ' <a href="http://' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
-          }
-        }
-        // p.innerHTML += nuevoParrafo[i];
-        // console.log(nuevoParrafo[i]);
+      // Reemplzar en el texto, cada una de las palabras que contienen @, por el elemento a correspondiente:
+      for (var i = 0; i < aMail.length; i++) {
+        texto = texto.replace(aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
       }
 
-      // console.log(nuevoParrafo);
-      console.log(parrafo);
+      // Reemplzar en el texto, cada una de las palabras que contienen url, por el elemento a correspondiente:
+      for (var i = 0; i < aWeb.length; i++) {
+        if (aWeb[i].includes("http://") || aWeb[i].includes("https://")){
+          texto = texto.replace(aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+        } else {
+          texto = texto.replace(aWeb[i], ' <a href="http://' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+        }
+      }
+      // console.log("texto nuevo gerenerado: " + texto);
+      p.innerHTML = texto;
+
     }
 
     function filtrarMail(value){
-      // if (value.includes("@")){
-      //   value = nuevoParrafo.replace(" "+aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
-      // }
       return value.includes("@");
     }
 

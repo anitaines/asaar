@@ -86,7 +86,7 @@ window.onload = function(){
   for (var i = 1; i < opcionesImagen.children.length; i++) {
     opcionesImagen.children[i].addEventListener("input", function(){
 
-      imgCanvasFacebook.src = "/storage/noticias/imagenesMain/" + this.firstElementChild.value;
+      imgCanvasFacebook.src = "/storage/noticias/imagenesMain/desktop/" + this.firstElementChild.value;
       setCanvas(canvasFacebook, imgCanvasFacebook);
 
       // Borrar error de upload externo (si lo hubiera):
@@ -145,7 +145,7 @@ window.onload = function(){
           if (imagenChecked == null){
             document.querySelector(".imagenLabel input").checked = true;
 
-            imgCanvasFacebook.src = "/storage/noticias/imagenesMain/Ali.jpg";
+            imgCanvasFacebook.src = "/storage/noticias/imagenesMain/desktop/Ali.jpg";
             setCanvas(canvasFacebook, imgCanvasFacebook);
           }
         }
@@ -163,7 +163,7 @@ window.onload = function(){
       if (imagenChecked == null){
         document.querySelector(".imagenLabel input").checked = true;
 
-        imgCanvasFacebook.src = "/storage/noticias/imagenesMain/Ali.jpg";
+        imgCanvasFacebook.src = "/storage/noticias/imagenesMain/desktop/Ali.jpg";
         setCanvas(canvasFacebook, imgCanvasFacebook);
       }
     }

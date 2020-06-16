@@ -58,7 +58,7 @@
               </div>
             </div>
             @if ($value->imagenNoticia == "si")
-              <div class="noticiaImagen" style="background-image: url('/storage/noticias/imagenesMain/{{$value->imagen}}');
+              <div class="noticiaImagen" style="background-image: url('/storage/noticias/imagenesMain/thumbnails/{{$value->imagen}}');
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center;

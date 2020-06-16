@@ -30,9 +30,9 @@
                 $fecha = Carbon\Carbon::parse($value->created_at)->locale('es');
               @endphp
               <div class="info">
-                <p>Fecha de publicación: {{$fecha->isoFormat('D-MMMM-YYYY')}}</p>
-                <p>{{$value->title}}</p>
-                <p>{{$value->subtitle}}</p>
+                <p class="fecha">Fecha de publicación: {{$fecha->isoFormat('D-MMMM-YYYY')}}</p>
+                <p class="titulo">{{$value->title}}</p>
+                <p class="subtitulo">{{$value->subtitle}}</p>
                 <div class="contenido-container">
                   @php
                     $lineasParrafo = explode("\n",$value->content);

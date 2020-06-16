@@ -42,7 +42,7 @@
                 @else
                   <input type="radio" name="imagen" value="{{$value->name}}">
                 @endif
-                <div style="background-image: url('/storage/noticias/imagenesMain/{{$value->name}}');" class=""></div>
+                <div style="background-image: url('/storage/noticias/imagenesMain/thumbnails/{{$value->name}}');" class=""></div>
               </label>
 
             @endforeach
@@ -267,7 +267,7 @@
       <div class="allCanvas">
         <h4>Vista previa imagen para redes sociales:</h4>
 
-        <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/Ali.jpg" alt="" style="display:none;">
+        <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/desktop/Ali.jpg" alt="" style="display:none;">
 
         {{-- <div class="container_canvas"> --}}
 

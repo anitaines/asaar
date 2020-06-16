@@ -46,10 +46,10 @@
             <div class="menu-button">Cambiar contraseña</div>
           </a> --}}
           <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
+                        document.getElementById('logout-form-mobile').submit();">
             <div class="menu-button">
               Logout
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              <form id="logout-form-mobile" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
               </form>
             </div>
@@ -94,10 +94,10 @@
               <div class="menu-button">Cambiar contraseña</div>
             </a> --}}
             <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
+                          document.getElementById('logout-form-desktop-small').submit();">
               <div class="menu-button">
                 Logout
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <form id="logout-form-desktop-small" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
               </div>
@@ -128,10 +128,10 @@
             <div class="menu-button">Cambiar contraseña</div>
           </a> --}}
           <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
+                        document.getElementById('logout-form-desktop-large').submit();">
             <div class="menu-button">
               Logout
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              <form id="logout-form-desktop-large" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
               </form>
             </div>

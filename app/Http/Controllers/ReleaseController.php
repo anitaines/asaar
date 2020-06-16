@@ -8,6 +8,7 @@ use App\Carousel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\ImageManagerStatic as ImageIntervention;
 
 class ReleaseController extends Controller
 {
@@ -166,15 +167,34 @@ class ReleaseController extends Controller
         if (preg_match("/data:image/",$request->imagen) == 0){
           $noticia->imagen = $request->imagen;
         } else {
-          $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
-          $nombreFilesMain = basename($rutaImage);
+          // $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
+          // $nombreFilesMain = basename($rutaImage);
+          //
+          // $noticia->imagen = $nombreFilesMain;
+          //
+          // $nuevaImagen = new Image;
+          // $nuevaImagen->name = $nombreFilesMain;
+          // $nuevaImagen->origin = "Uploaded";
+          // $nuevaImagen->save();
 
-          $noticia->imagen = $nombreFilesMain;
+
+
+          $image = $request->file('filesMain');
+          dd($image);
+          $filename = basename($image);
+
+          $image_resize = ImageIntervention::make($image->getRealPath());
+          $image_resize->resize(300, 300);
+          $image_resize->save('storage/noticias/imagenesMain/' .$filename);
+
+          $noticia->imagen = $filename;
 
           $nuevaImagen = new Image;
-          $nuevaImagen->name = $nombreFilesMain;
+          $nuevaImagen->name = $filename;
           $nuevaImagen->origin = "Uploaded";
           $nuevaImagen->save();
+
+
         }
       } else {
         $noticia->imagenNoticia = "no";

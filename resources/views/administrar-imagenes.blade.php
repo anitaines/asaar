@@ -34,7 +34,7 @@
               </div>
             </div>
             <div class="divImagen">
-              <img src="/storage/noticias/imagenesMain/{{$value->name}}" alt="">
+              <img src="/storage/noticias/imagenesMain/thumbnails/{{$value->name}}" alt="">
             </div>
           </div>
         @endforeach
