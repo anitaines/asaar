@@ -1659,17 +1659,12 @@ footer{
   /* overflow: hidden; */
 }
 .main_detalle_noticias .wrap_img .img_container{
-  /* position: relative; */
   height: 655px;
   width: 100%;
-  /* background-image: url('/media/noticias/preloaded/03.jpeg'); */
-  /* background-image: url('/storage/noticias/imagenesMain/Ali.jpg'); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   border-radius: 6px;
-  /* margin: 15px 0px 30px 0px; */
-  /* overflow: hidden; */
 }
 /* .main_detalle_noticias .img_container .info_img_container{ */
 .main_detalle_noticias .wrap_img .info_img_container{
@@ -1817,7 +1812,7 @@ text-align: left;
 }
 .main_detalle_noticias .imagenesAdicionales{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 }
 /* .main_detalle_noticias .imagenesAdicionales .filesPlus1, .main_detalle_noticias .imagenesAdicionales .filesPlus2, .main_detalle_noticias .imagenesAdicionales .filesPlus3{
@@ -3501,6 +3496,9 @@ padding-left: 10px;
   }
   .main_detalle_noticias .wrap_img .info_img_container .box3 div:last-child p:first-child{
     font-size: 23px;
+  }
+  .main_detalle_noticias .imagenesAdicionales{
+    flex-direction: row;
   }
   .container_detalle_noticias footer{
     flex-direction: row;

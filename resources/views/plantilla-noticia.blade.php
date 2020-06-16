@@ -3,10 +3,24 @@
 @section("title")
   @if(isset($noticia))
   {{$noticia->title}} -
-  @else
-
   @endif
-  @endsection
+@endsection
+
+@section("style")
+  @if (isset($noticia) && $noticia->imagenNoticia == "si")
+    <style>
+      .img_container {background-image: url('/storage/noticias/imagenesMain/mobile/{{$noticia->imagen}}');}
+
+      @media (min-width: 768px){
+        .img_container {background-image: url('/storage/noticias/imagenesMain/tablet/{{$noticia->imagen}}');}
+      }
+
+      @media (min-width: 992px){
+        .img_container {background-image: url('/storage/noticias/imagenesMain/desktop/{{$noticia->imagen}}');}
+      }
+    </style>
+  @endif
+@endsection
 
 @section('content')
 
@@ -49,7 +63,7 @@
 
       @if (isset($noticia) && $noticia->imagenNoticia == "si")
       <div class="wrap_img">
-        <div class="img_container" style="background-image: url('/storage/noticias/imagenesMain/{{$noticia->imagen}}'); filter:{{$noticia->filtroImagen}};"></div>
+        <div class="img_container" style="filter:{{$noticia->filtroImagen}};"></div>
 
         <div class="info_img_container">
           @if ($noticia->logoAsaar == "si" && $noticia->calendar == "si")
@@ -225,15 +239,33 @@
       </div>
 
       @if (isset($noticia) && $noticia->content)
-        <p class="parrafo" > {{$noticia->content}} </p>
+        {{-- <p class="parrafo" > {{$noticia->content}} </p> --}}
+        @php
+          $parrafos = explode("\n",$noticia->content);
+        @endphp
+        @for ($i=0; $i < count($parrafos); $i++)
+          {{-- <p>string length: {{strlen($parrafos[$i])}}</p> --}}
+          @if (strlen($parrafos[$i]) > 1)
+            <p class="parrafo">{{$parrafos[$i]}}</p>
+          @else
+            <br>
+          @endif
+        @endfor
       @else
         <p class="parrafo" style="display:none;"></p>
       @endif
-
+@dd($noticia->content)
       <div class="imagenesAdicionales">
         @if (isset($noticia) && $noticia->filesPlus1)
         <div class="filesPlus1">
-          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus1}}" alt="imagen noticia">
+          <img
+          srcset="
+          /storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus1}} 1920w,
+          /storage/noticias/imagenesPlus/tablet/{{$noticia->filesPlus1}} 991w,
+          /storage/noticias/imagenesPlus/mobile/{{$noticia->filesPlus1}} 767w
+          "
+          src="/storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus1}}"
+          alt="imagen noticia">
         </div>
         @else
           <div class="filesPlus1"></div>
@@ -241,7 +273,14 @@
 
         @if (isset($noticia) && $noticia->filesPlus2)
         <div class="filesPlus2">
-          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus2}}" alt="imagen noticia">
+          <img
+          srcset="
+          /storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus2}} 1920w,
+          /storage/noticias/imagenesPlus/tablet/{{$noticia->filesPlus2}} 991w,
+          /storage/noticias/imagenesPlus/mobile/{{$noticia->filesPlus2}} 767w
+          "
+          src="/storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus2}}"
+          alt="imagen noticia">
         </div>
         @else
           <div class="filesPlus2"></div>
@@ -249,7 +288,14 @@
 
         @if (isset($noticia) && $noticia->filesPlus3)
         <div class="filesPlus3">
-          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus3}}" alt="imagen noticia">
+          <img
+          srcset="
+          /storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus3}} 1920w,
+          /storage/noticias/imagenesPlus/tablet/{{$noticia->filesPlus3}} 991w,
+          /storage/noticias/imagenesPlus/mobile/{{$noticia->filesPlus3}} 767w
+          "
+          src="/storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus3}}"
+          alt="imagen noticia">
         </div>
         @else
           <div class="filesPlus3"></div>
@@ -320,29 +366,6 @@
           <a class="a_socialmedia_footer" href="https://www.linkedin.com/company/asociaci%C3%B3n-asperger-argentina/about/" target="_blank" rel="noreferrer"><img class="img_socialmedia_footer" src="/media/socialMedia/linkedin.svg" alt="Logo Linkedin"></a>
           </div>
         </div>
-      {{-- <div class="newsletter_footer">
-        <p class="p_newsletter_footer">Recibir novedades por mail:</p>
-        <form class="form_newsletter_footer" action="/" method="post">
-          @csrf
-          <input type="hidden" name="_method" value="PUT">
-          <div class="form_item">
-            <label class="label_newsletter_footer" for="nombre">NOMBRE</label>
-            <input class="input_newsletter_footer" type="text" id="nombre" name="name" value="">
-            </div>
-          <div class="form_item">
-            <label class="label_newsletter_footer"  for="apellido">APELLIDO</label>
-            <input class="input_newsletter_footer" type="text" id="apellido" name="surname" value="">
-            </div>
-          <div class="form_item">
-            <label class="label_newsletter_footer" for="email">E-MAIL</label>
-            <input class="input_newsletter_footer" type="text" id="email" name="email" value="">
-            </div>
-          <button class="buton_newsletter_footer"  type="submit" disabled>
-            <p>Suscribirse a nuestras novedades</p>
-            <p>Procesando</p>
-          </button>
-          </form>
-      </div> --}}
 
       <!-- Begin Mailchimp Signup Form -->
         <div id="mc_embed_signup" class="newsletter_footer">
@@ -406,9 +429,9 @@
 
   @if (isset($noticia) && $noticia->content)
     <script>
-    var parrafo = document.querySelector(".parrafo");
+    // var parrafo = document.querySelector(".parrafo");
 
-    setParrafo(parrafo);
+    // setParrafo(parrafo);
 
     function setParrafo(p){
       // console.log(p);
@@ -443,6 +466,60 @@
 
       p.innerHTML = nuevoParrafo;
     }
+
+    // setParrafoAccesible(parrafo);
+
+    function setParrafoAccesible(p) {
+      // console.log(p.innerHTML);
+      var nuevoParrafo = p.innerHTML.split("\n");
+      // console.log(nuevoParrafo);
+
+      // var parrafo = p.innerHTML;
+      // console.log(parrafo);
+
+      // p.innerHTML = "";
+
+      for (var i = 0; i < nuevoParrafo.length; i++) {
+
+        var palabrasArray = nuevoParrafo[i].split(" ");
+        console.log(palabrasArray);
+
+        var aMail = palabrasArray.filter(filtrarMail);
+
+        var aWeb = palabrasArray.filter(filtrarWeb);
+
+        for (var i = 0; i < aMail.length; i++) {
+          nuevoParrafo[i] = nuevoParrafo[i].replace(" "+aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
+        }
+
+        for (var i = 0; i < aWeb.length; i++) {
+          if (aWeb[i].includes("http://") || aWeb[i].includes("https://")){
+            nuevoParrafo[i] = nuevoParrafo[i].replace(" "+aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+          } else {
+            parrafo = parrafo.replace(" "+aWeb[i], ' <a href="http://' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+          }
+        }
+        // p.innerHTML += nuevoParrafo[i];
+        // console.log(nuevoParrafo[i]);
+      }
+
+      // console.log(nuevoParrafo);
+      console.log(parrafo);
+    }
+
+    function filtrarMail(value){
+      // if (value.includes("@")){
+      //   value = nuevoParrafo.replace(" "+aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
+      // }
+      return value.includes("@");
+    }
+
+    function filtrarWeb(value){
+      var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gi;
+      return regex.test(value);
+    }
+
+
     </script>
   @endif
 

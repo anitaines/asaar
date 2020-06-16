@@ -106,11 +106,11 @@
   <div class="separador">
     <img class="img_separador"
     srcset="
-    /media/home/2580120crop_desktop3x.jpg 1920w,
-    /media/home/2580120crop_tablet2x.jpg 991w,
-    /media/home/2580120crop_mobile1x.jpg 767w
+    /media/home/2580120crop_desktop.jpg 1920w,
+    /media/home/2580120crop_tablet.jpg 991w,
+    /media/home/2580120crop_mobile.jpg 767w
     "
-    src="/media/2580120crop_desktop3x.jpg"
+    src="/media/2580120crop_desktop.jpg"
     alt="Muchas manos levantadas">
 
 
