@@ -404,9 +404,9 @@
         </div>
 
         <div class="adminFormItem imagenesAdicionales">
-          <p>5. Subir imágenes adicionales</p>
+          {{-- <p>5. Subir imágenes adicionales</p> --}}
           <div class="">
-            <label for="filesPlus1">Imagen adicional 1:</label>
+            <label for="filesPlus1">5. Subir imagen adicional:</label>
             @if ($noticia->filesPlus1 != null)
               <input type="file" id="filesPlus1" name="filesPlus1" style="display:none;">
               <p class="remover">Remover imagen</p>
@@ -424,7 +424,7 @@
             <p class="alert"></p>
           </div>
 
-          <div class="">
+          {{-- <div class="">
             <label for="filesPlus2">Imagen adicional 2:</label>
             @if ($noticia->filesPlus2 != null)
               <input type="file" id="filesPlus2" name="filesPlus2" style="display:none;">
@@ -441,9 +441,9 @@
               @endif
             </div>
             <p class="alert"></p>
-          </div>
+          </div> --}}
 
-          <div class="">
+          {{-- <div class="">
             <label for="filesPlus3">Imagen adicional 3:</label>
             @if ($noticia->filesPlus3 != null)
               <input type="file" id="filesPlus3" name="filesPlus3" style="display:none;">
@@ -460,7 +460,7 @@
               @endif
             </div>
             <p class="alert"></p>
-          </div>
+          </div> --}}
         </div>
 
         <div class="downloadCanvas">

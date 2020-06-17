@@ -178,19 +178,45 @@ class ReleaseController extends Controller
           // $nuevaImagen->save();
 
 
-
+          // Con Image Intervention:
           $image = $request->file('filesMain');
-          dd($image);
-          $filename = basename($image);
+          $fileName = basename($image);
+          $fileExtension = $image->getClientOriginalExtension();
 
-          $image_resize = ImageIntervention::make($image->getRealPath());
-          $image_resize->resize(300, 300);
-          $image_resize->save('storage/noticias/imagenesMain/' .$filename);
+          // Mobile:
+          $imageResizeMobile = ImageIntervention::make($image->getRealPath());
+          $imageResizeMobile->resize(null, 655, function ($constraint) {
+              $constraint->aspectRatio();
+          });
+          $imageResizeMobile->save('storage/noticias/imagenesMain/mobile/' .$fileName . "." .$fileExtension);
 
-          $noticia->imagen = $filename;
+          // Tablet:
+          $imageResizeTablet = ImageIntervention::make($image->getRealPath());
+          $imageResizeTablet->resize(875, null, function ($constraint) {
+              $constraint->aspectRatio();
+          });
+          $imageResizeTablet->save('storage/noticias/imagenesMain/tablet/' .$fileName . "." .$fileExtension);
 
+          // Desktop:
+          $imageResizeDesktop = ImageIntervention::make($image->getRealPath());
+          $imageResizeDesktop->resize(1632, null, function ($constraint) {
+              $constraint->aspectRatio();
+          });
+          $imageResizeDesktop->save('storage/noticias/imagenesMain/desktop/' .$fileName . "." .$fileExtension);
+
+          // Thumbnail:
+          $imageResizeThumbnail = ImageIntervention::make($image->getRealPath());
+          $imageResizeThumbnail->resize(520, null, function ($constraint) {
+              $constraint->aspectRatio();
+          });
+          $imageResizeThumbnail->save('storage/noticias/imagenesMain/thumbnails/' .$fileName . "." .$fileExtension);
+
+          // Info DB para noticia:
+          $noticia->imagen = $fileName . "." .$fileExtension;
+
+          // DB para imagen:
           $nuevaImagen = new Image;
-          $nuevaImagen->name = $filename;
+          $nuevaImagen->name = $fileName . "." .$fileExtension;
           $nuevaImagen->origin = "Uploaded";
           $nuevaImagen->save();
 
@@ -305,26 +331,110 @@ class ReleaseController extends Controller
       if ($request->filesPlus1) {
         $rutafilesPlus1 = $request->filesPlus1->store("public/noticias/imagenesPlus");
         $nombrefilesPlus1 = basename($rutafilesPlus1);
+
+        // Con Image Intervention:
+        // $imagePlus1 = $request->file('filesPlus1');
+        // $fileNamePlus1 = basename($imagePlus1);
+        // $fileExtensionPlus1 = $imagePlus1->getClientOriginalExtension();
+        //
+        // // Mobile:
+        // $imageResizeMobilePlus1 = ImageIntervention::make($imagePlus1->getRealPath());
+        // $imageResizeMobilePlus1->resize(415, null, function ($constraint) {
+        //     $constraint->aspectRatio();
+        // });
+        // $imageResizeMobilePlus1->save('storage/noticias/imagenesPlus/mobile/' .$fileNamePlus1 . "." .$fileExtensionPlus1);
+        //
+        // // Tablet:
+        // $imageResizeTabletPlus1 = ImageIntervention::make($imagePlus1->getRealPath());
+        // $imageResizeTabletPlus1->resize(875, null, function ($constraint) {
+        //     $constraint->aspectRatio();
+        // });
+        // $imageResizeTabletPlus1->save('storage/noticias/imagenesPlus/tablet/' .$fileNamePlus1 . "." .$fileExtensionPlus1);
+        //
+        // // Desktop:
+        // $imageResizeDesktopPlus1 = ImageIntervention::make($imagePlus1->getRealPath());
+        // $imageResizeDesktopPlus1->resize(1632, null, function ($constraint) {
+        //     $constraint->aspectRatio();
+        // });
+        // $imageResizeDesktopPlus1->save('storage/noticias/imagenesPlus/desktop/' .$fileNamePlus1 . "." .$fileExtensionPlus1);
+        //
+        // $nombrefilesPlus1 = $fileNamePlus1 . "." .$fileExtensionPlus1;
       }else {
         $nombrefilesPlus1 = null;
       }
       $noticia->filesPlus1 = $nombrefilesPlus1;
 
-      if ($request->filesPlus2) {
-        $rutafilesPlus2 = $request->filesPlus2->store("public/noticias/imagenesPlus");
-        $nombrefilesPlus2 = basename($rutafilesPlus2);
-      }else {
-        $nombrefilesPlus2 = null;
-      }
-      $noticia->filesPlus2 = $nombrefilesPlus2;
+      // if ($request->filesPlus2) {
+      //   $rutafilesPlus2 = $request->filesPlus2->store("public/noticias/imagenesPlus");
+      //   $nombrefilesPlus2 = basename($rutafilesPlus2);
+      //
+      //   // Con Image Intervention:
+      //   // $imagePlus2 = $request->file('filesPlus2');
+      //   // $fileNamePlus2 = basename($imagePlus2);
+      //   // $fileExtensionPlus2 = $imagePlus2->getClientOriginalExtension();
+      //
+      //   // Mobile:
+      //   // $imageResizeMobilePlus2 = ImageIntervention::make($imagePlus2->getRealPath());
+      //   // $imageResizeMobilePlus2->resize(415, null, function ($constraint) {
+      //   //     $constraint->aspectRatio();
+      //   // });
+      //   // $imageResizeMobilePlus2->save('storage/noticias/imagenesPlus/mobile/' .$fileNamePlus2 . "." .$fileExtensionPlus2);
+      //
+      //   // Tablet:
+      //   // $imageResizeTabletPlus2 = ImageIntervention::make($imagePlus2->getRealPath());
+      //   // $imageResizeTabletPlus2->resize(875, null, function ($constraint) {
+      //   //     $constraint->aspectRatio();
+      //   // });
+      //   // $imageResizeTabletPlus2->save('storage/noticias/imagenesPlus/tablet/' .$fileNamePlus2 . "." .$fileExtensionPlus2);
+      //
+      //   // Desktop:
+      //   // $imageResizeDesktopPlus2 = ImageIntervention::make($imagePlus2->getRealPath());
+      //   // $imageResizeDesktopPlus2->resize(1632, null, function ($constraint) {
+      //   //     $constraint->aspectRatio();
+      //   // });
+      //   // $imageResizeDesktopPlus2->save('storage/noticias/imagenesPlus/desktop/' .$fileNamePlus2 . "." .$fileExtensionPlus2);
+      //   //
+      //   // $nombrefilesPlus2 = $fileNamePlus2 . "." .$fileExtensionPlus2;
+      // }else {
+      //   $nombrefilesPlus2 = null;
+      // }
+      // $noticia->filesPlus2 = $nombrefilesPlus2;
 
-      if ($request->filesPlus3) {
-        $rutafilesPlus3 = $request->filesPlus3->store("public/noticias/imagenesPlus");
-        $nombrefilesPlus3 = basename($rutafilesPlus3);
-      }else {
-        $nombrefilesPlus3 = null;
-      }
-      $noticia->filesPlus3 = $nombrefilesPlus3;
+      // if ($request->filesPlus3) {
+      //   $rutafilesPlus3 = $request->filesPlus3->store("public/noticias/imagenesPlus");
+      //   $nombrefilesPlus3 = basename($rutafilesPlus3);
+      //
+      //   // Con Image Intervention:
+      //   // $imagePlus3 = $request->file('filesPlus3');
+      //   // $fileNamePlus3 = basename($imagePlus3);
+      //   // $fileExtensionPlus3 = $imagePlus3->getClientOriginalExtension();
+      //
+      //   // Mobile:
+      //   // $imageResizeMobilePlus3 = ImageIntervention::make($imagePlus3->getRealPath());
+      //   // $imageResizeMobilePlus3->resize(415, null, function ($constraint) {
+      //   //     $constraint->aspectRatio();
+      //   // });
+      //   // $imageResizeMobilePlus3->save('storage/noticias/imagenesPlus/mobile/' .$fileNamePlus3 . "." .$fileExtensionPlus3);
+      //
+      //   // Tablet:
+      //   // $imageResizeTabletPlus3 = ImageIntervention::make($imagePlus3->getRealPath());
+      //   // $imageResizeTabletPlus3->resize(875, null, function ($constraint) {
+      //   //     $constraint->aspectRatio();
+      //   // });
+      //   // $imageResizeTabletPlus3->save('storage/noticias/imagenesPlus/tablet/' .$fileNamePlus3 . "." .$fileExtensionPlus3);
+      //
+      //   // Desktop:
+      //   // $imageResizeDesktopPlus3 = ImageIntervention::make($imagePlus3->getRealPath());
+      //   // $imageResizeDesktopPlus3->resize(1632, null, function ($constraint) {
+      //   //     $constraint->aspectRatio();
+      //   // });
+      //   // $imageResizeDesktopPlus3->save('storage/noticias/imagenesPlus/desktop/' .$fileNamePlus3 . "." .$fileExtensionPlus3);
+      //   //
+      //   // $nombrefilesPlus3 = $fileNamePlus3 . "." .$fileExtensionPlus3;
+      // }else {
+      //   $nombrefilesPlus3 = null;
+      // }
+      // $noticia->filesPlus3 = $nombrefilesPlus3;
 
       // dd($request, $noticia);
 
@@ -487,15 +597,58 @@ class ReleaseController extends Controller
         if (preg_match("/data:image/",$request->imagen) == 0){
           $noticia->imagen = $request->imagen;
         } else {
-          $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
-          $nombreFilesMain = basename($rutaImage);
+          // $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
+          // $nombreFilesMain = basename($rutaImage);
+          //
+          // $noticia->imagen = $nombreFilesMain;
+          //
+          // $nuevaImagen = new Image;
+          // $nuevaImagen->name = $nombreFilesMain;
+          // $nuevaImagen->origin = "Uploaded";
+          // $nuevaImagen->save();
 
-          $noticia->imagen = $nombreFilesMain;
+          // Con Image Intervention:
+          $image = $request->file('filesMain');
+          $fileName = basename($image);
+          $fileExtension = $image->getClientOriginalExtension();
 
+          // Mobile:
+          $imageResizeMobile = ImageIntervention::make($image->getRealPath());
+          $imageResizeMobile->resize(null, 655, function ($constraint) {
+              $constraint->aspectRatio();
+          });
+          $imageResizeMobile->save('storage/noticias/imagenesMain/mobile/' .$fileName . "." .$fileExtension);
+
+          // Tablet:
+          $imageResizeTablet = ImageIntervention::make($image->getRealPath());
+          $imageResizeTablet->resize(875, null, function ($constraint) {
+              $constraint->aspectRatio();
+          });
+          $imageResizeTablet->save('storage/noticias/imagenesMain/tablet/' .$fileName . "." .$fileExtension);
+
+          // Desktop:
+          $imageResizeDesktop = ImageIntervention::make($image->getRealPath());
+          $imageResizeDesktop->resize(1632, null, function ($constraint) {
+              $constraint->aspectRatio();
+          });
+          $imageResizeDesktop->save('storage/noticias/imagenesMain/desktop/' .$fileName . "." .$fileExtension);
+
+          // Thumbnail:
+          $imageResizeThumbnail = ImageIntervention::make($image->getRealPath());
+          $imageResizeThumbnail->resize(520, null, function ($constraint) {
+              $constraint->aspectRatio();
+          });
+          $imageResizeThumbnail->save('storage/noticias/imagenesMain/thumbnails/' .$fileName . "." .$fileExtension);
+
+          // Info DB para noticia:
+          $noticia->imagen = $fileName . "." .$fileExtension;
+
+          // DB para imagen:
           $nuevaImagen = new Image;
-          $nuevaImagen->name = $nombreFilesMain;
+          $nuevaImagen->name = $fileName . "." .$fileExtension;
           $nuevaImagen->origin = "Uploaded";
           $nuevaImagen->save();
+
         }
       } else {
         $noticia->imagenNoticia = "no";
@@ -599,25 +752,25 @@ class ReleaseController extends Controller
         $noticia->filesPlus1 = $nombrefilesPlus1;
       }
 
-      if ($request->filesPlus2Removida && !$request->filesPlus2){
-        $noticia->filesPlus2 = null;
-      }
-      if ($request->filesPlus2) {
-        $rutafilesPlus2 = $request->filesPlus2->store("public/noticias/imagenesPlus");
-        $nombrefilesPlus2 = basename($rutafilesPlus2);
+      // if ($request->filesPlus2Removida && !$request->filesPlus2){
+      //   $noticia->filesPlus2 = null;
+      // }
+      // if ($request->filesPlus2) {
+      //   $rutafilesPlus2 = $request->filesPlus2->store("public/noticias/imagenesPlus");
+      //   $nombrefilesPlus2 = basename($rutafilesPlus2);
+      //
+      //   $noticia->filesPlus2 = $nombrefilesPlus2;
+      // }
 
-        $noticia->filesPlus2 = $nombrefilesPlus2;
-      }
-
-      if ($request->filesPlus3Removida && !$request->filesPlus3){
-        $noticia->filesPlus3 = null;
-      }
-      if ($request->filesPlus3) {
-        $rutafilesPlus3 = $request->filesPlus3->store("public/noticias/imagenesPlus");
-        $nombrefilesPlus3 = basename($rutafilesPlus3);
-
-        $noticia->filesPlus3 = $nombrefilesPlus3;
-      }
+      // if ($request->filesPlus3Removida && !$request->filesPlus3){
+      //   $noticia->filesPlus3 = null;
+      // }
+      // if ($request->filesPlus3) {
+      //   $rutafilesPlus3 = $request->filesPlus3->store("public/noticias/imagenesPlus");
+      //   $nombrefilesPlus3 = basename($rutafilesPlus3);
+      //
+      //   $noticia->filesPlus3 = $nombrefilesPlus3;
+      // }
 
       $noticia->save();
 

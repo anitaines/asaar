@@ -256,29 +256,23 @@
       <div class="imagenesAdicionales">
         @if (isset($noticia) && $noticia->filesPlus1)
         <div class="filesPlus1">
-          <img
+          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus1}}" alt="imagen adicional noticia">
+          {{-- <img
           srcset="
           /storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus1}} 1920w,
           /storage/noticias/imagenesPlus/tablet/{{$noticia->filesPlus1}} 991w,
           /storage/noticias/imagenesPlus/mobile/{{$noticia->filesPlus1}} 767w
           "
           src="/storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus1}}"
-          alt="imagen noticia">
+          alt="imagen noticia"> --}}
         </div>
         @else
           <div class="filesPlus1"></div>
         @endif
 
-        @if (isset($noticia) && $noticia->filesPlus2)
+        {{-- @if (isset($noticia) && $noticia->filesPlus2)
         <div class="filesPlus2">
-          <img
-          srcset="
-          /storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus2}} 1920w,
-          /storage/noticias/imagenesPlus/tablet/{{$noticia->filesPlus2}} 991w,
-          /storage/noticias/imagenesPlus/mobile/{{$noticia->filesPlus2}} 767w
-          "
-          src="/storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus2}}"
-          alt="imagen noticia">
+          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus2}}" alt="imagen adicional noticia">
         </div>
         @else
           <div class="filesPlus2"></div>
@@ -286,18 +280,11 @@
 
         @if (isset($noticia) && $noticia->filesPlus3)
         <div class="filesPlus3">
-          <img
-          srcset="
-          /storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus3}} 1920w,
-          /storage/noticias/imagenesPlus/tablet/{{$noticia->filesPlus3}} 991w,
-          /storage/noticias/imagenesPlus/mobile/{{$noticia->filesPlus3}} 767w
-          "
-          src="/storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus3}}"
-          alt="imagen noticia">
+          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus3}}" alt="imagen adicional noticia">
         </div>
         @else
           <div class="filesPlus3"></div>
-        @endif
+        @endif --}}
       </div>
 
       <div class="share">
@@ -421,9 +408,9 @@
 
   </div>
 
-  @if (isset($noticia) && $noticia->imagenNoticia == "si")
+  {{-- @if (isset($noticia) && $noticia->imagenNoticia == "si")
     <script src="{{ asset('js/layoutNoticia.js') }}"></script>
-  @endif
+  @endif --}}
 
   @if (isset($noticia) && $noticia->content)
     <script>

@@ -288,30 +288,30 @@
         </div>
 
         <div class="adminFormItem imagenesAdicionales">
-          <p>5. Subir imágenes adicionales</p>
+          {{-- <p>5. Subir imágenes adicionales</p> --}}
           <div class="">
-            <label for="filesPlus1">Imagen adicional 1:</label>
+            <label for="filesPlus1">5. Subir imagen adicional:</label>
             <input type="file" id="filesPlus1" name="filesPlus1">
             <p class="remover" style="display:none;">Remover imagen</p>
             <div class=""></div>
             <p class="alert"></p>
           </div>
 
-          <div class="">
+          {{-- <div class="">
             <label for="filesPlus2">Imagen adicional 2:</label>
             <input type="file" id="filesPlus2" name="filesPlus2">
             <p class="remover" style="display:none;">Remover imagen</p>
             <div class=""></div>
             <p class="alert"></p>
-          </div>
+          </div> --}}
 
-          <div class="">
+          {{-- <div class="">
             <label for="filesPlus3">Imagen adicional 3:</label>
             <input type="file" id="filesPlus3" name="filesPlus3">
             <p class="remover" style="display:none;">Remover imagen</p>
             <div class=""></div>
             <p class="alert"></p>
-          </div>
+          </div> --}}
         </div>
 
         <div class="downloadCanvas">

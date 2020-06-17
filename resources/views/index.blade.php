@@ -45,7 +45,7 @@
                 $randColor = $colores[rand(0,3)];
               @endphp
               <div class="mySlides img_noticia noticiaNro{{$i}} transition-news">
-                <a href="/noticias/{{$noticiasCarousel[$i]->id}}/{{$noticiasCarousel[$i]->slug}}">
+                <a href="/noticia/{{$noticiasCarousel[$i]->id}}/{{$noticiasCarousel[$i]->slug}}">
                   <div class="div_noticia" style="background-color: {{$randColor}};">
                     <p class="p_noticia">{{$noticiasCarousel[$i]->title}}</p>
                     <p class="p_noticia">{{$noticiasCarousel[$i]->subtitle}}</p>
