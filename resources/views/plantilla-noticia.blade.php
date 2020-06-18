@@ -253,10 +253,10 @@
         <p class="parrafoNuevo" style="display:none;"></p>
       @endif
 
-      <div class="imagenesAdicionales">
+      {{-- <div class="imagenesAdicionales">
         @if (isset($noticia) && $noticia->filesPlus1)
         <div class="filesPlus1">
-          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus1}}" alt="imagen adicional noticia">
+          <img src="/storage/noticias/imagenesPlus/{{$noticia->filesPlus1}}" alt="imagen adicional noticia"> --}}
           {{-- <img
           srcset="
           /storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus1}} 1920w,
@@ -265,10 +265,10 @@
           "
           src="/storage/noticias/imagenesPlus/desktop/{{$noticia->filesPlus1}}"
           alt="imagen noticia"> --}}
-        </div>
+        {{-- </div>
         @else
           <div class="filesPlus1"></div>
-        @endif
+        @endif --}}
 
         {{-- @if (isset($noticia) && $noticia->filesPlus2)
         <div class="filesPlus2">
@@ -285,7 +285,7 @@
         @else
           <div class="filesPlus3"></div>
         @endif --}}
-      </div>
+      {{-- </div> --}}
 
       <div class="share">
 

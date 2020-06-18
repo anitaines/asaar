@@ -71,7 +71,10 @@
               <a href="/noticia/{{$value->id}}/{{$value->slug}}" target="_blank" rel="noreferrer">
                 <p>{{$value->title}}</p>
               </a>
-              <p>Fecha de publicación: {{Carbon\Carbon::parse($value->created_at)->format('d-F-Y')}}</p>
+              @php
+                $fecha = Carbon\Carbon::parse($value->created_at)->locale('es');
+              @endphp
+              <p>Fecha de publicación: {{$fecha->isoFormat('D-MMMM-YYYY')}}</p>
               <label> Noticia nro.
                 <input type="text" name="" value="{{$value->id}}" disabled>
               </label>

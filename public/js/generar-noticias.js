@@ -690,7 +690,7 @@ window.onload = function(){
     }
   }
 
-  document.getElementById('filesPlus1').addEventListener('change', handleFilePlus, false);
+  // document.getElementById('filesPlus1').addEventListener('change', handleFilePlus, false);
 
   // document.getElementById('filesPlus2').addEventListener('change', handleFilePlus, false);
 

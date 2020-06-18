@@ -403,9 +403,9 @@
           <p class="alert contentNoticia" style="color: red; width: 95%; margin: auto; display: none;"> </p>
         </div>
 
-        <div class="adminFormItem imagenesAdicionales">
+        {{-- <div class="adminFormItem imagenesAdicionales"> --}}
           {{-- <p>5. Subir imágenes adicionales</p> --}}
-          <div class="">
+          {{-- <div class="">
             <label for="filesPlus1">5. Subir imagen adicional:</label>
             @if ($noticia->filesPlus1 != null)
               <input type="file" id="filesPlus1" name="filesPlus1" style="display:none;">
@@ -422,7 +422,7 @@
               @endif
             </div>
             <p class="alert"></p>
-          </div>
+          </div> --}}
 
           {{-- <div class="">
             <label for="filesPlus2">Imagen adicional 2:</label>
@@ -461,11 +461,11 @@
             </div>
             <p class="alert"></p>
           </div> --}}
-        </div>
+        {{-- </div> --}}
 
         <div class="downloadCanvas">
           <a id="linkFacebook">
-            <p>6. Descargar imagen para</p>
+            <p>5. Descargar imagen para</p>
             <p>redes sociales</p>
           </a>
         </div>
@@ -491,7 +491,7 @@
 
         <div class="buttonWrap">
           <button class="downloadCanvas uploadNews"  type="submit">
-            <p>7. Modificar noticia</p>
+            <p>6. Modificar noticia</p>
             {{-- <p>Procesando</p> --}}
           </button>
         </div>
