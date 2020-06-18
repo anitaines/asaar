@@ -408,9 +408,17 @@
 
   </div>
 
-  {{-- @if (isset($noticia) && $noticia->imagenNoticia == "si")
-    <script src="{{ asset('js/layoutNoticia.js') }}"></script>
-  @endif --}}
+  @if (isset($noticia) && $noticia->imagenNoticia == "si")
+    {{-- <script src="{{ asset('js/layoutNoticia.js') }}"></script> --}}
+    <script>
+      let infoImgContainer = document.querySelector(".info_img_container");
+      let logoAsaar = document.querySelector(".info_img_container .box1 img");
+      let calendario = document.querySelector(".info_img_container .box1 .calendar");
+      if (logoAsaar.style.display == "none" && calendario.style.display == "none"){
+        infoImgContainer.style.alignContent="center";
+      }
+    </script>
+  @endif
 
   @if (isset($noticia) && $noticia->content)
     <script>
