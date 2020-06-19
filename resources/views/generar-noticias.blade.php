@@ -32,9 +32,6 @@
           @else
           value="{{ old('title') }}"
         @endif autofocus>
-          {{-- @error('title')
-            <p style="color: red; width: 95%; margin: auto;">{{ $message }}</p>
-          @enderror --}}
           <p class="alert title" style="color: red; width: 95%; margin: auto; display: none;"> </p>
         </div>
 
@@ -45,27 +42,17 @@
           @else
           value="{{ old('subtitle') }}"
           @endif>
-          {{-- @error('subtitle')
-            <p style="color: red; width: 95%; margin: auto;">{{ $message }}</p>
-          @enderror --}}
           <p class="alert subtitle" style="color: red; width: 95%; margin: auto; display: none;"> </p>
         </div>
 
         <div class="adminFormItem form_item form_item_checkbox">
           <label class="imagenNoticia checkbox-label">3. Incluir una imagen principal:
-            {{-- @if ($errors && old('imagenNoticia') == "si")
-              <input type="checkbox" name="imagenNoticia" value="si" checked>
-            @else --}}
               <input type="checkbox" name="imagenNoticia" value="si">
-            {{-- @endif --}}
             <span class="checkbox-custom">✓</span>
           </label>
 
-          {{-- @if ($errors && old('imagenNoticia') == "si")
-          <div class="imagenesWrap">
-          @else --}}
           <div class="imagenesWrap" style="display: none;">
-          {{-- @endif --}}
+
           <div class="imagenes">
 
             <div class="imagenesOpcionCarga">
@@ -321,13 +308,6 @@
           </a>
         </div>
 
-        {{-- <div class="downloadCanvas">
-          <a id="linkTwitter">
-            <p>7. Descargar imagen 1024x512px</p>
-            <p>(Twitter)</p>
-          </a>
-        </div> --}}
-
         <div class="resumenErrores" style="display:none;">
           <p class="alert title submit" style="color: red; width: 95%; text-align: center; display: none;">* El <b>Titular</b> de la noticia presenta errores. Por favor corregir antes de continuar</p>
           <p class="alert subtitle submit" style="color: red; width: 95%; text-align: center; display: none;">* La <b>bajada del titular</b> de la noticia presenta errores. Por favor corregir antes de continuar</p>
@@ -343,7 +323,6 @@
         <div class="buttonWrap">
           <button class="downloadCanvas uploadNews"  type="submit">
             <p>6. Publicar noticia</p>
-            {{-- <p>Procesando</p> --}}
           </button>
         </div>
 
@@ -362,22 +341,13 @@
         <h4>Vista previa imagen para redes sociales:</h4>
 
         <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/desktop/Ali.jpg" alt="" style="display:none;">
-        {{-- <img id="imgCanvasTwitter" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;"> --}}
 
         <div class="container_canvas">
 
-          {{-- <p>Imagen 1200 x 1200 px ( por ejemplo, para usar en Facebook o Instagram):</p> --}}
           <div class="wrapCanvasFacebook">
             <canvas id="canvasFacebook" width="1200px" height="1200px"></canvas>
           </div>
 
-          {{-- <p>Imagen 1024 x 512 px (por ejemplo, para usar en Twitter):</p> --}}
-          {{-- <p>Imagen 1280 x 640 px (por ejemplo, para usar en Twitter):</p
-          <div class="wrapCanvasTwitter">
-            <canvas id="canvasTwitter" width="1280px" height="640px"></canvas>
-          </div> --}}
-
-          {{-- <a id="link"><p>Descargar imagen</p></a> --}}
         </div>
       </div>
 

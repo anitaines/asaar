@@ -39,7 +39,6 @@ class ContactController extends Controller
     {
       $rules = [
         'name' => ['required', 'string', 'max:50'],
-        // 'email' => ['required', 'email:rfc,dns', 'max:70'],
         'email' => ['required', 'email', 'max:70'],
         'telephone' => ['required', 'string', 'max:20'],
         'message' => ['required', 'string', 'max:1200'],
@@ -50,9 +49,7 @@ class ContactController extends Controller
           'email' => 'Formato de e-mail no válido',
         ];
         $this->validate($request, $rules, $messages);
-        // dd($request);
-        // $test = new ContactMail($request);
-        // dd($test);
+
         Mail::send(new ContactMail($request));
 
         return redirect('/contacto')->with('success', 'Su mensaje fue enviado, muchas gracias por contactarnos.');

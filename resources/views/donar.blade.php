@@ -29,7 +29,6 @@
           <div class="titulo_opcion">
             <a href="/donar">Pago Fácil</a>
             <p>▼</p>
-            {{-- <p>Pago Fácil</p> --}}
           </div>
           <div class="detalle_opcion detalle_opcion_display">
             <p>Para ello deberá enviar un mail a <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><u>administracion@asperger.org.ar</u></a> solicitando la credencial de pago indicando:<br>

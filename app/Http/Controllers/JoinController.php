@@ -29,8 +29,8 @@ class JoinController extends Controller
       $paisesApi = "https://restcountries.eu/rest/v2/all";
       $json = file_get_contents($paisesApi);
       $paises = json_decode($json, TRUE);
-      // dd($paises);
       // dd($paises[10]["translations"]);
+
       $estadoCivil = ["Soltero/a", "Casado/a", "En pareja", "Separado/a", "Viudo/a"];
 
       $documento = ["DNI", "Cédula", "L.E.", "L.C.", "Pasaporte",];
@@ -48,7 +48,6 @@ class JoinController extends Controller
      */
     public function store(Request $request)
     {
-      // dd($request);
       $rules = [
         'name' => ['required', 'string', 'max:50'],
         'surname' => ['required', 'string', 'max:50'],
@@ -75,13 +74,11 @@ class JoinController extends Controller
           'email' => 'Formato de e-mail no válido',
         ];
         $this->validate($request, $rules, $messages);
-        // dd($request);
-        // $test = new ContactMail($request);
-        // dd($test);
+
         Mail::send(new JoinMail($request));
          // GENERAR MAILABLE Y LINKEAR ARRIBA
 
-        return redirect('/asociarse')->with('success', 'Formulario enviado, ¡muchas gracias por asociarse!');
+        return redirect('/asociarse')->with('success', 'Formulario enviado, ¡Muchas gracias por asociarse!');
     }
 
     /**

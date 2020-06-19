@@ -10,7 +10,6 @@
 
     <div class="menuMobileTablet">
       <a class="menuInformacion"><p>Información</p></a>
-      {{-- <a class="menuNoticia"><p>Noticia</p></a> --}}
       <a class="menuImagen"><p>Imagen</p></a>
     </div>
 
@@ -243,21 +242,6 @@
           </div>
         </div>
 
-
-        {{-- <div class="downloadCanvas">
-          <a id="linkFacebook">
-            <p>6. Descargar imagen para</p>
-            <p>redes sociales</p>
-          </a>
-        </div> --}}
-
-
-        {{-- <div class="buttonWrap" style="display: none;">
-          <button class="downloadCanvas uploadNews"  type="button">
-            <p></p>
-          </button>
-        </div> --}}
-
       </form>
 
     </div>
@@ -269,13 +253,10 @@
 
         <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/desktop/Ali.jpg" alt="" style="display:none;">
 
-        {{-- <div class="container_canvas"> --}}
-
           <div class="wrapCanvasFacebook">
             <canvas id="canvasFacebookDos" width="1200px" height="1200px"></canvas>
           </div>
 
-        {{-- </div> --}}
         <div class="downloadCanvas">
           <a id="linkFacebook">
             <p>Descargar imagen</p>

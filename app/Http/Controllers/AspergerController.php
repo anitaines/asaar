@@ -19,14 +19,12 @@ class AspergerController extends Controller
       $url1 = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLHN3RoZSVRtR0-iL8NBHPBO8svW5xD5rB&key=" . $key;
       $json1 = file_get_contents($url1);
       $playlistHabilidades = json_decode($json1, TRUE);
-      // dd($playlistHabilidades);
       // dd($playlistHabilidades["items"][10]["snippet"]["resourceId"]["videoId"]);
 
       // Educación: Inclusión e Integración Escolar:
       $url2 = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLHN3RoZSVRtRbPiVPL9Qz8301hqrhc2bS&key=" . $key;
       $json2 = file_get_contents($url2);
       $playlistEducacion = json_decode($json2, TRUE);
-      // dd($playlistEducacion);
 
       // Salud y Familia: El rol de la Familia, Comunicación, Descompensaciones Conductuales, Sexualidad:
       $url3 = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLHN3RoZSVRtSiEjk9qXvmvw6HDd396oKM&key=" . $key;

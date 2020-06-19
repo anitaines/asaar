@@ -21,21 +21,10 @@ class ReleaseController extends Controller
     {
       $colores = ["#AB2097","#6ACF95","#FC8901","#34BFD2"];
 
-      // $noticiasAll = Release::all()->SortByDesc('id');
-      // funciona cualquiera de los dos:
-      // dd($noticiasAll[0]->title);
-      // dd($noticiasAll[0]["title"]);
-
-      // para usar este método tiene que llamar arriba a use Illuminate\Support\Facades\DB;
       $noticiasAll= DB::table('releases')
                 ->orderBy('id', 'desc')
                 ->get();
                 // ->paginate(12);
-      // dd($noticiasAll);
-      // dd($noticiasAll[0]->title);
-      // dd($noticiasAll[0]["title"]); NO FUNCIONA: "Cannot use object of type stdClass as array"
-
-      // $noticiasAll = Release::paginate(3)->SortByDesc('id');
 
       return view("/noticias", compact('noticiasAll', 'colores'));
     }
@@ -48,7 +37,7 @@ class ReleaseController extends Controller
     public function create()
     {
       $imagenes = Image::orderBy('id', 'DESC')->get();
-      // dd($imagenes);
+
       $mes = ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
       $diaSemana = ["DOMINGO", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"];
 
@@ -107,7 +96,6 @@ class ReleaseController extends Controller
      */
     public function store(Request $request)
     {
-      // dd($request);
       $rules = [
       'title' => ['required', 'string', 'max:255'],
       'subtitle' => ['nullable','string', 'max:255'],
@@ -235,20 +223,6 @@ class ReleaseController extends Controller
       if ($noticia->imagen == null){
         $noticia->imagenNoticia = "no";
       }
-
-      // if (preg_match("/data:image/",$request->imagen) == 0){
-      //   $noticia->imagen = $request->imagen;
-      // } else {
-      //   $rutaImage = $request->filesMain->store("public/noticias/imagenesMain");
-      //   $nombreFilesMain = basename($rutaImage);
-      //
-      //   $noticia->imagen = $nombreFilesMain;
-      //
-      //   $nuevaImagen = new Image;
-      //   $nuevaImagen->name = $nombreFilesMain;
-      //   $nuevaImagen->origin = "Uploaded";
-      //   $nuevaImagen->save();
-      // }
 
       if ($request->imagenNoticia == "si"){
         $noticia->filtroImagen = $request->filtroImagen;
@@ -457,13 +431,10 @@ class ReleaseController extends Controller
     public function show($id, $slug)
     // public function show(Release $release)
     {
-      // $noticia = Release::find($id);
-
       $noticia = Release::where('id', '=', $id)
       ->where('slug', '=', $slug)
-      // ->first();
       ->firstOrFail();
-      // dd($noticia);
+
       return view("/plantilla-noticia", compact('noticia'));
     }
 
@@ -477,7 +448,7 @@ class ReleaseController extends Controller
     public function edit($id)
     {
       $imagenes = Image::orderBy('id', 'DESC')->get();
-      // dd($imagenes);
+
       $mes = ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
       $diaSemana = ["DOMINGO", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"];
 
@@ -524,7 +495,6 @@ class ReleaseController extends Controller
       ];
 
       $noticia = Release::findOrFail($id);
-      // dd($noticia);
 
       return view("/modificar-noticia", compact('imagenes', 'mes', 'diaSemana', 'colorTipoTitular', 'colorFondoTitular', 'colorTipoSubtitular', 'colorFondoSubtitular', 'colorTipoResumen', 'colorFondoResumen', 'noticia'));
 
@@ -540,7 +510,6 @@ class ReleaseController extends Controller
     // public function update(Request $request, Release $release)
     public function update(Request $request, $id)
     {
-      // dd($request);
       $rules = [
       'title' => ['required', 'string', 'max:255'],
       'subtitle' => ['nullable','string', 'max:255'],
@@ -795,21 +764,10 @@ class ReleaseController extends Controller
     {
       $colores = ["#AB2097","#6ACF95","#FC8901","#34BFD2"];
 
-      // $noticiasAll = Release::all()->SortByDesc('id');
-      // funciona cualquiera de los dos:
-      // dd($noticiasAll[0]->title);
-      // dd($noticiasAll[0]["title"]);
-
-      // para usar este método tiene que llamar arriba a use Illuminate\Support\Facades\DB;
       $noticiasAll= DB::table('releases')
                 ->orderBy('id', 'desc')
                 ->get();
                 // ->paginate(12);
-      // dd($noticiasAll);
-      // dd($noticiasAll[0]->title);
-      // dd($noticiasAll[0]["title"]); NO FUNCIONA: "Cannot use object of type stdClass as array"
-
-      // $noticiasAll = Release::paginate(3)->SortByDesc('id');
 
       return view("/control-panel", compact('noticiasAll', 'colores'));
     }
@@ -824,9 +782,9 @@ class ReleaseController extends Controller
     // public function destroy(Release $release)
     public function destroy(Request $request)
     {
-        // dd($request);
+
         $borrarNoticia = Release::findOrFail($request->idNoticia);
-        // dd($borrarNoticia);
+
         $borrarNoticia->delete();
 
         return redirect("/control-panel");
@@ -846,9 +804,6 @@ class ReleaseController extends Controller
         $noticiasCarousel = Release::whereNotNull('carousel')
         ->orderBy('id', 'desc')
         ->get();
-        // dd($noticiasCarousel);
-        // dd($noticiasCarousel[0]->carousel);
-        // dd($noticiasCarousel[0]["carousel"]);
 
         return view('/index', compact('noticiasCarousel', 'colores'));
     }
@@ -862,7 +817,6 @@ class ReleaseController extends Controller
       $carouselActual = Release::whereNotNull('carousel')
       ->orderBy('id', 'desc')
       ->get();
-      // dd($carouselActual);
 
       $noticiasAll= DB::table('releases')
       ->orderBy('id', 'desc')
@@ -879,7 +833,6 @@ class ReleaseController extends Controller
      */
     public function carouselStore(Request $request)
     {
-        // dd($request);
         $rules = [
         'modificarNoticiaCarousel' => ['nullable','array'],
         'modificarNoticiaCarousel.*' => ['nullable','string', 'max:255'],
@@ -890,33 +843,6 @@ class ReleaseController extends Controller
 
         $this->validate($request, $rules, $messages);
 
-        // if ($request->modificarNoticiaCarousel){
-        //   foreach ($request->modificarNoticiaCarousel as $key => $value){
-        //     if ($value == null){
-        //       $noticia = Release::find($key);
-        //
-        //       $imagen = Carousel::where('name', $noticia->carousel)->first();
-        //       $imagen->available = true;
-        //       $imagen->save();
-        //
-        //       $noticia->carousel = $value;
-        //
-        //       $noticia->save();
-        //
-        //     } else {
-        //       $noticia = Release::find($key);
-        //
-        //       $imagen = Carousel::where('name', $value)->first();
-        //       $imagen->available = false;
-        //       $imagen->save();
-        //
-        //       $noticia->carousel = $value;
-        //
-        //       $noticia->save();
-        //
-        //     }
-        //   }
-        // }
 
         if ($request->modificarNoticiaCarousel){
           foreach ($request->modificarNoticiaCarousel as $key => $value){
@@ -942,7 +868,7 @@ class ReleaseController extends Controller
     public function createImage()
     {
       $imagenes = Image::orderBy('id', 'DESC')->get();
-      // dd($imagenes);
+    
       $mes = ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
       $diaSemana = ["DOMINGO", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"];
 

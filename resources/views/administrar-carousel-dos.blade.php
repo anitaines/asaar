@@ -125,7 +125,7 @@
       </div>
 
       <div class="imagenesDisponibles" style="display: none;">
-      {{-- <div class="imagenesDisponibles" style="opacity: 0;"> --}}
+
         <div class="cerrarImagenes">
           <p>✖</p>
         </div>
@@ -156,8 +156,6 @@
         <div class="buttonWrap">
           <button class="save"  type="submit">
             Guardar cambios
-            {{-- <p>Guardar cambios</p> --}}
-            {{-- <p>Procesando</p> --}}
           </button>
         </div>
         <div class="buttonWrap">

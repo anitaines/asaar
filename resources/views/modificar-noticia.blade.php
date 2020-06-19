@@ -470,13 +470,6 @@
           </a>
         </div>
 
-        {{-- <div class="downloadCanvas">
-          <a id="linkTwitter">
-            <p>7. Descargar imagen 1024x512px</p>
-            <p>(Twitter)</p>
-          </a>
-        </div> --}}
-
         <div class="resumenErrores" style="display:none;">
           <p class="alert title submit" style="color: red; width: 95%; text-align: center; display: none;">* El <b>Titular</b> de la noticia presenta errores. Por favor corregir antes de continuar</p>
           <p class="alert subtitle submit" style="color: red; width: 95%; text-align: center; display: none;">* La <b>bajada del titular</b> de la noticia presenta errores. Por favor corregir antes de continuar</p>
@@ -492,7 +485,6 @@
         <div class="buttonWrap">
           <button class="downloadCanvas uploadNews"  type="submit">
             <p>6. Modificar noticia</p>
-            {{-- <p>Procesando</p> --}}
           </button>
         </div>
 
@@ -504,7 +496,7 @@
 
       <div class="wrap_iframe">
         <h4>Vista previa noticia:</h4>
-        {{-- <iframe id="output_iframe" src="{{ url('/plantilla-noticia') }}"></iframe> --}}
+
         <iframe id="output_iframe" src="/noticia/{{$noticia->id}}/{{$noticia->slug}}"></iframe>
       </div>
 
@@ -517,22 +509,12 @@
           <img id="imgCanvasFacebook" width="" height="" src="/storage/noticias/imagenesMain/desktop/Ali.jpg" alt="" style="display:none;">
         @endif
 
-        {{-- <img id="imgCanvasTwitter" width="" height="" src="/media/noticias/preloaded/03.jpeg" alt="" style="display:none;"> --}}
-
         <div class="container_canvas">
 
-          {{-- <p>Imagen 1200 x 1200 px ( por ejemplo, para usar en Facebook o Instagram):</p> --}}
           <div class="wrapCanvasFacebook">
             <canvas id="canvasFacebook" width="1200px" height="1200px"></canvas>
           </div>
 
-          {{-- <p>Imagen 1024 x 512 px (por ejemplo, para usar en Twitter):</p> --}}
-          {{-- <p>Imagen 1280 x 640 px (por ejemplo, para usar en Twitter):</p
-          <div class="wrapCanvasTwitter">
-            <canvas id="canvasTwitter" width="1280px" height="640px"></canvas>
-          </div> --}}
-
-          {{-- <a id="link"><p>Descargar imagen</p></a> --}}
         </div>
       </div>
 

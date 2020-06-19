@@ -15,15 +15,10 @@ class ImageController extends Controller
      */
     public function index()
     {
-      // $imagenes = Image::orderBy('id', 'DESC')->get();
-
-      // para usar este método tiene que llamar arriba a use Illuminate\Support\Facades\DB;
       $imagenes = DB::table('images')
         ->where('origin', '=', 'uploaded')
         ->orderBy('id', 'desc')
         ->get();
-
-      // dd($imagenes);
       // dd($imagenes[0]->origin);
 
       return view("/administrar-imagenes", compact('imagenes'));
@@ -93,9 +88,7 @@ class ImageController extends Controller
      */
     public function destroy(Request $request)
     {
-      // dd($request);
       $borrarImagen = Image::findOrFail($request->idImagen);
-      // dd($borrarImagen);
       $borrarImagen->delete();
 
       return redirect("/administrar-imagenes");

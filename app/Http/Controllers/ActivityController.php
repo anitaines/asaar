@@ -18,7 +18,6 @@ class ActivityController extends Controller
       $url1 = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLHN3RoZSVRtQZsIbrO9aDdMjAise5WPEE&key=" . $key;
       $json1 = file_get_contents($url1);
       $playlistSalta = json_decode($json1, TRUE);
-      // dd($playlistSalta);
       // dd($playlistSalta["items"][10]["snippet"]["resourceId"]["videoId"]);
 
       $url2 = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLHN3RoZSVRtRV7qVYw8ruPatszi5axUPf&key=" . $key;

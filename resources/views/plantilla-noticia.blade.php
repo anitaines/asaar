@@ -422,44 +422,7 @@
 
   @if (isset($noticia) && $noticia->content)
     <script>
-    // var parrafo = document.querySelector(".parrafo");
-
-    // setParrafo(parrafo);
-
-    // function setParrafo(p){
-    //   // console.log(p);
-    //   var nuevoParrafo = " <br> " + p.innerHTML.replace(/\n/g, " <br> ");
-    //
-    //   var parrafoLineasArray = nuevoParrafo.split(" ");
-    //
-    //   var aMail = parrafoLineasArray.filter(filtrarMail);
-    //
-    //   function filtrarMail(value){
-    //     return value.includes("@");
-    //   }
-    //
-    //   var aWeb = parrafoLineasArray.filter(filtrarWeb);
-    //
-    //   function filtrarWeb(value){
-    //     var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gi;
-    //     return regex.test(value);
-    //   }
-    //
-    //   for (var i = 0; i < aMail.length; i++) {
-    //     nuevoParrafo = nuevoParrafo.replace(" "+aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
-    //   }
-    //
-    //   for (var i = 0; i < aWeb.length; i++) {
-    //     if (aWeb[i].includes("http://") || aWeb[i].includes("https://")){
-    //       nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
-    //     } else {
-    //       nuevoParrafo = nuevoParrafo.replace(" "+aWeb[i], ' <a href="http://' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
-    //     }
-    //   }
-    //
-    //   p.innerHTML = nuevoParrafo;
-    // }
-
+    
     var parrafos = document.querySelectorAll(".parrafo");
 
     for (var i = 0; i < parrafos.length; i++) {

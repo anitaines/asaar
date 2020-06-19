@@ -128,9 +128,6 @@ playlistContainer.forEach(function(container){
         }
       }).call(this, i);
     }
-    // console.log(container); //c/div con iframe+playlist
-    // console.log(container.lastElementChild); //playlist
-    // console.log(container.lastElementChild.children);//items
   });
 
 // } //cierre onload
