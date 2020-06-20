@@ -869,31 +869,9 @@ window.onload = function(){
   function checkLayout(){
 
     let infoImgContainerIframe = iframe.contentWindow.document.querySelector(".info_img_container");
-
-    // let boxUnoIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1");
     let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
     let calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
 
-    // let boxDosIframe = iframe.contentWindow.document.querySelector(".info_img_container .box2");
-    //
-    // let subtituloImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child");
-    // let detalleImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child");
-    // let resumenImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box3 div:first-child");
-
-    // empieza chequeo:
-    // if(
-    //   (logoAsaarIframe.style.display == "inline" || calendarioIframe.style.display == "flex") &&
-    //   boxDosIframe.style.display == "none" &&
-    //   resumenImagenIframe.style.display == "none" &&
-    //   subtituloImagenIframe.style.display == "none" &&
-    //   detalleImagenIframe.style.display == "none"
-    //   ){
-    //   infoImgContainerIframe.style.alignContent="space-between";
-    //   boxUnoIframe.style.marginTop="20px";
-    //   } else {
-    //     infoImgContainerIframe.style.alignContent="space-evenly";
-    //     boxUnoIframe.style.marginTop="0px";
-    //   }
       if (logoAsaarIframe.style.display == "none" && calendarioIframe.style.display == "none"){
         infoImgContainerIframe.style.alignContent="center";
       } else {
@@ -1079,8 +1057,30 @@ window.onload = function(){
 
       // IMPRIMIR LOGO:
       if (logoCanvas){
-        let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
+        // let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
+
+        // ctx.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
+
+
+        // let logoAsaarIframe = iframe.contentWindow.document.querySelector("svg");
+        // console.log(logoAsaarIframe);
+        //
+        // ctx.drawImage(logoAsaarIframe, 30, 30);
+
+
+        // var img = new Image();
+        //
+        // img.onload = function() {
+        //     ctx.drawImage(img, 30, 30);
+        // }
+        //
+        // img.src = "/media/logos/logoFull.svg";
+
+        let logoAsaarIframe = iframe.contentWindow.document.querySelector(".img-png");
+
         ctx.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
+
+
       }
 
       // IMPRIMIR CALENDARIO:

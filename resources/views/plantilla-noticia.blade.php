@@ -30,6 +30,12 @@
 
   <div class="container_contacto container_detalle_noticias">
 
+    <svg class="svg" width="230" height="132">
+      <image width="230" height="132" href="/media/logos/logoFull.svg"/>
+    </svg>
+
+    <img class="img-png" src="/media/logos/logoFull.png" alt="">
+
     {{-- <a href="javascript:history.back()"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a> --}}
     <a href="/noticias"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a>
 
@@ -422,7 +428,7 @@
 
   @if (isset($noticia) && $noticia->content)
     <script>
-    
+
     var parrafos = document.querySelectorAll(".parrafo");
 
     for (var i = 0; i < parrafos.length; i++) {

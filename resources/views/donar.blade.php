@@ -31,9 +31,9 @@
             <p>▼</p>
           </div>
           <div class="detalle_opcion detalle_opcion_display">
-            <p>Para ello deberá enviar un mail a <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><u>administracion@asperger.org.ar</u></a> solicitando la credencial de pago indicando:<br>
-              Nombre y apellido, Tipo y Nº de documento, Localidad. <br>
-              Dicha credencial le será enviada por mail.</p>
+            <p>Para ello deberá enviar un mail a <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><u>administracion@asperger.org.ar</u></a> solicitando la credencial de pago indicando:</p>
+            <p>Nombre y apellido, Tipo y Nº de documento, Localidad.</p>
+            <p>Dicha credencial le será enviada por mail.</p>
           </div>
         </div>
 
@@ -44,16 +44,16 @@
           </div>
           <div class="detalle_opcion detalle_opcion_display">
             <p>(Enviar mail a <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><u>administracion@asperger.org.ar</u></a> comunicando la misma)</p>
-            <p><b>A. Banco Credicoop </b><br>
-              A nombre de: ASOC CIVIL ASPERGER ARGENTINA <br>
-              Cuenta corriente en pesos nro: 006-091315/5 <br>
-              CBU: 19100063 55000609131550<br>
-              C.U.I.T. 30-70909015-8 </p>
-            <p><b>B. Banco Ciudad </b><br>
-              A nombre de: ASOCIACION ASPERGER ARGENTINA <br>
-              Cuenta corriente en pesos nro.: 1666/5 <br>
-              CBU: 02900308 00000000166650 <br>
-              C.U.I.T. 30-70909015-8</p>
+            <p><b>A. Banco Credicoop </b></p>
+            <p>A nombre de: ASOC CIVIL ASPERGER ARGENTINA </p>
+            <p>Cuenta corriente en pesos nro: 006-091315/5 </p>
+            <p>CBU: 19100063 55000609131550</p>
+            <p>C.U.I.T. 30-70909015-8 </p>
+            <p><b>B. Banco Ciudad </b></p>
+            <p>A nombre de: ASOCIACION ASPERGER ARGENTINA </p>
+            <p>Cuenta corriente en pesos nro.: 1666/5 </p>
+            <p>CBU: 02900308 00000000166650 </p>
+            <p>C.U.I.T. 30-70909015-8</p>
           </div>
         </div>
 
@@ -74,13 +74,14 @@
           </div>
           <div class="detalle_opcion detalle_opcion_display">
             <a href="http://www.visa.com.ar/?$ctxid=_1421706147827" target="_blank" rel="noopener noreferrer"><u>http://www.visa.com.ar/?$ctxid=_1421706147827</u></a>
-            <p>Instrucciones: <br>
-            1. Ángulo superior derecho, selecciona la tarjeta <br>
-            2. Datos personales, clave VISA <br>
-            3. Operaciones: PAGAR <br>
-            4. Pestañas: optar por DONACIONES <br>
-            5. Buscar en Fundaciones/ONG: Asociación Asperger Arg <br>
-            6. Completar datos y ENVIAR></p>
+            <ol> Instrucciones:
+              <li>Ángulo superior derecho, selecciona la tarjeta</li>
+              <li>Datos personales, clave VISA</li>
+              <li>Operaciones: PAGAR</li>
+              <li>Pestañas: optar por DONACIONES</li>
+              <li>Buscar en Fundaciones/ONG: Asociación Asperger Arg</li>
+              <li>Completar datos y ENVIAR</li>
+            </ol>
             <p>Si realizás una donación recurrente, la Asociación Asperger Argentina te cargará esa cantidad hasta que nos solicites cancelarla. Cuando desees cancelar tu donación enviar mail a <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><u>administracion@asperger.org.ar</u></a>. Te enviaremos un recibo vía correo electrónico por cada pago.</p>
           </div>
         </div>

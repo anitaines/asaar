@@ -346,17 +346,18 @@
                    </div>
 
 
-                <p class="p_aspergerCEA">1) Depósito o transferencia a la cuenta:<br>
-                      BANCO CREDICOOP<br>
-                      Sucursal 006<br>
-                      Cuenta corriente Nro.Cta.: <b>006-091315/5</b><br>
-                      a nombre de : <b>ASOC CIVIL ASPERGER ARGENTINA</b><br>
-                      CBU <b>19100063 55000609131550</b><br>
-                      CUIT N° <b>30-70909015-8</b><br>
-                      Mandar mail a Estela Ocello - <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><b>administracion@asperger.org.ar</b></a> quien es la Tesorera, comunicando el depósito.</p>
-                <p class="p_aspergerCEA">2) Pago en efectivo (lugares de reunión, Srta. Estela Ocello)</p>
-                <p class="p_aspergerCEA">3) Pago Fácil: Para ello deberá enviar un mail a <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><b>administracion@asperger.org.ar</b></a><br>
-                      solicitando la credencial de pago indicando su nombre y apellido. Dicha credencial le será enviada por mail.</p>
+                <p class="p_aspergerCEA">1) Depósito o transferencia a la cuenta:</p>
+                <p class="p_aspergerCEA">BANCO CREDICOOP</p>
+                <p class="p_aspergerCEA">Sucursal 006</p>
+                <p class="p_aspergerCEA">Cuenta corriente Nro.Cta.: <b>006-091315/5</b></p>
+                <p class="p_aspergerCEA">a nombre de: <b>ASOC CIVIL ASPERGER ARGENTINA</b></p>
+                <p class="p_aspergerCEA">CBU <b>19100063 55000609131550</b></p>
+                <p class="p_aspergerCEA">CUIT N° <b>30-70909015-8</b></p>
+                <p class="p_aspergerCEA">Mandar mail a Estela Ocello - <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><b>administracion@asperger.org.ar</b></a> quien es la Tesorera, comunicando el depósito.</p>
+
+                <p class="p_aspergerCEA">2) Pago en efectivo (lugares de reunión, Srta. Estela Ocello).</p>
+
+                <p class="p_aspergerCEA">3) Pago Fácil: Para ello deberá enviar un mail a <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><b>administracion@asperger.org.ar</b></a> solicitando la credencial de pago indicando su nombre y apellido. Dicha credencial le será enviada por mail.</p>
 
                 {{-- {{dd($errors->all())}} --}}
                 <button class="buton_newsletter_footer"  type="submit">
