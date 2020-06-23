@@ -30,10 +30,10 @@
 
   <div class="container_contacto container_detalle_noticias">
 
-    <img class="img-png" style="display: none;" src="/media/logos/logo-canvas.png" alt="logo para Canvas">
-
     {{-- <a href="javascript:history.back()"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a> --}}
     <a href="/noticias"><h5 class="h1_aspergerCEA h1_congresos"><< Noticias</h5></a>
+
+    <img class="img-png" style="display: none;" src="/media/logos/logo-canvas.png" alt="logo para Canvas">
 
     <main class="main_contacto main_detalle_noticias">
 

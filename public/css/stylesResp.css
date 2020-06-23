@@ -2071,6 +2071,7 @@ padding-right: 0.5rem;
 }
 .admin.cPanel .container .noticias .noticiaItem .noticiaInfo a p{
   color: var(--magenta);
+  line-height: 1.3;
 }
 .admin.cPanel .container .noticias .noticiaItem .noticiaInfo p:nth-child(2){
   font-size: 13px;
@@ -2705,6 +2706,7 @@ padding-left: 10px;
 }
 .admin.carousel .carouselActual .carouselItem .carouselInfo a p{
   color: var(--magenta);
+  line-height: 1.3;
 }
 .admin.carousel form .carouselActual .carouselItem .carouselInfo p:nth-child(2){
   font-size: 13px;
@@ -3462,7 +3464,8 @@ padding-left: 10px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: center;
   }
   .main_contacto.main_noticias .wrap_noticias_all .wrap_noticias_item{
     margin: 10px 10px;
