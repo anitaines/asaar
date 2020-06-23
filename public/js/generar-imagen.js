@@ -574,8 +574,12 @@ window.onload = function(){
 
       // IMPRIMIR LOGO:
       if (logoCanvas){
-        let logoAsaarImg = document.querySelector(".logoAsaarImg");
-        ctx.drawImage(logoAsaarImg, 30, 30, 339.42, 195);
+        // let logoAsaarImg = document.querySelector(".logoAsaarImg");
+        // ctx.drawImage(logoAsaarImg, 30, 30, 339.42, 195);
+
+        let logoAsaarImg = document.querySelector(".img-png");
+
+        ctx.drawImage(logoAsaarImg, 30, 30);
       }
 
       // IMPRIMIR CALENDARIO:

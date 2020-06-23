@@ -60,6 +60,8 @@
 
             </div>
         </div>
+
+        <p style="margin: 50px 0px 0px 0px; color: var(--magenta);">Para poder utilizar todas las funcionalidades del panel de control es necesario loguearse desde un navegador <b>Chrome</b> o <b>Firefox</b>.</p>
     </form>
 
   </main>

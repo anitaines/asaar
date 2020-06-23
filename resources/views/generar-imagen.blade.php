@@ -77,7 +77,8 @@
                 <span class="checkbox-custom">✓</span>
               </label>
           </div>
-          <img class="logoAsaarImg" src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;">
+          {{-- <img class="logoAsaarImg" src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina" style="display:none;"> --}}
+          <img class="img-png" style="display: none;" src="/media/logos/logo-canvas.png" alt="logo para Canvas">
 
           <div class="adminFormItem form_item form_item_checkbox">
               <label class="calendar checkbox-label"> 3. Incluir calendario:

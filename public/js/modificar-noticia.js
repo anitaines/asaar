@@ -1105,8 +1105,12 @@ window.onload = function(){
 
       // IMPRIMIR LOGO:
       if (logoCanvas){
-        let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
-        ctx.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
+        // let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
+        // ctx.drawImage(logoAsaarIframe, 30, 30, 339.42, 195);
+
+        let logoAsaarIframe = iframe.contentWindow.document.querySelector(".img-png");
+
+        ctx.drawImage(logoAsaarIframe, 30, 30);
       }
 
       // IMPRIMIR CALENDARIO:
