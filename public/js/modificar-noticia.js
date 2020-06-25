@@ -772,6 +772,7 @@ window.onload = function(){
     linkFacebook.setAttribute('href', canvasFacebook.toDataURL("image/png").replace("image/png", "image/octet-stream"));
   });
 
+
   // VALIDAR FORMULARIO
   // validar TITULO NOTICIA
   function validarTitulo(){
@@ -899,7 +900,7 @@ window.onload = function(){
     }
   }
   // VALIDAR SUBMIT:
-  let form = document.querySelector('form');
+  let form = document.querySelector('.form-noticia');
   form.onsubmit = function(event){
 
       if(!validarTitulo() || !validarSubtitulo() || !validarTituloImagen() || !validarSubtituloImagen() || !validarDetalleImagen() || !validarResumenImagen() || !validarRectificacionImagen() || !validarContentNoticia()){

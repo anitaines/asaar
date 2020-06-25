@@ -17,7 +17,7 @@
 
       <h4>Ingresar la información:</h4>
 
-      <form class="" action="" method="" enctype="multipart/form-data" autocomplete="off">
+      <form class="form-noticia" action="" method="" enctype="multipart/form-data" autocomplete="off">
         @csrf
 
         <div class="adminFormItem form_item form_item_checkbox">

@@ -18,7 +18,7 @@
 
       <h4>Nueva noticia:</h4>
 
-      <form class="" action="/generar-noticias" method="post" enctype="multipart/form-data" autocomplete="off">
+      <form class="form-noticia" action="/generar-noticias" method="post" enctype="multipart/form-data" autocomplete="off">
         @csrf
 
         @if ($errors->all())

@@ -18,7 +18,7 @@
 
       <h4>Modificar noticia:</h4>
 
-      <form class="" action="/modificar-noticia/{{$noticia->id}}" method="post" enctype="multipart/form-data" autocomplete="off">
+      <form class="form-noticia" action="/modificar-noticia/{{$noticia->id}}" method="post" enctype="multipart/form-data" autocomplete="off">
         @csrf
 
         @if ($errors->all())

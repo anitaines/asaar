@@ -389,7 +389,7 @@ window.onload = function(){
 
 
   // PREVENT SUBMIT:
-  let form = document.querySelector('form');
+  let form = document.querySelector('.form-noticia');
   form.onsubmit = function(event){
     event.preventDefault();
   }

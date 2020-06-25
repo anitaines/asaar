@@ -61,15 +61,10 @@ window.onload = function(){
   let imagenPrincipalWrap = iframe.contentWindow.document.querySelector(".wrap_img");
 
   // imagen para canvas:
-  // let imgCanvas = document.getElementById('imgCanvas');
   let imgCanvasFacebook = document.getElementById('imgCanvasFacebook');
-  // let imgCanvasTwitter = document.getElementById('imgCanvasTwitter');
 
   // canvas para preview imagen red social:
   let canvasFacebook = document.getElementById("canvasFacebook");
-
-  // var canvasTwitter = document.getElementById("canvasTwitter");
-  // // console.log(canvasTwitter);
 
 
 
@@ -726,6 +721,8 @@ window.onload = function(){
     linkFacebook.setAttribute('href', canvasFacebook.toDataURL("image/png").replace("image/png", "image/octet-stream"));
   });
 
+
+
   // VALIDAR FORMULARIO
   // validar TITULO NOTICIA
   function validarTitulo(){
@@ -853,12 +850,14 @@ window.onload = function(){
     }
   }
   // VALIDAR SUBMIT:
-  let form = document.querySelector('form');
+  let form = document.querySelector('.form-noticia');
+
   form.onsubmit = function(event){
 
       if(!validarTitulo() || !validarSubtitulo() || !validarTituloImagen() || !validarSubtituloImagen() || !validarDetalleImagen() || !validarResumenImagen() || !validarRectificacionImagen() || !validarContentNoticia()){
         event.preventDefault();
         document.querySelector(".resumenErrores").style.display = "block";
+        // console.log("preventDefault");
       }
   }
 
