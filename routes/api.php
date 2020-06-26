@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::delete('/api-eliminar-noticia', 'ReleaseController@destroy');
+
+Route::post('/api-eliminar-noticia', 'ReleaseController@destroy');

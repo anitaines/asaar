@@ -46,7 +46,7 @@
         @foreach ($noticiasAll as $key => $value)
           <div class="noticiaItem">
             <form class="" action="/eliminar-noticia" method="post" autocomplete="off">
-              <input type="hidden" name="_method" value="DELETE">
+              {{-- <input type="hidden" name="_method" value="DELETE"> --}}
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <input type="hidden" name="idNoticia" value="{{$value->id}}">
               {{-- <button type="submit" name="button">submit</button> --}}

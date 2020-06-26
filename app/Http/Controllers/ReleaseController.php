@@ -780,14 +780,36 @@ class ReleaseController extends Controller
      * @return \Illuminate\Http\Response
      */
     // public function destroy(Release $release)
+    // public function destroy(Request $request)
+    // {
+    //
+    //     $borrarNoticia = Release::findOrFail($request->idNoticia);
+    //
+    //     $borrarNoticia->delete();
+    //
+    //     return redirect("/control-panel");
+    // }
     public function destroy(Request $request)
     {
+        // dd($request);
+        // $borrarNoticia = Release::findOrFail($request->idNoticia);
+        //
+        // $borrarNoticia->delete();
 
-        $borrarNoticia = Release::findOrFail($request->idNoticia);
+        if(Release::where('id', $request->idNoticia)->exists()) {
+        $noticia = Release::find($request->idNoticia);
+        $noticia->delete();
 
-        $borrarNoticia->delete();
+        return response()->json([
+          "message" => "Record deleted"
+        ], 202);
+      } else {
+        return response()->json([
+          "message" => "Record not found"
+        ], 404);
+      }
 
-        return redirect("/control-panel");
+
     }
 
 
@@ -868,7 +890,7 @@ class ReleaseController extends Controller
     public function createImage()
     {
       $imagenes = Image::orderBy('id', 'DESC')->get();
-    
+
       $mes = ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
       $diaSemana = ["DOMINGO", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"];
 

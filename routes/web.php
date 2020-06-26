@@ -68,7 +68,7 @@ Route::get('/eliminar-noticia', function () {
     abort(404);
 });
 
-Route::delete('/eliminar-noticia', 'ReleaseController@destroy')->middleware('auth');
+// Route::delete('/eliminar-noticia', 'ReleaseController@destroy')->middleware('auth');
 
 // Crear noticia
 Route::get('/plantilla-noticia', function () {
