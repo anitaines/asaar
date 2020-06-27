@@ -791,24 +791,22 @@ class ReleaseController extends Controller
     // }
     public function destroy(Request $request)
     {
-        // dd($request);
-        // $borrarNoticia = Release::findOrFail($request->idNoticia);
-        //
-        // $borrarNoticia->delete();
+        // return($request);
 
         if(Release::where('id', $request->idNoticia)->exists()) {
         $noticia = Release::find($request->idNoticia);
         $noticia->delete();
 
-        return response()->json([
-          "message" => "Record deleted"
-        ], 202);
-      } else {
-        return response()->json([
-          "message" => "Record not found"
-        ], 404);
+          return response()->json([
+            "message" => "Record deleted",
+            "request" => $request->idNoticia
+          ], 202);
+        } else {
+          return response()->json([
+            "message" => "Record not found",
+            "request" => $request->idNoticia
+          ], 404);
       }
-
 
     }
 

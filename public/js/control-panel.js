@@ -53,25 +53,22 @@ window.onload = function(){
         //   console.log(data);
         // })
 
-        var csrf = this.previousElementSibling.firstElementChild.value;
-        console.log(csrf);
-        var idNoticia = this.previousElementSibling.firstElementChild.nextElementSibling.value;
-        console.log(idNoticia);
+        let csrf = this.previousElementSibling.firstElementChild.nextElementSibling.value;
 
-        let form = new FormData
+        let idNoticia = this.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.value;
 
-        form.append('_token', csrf)
-        form.append('idNoticia', idNoticia)
+        let datosDelForm = new FormData;
 
-        fetch("/api/api-eliminar-noticia", {
-        method: 'post',
-        // body: JSON.stringify({
-        //   _token: token,
-        //   idNoticia: idNoticia,
-        //       })
-        body: form
+        datosDelForm.append('_method', 'DELETE');
+        datosDelForm.append('_token', csrf);
+        datosDelForm.append('idNoticia', idNoticia);
+
+        fetch("/eliminar-noticia", {
+          method: 'post',
+          body: datosDelForm
         }).then(function (res) {
-            console.log(res.json())
+          console.log(res.json())
+
         })
 
       }
