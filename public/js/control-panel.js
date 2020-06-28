@@ -5,7 +5,7 @@ window.onload = function(){
 
   for (var i = 0; i < eliminar.length; i++) {
     eliminar[i].addEventListener("click", function(){
-      let form = this.previousElementSibling;
+      // let form = this.previousElementSibling;
 
       let noticiaNro = this.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.value;
       let noticiaTitulo = this.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.innerHTML;
@@ -22,36 +22,9 @@ window.onload = function(){
       // }
 
 
-
       if (window.confirm(mensaje)) {
 
-        // var csrf = this.previousElementSibling.firstElementChild.nextElementSibling.value;
-        // console.log(csrf);
-        // var idNoticia = this.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.value;
-        // console.log(idNoticia);
-
-        // var campos = {
-        //   token: token,
-        //   idNoticia: idNoticia,
-        // }
-        // var datosDelForm = new FormData();
-        // datosDelForm.append('request', JSON.stringify(campos));
-        // console.log(datosDelForm);
-
-        // fetch("/api/eliminar-noticia", {
-        //   method: 'DELETE',
-        //   // body: datosDelForm
-        //   body: JSON.stringify({
-        //     token: token,
-        //     idNoticia: idNoticia,
-        //         })
-        // })
-        // .then(function(response){
-        //   return response.text();
-        // })
-        // .then(function(data){
-        //   console.log(data);
-        // })
+        let noticia = this.parentElement;
 
         let csrf = this.previousElementSibling.firstElementChild.nextElementSibling.value;
 
@@ -66,19 +39,17 @@ window.onload = function(){
         fetch("/eliminar-noticia", {
           method: 'post',
           body: datosDelForm
-        }).then(function (res) {
-          console.log(res.json())
-
         })
+        .then(function (res) {
+          if (res.ok){
+            noticia.remove();
+          }
+        })
+        .catch(function(error) {
+          console.log('Hubo un problema con la petición Fetch:' + error.message);
+        });
 
-      }
-
-
-
-
-
-
-
+      } //end if window alert
 
     });
   }

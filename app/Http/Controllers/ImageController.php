@@ -88,9 +88,27 @@ class ImageController extends Controller
      */
     public function destroy(Request $request)
     {
-      $borrarImagen = Image::findOrFail($request->idImagen);
-      $borrarImagen->delete();
+      // $borrarImagen = Image::findOrFail($request->idImagen);
+      // $borrarImagen->delete();
+      //
+      // return redirect("/administrar-imagenes");
 
-      return redirect("/administrar-imagenes");
+
+      // return($request);
+
+      if(Image::where('id', $request->idImagen)->exists()) {
+      $imagen = Image::find($request->idImagen);
+      $imagen->delete();
+
+        return response()->json([
+          "message" => "Record deleted",
+          "request" => $request->idImagen
+        ], 202);
+      } else {
+        return response()->json([
+          "message" => "Record not found",
+          "request" => $request->idImagen
+        ], 404);
+    }
     }
 }

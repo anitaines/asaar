@@ -779,16 +779,6 @@ class ReleaseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function destroy(Release $release)
-    // public function destroy(Request $request)
-    // {
-    //
-    //     $borrarNoticia = Release::findOrFail($request->idNoticia);
-    //
-    //     $borrarNoticia->delete();
-    //
-    //     return redirect("/control-panel");
-    // }
     public function destroy(Request $request)
     {
         // return($request);
