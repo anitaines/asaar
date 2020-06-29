@@ -1,5 +1,5 @@
 window.onload = function(){
-// DESACTIVAR SCRIPT LAYOUT NOTICIA???
+
   // Menú en mobile y tablet:
   let menuMobileTablet = document.querySelectorAll(".menuMobileTablet a");
 
@@ -60,16 +60,10 @@ window.onload = function(){
   let imagenPrincipal = iframe.contentWindow.document.querySelector(".img_container");
   let imagenPrincipalWrap = iframe.contentWindow.document.querySelector(".wrap_img");
 
-  // imagen para canvas:
-  // let imgCanvas = document.getElementById('imgCanvas');
   let imgCanvasFacebook = document.getElementById('imgCanvasFacebook');
-  // let imgCanvasTwitter = document.getElementById('imgCanvasTwitter');
 
   // canvas para preview imagen red social:
   let canvasFacebook = document.getElementById("canvasFacebook");
-
-  // var canvasTwitter = document.getElementById("canvasTwitter");
-  // // console.log(canvasTwitter);
 
 
 
@@ -346,15 +340,6 @@ window.onload = function(){
         setCanvas(canvasFacebook, imgCanvasFacebook);
       });
 
-  //   } else {
-  //     calendarioIframe.style.display ="none";
-  //     calendar.parentElement.nextElementSibling.style.display ="none";
-  //   }
-  //   checkLayout();
-  //   // Canvas:
-  //   setCanvas(canvasFacebook, imgCanvasFacebook);
-  // });
-
 
 
   // incluir titular sobre imagen:
@@ -460,29 +445,6 @@ window.onload = function(){
     // Canvas:
     setCanvas(canvasFacebook, imgCanvasFacebook);
   });
-
-    // // funcionalidad thumbnails colores tipografía:
-    // let opcionesColorTipoSubtitular = document.querySelectorAll(".colorTipoSubtitular input");
-    // for (var i = 0; i < opcionesColorTipoSubtitular.length; i++) {
-    //   opcionesColorTipoSubtitular[i].addEventListener("input", function(){
-    //     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:first-child").style.color = this.value;
-    //
-    //     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child p:last-child").style.color = this.value;
-    //
-    //     // Canvas:
-    //     setCanvas(canvasFacebook, imgCanvasFacebook);
-    //   });
-    // }
-    //
-    // // funcionalidad thumbnails colores fondo:
-    // let opcionesColorFondoSubtitular = document.querySelectorAll(".colorFondoSubtitular input");
-    // for (var i = 0; i < opcionesColorFondoSubtitular.length; i++) {
-    //   opcionesColorFondoSubtitular[i].addEventListener("input", function(){
-    //     iframe.contentWindow.document.querySelector(".info_img_container .box3 div:last-child").style.backgroundColor = this.value;
-    //     // Canvas:
-    //     setCanvas(canvasFacebook, imgCanvasFacebook);
-    //   });
-    // }
 
 
 
@@ -901,11 +863,18 @@ window.onload = function(){
   }
   // VALIDAR SUBMIT:
   let form = document.querySelector('.form-noticia');
+
+  let buttonPublicar = document.querySelector('.form-noticia button');
+
   form.onsubmit = function(event){
 
       if(!validarTitulo() || !validarSubtitulo() || !validarTituloImagen() || !validarSubtituloImagen() || !validarDetalleImagen() || !validarResumenImagen() || !validarRectificacionImagen() || !validarContentNoticia()){
         event.preventDefault();
         document.querySelector(".resumenErrores").style.display = "block";
+
+      } else {
+        buttonPublicar.style.backgroundColor = "var(--magenta)";
+        buttonPublicar.firstElementChild.innerHTML = "PROCESANDO...";
       }
   }
 

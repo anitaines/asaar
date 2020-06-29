@@ -156,7 +156,7 @@
                   @endfor
                 </p>
               @else
-                <p style="display:none; color: #ffffff;">Para padres de niños, adolescentes y adultos</p>
+                <p style="display:none; color:@if ($noticia->colorTipoSubtitular) {{$noticia->colorTipoSubtitular}} @else #ffffff @endif;">Para padres de niños, adolescentes y adultos</p>
               @endif
               @if ($noticia->detalleImagen)
                 <p style="color: {{$noticia->colorTipoSubtitular}};">
@@ -168,7 +168,7 @@
                   @endfor
                 </p>
               @else
-                <p style="display:none; color: #ffffff;">LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
+                <p style="display:none; color:@if ($noticia->colorTipoSubtitular) {{$noticia->colorTipoSubtitular}} @else #ffffff @endif;">LEOPOLDO MARECHAL 1160, CABA. De 16:30hs a 18:00hs.<br>
                 Bono contribución $100. Inscripción en https://goo.gl/forms/5UssYYdEHoQJ8b262</p>
               @endif
             </div>

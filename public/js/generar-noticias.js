@@ -852,12 +852,17 @@ window.onload = function(){
   // VALIDAR SUBMIT:
   let form = document.querySelector('.form-noticia');
 
+  let buttonPublicar = document.querySelector('.form-noticia button');
+
   form.onsubmit = function(event){
 
       if(!validarTitulo() || !validarSubtitulo() || !validarTituloImagen() || !validarSubtituloImagen() || !validarDetalleImagen() || !validarResumenImagen() || !validarRectificacionImagen() || !validarContentNoticia()){
         event.preventDefault();
         document.querySelector(".resumenErrores").style.display = "block";
-        // console.log("preventDefault");
+
+      } else {
+        buttonPublicar.style.backgroundColor = "var(--magenta)";
+        buttonPublicar.firstElementChild.innerHTML = "PROCESANDO...";
       }
   }
 

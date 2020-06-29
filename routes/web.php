@@ -124,3 +124,8 @@ Route::delete('/eliminar-imagen', 'ImageController@destroy')->middleware('auth')
 //
 //     echo 'User removed successfully.';
 // });
+
+
+Route::get('/logout', function () {
+    abort(404);
+});
