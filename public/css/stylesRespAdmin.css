@@ -1,0 +1,1933 @@
+
+ :root {
+  --green: #6ACF95; /* rgba(106, 207, 149, 1) */
+  --orange: #FC8901; /* rgba(239, 136, 51, 1) */
+  --magenta: #AB2097; /* rgba(172, 60, 151, 1) */
+  --blue: #34BFD2; /* rgba(86, 192, 211, 1) */
+  --grey: #F3F3F3;
+  --black: #454545;
+}
+
+
+ /* Resets*/
+ *{
+   box-sizing: border-box;
+ }
+body{
+  background-color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--black);
+  max-width: 1920px;
+  margin: 0 auto;
+  text-align: left;
+}
+html {
+  scroll-behavior: smooth;
+  line-height: 1.15;
+}
+article,aside,figcaption,figure,footer,header,hgroup,main,nav,section {
+  display: block
+}
+h1,h2,h3,h4,h5,h6 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+  margin-bottom: .5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+  font-size: 2.25rem;
+  font-size: 1.575rem
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem
+}
+blockquote {
+  margin: 0 0 1rem
+}
+b,strong {
+  font-weight: bolder
+}
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  text-decoration: none;
+  color: var(--black);
+}
+a:hover {
+  color: #1d68a7;
+}
+img {
+  border-style: none
+}
+img,svg {
+  vertical-align: middle
+}
+
+
+/* HEADER - MOBILE*/
+.main-header{
+  width: 100%;
+  max-width: 1920px;
+  height: 70px;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  border-radius: 0px 0px 8px 8px;
+  background-color: var(--grey);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.main-header .logo-container{
+  margin-left: 5px;
+}
+.main-header .logo-container a img{
+  width: 60px;
+}
+.main-header .mobile-nav{
+  width: calc(100% - 60px - 15px);
+  margin: 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.main-header .mobile-nav .h1-container{
+  display: none;
+}
+.main-header .mobile-nav .dropdown-newMobile{
+  position: relative;
+  display: inline-block;
+  width: 30%;
+  margin: 0px 5px;
+}
+.main-header .mobile-nav .button-newMobile{
+  width: 100%;
+  height: 40px;
+  background-color: var(--orange);
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 39px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 0;
+}
+.main-header .mobile-nav .button-newMobile:hover{
+  cursor: pointer;
+}
+.main-header .mobile-nav .dropdown-content-newMobile{
+  position: absolute;
+  background-color: var(--orange);
+  border-radius: .25rem;
+  top: 47px;
+  padding: 10px 0;
+  margin: 0;
+  right: 0px;
+  width: fit-content;
+  text-align: right;
+}
+.main-header .mobile-nav .dropdown-content-display{
+  display: none;
+}
+.main-header .mobile-nav .dropdown-item-newMobile{
+  display: block;
+  width: 100%;
+  padding: .25rem 1.5rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.main-header .mobile-nav .dropdown-item-newMobile:hover{
+  background-color: var(--orange);
+}
+.main-header .mobile-nav a{
+  font-size: 17px;
+  font-weight: normal;
+  line-height: 21px;
+  color: #ffffff;
+}
+.main-header .mobile-nav a:hover{
+  text-decoration: none;
+  color: #1d68a7;
+}
+
+.main-header .mobile-nav .bloque2{
+  width: 65%;
+  display: flex;
+}
+.main-header .mobile-nav .bloque2 a{
+  width: 50%;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+  color: #ffffff;
+  margin: 5px;
+}
+.main-header .mobile-nav .bloque2 .menu-button{
+  width: 100%;
+  height: 40px;
+  background-color: var(--magenta);
+  border-radius: 8px;
+  text-align: center;
+}
+.main-header .desktop-nav{
+  display: none;
+}
+/* END HEADER - MOBILE*/
+
+/* ************ CHECKBOX CUSTOM NICE - MOBILE ************ */
+
+.form_item_checkbox{
+  text-align: left;
+}
+.checkbox-label{
+  position: relative;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 40px;
+  letter-spacing: 1px;
+  left: 10px;
+}
+.checkbox-label input {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkbox-label .checkbox-custom{
+  height: 24px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  border: 2px solid var(--magenta);
+  color: #ffffff;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.checkbox-label input:focus ~ .checkbox-custom{
+  outline-color:var(--magenta);
+  outline-style:auto;
+}
+.checkbox-label input:checked ~ .checkbox-custom{
+  background-color: var(--magenta);
+  color: #ffffff;
+}
+.form_item_checkbox .error-message{
+  text-align: center;
+}
+
+/* ************ END CHECKBOX CUSTOM NICE - MOBILE ************ */
+
+
+
+/* ADMIN SECTION */
+/* ADMIN HEADER - MOBILE*/
+.main-header.admin-header .mobile-nav .button-newMobile{
+  background-color: var(--magenta);
+}
+.main-header.admin-header .mobile-nav .dropdown-content-newMobile{
+  background-color: var(--magenta);
+}
+.main-header.admin-header .mobile-nav .dropdown-item-newMobile{
+padding-right: 0.5rem;
+}
+.main-header.admin-header .mobile-nav .dropdown-item-newMobile:hover{
+  background-color: var(--magenta);
+}
+.main-header.admin-header .mobile-nav .bloque2 {
+  justify-content: flex-end;
+}
+.main-header.admin-header .mobile-nav .bloque2 .menu-button{
+  background-color: var(--orange);
+}
+
+/* END ADMIN HEADER - MOBILE*/
+
+
+
+/* ************ CONTROL PANEL SECTION - MOBILE ************ */
+.admin.cPanel{
+  top: 80px;
+}
+.admin.cPanel h4{
+  margin-bottom: 8px;
+}
+.admin.cPanel .container{
+  width: 95%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.admin.cPanel .container .crearImagen, .admin.cPanel .container .adminCarousel, .admin.cPanel .container .adminImagenes{
+  width: 95%;
+  height: 80px;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  background-color: #ffffff;
+  margin: 5px 10px;
+}
+.admin.cPanel .container .crearImagen:hover, .admin.cPanel .container .adminCarousel:hover, .admin.cPanel .container .adminImagenes:hover{
+  color: var(--black);
+  background-color: var(--blue);
+}
+.admin.cPanel .container .crearImagen p, .admin.cPanel .container .adminCarousel p, .admin.cPanel .container .adminImagenes p{
+  text-align: center;
+  padding: 15px 10px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+.admin.cPanel .container .noticias{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 65px;
+}
+.admin.cPanel .container .noticias .noticiaItem{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 190px;
+  margin: 10px;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  text-align: center;
+  background-color: #ffffff;
+}
+.admin.cPanel .container .noticias .noticiaItem .eliminar{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  position: relative;
+  background-color: beige;
+  border-bottom: 2px solid var(--black);
+}
+.admin.cPanel .container .noticias .noticiaItem .eliminar:hover{
+  cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
+}
+.admin.cPanel .container .noticias .noticiaItem .eliminar p{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+.admin.cPanel .container .noticias .noticiaItem .eliminar .cruz{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: 2px solid var(--black);
+  background-color: coral;
+  position: absolute;
+  top: -12px;
+  right: -2px;
+}
+.admin.cPanel .container .noticias .noticiaItem .eliminar .cruz p{
+  width: 100%;
+  font-size: 17px;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaImagen{
+  width: 190px;
+  height: 100px;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaInfo{
+  height: 140px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: center;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaInfo a p{
+  color: var(--magenta);
+  line-height: 1.3;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaInfo p:nth-child(2){
+  font-size: 13px;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaInfo p{
+  margin-bottom: 10px;
+}
+.admin.cPanel .container .noticias .noticiaItem .noticiaInfo label input{
+  width: 40px;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--magenta);
+  background-color: #ffffff;
+}
+.admin.cPanel .container .noticias .noticiaItem .modificar{
+  background-color: beige;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  height: 60px;
+  margin: 10px;
+  line-height: 1.3;
+  padding: 9px 15px;
+}
+.admin.cPanel .container .noticias .noticiaItem .modificar:hover{
+  cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
+}
+.admin.cPanel .container .noticias .noticiaItem .modificar p{
+  margin-bottom: 10px;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem{
+  height: 364px;
+  align-content: normal;
+}
+.admin.cPanel .container .noticias .agregarItemA:hover{
+  color: var(--black);
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem:hover{
+  cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo{
+  height: 100px;
+  width: 100px;
+  border: 2px solid var(--black);
+  border-radius: 50px;
+  border-radius: 100px;
+  margin: auto;
+  display: flex;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo .lineaVertical{
+  border: 1px solid var(--black);
+  height: 70px;
+  width: 0px;
+  margin: auto 0px;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo .lineaVHorizontal{
+  border: 1px solid var(--black);
+  width: 35px;
+  height: 0px;
+  margin: auto;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo .lineaVHorizontal:first-child{
+  margin-right: 0px;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem .circulo .lineaVHorizontal:last-child{
+  margin-left: 0px;
+}
+.admin.cPanel .container .noticias .noticiaItem.agregarItem p{
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+/* ************ END CONTROL PANEL SECTION - MOBILE ************ */
+
+
+/* ************ GENERAR NOTICIA SECTION - MOBILE ************ */
+.admin{
+  position: relative;
+  top: 125px;
+  width: 98%;
+  margin: auto;
+}
+.admin .menuMobileTablet{
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  z-index: 900;
+  top: 70px;
+  width: 98%;
+  background-color: #ffffff;
+}
+.admin .menuMobileTablet p{
+  font-weight: bold;
+  padding: 3px 10px;
+  margin: 10px 0px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: var(--magenta);
+  border: 2px solid var(--magenta);
+}
+.admin .menuMobileTablet a:first-child p{
+  background-color: var(--magenta);
+  color: #ffffff;
+}
+.admin h4{
+  font-size: 20px;
+  color: var(--magenta);
+  text-align: center;
+  margin-bottom: 30px;
+}
+.admin .input{
+  width: 100%;
+}
+.admin .input .adminFormItem{
+  width: 98%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--grey);
+  border-radius: 6px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.admin .input .adminFormItem label{
+  width: 95%;
+  margin: auto;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 40px;
+  letter-spacing: 1px;
+}
+.admin .input .adminFormItem label.checkbox-label{
+  left: 0px;
+}
+.admin .input .adminFormItem input{
+  width: 95%;
+  margin: 15px auto;
+  margin-top: 0;
+  border-style: none;
+  padding-left: 10px;
+  height: 39px;
+  border-radius: 6px;
+  font-size: 17px;
+  line-height: inherit;
+  font-family: 'Montserrat', sans-serif;
+}
+.admin .input .adminFormItem label.checkbox-label input{
+  width: 12px;
+}
+.admin .imagenesWrap{
+  margin: auto;
+}
+.admin .imagenesWrap .imagenes {
+  background-color: #ffffff;
+  width: 90%;
+  margin: auto;
+  border: 2px solid var(--magenta);
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 38px;
+  position: relative;
+}
+.admin .imagenesWrap .imagenes .imagenesOpcionCarga{
+  display: flex;
+  width: 100%;
+  height: 35px;
+  background-color: var(--magenta);
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+.admin .imagenesWrap .imagenes .imagenesOpcionCarga:hover{
+  cursor: pointer;
+}
+.admin .imagenesWrap .imagenes p{
+  margin-bottom: 0;
+  margin-right: 5px;
+  text-align: center;
+  color: #ffffff;
+}
+.admin .imagenesWrap .imagenes label{
+  width: 45%;
+  margin: 5px;
+  display: none;
+}
+.admin .imagenesWrap .imagenes label:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.admin .imagenesWrap .imagenes label input:checked ~ div{
+  border: 2px solid var(--black);
+}
+.admin .imagenLabel div{
+  height: 120px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.admin .imagenLabel input{
+  display: none;
+}
+.admin .imagenesWrap .imagenesOpcionCargaNueva{
+  width: 90%;
+  margin: auto;
+  border: 2px solid var(--green);
+  border-radius: 6px;
+  margin-top: 5px;
+  height: 38px;
+  overflow: hidden;
+}
+.admin .imagenesWrap .imagenesOpcionCargaNueva p:first-child{
+  height: 35px;
+  background-color: var(--green);
+  margin-bottom: 5px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+}
+.admin .imagenesWrap .imagenesOpcionCargaNueva:hover{
+  cursor: pointer;
+}
+.admin .imagenesWrap .imagenesOpcionCargaNueva input{
+  margin-bottom: 0px;
+  height: 30px;
+}
+.admin .imagenesWrap .imagenesOpcionCargaNueva .alert{
+  text-align: center;
+  color: red;
+  font-style: italic;
+}
+#uploadedImage{
+  width: 80%;
+  margin: auto;
+  margin-bottom: 5px;
+}
+.admin .imagenesWrap .filtroImagen{
+  width: 90%;
+  margin: auto;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 2px solid var(--magenta);
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+.admin .imagenesWrap .filtroImagen p{
+  margin-bottom: 0px;
+}
+.admin .imagenesWrap .filtroImagen label{
+  width: auto;
+}
+.admin .imagenesWrap .filtroImagen label:hover{
+  cursor: pointer;
+}
+.admin .imagenesWrap .filtroImagen label input{
+  display: none;
+}.admin .imagenesWrap .filtroImagen label div{
+  display: none;
+}
+.admin .imagenesWrap .filtroImagen label input:checked ~ div{
+  display: inline-block;
+  color: var(--magenta);
+  font-size: 20px;
+}
+.admin .imagenesWrap .adminFormItem label{
+  width: auto;
+}
+.admin .imagenesWrap .info_calendar{
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  border: 2px solid var(--magenta);
+  border-radius: 6px;
+}
+.admin .input .adminFormItem_textarea{
+  margin-bottom: 0px;
+}
+.admin .input .adminFormItem_textarea label{
+  width: 90%;
+}
+.admin .input .adminFormItem_textarea textarea{
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  padding-left: 10px;
+}
+
+/* OPCIONES COLORES: */
+.admin .input .colorTipoTitular, .admin .input .colorFondoTitular, .admin .input .colorTipoSubtitular, .admin .input .colorFondoSubtitular, .admin .input .colorTipoResumen, .admin .input .colorFondoResumen, .admin .input .recuadroTitular{
+  width: 90%;
+  margin: auto;
+  border-radius: 6px;
+  border: 2px solid var(--magenta);
+  text-align: center;
+}
+.admin .input .colorTipoTitular label, .admin .input .colorFondoTitular label, .admin .input .colorTipoSubtitular label, .admin .input .colorFondoSubtitular label, .admin .input .colorTipoResumen label, .admin .input .colorFondoResumen label{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 45%;
+}
+.admin .input .colorTipoTitular label div, .admin .input .colorFondoTitular label div, .admin .input .colorTipoSubtitular label div, .admin .input .colorFondoSubtitular label div, .admin .input .colorTipoResumen label div, .admin .input .colorFondoResumen label div{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  margin-left: 5px;
+  border: 1px solid var(--black);
+}
+.admin .input .colorTipoTitular label div:hover, .admin .input .colorFondoTitular label div:hover, .admin .input .colorTipoSubtitular label div:hover, .admin .input .colorFondoSubtitular label div:hover, .admin .input .colorTipoResumen label div:hover, .admin .input .colorFondoResumen label div:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin .input .colorTipoTitular label input, .admin .input .colorFondoTitular label input, .admin .input .colorTipoSubtitular label input, .admin .input .colorFondoSubtitular label input, .admin .input .colorTipoResumen label input, .admin .input .colorFondoResumen label input{
+  display: none;
+}
+.admin .input .colorTipoTitular label input:checked ~ div, .admin .input .colorFondoTitular label input:checked ~ div, .admin .input .colorTipoSubtitular label input:checked ~ div, .admin .input .colorFondoSubtitular label input:checked ~ div {
+  outline: 1px solid var(--black);
+}
+.admin .input .colorTipoResumen label input:checked ~ div, .admin .input .colorFondoResumen label input:checked ~ div {
+  outline: 1px solid var(--black);
+}
+/* fin colores */
+#content{
+width: 94%;
+margin: auto;
+margin-bottom: 15px;
+border: none;
+border-radius: 6px;
+font-size: 17px;
+font-family: 'Montserrat', sans-serif;
+padding-left: 10px;
+}
+.admin .input .adminFormItem.imagenesAdicionales p:first-child{
+  width: 95%;
+  margin: auto;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 40px;
+  letter-spacing: 1px;
+}
+.admin .input .adminFormItem.imagenesAdicionales div{
+  width: 85%;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.admin .input .adminFormItem.imagenesAdicionales div .alert{
+  text-align: center;
+  color: red;
+  font-style: italic;
+}
+.admin .input .adminFormItem.imagenesAdicionales div .remover{
+  background-color: var(--magenta);
+  text-align: center;
+  border-radius: 6px;
+  color: #ffffff;
+  line-height: 30px;
+}
+.admin .input .adminFormItem.imagenesAdicionales div .remover:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin .input .downloadCanvas{
+  background-color: var(--orange);
+  border-radius: 6px;
+  width: 90%;
+  text-align: center;
+  margin: 10px auto;
+}
+.admin .input .downloadCanvas:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin .input .downloadCanvas p{
+  color: var(--grey);
+  margin-bottom: 0px;
+}
+.admin .input .buttonWrap{
+  width: 90%;
+  text-align: center;
+  margin: 10px auto;
+}
+.admin .input .downloadCanvas.uploadNews{
+  background-color: var(--green);
+  border: none;
+  color: var(--grey);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  width: 100%;
+  padding: 15px 0;
+}
+
+.admin .output{
+  width: 100%;
+}
+.admin .output .wrap_iframe {
+  width: 100%;
+  overflow: hidden;
+  height: 80vh;
+  display: none;
+}
+.admin .output .wrap_iframe iframe {
+  border: 3px solid var(--black);
+  width: 320% !important;
+  height: 188vh;
+  -webkit-transform: scale(0.31);
+  transform: scale(0.31);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+.admin .output .allCanvas{
+  width: 100%;
+  overflow: hidden;
+  height: 80vh;
+  display: none;
+}
+.admin .output .allCanvas .container_canvas p{
+  text-align: center;
+  color: var(--orange);
+  font-size: 15px;
+}
+#canvasFacebook{
+  border: 1px solid var(--black);
+  -webkit-transform: scale(0.26);
+  transform: scale(0.26);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+/* ************ END GENERAR NOTICIA SECTION - MOBILE ************ */
+
+
+/* ************ NOTICIA SUCCESS SECTION - MOBILE ************ */
+.admin.success{
+  text-align: center;
+  width: 75%;
+  margin: 15px auto;
+  padding: 50px 0px;
+  border: 2px solid var(--magenta);
+  border-radius: 6px;
+}
+.admin.success p{
+  font-weight: bold;
+}
+.admin.success .buttons{
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+}
+.admin.success .buttons a{
+  width: 100%;
+  margin: 5px;
+}
+.admin.success .buttons a .button{
+  border-radius: 6px;
+  color: #ffffff;
+  padding: 5px;
+}
+.admin.success .buttons a .button:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin.success .buttons a .button.no{
+  background-color: var(--magenta);
+}
+.admin.success .buttons a .button.si{
+  background-color: var(--green);
+}
+/* ************ END NOTICIA SUCCESS SECTION - MOBILE ************ */
+
+
+/* ************ MODIFICAR NOTICIA SECTION - MOBILE ************ */
+.admin.generar.modificar h4{
+  display: block;
+}
+/* ************ END MODIFICAR NOTICIA SECTION - MOBILE ************ */
+
+
+/* ************ GENERAR IMAGEN SECTION - MOBILE ************ */
+.admin.generar.imagen{
+  justify-content: space-evenly;
+}
+.admin.generar.imagen h4{
+  display: block;
+  margin-bottom: 15px;
+}
+.admin.generar.imagen .input{
+  width: 100%;
+}
+.admin.generar.imagen .input form{
+  height: 77vh;
+}
+.admin.generar.imagen .input form .adminFormItem.form_item.form_item_checkbox .imagenNoticia.checkbox-label{
+  left: 0px;
+  text-align: center;
+  width: 100%;
+}
+.admin.generar.imagen .output{
+  width: 100%;
+}
+.admin.generar.imagen .output .allCanvas{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.admin.generar.imagen .output .allCanvas .wrapCanvasFacebook {
+  width: 315px;
+  height: 315px;
+  margin: auto;
+}
+#canvasFacebookDos{
+  border: 1px solid var(--black);
+  -webkit-transform: scale(0.26);
+  transform: scale(0.26);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+.admin.generar.imagen .output .allCanvas .downloadCanvas{
+  background-color: var(--orange);
+  border-radius: 6px;
+  width: 50%;
+  text-align: center;
+  margin: 10px auto;
+}
+.admin.generar.imagen .output .allCanvas .downloadCanvas:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin.generar.imagen .output .allCanvas .downloadCanvas p{
+  color: var(--grey);
+  padding: 10px 0px;
+}
+/* ************ END GENERAR IMAGEN SECTION - MOBILE ************ */
+
+
+/* ************ ADMINISTRAR CAROUSEL SECTION - MOBILE ************ */
+.admin.carousel{
+  top: 90px;
+}
+.admin.carousel h4{
+  margin-bottom: 0px;
+}
+.admin.carousel .alert{
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.admin.carousel form{
+  position: relative;
+}
+  /* CONTENEDOR CAROUSEL: */
+.admin.carousel form .carouselActual{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 65px;
+}
+.admin.carousel form .carouselActual .carouselItem{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 190px;
+  margin: 10px;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  text-align: center;
+  background-color: #ffffff;
+}
+.admin.carousel form .carouselActual .carouselItem .eliminar{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  position: relative;
+  background-color: beige;
+  border-bottom: 2px solid var(--black);
+}
+.admin.carousel form .carouselActual .carouselItem .eliminar:hover{
+  cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
+}
+.admin.carousel form .carouselActual .carouselItem .eliminar p{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+.admin.carousel form .carouselActual .carouselItem .eliminar .cruz{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: 2px solid var(--black);
+  background-color: coral;
+  position: absolute;
+  top: -12px;
+  right: -2px;
+}
+.admin.carousel form .carouselActual .carouselItem .eliminar .cruz p{
+  width: 100%;
+  font-size: 17px;
+}
+.admin.carousel form .carouselActual .carouselItem .carouselImagen{
+  width: 190px;
+  height: 100px;
+}
+.admin.carousel form .carouselActual .carouselItem .carouselInfo{
+  height: 140px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: center;
+}
+.admin.carousel .carouselActual .carouselItem .carouselInfo a p{
+  color: var(--magenta);
+  line-height: 1.3;
+}
+.admin.carousel form .carouselActual .carouselItem .carouselInfo p:nth-child(2){
+  font-size: 13px;
+}
+.admin.carousel .carouselActual .carouselItem .carouselInfo p{
+  margin-bottom: 10px;
+}
+.admin.carousel form .carouselActual .carouselItem .carouselInfo label input{
+  width: 40px;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--magenta);
+  background-color: #ffffff;
+}
+.admin.carousel form .carouselActual .carouselItem .modificar{
+  background-color: beige;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  height: 60px;
+  margin: 10px;
+  line-height: 1.3;
+  padding: 5px;
+}
+.admin.carousel form .carouselActual .carouselItem .modificar:hover{
+  cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
+}
+.admin.carousel form .carouselActual .carouselItem .modificar p{
+  margin-bottom: 10px;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem{
+  height: 364px;
+  align-content: normal;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem:hover{
+  cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem .circulo{
+  height: 100px;
+  width: 100px;
+  border: 2px solid var(--black);
+  border-radius: 50px;
+  border-radius: 100px;
+  margin: auto;
+  display: flex;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem .circulo .lineaVertical{
+  border: 1px solid var(--black);
+  height: 70px;
+  width: 0px;
+  margin: auto 0px;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem .circulo .lineaVHorizontal{
+  border: 1px solid var(--black);
+  width: 35px;
+  height: 0px;
+  margin: auto;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem .circulo .lineaVHorizontal:first-child{
+  margin-right: 0px;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem .circulo .lineaVHorizontal:last-child{
+  margin-left: 0px;
+}
+.admin.carousel form .carouselActual .carouselItem.agregarItem p{
+  font-weight: bold;
+}
+  /* CONTENEDOR NOTICIAS: */
+.admin.carousel form .noticiasWrap{
+  border: 2px solid var(--blue);
+  border-radius: 6px;
+  position: absolute;
+  z-index: 800;
+  background-color: #ffffff;
+  width: 90%;
+  left: calc((98vw - 90%)/2);
+  top: -100px;
+}
+.admin.carousel form .noticiasWrap .cerrarNoticias{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: 2px solid var(--blue);
+  background-color: var(--grey);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  text-align: center;
+}
+.admin.carousel form .noticiasWrap .cerrarNoticias:hover{
+  cursor: pointer;
+}
+.admin.carousel form .noticiasWrap .noticiasHead{
+  text-align: center;
+}
+.admin.carousel form .noticiasWrap .noticiasHead p{
+  color: var(--blue);
+  font-size: 18px;
+  margin: 10px 0px;
+}
+.admin.carousel form .noticiasWrap .noticias{
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 15px;
+  height: 70vh;
+}
+/* SCROLLBAR LISTADO NOTICIAS*/
+/* width */
+.admin.carousel form .noticiasWrap .noticias::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+.admin.carousel form .noticiasWrap .noticias::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+/* Handle */
+.admin.carousel form .noticiasWrap .noticias::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 80px;
+}
+/* Handle on hover */
+.admin.carousel form .noticiasWrap .noticias::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* FIN SCROLLBAR */
+.admin.carousel form .noticiasWrap .noticias .noticiasItem {
+  width: 95%;
+  margin: 3px auto;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .itemId{
+  width: 25%;
+  text-align: left;
+  padding: 5px;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .itemId input{
+  width: 40px;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--magenta);
+  background-color: #ffffff;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .noticiasInfo{
+  width: 75%;
+  padding: 5px;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .noticiasInfo a p{
+  color: var(--magenta);
+  margin-bottom: 0px;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .noticiasInfo p{
+  margin-bottom: 0px;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .agregar{
+  width: 100%;
+  text-align: right;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .agregar label{
+  left: -10px;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiasItem .agregar p{
+  margin: 5px 10px;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiaGris{
+  color: grey;
+  border-color: grey;
+}
+.admin.carousel form .noticiasWrap .noticias .noticiaGris .itemId label input, .admin.carousel form .noticiasWrap .noticias .noticiaGris .noticiasInfo a p{
+  color: grey;
+}
+  /* CONTENEDOR IMAGENES: */
+.admin.carousel form .imagenesDisponibles{
+  border: 2px solid var(--blue);
+  border-radius: 6px;
+  position: absolute;
+  z-index: 800;
+  background-color: #ffffff;
+  width: 90%;
+  left: calc((98vw - 90%)/2);
+  top: -100px;
+}
+.admin.carousel form .imagenesDisponibles .cerrarImagenes{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: 2px solid var(--blue);
+  background-color: var(--grey);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  text-align: center;
+}
+.admin.carousel form .imagenesDisponibles .cerrarImagenes:hover{
+  cursor: pointer;
+}
+.admin.carousel form .imagenesDisponibles .noticiasHead{
+  text-align: center;
+}
+.admin.carousel form .imagenesDisponibles .noticiasHead p{
+  color: var(--blue);
+  font-size: 18px;
+  margin: 10px 0px;
+}
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: calc(70vh - 59px);
+  overflow-y: scroll;
+}
+/* SCROLLBAR LISTADO IMAGENES*/
+/* width */
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+/* Handle */
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 80px;
+}
+/* Handle on hover */
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* FIN SCROLLBAR */
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label{
+  width: 40%;
+  margin: 5px;
+}
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label input{
+  display: none;
+}
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label input:checked ~ .carouselImagen{
+  border: 2px solid var(--magenta);
+}
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap label:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap .noHover:hover{
+  cursor: default;
+  box-shadow: none;
+}
+.admin.carousel form .imagenesDisponibles .listo{
+  text-align: center;
+}
+.admin.carousel form .imagenesDisponibles .listo p{
+  color: var(--blue);
+  font-size: 16px;
+  margin: 10px 0px;
+}
+.admin.carousel form .imagenesDisponibles .listo p:first-child{
+  width: 25%;
+  margin: 10px auto;
+  border-radius: 6px;
+  padding: 5px;
+  border: 2px solid var(--blue);
+}
+.admin.carousel form .imagenesDisponibles .listo p:first-child:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+  /* FONDO GRIS: */
+.admin.carousel form .gris{
+  border-radius: 6px;
+  background-color: rgba(0,0,0,0.6);
+  width: 100%;
+  position: absolute;
+  z-index: 700;
+  top: -110px;
+  height: calc(100vh - 100px);
+  -webkit-animation-name: fadein;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: ease;
+  animation-name: fadein;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.admin.carousel form .buttons{
+  position: fixed;
+  z-index: 600;
+  bottom: 0;
+  width: 98%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+.admin.carousel form .buttonWrap{
+  background-color: var(--green);
+  border-radius: 6px;
+  width: 30%;
+  text-align: center;
+  margin: 10px 10px;
+}
+.admin.carousel form .buttonWrap button{
+  width: 98%;
+  background-color: var(--green);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  color: var(--grey);
+  padding: 8px 0;
+}
+.admin.carousel form .buttonWrap:last-child{
+  background-color: var(--magenta);
+}
+.admin.carousel form .buttonWrap:last-child p{
+  font-size: 16px;
+  line-height: 18px;
+  color: var(--grey);
+  padding: 15px 0;
+  margin-bottom: 0px;
+}
+.admin.carousel form .buttonWrap button:hover{
+  cursor: pointer;
+}
+.admin.carousel form .buttonWrap:hover{
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+/* ************ END ADMINISTRAR CAROUSEL SECTION - MOBILE ************ */
+
+
+/* ************ ADMINISTRAR IMAGENES GUARDADAS SECTION - MOBILE ************ */
+.admin.adminImagenes p:nth-child(2){
+  width: 75%;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+.admin.adminImagenes .imagenes{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+.admin.adminImagenes .imagenes .imagenItem{
+  width: 100%;
+  border: 2px solid var(--black);
+  border-radius: 6px;
+  margin: 10px;
+  height: fit-content;
+  height: -moz-fit-content;
+}
+.admin.adminImagenes .imagenes .imagenItem .eliminar{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  position: relative;
+  background-color: beige;
+  border-bottom: 2px solid var(--black);
+}
+.admin.adminImagenes .imagenes .imagenItem .eliminar:hover{
+  cursor: pointer;
+  color: var(--black);
+  background-color: var(--blue);
+}
+.admin.adminImagenes .imagenes .imagenItem .eliminar p{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+.admin.adminImagenes .imagenes .imagenItem .eliminar .cruz{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: 2px solid var(--black);
+  background-color: coral;
+  position: absolute;
+  top: -12px;
+  right: -2px;
+}
+.admin.adminImagenes .imagenes .imagenItem .eliminar .cruz p{
+  width: 100%;
+  font-size: 17px;
+}
+.admin.adminImagenes .imagenes .imagenItem .divImagen img{
+  width: 100%;
+}
+.admin.adminImagenes .imagenes .cero{
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  margin: 30px auto;
+}
+/* ************ END ADMINISTRAR IMAGENES GUARDADAS SECTION - MOBILE ************ */
+
+
+
+/* ********************************************* */
+@media (min-width:768px) { /*tablet*/
+
+  /* HEADER - TABLET*/
+  .main-header .mobile-nav .h1-container{
+    width: 50%;
+    height: 38px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 40px;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    background-color: var(--orange);
+    margin: 0;
+  }
+  .main-header .mobile-nav .h1-container h1{
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+  }
+  .main-header .mobile-nav .dropdown-newMobile{
+    width: 15%;
+  }
+  .main-header .mobile-nav .bloque2{
+    width: 35%;
+  }
+  /* END HEADER - TABLET*/
+
+
+
+  /* ADMIN SECTION */
+  /* ADMIN HEADER - TABLET */
+  .main-header.admin-header .mobile-nav .h1-container{
+    background-color: var(--magenta);
+  }
+  /* END ADMIN HEADER - TABLET */
+
+
+
+  /* ************ CONTROL PANEL SECTION - TABLET ************ */
+  .admin.cPanel{
+    top: 125px;
+  }
+  .admin.cPanel .container .crearImagen, .admin.cPanel .container .adminCarousel, .admin.cPanel .container .adminImagenes{
+    width: 30%;
+    margin: 15px 10px;
+  }
+
+  /* ************ END CONTROL PANEL SECTION - TABLET ************ */
+
+  /* ************ GENERAR NOTICIA SECTION - TABLET ************ */
+  .admin{
+    top: 135px;
+  }
+  .admin .menuMobileTablet{
+    top: 80px;
+  }
+  .admin .output .wrap_iframe iframe {
+    width: 166% !important;
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+  #canvasFacebook{
+    -webkit-transform: scale(0.4);
+    transform: scale(0.4);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+  /* ************ END GENERAR NOTICIA SECTION - TABLET ************ */
+
+
+  /* ************ NOTICIA SUCCESS SECTION - TABLET ************ */
+  .admin.success{
+    margin: 85px auto;
+  }
+  .admin.success .buttons{
+    flex-wrap: nowrap;
+  }
+  .admin.success .buttons a{
+    width: 45%;
+  }
+  /* ************ END NOTICIA SUCCESS SECTION - TABLET ************ */
+
+
+  /* ************ GENERAR IMAGEN SECTION - TABLET ************ */
+  .admin.generar.imagen .output .allCanvas{
+    min-width: 485px;
+  }
+  .admin.generar.imagen .output .allCanvas .wrapCanvasFacebook {
+    width: 485px;
+    height: 485px;
+  }
+  #canvasFacebookDos{
+    -webkit-transform: scale(0.4);
+    transform: scale(0.4);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+
+  /* ************ END GENERAR IMAGEN SECTION - TABLET ************ */
+
+  /* ************ ADMINISTRAR CAROUSEL SECTION - TABLET ************ */
+  .admin.carousel form .buttonWrap button{
+  line-height: 6px;
+  padding: 15px 0;
+  }
+  .admin.carousel form .buttonWrap:last-child p{
+    line-height: 6px;
+  }
+  .admin.carousel form .noticiasWrap{
+    top: -10px;
+  }
+  .admin.carousel form .noticiasWrap .noticias{
+    height: 55vh;
+  }
+  .admin.carousel form .noticiasWrap .noticias .noticiasItem {
+    width: 80%;
+  }
+  .admin.carousel form .noticiasWrap .noticias .noticiasItem .itemId{
+    width: 20%;
+  }
+  .admin.carousel form .noticiasWrap .noticias .noticiasItem .noticiasInfo{
+    width: 80%;
+  }
+  .admin.carousel form .imagenesDisponibles{
+  top: -10px;
+  }
+  .admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap{
+    height: calc(55vh - 59px);
+  }
+  .admin.carousel form .gris{
+    top: -60px;
+  }
+
+  /* ************ END ADMINISTRAR CAROUSEL SECTION - TABLET ************ */
+
+
+  /* ************ ADMINISTRAR IMAGENES GUARDADAS SECTION - TABLET ************ */
+  .admin.adminImagenes .imagenes .imagenItem{
+    width: 30%;
+  }
+  /* ************ END ADMINISTRAR IMAGENES GUARDADAS SECTION - TABLET ************ */
+
+  } /*fin media query tablet*/
+
+
+/* ********************************************* */
+@media (min-width:992px) { /*desktop*/
+
+  /* HEADER - desktop */
+  .main-header .mobile-nav{
+    display: none;
+  }
+  .main-header .desktop-nav .bloque2.desktop-large{
+    display: none;
+  }
+  .main-header{
+    height: 112px;
+  }
+  .main-header .logo-container{
+    margin-left: 15px;
+  }
+  .main-header .logo-container a img{
+    width: 89.14px;
+  }
+  .main-header .desktop-nav{
+    width: calc(100% - 89.14px - 45px);
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .main-header .desktop-nav .bloque1{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .main-header .desktop-nav .bloque1 .h1-container{
+    background-color: var(--orange);
+    width: 561px;
+    height: 40px;
+    text-align: center;
+    margin-bottom: 7px;
+  }
+  .main-header .desktop-nav .bloque1 .h1-container h1{
+    font-size: 25px;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    margin: 0;
+  }
+  .main-header .desktop-nav .bloque1 .menu-list{
+    background-color: var(--orange);
+    width: 828px;
+    height: 34px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 0px 15px;
+    align-items: center;
+  }
+  .main-header .desktop-nav .bloque1 .menu-list li{
+    list-style: none;
+  }
+  .main-header .desktop-nav .bloque1 .menu-list .dropdown{
+    position: relative;
+    display: inline-block;
+  }
+  .main-header .desktop-nav .bloque1 .menu-list .dropdown .dropdown-content{
+    display: none;
+    position: absolute;
+    z-index: 900;
+    background-color: var(--orange);
+    padding: 0px;
+  }
+  .main-header .desktop-nav .bloque1 .menu-list .dropdown:hover .dropdown-content{
+    display: block;
+    width: max-content;
+  }
+  .main-header .desktop-nav .bloque1 .menu-list a{
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 21px;
+    color: #ffffff;
+  }
+  .main-header .desktop-nav .bloque1 .menu-list a:hover{
+    text-decoration: none;
+    color: #1d68a7;
+  }
+  .main-header .desktop-nav .bloque1 .menu-list .dropdown:hover .dropdown-content .dropdown-item{
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    font-weight: 400;
+    color: #212529;
+  }
+  .main-header .desktop-nav .bloque1 .menu-list .dropdown:hover .dropdown-content .dropdown-item:first-of-type{
+    margin-top: 6px;
+  }
+  .main-header .desktop-nav .bloque1 .menu-list .dropdown:hover .dropdown-content .dropdown-item:hover{
+    background-color: var(--orange);
+  }
+
+  .main-header .desktop-nav .bloque2{
+    width: 22%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .main-header .desktop-nav .bloque2 a{
+    width: 50%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 58px;
+    color: #ffffff;
+    margin: 10px;
+  }
+  .main-header .desktop-nav .bloque2 .menu-button{
+    width: 100%;
+    height: 58px;
+    background-color: var(--magenta);
+    border-radius: 8px;
+    text-align: center;
+  }
+  .main-header .desktop-nav .bloque2 .menu-button:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+  }
+  .main-header .desktop-nav .bloque2.desktop-small {
+    width: 30%;
+    height: 40px;
+    display: flex;
+  }
+  .main-header .desktop-nav .bloque2.desktop-small a{
+    line-height: 40px;
+    margin: 0px 10px;
+  }
+  .main-header .desktop-nav .bloque2.desktop-small .menu-button{
+    height: 40px;
+  }
+  /* END HEADER - DESKTOP*/
+
+
+
+  /* ADMIN SECTION */
+  /* ADMIN HEADER - DESKTOP*/
+  .main-header.admin-header .desktop-nav .bloque1 .h1-container {
+    display: none;
+    background-color: var(--magenta);
+    width: 460px;
+    height: 33px;
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .h1-container h1 {
+    font-size: 20px;
+    line-height: 33px;
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .menu-list {
+    background-color: var(--magenta);
+    height: 40px;
+    width: 99%;
+    margin-top: 10px;
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .menu-list li {
+    text-align: center;
+    line-height: 15px;
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .menu-list li a:hover{
+    color: var(--green);
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .menu-list a {
+    line-height: 16px;
+  }
+  .main-header.admin-header .desktop-nav .bloque2 a{
+    font-size: 18px;
+    line-height: 18px;
+  }
+  .main-header.admin-header .desktop-nav .bloque2 .menu-button{
+    background-color: var(--orange);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .main-header.admin-header .desktop-nav .bloque2.desktop-small{
+    margin-left: 70%;
+  }
+
+  /* END ADMIN HEADER - DESKTOP*/
+
+
+
+  /* ************ GENERAR NOTICIA SECTION - DESKTOP ************ */
+  .admin{
+    top: 132px;
+  }
+  .admin.generar{
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .admin .menuMobileTablet{
+    display: none;
+  }
+  .admin .input{
+    display: block !important;
+    width: 30%;
+  }
+  .admin .input form{
+    height: 74vh;
+    overflow-y: scroll;
+  }
+  /* SCROLLBAR */
+  /* width */
+  .admin .input form::-webkit-scrollbar {
+    width: 10px;
+  }
+  /* Track */
+  .admin .input form::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+  }
+  /* Handle */
+  .admin .input form::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 80px;
+  }
+  /* Handle on hover */
+  .admin .input form::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  /* FIN SCROLLBAR */
+
+  .admin .input .adminFormItem{
+    margin-left: 0;
+  }
+  .admin .input .colorTipoTitular label, .admin .input .colorFondoTitular label, .admin .input .colorTipoSubtitular label, .admin .input .colorFondoSubtitular label, .admin .input .colorTipoResumen label, .admin .input .colorFondoResumen label{
+    width: 43%;
+  }
+
+  .admin .output{
+    width: 68%;
+    height: 82vh;;
+    display: flex;
+    justify-content: space-between;
+  }
+  .admin .output .wrap_iframe {
+    width: 47%;
+    height: 100vh;
+    display: block !important;
+  }
+  .admin .output .wrap_iframe iframe {
+    width: 245% !important;
+    height: 254% !important;
+    -webkit-transform: scale(0.4);
+    transform: scale(0.4);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+  .admin .output .allCanvas{
+    width: 51%;
+    display: block !important;
+  }
+  .admin .output .allCanvas .container_canvas{
+    height: 74vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .admin .output .wrapCanvasFacebook {
+    width: 100%;
+    height: 510px;
+  }
+  #canvasFacebook{
+    width: 100%;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+
+  /* ************ END GENERAR NOTICIA SECTION - DESKTOP ************ */
+
+
+  /* ************ GENERAR IMAGEN SECTION - DESKTOP ************ */
+  .admin.generar.imagen .input{
+    width: 40%;
+  }
+  .admin.generar.imagen .output{
+    width: 45%;
+  }
+  .admin.generar.imagen .output .allCanvas{
+    overflow: unset;
+  }
+  /* ************ END GENERAR IMAGEN SECTION - DESKTOP ************ */
+
+
+  /* ************ ADMINISTRAR CAROUSEL SECTION - DESKTOP ************ */
+  .admin.carousel{
+    top: 122px;
+  }
+  .admin.carousel form .noticiasWrap{
+    width: 60%;
+    top: -5px;
+    left: calc((98vw - 60%)/2);
+  }
+  .admin.carousel form .imagenesDisponibles{
+    width: 60%;
+    top: -5px;
+    left: calc((98vw - 60%)/2);
+  }
+  .admin.carousel form .gris{
+    height: calc(100vh - 125px);
+  }
+  /* ************ END ADMINISTRAR CAROUSEL SECTION - DESKTOP ************ */
+
+  } /*fin media query desktop*/
+
+
+/* ********************************************* */
+@media (min-width:1244px) { /*desktop LARGE*/
+  /* HEADER - desktop large */
+  .main-header .desktop-nav .bloque2.desktop-small{
+    display: none;
+  }
+  .main-header .desktop-nav .bloque2.desktop-large{
+    display: flex;
+  }
+  .main-header .desktop-nav .bloque1{
+    width: 75%;
+  }
+  .main-header.admin-header .desktop-nav .bloque1 .menu-list{
+    margin-top: 0px;
+  }
+  /* END HEADER - desktop large */
+
+  } /*fin media query desktop LARGE*/
+
+
+@media (min-width:1920px) { /*desktop X-LARGE*/
+
+  .admin.carousel form .buttons{
+    max-width: 1885px;
+  }
+  .admin.carousel form .noticiasWrap {
+    left: calc((1885px - 60%)/2);
+  }
+  .admin.carousel form .imagenesDisponibles{
+    left: calc((1885px - 60%)/2);
+  }
+  } /*fin media query desktop X-LARGE*/
+
+
+@media (min-width:2048px) { /*desktop 2K*/
+   body{
+    background-color: var(--grey);
+   }
+  .admin.carousel form .buttons{
+    background-color: var(--grey);
+  }
+  .admin.carousel form .buttons {
+    bottom: 290px;
+  }
+  }
+
+@media (min-width:3840px) { /*desktop 4K*/
+
+
+  } /*fin media query desktop 4K*/
+
+
+@media (pointer: coarse) {
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
+}

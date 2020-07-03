@@ -6,9 +6,13 @@
   @endif
 @endsection
 
+@section('css')
+  <link rel="stylesheet" href="{{asset('/css/stylesResp.css')}}">
+@endsection
+
 @section("style")
   @if (isset($noticia) && $noticia->imagenNoticia == "si")
-    <style>
+    {{-- <style> --}}
       .img_container {background-image: url('/storage/noticias/imagenesMain/mobile/{{$noticia->imagen}}');}
 
       @media (min-width: 768px){
@@ -18,7 +22,7 @@
       @media (min-width: 992px){
         .img_container {background-image: url('/storage/noticias/imagenesMain/desktop/{{$noticia->imagen}}');}
       }
-    </style>
+    {{-- </style> --}}
   @endif
 @endsection
 

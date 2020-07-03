@@ -4,6 +4,10 @@
   Login -
   @endsection
 
+@section('css')
+  <link rel="stylesheet" href="{{asset('/css/stylesResp.css')}}">
+@endsection
+
 @section('content')
 
   <main class="admin login">

@@ -4,6 +4,10 @@
   Donar -
   @endsection
 
+@section('css')
+  <link rel="stylesheet" href="{{asset('/css/stylesResp.css')}}">
+@endsection
+
 @section('content')
   <div class="container_contacto container_donar">
 

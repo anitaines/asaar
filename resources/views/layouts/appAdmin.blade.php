@@ -22,7 +22,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Gidugu&display=swap" rel="stylesheet">
 
       <!-- Styles -->
-      <link rel="stylesheet" href="{{asset('/css/stylesResp.css')}}">
+      <link rel="stylesheet" href="{{asset('/css/stylesRespAdmin.css')}}">
 
   </head>
 
