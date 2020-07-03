@@ -334,8 +334,10 @@
 
     </div>
 
+  @endsection
 
-  <!-- Scripts -->
-  <script src="{{ asset('js/actividades.js') }}"></script>
+  @section("scripts")
+
+    <script src="{{ asset('js/actividades.js') }}"></script>
 
   @endsection

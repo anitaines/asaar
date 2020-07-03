@@ -6,7 +6,25 @@
 /* Estilos de Admin Section: en stylesRespAdmin.css */
 
 
-
+.carousel_colors{
+  height: 10px;
+  display: flex;
+}
+.green{
+  width: 33.33%;
+  height: 10px;
+  background-color: var(--green);
+}
+.orange{
+  width: 33.33%;
+  height: 10px;
+  background-color: var(--orange);
+}
+.blue{
+  width: 33.33%;
+  height: 10px;
+  background-color: var(--blue);
+}
 
 /* ************ ASPERGER SECTION - MOBILE ************ */
 /* ASPERGER - ASPERGER SECTION - MOBILE*/
@@ -1169,7 +1187,7 @@ text-align: left;
 footer{
   background-color: var(--grey);
   display: flex;
-  /* flex-direction: column-reverse; */
+  flex-direction: column-reverse;
 }
 .container_logo_footer{
   display: flex;
@@ -1236,7 +1254,7 @@ footer{
 }
 .p_newsletter_footer{
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 17px;
   margin: 15px 0;
 }
@@ -1331,9 +1349,6 @@ footer{
 #mce-error-response{
   color: red;
 }
-.container_detalle_noticias footer{
-  flex-direction: column;
-}
 .container_detalle_noticias footer .logo_footer img, .container_detalle_noticias footer .logo_footer p:nth-child(4){
   display: none;
 }
@@ -1342,6 +1357,15 @@ footer{
 }
 .container_detalle_noticias footer .contact_footer{
   margin-bottom: 30px;
+}
+.new_buton_newsletter_footer{
+  width: 80%;
+  height: 70px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
 }
 /* END FOOTER - NOTICIA - MOBILE*/
 
@@ -1467,7 +1491,14 @@ footer{
 /* ************ END LOGIN SECTION - MOBILE ************ */
 
 
-
+/* ************ NEWSLETTER SEPARADO SECTION - MOBILE ************ */
+.container_contacto.container_newsletter .newsletter_footer{
+  margin: 0 auto;
+  width: 95%;
+  border-radius: 6px;
+  height: 380px;
+}
+/* ************ NEWSLETTER SEPARADO SECTION - MOBILE ************ */
 
 /* ********************************************* */
 @media (min-width:768px) { /*tablet*/
@@ -1829,6 +1860,12 @@ footer{
   }
   /* ************ END LOGIN SECTION - TABLET ************ */
 
+
+  /* ************ NEWSLETTER SEPARADO SECTION - TABLET ************ */
+  .container_contacto.container_newsletter .newsletter_footer{
+    width: 65%;
+  }
+  /* ************ NEWSLETTER SEPARADO SECTION - TABLET ************ */
 
   } /*fin media query tablet*/
 
@@ -2389,5 +2426,5 @@ footer{
 
 @media (min-width:3840px) { /*desktop 4K*/
 
-  
+
   } /*fin media query desktop 4K*/

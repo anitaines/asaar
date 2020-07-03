@@ -535,8 +535,10 @@
             </main>
 
   </div>
+  @endsection
 
-    <!-- Scripts -->
+  @section("scripts")
+
     <script src="{{ asset('js/linksAspergerSection.js') }}"></script>
 
   @endsection

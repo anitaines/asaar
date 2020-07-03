@@ -358,7 +358,7 @@
           </div>
         </div>
 
-      <!-- Begin Mailchimp Signup Form -->
+      {{-- <!-- Begin Mailchimp Signup Form -->
         <div id="mc_embed_signup" class="newsletter_footer">
           <p class="p_newsletter_footer">Recibir novedades por mail:</p>
           <form action="https://gmail.us19.list-manage.com/subscribe/post?u=5ef693025dfac788bcbc56790&amp;id=3ad72c438f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form_newsletter_footer" target="_blank" novalidate>
@@ -408,97 +408,109 @@
           max: $.validator.format("Por favor, escribe un valor menor o igual a {0}."),
           min: $.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
         });}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-      <!--End mc_embed_signup-->
+      <!--End mc_embed_signup--> --}}
 
+      <div class="newsletter_footer">
+        <a href="/newsletter">
+          <div class="buton_newsletter_footer new_buton_newsletter_footer">
+            Recibir nuestras novedades por e-mail
+          </div>
+        </a>
+      </div>
+      
       </footer>
 
   </div>
 
-  @if (isset($noticia) && $noticia->imagenNoticia == "si")
-    {{-- <script src="{{ asset('js/layoutNoticia.js') }}"></script> --}}
-    <script>
-      let infoImgContainer = document.querySelector(".info_img_container");
-      let logoAsaar = document.querySelector(".info_img_container .box1 img");
-      let calendario = document.querySelector(".info_img_container .box1 .calendar");
-      if (logoAsaar.style.display == "none" && calendario.style.display == "none"){
-        infoImgContainer.style.alignContent="center";
-      }
-    </script>
-  @endif
+  @endsection
 
-  @if (isset($noticia) && $noticia->content)
-    <script>
+  @section("scripts")
 
-    var parrafos = document.querySelectorAll(".parrafo");
-
-    for (var i = 0; i < parrafos.length; i++) {
-      setParrafoAccesible(parrafos[i]);
-    }
-
-    function setParrafoAccesible(p) {
-      // Capturar el contenido del elemento p:
-      var texto = p.innerHTML;
-      // console.log("texto original: " + texto);
-
-      // Transformar el contenido en un array de palabras para poder filtrarlo:
-      var arrayPalabras = texto.trim().split(" ");
-
-      // La variable va a guardar todas las palabras que contengan @:
-      var aMail = arrayPalabras.filter(filtrarMail);
-      // console.log(aMail);
-
-      // La variable va a guardar todas las palabras que contengan un patrón de url:
-      var aWeb = arrayPalabras.filter(filtrarWeb);
-      // console.log("arrayPalabras: " + arrayPalabras);
-      // console.log("aWeb detectado: " + aWeb);
-
-      // Reemplzar en el texto, cada una de las palabras que contienen @, por el elemento a correspondiente:
-      for (var i = 0; i < aMail.length; i++) {
-        texto = texto.replace(aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
-      }
-
-      // Reemplzar en el texto, cada una de las palabras que contienen url, por el elemento a correspondiente:
-      for (var i = 0; i < aWeb.length; i++) {
-        if (aWeb[i].includes("http://") || aWeb[i].includes("https://")){
-          texto = texto.replace(aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
-        } else {
-          texto = texto.replace(aWeb[i], ' <a href="http://' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+    @if (isset($noticia) && $noticia->imagenNoticia == "si")
+      {{-- <script src="{{ asset('js/layoutNoticia.js') }}"></script> --}}
+      <script>
+        let infoImgContainer = document.querySelector(".info_img_container");
+        let logoAsaar = document.querySelector(".info_img_container .box1 img");
+        let calendario = document.querySelector(".info_img_container .box1 .calendar");
+        if (logoAsaar.style.display == "none" && calendario.style.display == "none"){
+          infoImgContainer.style.alignContent="center";
         }
+      </script>
+    @endif
+
+    @if (isset($noticia) && $noticia->content)
+      <script>
+
+      var parrafos = document.querySelectorAll(".parrafo");
+
+      for (var i = 0; i < parrafos.length; i++) {
+        setParrafoAccesible(parrafos[i]);
       }
-      // console.log("texto nuevo gerenerado: " + texto);
-      p.innerHTML = texto;
 
-    }
+      function setParrafoAccesible(p) {
+        // Capturar el contenido del elemento p:
+        var texto = p.innerHTML;
+        // console.log("texto original: " + texto);
 
-    function filtrarMail(value){
-      return value.includes("@");
-    }
+        // Transformar el contenido en un array de palabras para poder filtrarlo:
+        var arrayPalabras = texto.trim().split(" ");
 
-    function filtrarWeb(value){
-      var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gi;
-      return regex.test(value);
-    }
+        // La variable va a guardar todas las palabras que contengan @:
+        var aMail = arrayPalabras.filter(filtrarMail);
+        // console.log(aMail);
+
+        // La variable va a guardar todas las palabras que contengan un patrón de url:
+        var aWeb = arrayPalabras.filter(filtrarWeb);
+        // console.log("arrayPalabras: " + arrayPalabras);
+        // console.log("aWeb detectado: " + aWeb);
+
+        // Reemplzar en el texto, cada una de las palabras que contienen @, por el elemento a correspondiente:
+        for (var i = 0; i < aMail.length; i++) {
+          texto = texto.replace(aMail[i], ' <a href="mailto:' + aMail[i] + '">' + aMail[i] + '</a>' );
+        }
+
+        // Reemplzar en el texto, cada una de las palabras que contienen url, por el elemento a correspondiente:
+        for (var i = 0; i < aWeb.length; i++) {
+          if (aWeb[i].includes("http://") || aWeb[i].includes("https://")){
+            texto = texto.replace(aWeb[i], ' <a href="' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+          } else {
+            texto = texto.replace(aWeb[i], ' <a href="http://' + aWeb[i] + '" target="_blank" rel="noreferrer">' + aWeb[i] + '</a> ');
+          }
+        }
+        // console.log("texto nuevo gerenerado: " + texto);
+        p.innerHTML = texto;
+
+      }
+
+      function filtrarMail(value){
+        return value.includes("@");
+      }
+
+      function filtrarWeb(value){
+        var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gi;
+        return regex.test(value);
+      }
 
 
+      </script>
+    @endif
+
+    <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+
+    return t;
+    }(document, "script", "twitter-wjs"));
     </script>
-  @endif
-
-  <script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-  }(document, "script", "twitter-wjs"));
-  </script>
 
   @endsection

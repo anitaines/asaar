@@ -23,9 +23,6 @@
 
       <link rel="icon" href="/media/logos/favicon.png" sizes="any" type="image/png">
 
-      <!-- Scripts -->
-      {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-
       <!-- Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700|Raleway:500,700&display=swap" rel="stylesheet">
 
@@ -590,6 +587,8 @@
     }
 
     </script>
+
+    @yield('scripts')
 
   </body>
 

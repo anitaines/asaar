@@ -284,9 +284,10 @@
     </main>
 
   </div>
+  @endsection
 
+  @section("scripts")
 
-  <!-- Scripts -->
-  <script src="{{ asset('js/linksQuienesSomos.js') }}"></script>
+    <script src="{{ asset('js/linksQuienesSomos.js') }}"></script>
 
   @endsection

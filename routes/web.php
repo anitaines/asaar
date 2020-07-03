@@ -58,6 +58,11 @@ Route::get('/noticias', 'ReleaseController@index');
 // Noticia
 Route::get('/noticia/{id}/{slug}', 'ReleaseController@show');
 
+// Sección Newsletter
+Route::get('/newsletter', function () {
+    return view('newsletter');
+});
+
 
 // ADMIN:
 // Control panel

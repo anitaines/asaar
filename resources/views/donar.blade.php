@@ -101,7 +101,10 @@
     </div>
 
   </div>
+  @endsection
 
-  <script src="{{ asset('js/donar.js') }}"></script>
+  @section("scripts")
+
+    <script src="{{ asset('js/donar.js') }}"></script>
 
   @endsection

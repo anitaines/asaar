@@ -562,6 +562,18 @@
       #mce-error-response{
         color: red;
       }
+      .new_buton_newsletter_footer{
+        width: 80%;
+        height: 70px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto;
+      }
+      .new_buton_newsletter_footer:hover{
+        cursor: pointer;
+      }
       {{-- /* END FOOTER - HOME - MOBILE*/ --}}
       {{-- /* ************ END HOME - MOBILE ************ */ --}}
 
@@ -1045,7 +1057,7 @@
       </div>
     </div>
 
-    <!-- Begin Mailchimp Signup Form -->
+    {{-- <!-- Begin Mailchimp Signup Form -->
       <div id="mc_embed_signup" class="newsletter_footer">
         <p class="p_newsletter_footer">Recibir novedades por mail:</p>
         <form action="https://gmail.us19.list-manage.com/subscribe/post?u=5ef693025dfac788bcbc56790&amp;id=3ad72c438f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form_newsletter_footer" target="_blank" novalidate>
@@ -1072,126 +1084,134 @@
           </div>
         </form>
       </div>
+    <!--End mc_embed_signup--> --}}
 
-    <!--End mc_embed_signup-->
+      <div class="newsletter_footer">
+        <a href="/newsletter">
+          <div class="buton_newsletter_footer new_buton_newsletter_footer">
+            Recibir nuestras novedades por e-mail
+          </div>
+        </a>
+      </div>
 
     </footer>
 
+  @endsection
+
+  @section("scripts")
     {{-- <script src="{{ asset('js/index.js') }}"></script> --}}
-
     <script>
-    // LINEAR GRADIENT HEADER:
-    document.getElementById("header").style.backgroundColor="transparent";
+      // LINEAR GRADIENT HEADER:
+      document.getElementById("header").style.backgroundColor="transparent";
 
-    window.onscroll = function() {scrollFunction()};
+      window.onscroll = function() {scrollFunction()};
 
-    function scrollFunction() {
-      if ((document.body.scrollTop > 50 && document.body.scrollTop <= 100) || (document.documentElement.scrollTop > 50 && document.documentElement.scrollTop <= 100)) {
-        document.getElementById("header").style.backgroundImage= "linear-gradient(to top, rgba(243,243,243,0), rgba(243,243,243,0.1), rgba(243,243,243,0.2), rgba(243,243,243,0.3),rgba(243,243,243,0.4), rgba(243,243,243,0.5))";
-
-      } else {
-        if ((document.body.scrollTop > 100 && document.body.scrollTop <= 150) || (document.documentElement.scrollTop > 100 && document.documentElement.scrollTop <= 150)) {
-          document.getElementById("header").style.backgroundImage= "linear-gradient(to top, rgba(243,243,243,0.6), rgba(243,243,243,0.7), rgba(243,243,243,0.8), rgba(243,243,243,0.9), rgba(243,243,243,1))";
+      function scrollFunction() {
+        if ((document.body.scrollTop > 50 && document.body.scrollTop <= 100) || (document.documentElement.scrollTop > 50 && document.documentElement.scrollTop <= 100)) {
+          document.getElementById("header").style.backgroundImage= "linear-gradient(to top, rgba(243,243,243,0), rgba(243,243,243,0.1), rgba(243,243,243,0.2), rgba(243,243,243,0.3),rgba(243,243,243,0.4), rgba(243,243,243,0.5))";
 
         } else {
-          if ((document.body.scrollTop > 150) || (document.documentElement.scrollTop > 150)){
-            document.getElementById("header").style.backgroundImage= "linear-gradient(to top, rgba(243,243,243,1), rgba(243,243,243,1))";
+          if ((document.body.scrollTop > 100 && document.body.scrollTop <= 150) || (document.documentElement.scrollTop > 100 && document.documentElement.scrollTop <= 150)) {
+            document.getElementById("header").style.backgroundImage= "linear-gradient(to top, rgba(243,243,243,0.6), rgba(243,243,243,0.7), rgba(243,243,243,0.8), rgba(243,243,243,0.9), rgba(243,243,243,1))";
 
-          }else{
-            document.getElementById("header").style.backgroundImage= "none";
+          } else {
+            if ((document.body.scrollTop > 150) || (document.documentElement.scrollTop > 150)){
+              document.getElementById("header").style.backgroundImage= "linear-gradient(to top, rgba(243,243,243,1), rgba(243,243,243,1))";
+
+            }else{
+              document.getElementById("header").style.backgroundImage= "none";
+              }
             }
           }
         }
-      }
 
-    // SLIDESHOW:
-    var slideIndex = 1;
+      // SLIDESHOW:
+      var slideIndex = 1;
 
-    var myTimer;
+      var myTimer;
 
-    var slideshowContainer;
+      var slideshowContainer;
 
-    showSlides(slideIndex);
-    myTimer = setInterval(function(){plusSlides(1)}, 4000);
+      showSlides(slideIndex);
+      myTimer = setInterval(function(){plusSlides(1)}, 4000);
 
-    // NEXT AND PREVIOUS CONTROL
-    function plusSlides(n){
-      clearInterval(myTimer);
-      if (n < 0){
-        showSlides(slideIndex -= 1);
-        } else {
-         showSlides(slideIndex += 1);
-      }
-
-      if (n === -1){
-        myTimer = setInterval(function(){plusSlides(n + 2)}, 4000);
-        } else {
-          myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
+      // NEXT AND PREVIOUS CONTROL
+      function plusSlides(n){
+        clearInterval(myTimer);
+        if (n < 0){
+          showSlides(slideIndex -= 1);
+          } else {
+           showSlides(slideIndex += 1);
         }
-      }
 
-    //Controls the current slide and resets interval if needed
-    function currentSlide(n){
-      clearInterval(myTimer);
-      myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
-      showSlides(slideIndex = n);
-      }
-
-    function showSlides(n){
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-      for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-      }
-      // slides[slideIndex-1].style.display = "block";
-      slides[slideIndex-1].style.display = "flex";
-      slides[slideIndex-1].classList.remove("transition-news-back");
-      slides[slideIndex-1].classList.add("transition-news");
-
-      if (dots.length>0){
-        dots[slideIndex-1].className += " active";
-      }
-    }
-
-      // pause - resume
-      let div_noticia = document.querySelectorAll(".div_noticia");
-
-      for (var i = 0; i < div_noticia.length; i++) {
-
-        div_noticia[i].addEventListener("mouseenter", function(){
-          clearInterval(myTimer);
-        });
-
-        div_noticia[i].addEventListener("mouseleave", function(){
-          clearInterval(myTimer);
-          myTimer = setInterval(function(){plusSlides(slideIndex)}, 4000);
-        });
-      }
-
-
-      // reverse transition
-      let aPrev = document.querySelector(".prev");
-      let mySlides = document.querySelectorAll(".mySlides");
-
-      if (aPrev != null){
-        aPrev.addEventListener("click", function(){
-          for (var i = 0; i < mySlides.length; i++) {
-            mySlides[i].classList.remove("transition-news");
-            mySlides[i].classList.add("transition-news-back");
+        if (n === -1){
+          myTimer = setInterval(function(){plusSlides(n + 2)}, 4000);
+          } else {
+            myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
           }
-        });
+        }
+
+      //Controls the current slide and resets interval if needed
+      function currentSlide(n){
+        clearInterval(myTimer);
+        myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
+        showSlides(slideIndex = n);
+        }
+
+      function showSlides(n){
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        // slides[slideIndex-1].style.display = "block";
+        slides[slideIndex-1].style.display = "flex";
+        slides[slideIndex-1].classList.remove("transition-news-back");
+        slides[slideIndex-1].classList.add("transition-news");
+
+        if (dots.length>0){
+          dots[slideIndex-1].className += " active";
+        }
       }
 
+        // pause - resume
+        let div_noticia = document.querySelectorAll(".div_noticia");
+
+        for (var i = 0; i < div_noticia.length; i++) {
+
+          div_noticia[i].addEventListener("mouseenter", function(){
+            clearInterval(myTimer);
+          });
+
+          div_noticia[i].addEventListener("mouseleave", function(){
+            clearInterval(myTimer);
+            myTimer = setInterval(function(){plusSlides(slideIndex)}, 4000);
+          });
+        }
+
+
+        // reverse transition
+        let aPrev = document.querySelector(".prev");
+        let mySlides = document.querySelectorAll(".mySlides");
+
+        if (aPrev != null){
+          aPrev.addEventListener("click", function(){
+            for (var i = 0; i < mySlides.length; i++) {
+              mySlides[i].classList.remove("transition-news");
+              mySlides[i].classList.add("transition-news-back");
+            }
+          });
+        }
     </script>
 
     {{-- Mailchimp --}}
-    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[0]='EMAIL';ftypes[0]='email'; /*
+    {{-- <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[0]='EMAIL';ftypes[0]='email'; /*
      * Translated default messages for the $ validation plugin.
      * Locale: ES
      */
@@ -1213,6 +1233,6 @@
       range: $.validator.format("Por favor, escribe un valor entre {0} y {1}."),
       max: $.validator.format("Por favor, escribe un valor menor o igual a {0}."),
       min: $.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
-    });}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+    });}(jQuery));var $mcj = jQuery.noConflict(true);</script> --}}
 
   @endsection
