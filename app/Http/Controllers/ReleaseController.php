@@ -181,7 +181,7 @@ class ReleaseController extends Controller
 
           // Tablet:
           $imageResizeTablet = ImageIntervention::make($image->getRealPath());
-          $imageResizeTablet->resize(875, null, function ($constraint) {
+          $imageResizeTablet->resize(845, null, function ($constraint) {
               $constraint->aspectRatio();
               $constraint->upsize();
           });
@@ -595,7 +595,7 @@ class ReleaseController extends Controller
 
           // Tablet:
           $imageResizeTablet = ImageIntervention::make($image->getRealPath());
-          $imageResizeTablet->resize(875, null, function ($constraint) {
+          $imageResizeTablet->resize(845, null, function ($constraint) {
               $constraint->aspectRatio();
               $constraint->upsize();
           });

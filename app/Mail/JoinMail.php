@@ -33,8 +33,9 @@ class JoinMail extends Mailable
     public function build()
     {
       return $this->subject('Solicitud de nuevo socio desde el sitio web')
-                  ->from('info@asperger.com.ar')
-                  ->to('info@asperger.com.ar')
+                  ->from('notificaciones.asaar@gmail.com', 'Notificaciones AsAAr')
+                  ->to('gdi.anaines@gmail.com')
+                  // cambiar por ->to('info@asperger.org.ar')
                   ->replyTo($this->email->email)
                   ->view('email.joinmail');
     }

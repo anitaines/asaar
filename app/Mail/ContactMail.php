@@ -33,23 +33,15 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this->subject('Contacto desde el sitio web')
-                    ->from('info@asperger.com.ar')
-                    ->to('info@asperger.com.ar')
+                    ->from('notificaciones.asaar@gmail.com', 'Notificaciones AsAAr')
+                    ->to('gdi.anaines@gmail.com')
+                    // cambiar por ->to('info@asperger.org.ar')
                     ->replyTo($this->email->email)
                     ->view('email.contactmail');
     }
 }
 
-// from($this->email->email, $this->email->name)
+// ($this->email->email, $this->email->name)
 
-// DINAMICA FUTURA:
-// OJO REPLY-TO MARCA COMO SPAM
-// AGREGAR LEYENDA "NO RESPONDER ESTE MAIL"??
-// Registrar un notificaciones-asaar@gmail.com
-// Activar app password
-// return $this->subject('Contacto desde el sitio web')
-//             ->from('notificaciones-asaar@gmail.com')
-//             ->to('info@asperger.com.ar')
-//             cc('notificaciones-asaar@gmail.com') para que queden guardados los mails
-//             ->replyTo($this->email->email)
-//             ->view('email.contactmail');
+// plan b: habilitar forward en gmail?
+// Se enviará un mensaje de verificación a esa dirección. Haz clic en el enlace de verificación del mensaje.
