@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/sitemap.xml', 'SiteMapController@index');
+
 // Rutas auth CON registro:
 // Auth::routes();
 
