@@ -3,16 +3,19 @@
 
   <head>
       <meta charset="utf-8">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
       {{-- SEO --}}
       <meta name="description" content="Sitio Oficial de la Asociación Asperger Argentina">
       <meta name="keywords" content="Asperger, Síndrome de Asperger, CEA, TEA, Trastorno del Espectro Autista, Condición del Espectro Autista, Autismo, Asociación sin fines de lucro">
-
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- CSRF Token -->
       <meta name="csrf-token" content="{{ csrf_token() }}">
 
       <title>@yield("title") Asociación Asperger Argentina</title>
+
+      @yield("meta-fb")
 
       {{-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css"> --}}
       {{-- <style type="text/css">

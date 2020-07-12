@@ -3,11 +3,12 @@
 
   <head>
       <meta charset="utf-8">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
       {{-- SEO --}}
       <meta name="description" content="Sitio Oficial de la Asociación Asperger Argentina">
       <meta name="keywords" content="Asperger, Síndrome de Asperger, CEA, TEA, Trastorno del Espectro Autista, Condición del Espectro Autista, Autismo, Asociación sin fines de lucro">
-
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- CSRF Token -->
       <meta name="csrf-token" content="{{ csrf_token() }}">

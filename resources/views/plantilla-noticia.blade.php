@@ -6,9 +6,24 @@
   @endif
 @endsection
 
-@section('css')
-  <link rel="stylesheet" href="{{asset('/css/stylesResp.css')}}">
+
+@section("meta-fb")
+  @if(isset($noticia))
+    <meta property="og:url" content="http://www.nuevositioasaar.epizy.com/noticia/{{$noticia->id}}/{{$noticia->slug}}" />
+    {{-- <meta property="og:url" content="http://www.asperger.org.ar/noticia/{{$noticia->id}}/{{$noticia->slug}}" /> --}}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Asociación Asperger Argentina" />
+    <meta property="og:description" content="{{$noticia->title}}" />
+    @if (isset($noticia) && $noticia->imagenNoticia == "si")
+      <meta property="og:image" content="http://www.nuevositioasaar.epizy.com/storage/noticias/imagenesMain/desktop/{{$noticia->imagen}}" />
+      {{-- <meta property="og:image" content="http://www.asperger.org.ar/storage/noticias/imagenesMain/desktop/{{$noticia->imagen}}" /> --}}
+    @else
+      <meta property="og:image" content="http://www.nuevositioasaar.epizy.com/public/media/home/63293crop_desktop.jpg" />
+      {{-- <meta property="og:image" content="http://www.asperger.org.ar/public/media/home/63293crop_desktop.jpg" /> --}}
+    @endif
+  @endif
 @endsection
+
 
 @section("style")
   @if (isset($noticia) && $noticia->imagenNoticia == "si")
@@ -25,6 +40,12 @@
     {{-- </style> --}}
   @endif
 @endsection
+
+
+@section('css')
+  <link rel="stylesheet" href="{{asset('/css/stylesResp.css')}}">
+@endsection
+
 
 @section('content')
 
@@ -299,9 +320,11 @@
 
         <div class="share_options">
 
-          {{-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.pruebas-asaar.epizy.com%2F&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> --}}
           @if (isset($noticia))
-            <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.asperger.org.ar%2F{{$noticia->id}}%2F{{$noticia->slug}}&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            {{-- http://www.asperger.org.ar/noticia/5/taller-de-padres-para-padres --}}
+            <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.nuevositioasaar.epizy.com%2Fnoticia%2F{{$noticia->id}}%2F{{$noticia->slug}}&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            {{-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.asperger.org.ar%2Fnoticia%2F{{$noticia->id}}%2F{{$noticia->slug}}&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> --}}
+
           @else
             <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.asperger.org.ar&layout=button&size=large&width=77&height=28&appId" width="77" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
           @endif
@@ -417,7 +440,7 @@
           </div>
         </a>
       </div>
-      
+
       </footer>
 
   </div>
