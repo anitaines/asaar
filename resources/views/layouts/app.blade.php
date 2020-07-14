@@ -415,6 +415,8 @@
 
       {{-- <link rel="stylesheet" href="{{asset('/css/stylesResp.css')}}"> --}}
 
+      <link rel="stylesheet" media="print" href="{{asset('/css/print.css')}}">
+
   </head>
 
   <body>

@@ -1,0 +1,109 @@
+/* GENERAL: */
+body{
+  background-color: #ffffff !important;
+}
+
+/* NAVBAR: */
+.main-header{
+  background-color: #ffffff !important;
+  position: relative;
+}
+.main-header .mobile-nav {
+  display: block !important;
+}
+.main-header .mobile-nav .h1-container{
+  display: block !important;
+  background-color: #ffffff;
+  color: var(--black);
+}
+.main-header .mobile-nav .bloque2{
+  display: none !important;
+}
+.main-header .mobile-nav .dropdown-newMobile{
+  display: none !important;
+}
+.main-header .desktop-nav{
+  display: none !important;
+}
+.share{
+  display: none;
+}
+.container_detalle_noticias .main_detalle_noticias a:last-child h5{
+  display: none;
+}
+
+/* FOOTER: */
+footer{
+  display: none;
+}
+
+/* NOTICIA: */
+.container_contacto {
+    top: 0;
+}
+.container_detalle_noticias a:first-child h5{
+  display: none !important;
+}
+.img_container{
+  display: none !important;
+}
+.main_detalle_noticias .wrap_img .info_img_container{
+  border: 2px solid var(--black)  !important;
+}
+.main_detalle_noticias .wrap_img .info_img_container p{
+  color: var(--black) !important;
+}
+.main_detalle_noticias .wrap_img .info_img_container .box1 img{
+  display: none !important;
+}
+.main_detalle_noticias .wrap_img .info_img_container .box1 {
+  justify-content: flex-end !important;
+}
+.main_detalle_noticias .wrap_img .info_img_container .box1 .calendar {
+  background-color: #ffffff !important;
+}
+.main_detalle_noticias .wrap_img .info_img_container .box1 .calendar div:first-child{
+  background-color: #ffffff !important;
+  border: 2px solid var(--black)  !important;
+}
+.main_detalle_noticias .wrap_img .info_img_container .box2{
+  border: none !important;
+}
+.main_detalle_noticias .wrap_img .info_img_container .box3 div:first-child, .main_detalle_noticias .wrap_img .info_img_container .box3 div:last-child{
+  background-color: #ffffff !important;
+}
+
+/* ASPERGER SECTION: */
+.nav_aspergerCEA{
+  display: none !important;
+}
+.container_aspergerCEA{
+  top: 0;
+}
+.iframe_poster_diagnosticos{
+  display: none;
+}
+.iframe_poster{
+  display: none;
+}
+.librosGratis_item {
+  height: auto;
+  border: none;
+  background-color: #ffffff !important;
+}
+.p_librosGratis_item{
+  padding: 0px;
+  position: relative;
+  height: auto;
+}
+.a_librosGratis_item{
+  display: none;
+}
+
+/* QUIENES SOMOS SECTION: */
+.quienesSomos .nav_aspergerCEA{
+  display: none !important;
+}
+.img_diptico img{
+  display: none;
+}
