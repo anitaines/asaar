@@ -1,5 +1,9 @@
 @extends("layouts.app")
 
+@section("meta-description")
+  "Información sobre la Asociación Asperger Argentina"
+  @endsection
+
 @section("title")
   Quiénes somos -
   @endsection

@@ -1,5 +1,9 @@
 @extends("layouts.app")
 
+@section("meta-description")
+  "Últimas noticias de la Asociación Asperger Argentina"
+  @endsection
+
 @section("title")
   Noticias -
   @endsection

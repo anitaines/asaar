@@ -1,5 +1,9 @@
 @extends("layouts.app")
 
+@section("meta-description")
+  "Información sobre Asperger/ CEA"
+  @endsection
+
 @section("title")
   Asperger/CEA -
   @endsection

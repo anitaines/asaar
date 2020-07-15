@@ -1,5 +1,9 @@
 @extends("layouts.app")
 
+@section("meta-description")
+  "Cómo asociarse"
+  @endsection
+
 @section("title")
   Asociarse -
   @endsection

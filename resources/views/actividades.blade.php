@@ -1,5 +1,9 @@
 @extends("layouts.app")
 
+@section("meta-description")
+  "Actividades, jornadas, congresos y talleres de la Asociación Asperger Argentina"
+  @endsection
+
 @section("title")
   Actividades -
   @endsection

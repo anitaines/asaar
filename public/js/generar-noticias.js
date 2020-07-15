@@ -875,12 +875,26 @@ window.onload = function(){
     let infoImgContainerIframe = iframe.contentWindow.document.querySelector(".info_img_container");
     let logoAsaarIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 img");
     let calendarioIframe = iframe.contentWindow.document.querySelector(".info_img_container .box1 .calendar");
-
+      // 1. Ajuste align-content dependiendo de la presencia de logo o calendario:
       if (logoAsaarIframe.style.display == "none" && calendarioIframe.style.display == "none"){
         infoImgContainerIframe.style.alignContent="center";
       } else {
         infoImgContainerIframe.style.alignContent="start";
       }
+
+      // 2. Ajuste de alto imagen y contenedores dependiendo de la cantidad de información:
+      infoImgContainerIframe.style.height = "auto";
+      let newHeight = infoImgContainerIframe.clientHeight + 50 + "px";
+      if (newHeight == "90px"){
+        newHeight = "655px";
+      }
+
+      let  wrapImgIframe = iframe.contentWindow.document.querySelector(".wrap_img");
+      wrapImgIframe.style.height = newHeight;
+
+      let  imgContainerIframe = iframe.contentWindow.document.querySelector(".img_container");
+      imgContainerIframe.style.height = newHeight;
+
     }
 
 

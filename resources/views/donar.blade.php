@@ -1,5 +1,9 @@
 @extends("layouts.app")
 
+@section("meta-description")
+  "Cómo ayudar"
+  @endsection
+
 @section("title")
   Donar -
   @endsection

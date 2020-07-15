@@ -1,5 +1,9 @@
 @extends("layouts.app")
 
+@section("meta-description")
+  "Suscribirse a nuestras novedades"
+  @endsection
+
 @section("title")
   Newsletter -
   @endsection

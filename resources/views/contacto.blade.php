@@ -1,5 +1,9 @@
 @extends("layouts.app")
 
+@section("meta-description")
+  "Canales de contacto de la Asociación Asperger Argentina"
+  @endsection
+
 @section("title")
   Contacto -
   @endsection

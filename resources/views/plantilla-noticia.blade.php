@@ -1,5 +1,9 @@
 @extends("layouts.app")
 
+@section("meta-description")
+  "Noticias de la Asociación Asperger Argentina"
+  @endsection
+
 @section("title")
   @if(isset($noticia))
   {{$noticia->title}} -
@@ -452,12 +456,29 @@
     @if (isset($noticia) && $noticia->imagenNoticia == "si")
       {{-- <script src="{{ asset('js/layoutNoticia.js') }}"></script> --}}
       <script>
+        // Ajustar layout info/imagen:
+        // 1. Ajuste align-content dependiendo de la presencia de logo o calendario:
         let infoImgContainer = document.querySelector(".info_img_container");
         let logoAsaar = document.querySelector(".info_img_container .box1 img");
         let calendario = document.querySelector(".info_img_container .box1 .calendar");
         if (logoAsaar.style.display == "none" && calendario.style.display == "none"){
           infoImgContainer.style.alignContent="center";
         }
+
+        // 2. Ajuste de alto imagen y contenedores dependiendo de la cantidad de información:
+        infoImgContainer.style.height = "auto";
+
+        let newHeight = infoImgContainer.clientHeight + 50 + "px";
+        if (newHeight == "90px"){
+          newHeight = "655px";
+        }
+
+        let  wrapImg = document.querySelector(".wrap_img");
+        wrapImg.style.height = newHeight;
+
+        let  imgContainer = document.querySelector(".img_container");
+        imgContainer.style.height = newHeight;
+
       </script>
     @endif
 

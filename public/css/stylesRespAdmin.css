@@ -1062,7 +1062,7 @@ padding-left: 10px;
   background-color: #ffffff;
   width: 90%;
   left: calc((98vw - 90%)/2);
-  top: -100px;
+  top: -48px;
 }
 .admin.carousel form .noticiasWrap .cerrarNoticias{
   width: 30px;
@@ -1172,7 +1172,7 @@ padding-left: 10px;
   background-color: #ffffff;
   width: 90%;
   left: calc((98vw - 90%)/2);
-  top: -100px;
+  top: -48px;
 }
 .admin.carousel form .imagenesDisponibles .cerrarImagenes{
   width: 30px;
@@ -1265,11 +1265,16 @@ padding-left: 10px;
 .admin.carousel form .gris{
   border-radius: 6px;
   background-color: rgba(0,0,0,0.6);
-  width: 100%;
-  position: absolute;
+  /* width: 100%; */
+  width: 98%;
+  max-width: 1880px;
+  /* position: absolute; */
+  position: fixed;
   z-index: 700;
-  top: -110px;
-  height: calc(100vh - 100px);
+  /* top: -110px; */
+  top: 0;
+  /* height: calc(100vh - 80px); */
+  height: 100vh;
   -webkit-animation-name: fadein;
   -webkit-animation-duration: 0.3s;
   -webkit-animation-timing-function: ease;
@@ -1544,9 +1549,9 @@ padding-left: 10px;
   .admin.carousel form .imagenesDisponibles .imagenesDisponiblesWrap{
     height: calc(55vh - 59px);
   }
-  .admin.carousel form .gris{
+  /* .admin.carousel form .gris{
     top: -60px;
-  }
+  } */
 
   /* ************ END ADMINISTRAR CAROUSEL SECTION - TABLET ************ */
 
@@ -1866,9 +1871,9 @@ padding-left: 10px;
     top: -5px;
     left: calc((98vw - 60%)/2);
   }
-  .admin.carousel form .gris{
+  /* .admin.carousel form .gris{
     height: calc(100vh - 125px);
-  }
+  } */
   /* ************ END ADMINISTRAR CAROUSEL SECTION - DESKTOP ************ */
 
   } /*fin media query desktop*/
