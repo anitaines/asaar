@@ -65,6 +65,11 @@ Route::get('/newsletter', function () {
     return view('newsletter');
 });
 
+// Crédito imágenes
+Route::get('/creditos', function () {
+    return view('creditos');
+});
+
 
 // ADMIN:
 // Control panel

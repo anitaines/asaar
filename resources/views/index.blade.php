@@ -1,10 +1,14 @@
 @extends("layouts.app")
 
+@section("meta-description")
+  "Sitio Oficial de la Asociación Asperger Argentina"
+  @endsection
+
 @section("title")
 
   @endsection
 
-  @section("style")
+@section("style")
     {{-- <style> --}}
 
     {{-- /* ************ HOME - MOBILE************ */ --}}
@@ -424,6 +428,10 @@
       .p_footer:first-of-type{
         margin-bottom: 0;
       }
+      .p_footer.creditos{
+        font-style: italic;
+        font-size: 12px;
+      }
       .vl_footer{
         display: none;
       }
@@ -813,7 +821,7 @@
           width: 25%;
         }
         .img_footer_logo{
-          width: 70%;
+          width: 66%;
         }
 
         {{-- /* DIV CONTACT - FOOTER - HOME - DESKTOP*/ --}}
@@ -1035,6 +1043,7 @@
         <img class="img_footer_logo"src="/media/logos/logoFull.svg" alt="Logotipo Asociación Asperger Argentina">
         <p class="p_footer">Sitio oficial</p>
         <p class="p_footer">Copyright 2003-2020</p>
+        <a class="p_footer creditos" href="/creditos">* Créditos imágenes</a>
       </div>
       <div class="vl_footer"> </div>
     </div>
