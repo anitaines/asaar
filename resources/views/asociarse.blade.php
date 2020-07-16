@@ -21,8 +21,8 @@
 
         <p class="p_aspergerCEA">Le agradecemos su interés en asociarse a la Asociación Asperger Argentina.</p>
         <p class="p_aspergerCEA">Es importante que Ud. sepa que la AsAAr se financia exclusivamente con las cuotas de sus asociados.</p>
-        <p class="p_aspergerCEA">El valor de la misma es de $ 250.- por mes.</p>
-        <p class="p_aspergerCEA">Abajo encontrará las distintas formas de pago de dicha cuota.</p>
+        {{-- <p class="p_aspergerCEA">El valor de la misma es de $ 250.- por mes.</p>
+        <p class="p_aspergerCEA">Abajo encontrará las distintas formas de pago de dicha cuota.</p> --}}
 
         @if (session('success'))
           <div class="alert-success">
@@ -43,13 +43,13 @@
                 @endif
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer" for="name">
+                  <label class="label_newsletter_footer" for="name" style="text-transform: uppercase;">
                     @if ($errors->get('name'))
-                      <span class="error-message-cross">❌</span> NOMBRE
+                      <span class="error-message-cross">❌</span> Nombre
                       @elseif ($errors->all() != null && !$errors->get('name'))
-                        <span class="error-message-checked">✓</span> NOMBRE
+                        <span class="error-message-checked">✓</span> Nombre
                         @else
-                        NOMBRE
+                        Nombre
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="name" name="name" value="{{ old('name') }}">
@@ -57,13 +57,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer" for="surname">
+                  <label class="label_newsletter_footer" for="surname" style="text-transform: uppercase;">
                     @if ($errors->get('surname'))
-                      <span class="error-message-cross">❌</span> APELLIDO
+                      <span class="error-message-cross">❌</span> Apellido
                     @elseif ($errors->all() != null && !$errors->get('surname'))
-                        <span class="error-message-checked">✓</span> APELLIDO
+                        <span class="error-message-checked">✓</span> Apellido
                         @else
-                        APELLIDO
+                        Apellido
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="surname" name="surname" value="{{ old('surname') }}">
@@ -71,13 +71,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer"  for="address">
+                  <label class="label_newsletter_footer"  for="address" style="text-transform: uppercase;">
                     @if ($errors->get('address'))
-                      <span class="error-message-cross">❌</span> DOMICILIO
+                      <span class="error-message-cross">❌</span> Domicilio
                     @elseif ($errors->all() != null && !$errors->get('address'))
-                        <span class="error-message-checked">✓</span> DOMICILIO
+                        <span class="error-message-checked">✓</span> Domicilio
                         @else
-                        DOMICILIO
+                        Domicilio
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="address" name="address" value="{{ old('address') }}">
@@ -85,13 +85,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer"  for="town">
+                  <label class="label_newsletter_footer"  for="town" style="text-transform: uppercase;">
                     @if ($errors->get('town'))
-                      <span class="error-message-cross">❌</span> LOCALIDAD
+                      <span class="error-message-cross">❌</span> Localidad
                     @elseif ($errors->all() != null && !$errors->get('town'))
-                        <span class="error-message-checked">✓</span> LOCALIDAD
+                        <span class="error-message-checked">✓</span> Localidad
                         @else
-                        LOCALIDAD
+                        Localidad
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="town" name="town" value="{{ old('town') }}">
@@ -99,13 +99,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer"  for="state">
+                  <label class="label_newsletter_footer"  for="state" style="text-transform: uppercase;">
                     @if ($errors->get('state'))
-                      <span class="error-message-cross">❌</span> PROVINCIA/ ESTADO/ DEPTO.
+                      <span class="error-message-cross">❌</span> Provincia/ Estado/ Depto.
                     @elseif ($errors->all() != null && !$errors->get('state'))
-                        <span class="error-message-checked">✓</span> PROVINCIA/ ESTADO/ DEPTO.
+                        <span class="error-message-checked">✓</span> Provincia/ Estado/ Depto.
                         @else
-                        PROVINCIA/ ESTADO/ DEPTO.
+                        Provincia/ Estado/ Depto.
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="state" name="state" value="{{ old('state') }}">
@@ -113,13 +113,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer customLabel"  for="country">
+                  <label class="label_newsletter_footer customLabel"  for="country" style="text-transform: uppercase;">
                     @if ($errors->get('country'))
-                      <span class="error-message-cross">❌</span> PAÍS
+                      <span class="error-message-cross">❌</span> País
                     @elseif ($errors->all() != null && !$errors->get('country'))
-                        <span class="error-message-checked">✓</span> PAÍS
+                        <span class="error-message-checked">✓</span> País
                         @else
-                        PAÍS
+                        País
                     @endif
                     </label>
                     <select class="" id="country" name="country">
@@ -136,13 +136,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer"  for="cp">
+                  <label class="label_newsletter_footer"  for="cp" style="text-transform: uppercase;">
                     @if ($errors->get('cp'))
-                      <span class="error-message-cross">❌</span> CÓDIGO POSTAL
+                      <span class="error-message-cross">❌</span> Código Postal
                     @elseif ($errors->all() != null && !$errors->get('cp'))
-                        <span class="error-message-checked">✓</span> CÓDIGO POSTAL
+                        <span class="error-message-checked">✓</span> Código Postal
                         @else
-                        CÓDIGO POSTAL
+                        Código Postal
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="cp" name="cp" value="{{ old('cp') }}">
@@ -150,13 +150,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer"  for="telephone">
+                  <label class="label_newsletter_footer"  for="telephone" style="text-transform: uppercase;">
                     @if ($errors->get('telephone'))
-                      <span class="error-message-cross">❌</span> TELÉFONO DE CONTACTO
+                      <span class="error-message-cross">❌</span> Teléfono de contacto
                     @elseif ($errors->all() != null && !$errors->get('telephone'))
-                        <span class="error-message-checked">✓</span> TELÉFONO DE CONTACTO
+                        <span class="error-message-checked">✓</span> Teléfono de contacto
                         @else
-                        TELÉFONO DE CONTACTO
+                        Teléfono de contacto
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="telephone" name="telephone" value="{{ old('telephone') }}">
@@ -164,13 +164,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer customLabel"  for="citizenship">
+                  <label class="label_newsletter_footer customLabel"  for="citizenship" style="text-transform: uppercase;">
                     @if ($errors->get('citizenship'))
-                      <span class="error-message-cross">❌</span> NACIONALIDAD
+                      <span class="error-message-cross">❌</span> Nacionalidad
                     @elseif ($errors->all() != null && !$errors->get('citizenship'))
-                        <span class="error-message-checked">✓</span> NACIONALIDAD
+                        <span class="error-message-checked">✓</span> Nacionalidad
                         @else
-                        NACIONALIDAD
+                        Nacionalidad
                     @endif
                     </label>
                     <select class="" id="citizenship" name="citizenship">
@@ -187,13 +187,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer customLabel"  for="maritalStatus">
+                  <label class="label_newsletter_footer customLabel"  for="maritalStatus" style="text-transform: uppercase;">
                     @if ($errors->get('maritalStatus'))
-                      <span class="error-message-cross">❌</span> ESTADO CIVIL
+                      <span class="error-message-cross">❌</span> Estado civil
                     @elseif ($errors->all() != null && !$errors->get('maritalStatus'))
-                        <span class="error-message-checked">✓</span> ESTADO CIVIL
+                        <span class="error-message-checked">✓</span> Estado civil
                         @else
-                        ESTADO CIVIL
+                        Estado civil
                     @endif
                     </label>
                     <select class="" id="maritalStatus" name="maritalStatus">
@@ -210,13 +210,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer customLabel"  for="id">
+                  <label class="label_newsletter_footer customLabel"  for="id" style="text-transform: uppercase;">
                     @if ($errors->get('id'))
-                      <span class="error-message-cross">❌</span> DOCUMENTO
+                      <span class="error-message-cross">❌</span> Documento
                     @elseif ($errors->all() != null && !$errors->get('id'))
-                        <span class="error-message-checked">✓</span> DOCUMENTO
+                        <span class="error-message-checked">✓</span> Documento
                         @else
-                        DOCUMENTO
+                        Documento
                     @endif
                     </label>
                     <select class="" id="id" name="id">
@@ -233,13 +233,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer"  for="number">
+                  <label class="label_newsletter_footer"  for="number" style="text-transform: uppercase;">
                     @if ($errors->get('number'))
-                      <span class="error-message-cross">❌</span> NÚMERO
+                      <span class="error-message-cross">❌</span> Número
                     @elseif ($errors->all() != null && !$errors->get('number'))
-                        <span class="error-message-checked">✓</span> NÚMERO
+                        <span class="error-message-checked">✓</span> Número
                         @else
-                        NÚMERO
+                        Número
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="number" name="number" value="{{ old('number') }}">
@@ -247,13 +247,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer"  for="profession">
+                  <label class="label_newsletter_footer"  for="profession" style="text-transform: uppercase;">
                     @if ($errors->get('profession'))
-                      <span class="error-message-cross">❌</span> PROFESIÓN
+                      <span class="error-message-cross">❌</span> Profesión
                     @elseif ($errors->all() != null && !$errors->get('profession'))
-                        <span class="error-message-checked">✓</span> PROFESIÓN
+                        <span class="error-message-checked">✓</span> Profesión
                         @else
-                        PROFESIÓN
+                        Profesión
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="profession" name="profession" value="{{ old('profession') }}">
@@ -261,13 +261,13 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer"  for="businessAddress">
+                  <label class="label_newsletter_footer"  for="businessAddress" style="text-transform: uppercase;">
                     @if ($errors->get('businessAddress'))
-                      <span class="error-message-cross">❌</span> DOMICILIO LABORAL
+                      <span class="error-message-cross">❌</span> Domicilio laboral
                     @elseif ($errors->all() != null && !$errors->get('businessAddress'))
-                        <span class="error-message-checked">✓</span> DOMICILIO LABORAL
+                        <span class="error-message-checked">✓</span> Domicilio laboral
                         @else
-                        DOMICILIO LABORAL
+                        Domicilio laboral
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="businessAddress" name="businessAddress" value="{{ old('businessAddress') }}">
@@ -275,17 +275,21 @@
                   </div>
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer" for="email">
+                  <label class="label_newsletter_footer" for="email" style="text-transform: uppercase;">
                     @if ($errors->get('email'))
-                      <span class="error-message-cross">❌</span> E-MAIL
+                      <span class="error-message-cross">❌</span> E-mail
                     @elseif ($errors->all() != null && !$errors->get('email'))
-                        <span class="error-message-checked">✓</span> E-MAIL
+                        <span class="error-message-checked">✓</span> E-mail
                         @else
-                        E-MAIL
+                        E-mail
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="email" name="email" value="{{ old('email') }}">
                   @error('email') <p class="error-message">{{ $message }}</p> @enderror
+                </div>
+
+                <div class="form_item estatuto">
+                  <a href="/estatuto" target="_blank">Leer estatuto de la Asociación</a>
                 </div>
 
                 <div class="form_item form_item_checkbox">
@@ -313,12 +317,12 @@
                   <label class="checkbox-label">
                     @if ($errors->get('payment'))
                       <span class="error-message-cross">❌</span>
-                      <span class="input-title">Acepto el pago de la cuota social:</span>
+                      <span class="input-title">Acepto el pago de la cuota social de $250.- por mes:</span>
                     @elseif ($errors->all() != null && !$errors->get('payment'))
                         <span class="error-message-checked">✓</span>
-                        <span class="input-title">Acepto el pago de la cuota social:</span>
+                        <span class="input-title">Acepto el pago de la cuota social de $250.- por mes:</span>
                         @else
-                        <span class="input-title">Acepto el pago de la cuota social:</span>
+                        <span class="input-title">Acepto el pago de la cuota social de $250.- por mes:</span>
                       @endif
                     @if (old('payment') && old('payment') == "sí")
                       <input type="checkbox" name="payment" value="sí" checked>
@@ -330,7 +334,7 @@
                     @error('payment') <p class="error-message">{{ $message }}</p> @enderror
                 </div>
 
-                 <div class="form_item">
+                 {{-- <div class="form_item">
                    <label class="label_newsletter_footer customLabel"  for="paymentType">
                      @if ($errors->get('paymentType'))
                        <span class="error-message-cross">❌</span> FORMA DE PAGO
@@ -351,10 +355,10 @@
                          @endfor
                      </select>
                    @error('paymentType') <p class="error-message">{{ $message }}</p> @enderror
-                   </div>
+                   </div> --}}
 
-
-                <p class="p_aspergerCEA">1) Depósito o transferencia a la cuenta:</p>
+                <p class="p_aspergerCEA">Usted recibirá un mail de administracion@asperger.org.ar informándole las formas de pago disponibles</p>
+                {{-- <p class="p_aspergerCEA">1) Depósito o transferencia a la cuenta:</p>
                 <p class="p_aspergerCEA">BANCO CREDICOOP</p>
                 <p class="p_aspergerCEA">Sucursal 006</p>
                 <p class="p_aspergerCEA">Cuenta corriente Nro.Cta.: <b>006-091315/5</b></p>
@@ -365,7 +369,7 @@
 
                 <p class="p_aspergerCEA">2) Pago en efectivo (lugares de reunión, Srta. Estela Ocello).</p>
 
-                <p class="p_aspergerCEA">3) Pago Fácil: Para ello deberá enviar un mail a <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><b>administracion@asperger.org.ar</b></a> solicitando la credencial de pago indicando su nombre y apellido. Dicha credencial le será enviada por mail.</p>
+                <p class="p_aspergerCEA">3) Pago Fácil: Para ello deberá enviar un mail a <a href="mailto:administracion@asperger.org.ar" target="_blank" rel="noopener noreferrer"><b>administracion@asperger.org.ar</b></a> solicitando la credencial de pago indicando su nombre y apellido. Dicha credencial le será enviada por mail.</p> --}}
 
                 {{-- {{dd($errors->all())}} --}}
                 <button class="buton_newsletter_footer"  type="submit">

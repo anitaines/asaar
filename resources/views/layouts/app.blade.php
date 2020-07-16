@@ -441,7 +441,7 @@
             <div class="menu-button">Noticias</div>
           </a>
           <a href="/donar">
-            <div class="menu-button">DONAR</div>
+            <div class="menu-button" style="text-transform: uppercase;">donar</div>
           </a>
         </div>
 
@@ -486,7 +486,7 @@
               <div class="menu-button">Noticias</div>
             </a>
             <a href="/donar">
-              <div class="menu-button">DONAR</div>
+              <div class="menu-button" style="text-transform: uppercase;">donar</div>
             </a>
           </div>
 
@@ -562,7 +562,7 @@
             <div class="menu-button">Noticias</div>
           </a>
           <a href="/donar">
-            <div class="menu-button">DONAR</div>
+            <div class="menu-button" style="text-transform: uppercase;">donar</div>
           </a>
         </div>
 

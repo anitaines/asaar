@@ -20,14 +20,20 @@
     <main class="main_donar">
 
       <div class="donar_texto">
-        <p>Hoy te pedimos que <b>ayudes a la Asociación Asperger Argentina.</b></p>
+        {{-- <p>Hoy te pedimos que <b>ayudes a la Asociación Asperger Argentina.</b></p>
         <p> Nos sostenemos gracias a las donaciones de poco menos de $100.- y para proteger nuestra independencia, nunca verás avisos publicitarios.</p>
         <p>Solo unos pocos de nuestros lectores donan.</p>
         <p>¡Ahora es el momento de pedirte algo!</p>
         <p><b>Si todos los que están leyendo esto, ahora donaran $80.-, nuestra campaña de recaudación de fondos finalizaría en una hora. Tan simple como eso: lo único que necesitamos es el valor de un café.</b></p>
         <p>Somos una Asociación sin fines de lucro con necesidad de crecer para ofrecerles a ustedes un lugar de pertenencia: <b>nuestra SEDE.</b></p>
         <p>Si la Asociación Asperger Argentina te resulta útil, por favor tomate un minuto para ayudarnos a seguir creciendo.</p>
-        <p><b>¡Muchas gracias!</b></p>
+        <p><b>¡Muchas gracias!</b></p> --}}
+
+        <p><b>Ayudanos a crecer, donando</b></p>
+        <p>Con tu aporte, sumado al de muchas otras personas, nos permitirá incrementar nuestras actividades en pos  de mejorar la calidad de vida de las personas con Síndrome de Asperger, trabajando junto a  las familias, generando espacios de encuentros, difundiendo, capacitando,  investigando.</p>
+        <p><b>Gracias por confiar en nosotros.</b></p>
+        <p>Asociación Asperger Argentina</p>
+
       </div>
 
       <div class="donar_opciones">

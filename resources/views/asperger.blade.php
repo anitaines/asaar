@@ -18,16 +18,16 @@
 
     <nav class="nav_aspergerCEA">
       <div class="link_aspergerCEA">
-        <a class="a_nav_aspergerCEA" href="#aspergerCea">- ASPERGER/ CEA</a>
+        <a class="a_nav_aspergerCEA" href="#aspergerCea" style="text-transform: uppercase;">- Asperger/ CEA</a>
       </div>
       <div class="link_diagnosticos">
-        <a class="a_nav_aspergerCEA" href="#diagnosticos">- DIAGNÓSTICOS</a>
+        <a class="a_nav_aspergerCEA" href="#diagnosticos" style="text-transform: uppercase;">- Diagnósticos</a>
       </div>
       <div class="link_intervenciones">
-        <a class="a_nav_aspergerCEA" href="#intervenciones">- INTERVENCIONES</a>
+        <a class="a_nav_aspergerCEA" href="#intervenciones" style="text-transform: uppercase;">- Intervenciones</a>
       </div>
       <div class="link_biblioteca">
-        <a class="a_nav_aspergerCEA" href="#biblioteca">- BIBLIOTECA</a>
+        <a class="a_nav_aspergerCEA" href="#biblioteca" style="text-transform: uppercase;">- Biblioteca</a>
       </div>
     </nav>
 
@@ -95,7 +95,7 @@
         <h3 class="h3_aspergerCEA">Escalas y Cuestionarios</h3>
         <div class="container1b_diagnósticos">
           <p class="p_aspergerCEA">Existen cuestionarios que permiten identificar qué personas (niños, adolescentes o adultos) en la población general podrían tener Síndrome de Asperger (CEA).</p>
-          <p class="p_aspergerCEA"><b>IMPORTANTE</b></p>
+          <p class="p_aspergerCEA" style="text-transform: uppercase;"><b>Importante</b></p>
           <p class="p_aspergerCEA">Estos son sólo instrumentos que ayudan a identificar aquellos niños, adolescentes y adultos que podrían tener Síndrome de Asperger. Esto <b>NO significa</b> que el niño o adulto efectivamente tenga algún problema. <b>¡NO SON TESTS DE DIAGNÓSTICO!</b> En todo caso, <b>un resultado positivo sólo indicaría que esa persona MERECE UNA CONSULTA con un profesional</b>. Tenga en cuenta que <b>los tests deberían ser realizados o chequeados por un profesional especializado</b>. Ante cualquier duda por favor comuníquese con la Asociación.</p>
           </div>
 

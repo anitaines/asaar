@@ -358,16 +358,19 @@
         border-radius: 6px;
         border: 3px solid var(--magenta);
         padding: 15px;
+        text-align: center;
       }
       .p_donate{
         font-family: 'Raleway', sans-serif;
         color: #000000;
-        font-size: 16px;
-        line-height: 19px;
-      }
-      .p_donate:first-child{
+        {{-- font-size: 16px; --}}
         font-size: 18px;
+        {{-- line-height: 19px; --}}
+        line-height: 35px;
       }
+      {{-- .p_donate:first-child{
+        font-size: 18px;
+      } --}}
       .div_donate{
         width: 128px;
         height: 48px;
@@ -787,10 +790,14 @@
           width: 59%;
           height: 510px;
           border: 5px solid var(--magenta);
-          padding: 30px 33px 0px 33px;
+          {{-- padding: 30px 33px 0px 33px; --}}
+          padding: 60px;
         }
-        .p_donate:last-of-type{
+        {{-- .p_donate:last-of-type{
           margin-bottom: 5px;
+        } --}}
+        .div_donate{
+          margin-top: 20px;
         }
         .div_donate:hover{
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
@@ -1016,7 +1023,7 @@
 
   <div class="closing">
     <div class="donate">
-      <p class="p_donate"><b>Estimado amigo y lector:</b></p>
+      {{-- <p class="p_donate"><b>Estimado amigo y lector:</b></p>
       <p class="p_donate">Hoy te pedimos que <b>ayudes a la Asociación Asperger Argentina.</b></p>
       <p class="p_donate"> Nos sostenemos gracias a las donaciones de poco menos de $100.- y para proteger nuestra independencia, nunca verás avisos publicitarios.</p>
       <p class="p_donate">Solo unos pocos de nuestros lectores donan.</p>
@@ -1024,9 +1031,13 @@
       <p class="p_donate"><b>Si todos los que están leyendo esto, ahora donaran $80.-, nuestra campaña de recaudación de fondos finalizaría en una hora. Tan simple como eso: lo único que necesitamos es el valor de un café.</b></p>
       <p class="p_donate">Somos una Asociación sin fines de lucro con necesidad de crecer para ofrecerles a ustedes un lugar de pertenencia: <b>nuestra SEDE.</b></p>
       <p class="p_donate">Si la Asociación Asperger Argentina te resulta útil, por favor tomate un minuto para ayudarnos a seguir creciendo.</p>
-      <p class="p_donate"><b>¡Muchas gracias!</b></p>
+      <p class="p_donate"><b>¡Muchas gracias!</b></p> --}}
+      <p class="p_donate"><b>Ayudanos a crecer, donando</b></p>
+      <p class="p_donate">Con tu aporte, sumado al de muchas otras personas, nos permitirá incrementar nuestras actividades en pos  de mejorar la calidad de vida de las personas con Síndrome de Asperger, trabajando junto a  las familias, generando espacios de encuentros, difundiendo, capacitando,  investigando.</p>
+      <p class="p_donate"><b>Gracias por confiar en nosotros.</b></p>
+      <p class="p_donate">Asociación Asperger Argentina</p>
       <div class="div_donate">
-        <a class="a_donate" href="/donar">DONAR</a>
+        <a class="a_donate" href="/donar" style="text-transform: uppercase;">donar</a>
       </div>
     </div>
     <div class="facebook">
@@ -1096,7 +1107,7 @@
     <!--End mc_embed_signup--> --}}
 
       <div class="newsletter_footer">
-        <a href="/newsletter">
+        <a href="/suscribirse">
           <div class="buton_newsletter_footer new_buton_newsletter_footer">
             Recibir nuestras novedades por e-mail
           </div>

@@ -18,19 +18,19 @@
 
     <nav class="nav_aspergerCEA">
       <div class="link_quienesSomos">
-        <a class="a_nav_aspergerCEA" href="#quienesSomos">- QUIÉNES SOMOS</a>
+        <a class="a_nav_aspergerCEA" href="#quienesSomos" style="text-transform: uppercase;">- Quiénes somos</a>
       </div>
       <div class="link_mision">
-        <a class="a_nav_aspergerCEA" href="#mision">- NUESTRA MISIÓN Y VISIÓN</a>
+        <a class="a_nav_aspergerCEA" href="#mision" style="text-transform: uppercase;">-Nuestra misión y visión</a>
       </div>
       <div class="link_autoridades">
-        <a class="a_nav_aspergerCEA" href="#autoridades">- AUTORIDADES</a>
+        <a class="a_nav_aspergerCEA" href="#autoridades" style="text-transform: uppercase;">- Autoridades</a>
       </div>
       <div class="link_ayudar">
-        <a class="a_nav_aspergerCEA" href="#ayudar">- CÓMO AYUDAR</a>
+        <a class="a_nav_aspergerCEA" href="#ayudar" style="text-transform: uppercase;">- Cómo ayudar</a>
       </div>
       <div class="link_diptico">
-        <a class="a_nav_aspergerCEA" href="#diptico">- DÍPTICO</a>
+        <a class="a_nav_aspergerCEA" href="#diptico" style="text-transform: uppercase;">- Díptico</a>
       </div>
     </nav>
 
@@ -167,9 +167,9 @@
 
           </div>
 
-          <h3 class="h3_aspergerCEA">Subcomisiones</h3>
+          {{-- <h3 class="h3_aspergerCEA">Subcomisiones</h3> --}}
 
-          <div class="subcomisiones">
+          {{-- <div class="subcomisiones">
 
             <div class="subcomision">
               <h3 class="h3_aspergerCEA">Comisión de Eventos</h3>
@@ -227,7 +227,7 @@
               </div>
             </div>
 
-          </div>
+          </div> --}}
 
           <a href="/actividades"><p class="p_aspergerCEA button_quienesSomos">Conocé nuestras actividades</p></a>
 
@@ -251,7 +251,7 @@
 
       <a href="/donar"><p class="p_aspergerCEA button_quienesSomos">Si deseas colaborar, hacé clic aquí y sumate a la campaña</p></a>
 
-      <h3 class="h3_aspergerCEA">¡MUCHAS GRACIAS!</h3>
+      <h3 class="h3_aspergerCEA" style="text-transform: uppercase;">¡Muchas gracias!</h3>
 
       <div class="carousel_colors">
         <div class="green"></div>

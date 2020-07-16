@@ -66,7 +66,7 @@ class JoinController extends Controller
         'email' => ['required', 'email', 'max:70'],
         'estatuto' => ['required', 'string', 'max:10'],
         'payment' => ['required', 'string', 'max:10'],
-        'paymentType' => ['required', 'string', 'max:50'],
+        // 'paymentType' => ['required', 'string', 'max:50'],
         ];
         $messages = [
           'required' => 'Por favor complete su :attribute',

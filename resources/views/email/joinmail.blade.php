@@ -25,8 +25,8 @@
       <p>Profesión: {{ $email->profession }}</p>
       <p>Domicilio laboral: {{ $email->businessAddress }}</p>
       <p>Declara conocer el Estatuto de la AsAAr: {{ $email->estatuto }}</p>
-      <p>Acepta el pago de la cuota social: {{ $email->payment }}</p>
-      <p>Forma de pago: {{ $email->paymentType }}</p>
+      <p>Acepta el pago de la cuota social de $250.- por mes: {{ $email->payment }}</p>
+      {{-- <p>Forma de pago: {{ $email->paymentType }}</p> --}}
       </div>
 
   </body>

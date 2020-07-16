@@ -438,7 +438,7 @@
       <!--End mc_embed_signup--> --}}
 
       <div class="newsletter_footer">
-        <a href="/newsletter">
+        <a href="/suscribirse">
           <div class="buton_newsletter_footer new_buton_newsletter_footer">
             Recibir nuestras novedades por e-mail
           </div>

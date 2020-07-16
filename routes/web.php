@@ -47,6 +47,11 @@ Route::post('/contacto', 'ContactController@store');
 // Asociarse
 Route::get('/asociarse', 'JoinController@create');
 
+// Estatuto
+Route::get('/estatuto', function () {
+    return view('estatuto');
+});
+
 Route::post('/asociarse', 'JoinController@store');
 
 // Donar
@@ -61,7 +66,7 @@ Route::get('/noticias', 'ReleaseController@index');
 Route::get('/noticia/{id}/{slug}', 'ReleaseController@show');
 
 // Sección Newsletter
-Route::get('/newsletter', function () {
+Route::get('/suscribirse', function () {
     return view('newsletter');
 });
 

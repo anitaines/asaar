@@ -46,52 +46,52 @@
                   @endif
 
                 <div class="form_item">
-                  <label class="label_newsletter_footer" for="name">
+                  <label class="label_newsletter_footer" for="name" style="text-transform: uppercase;">
                     @if ($errors->get('name'))
-                      <span class="error-message-cross">❌</span> NOMBRE
+                      <span class="error-message-cross">❌</span> Nombre
                       @elseif ($errors->all() != null && !$errors->get('name'))
-                        <span class="error-message-checked">✓</span> NOMBRE
+                        <span class="error-message-checked">✓</span> Nombre
                         @else
-                        NOMBRE
+                        Nombre
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="name" name="name" value="{{ old('name') }}">
                   @error('name') <p class="error-message">{{ $message }}</p> @enderror
                   </div>
                 <div class="form_item">
-                  <label class="label_newsletter_footer" for="email">
+                  <label class="label_newsletter_footer" for="email" style="text-transform: uppercase;">
                     @if ($errors->get('email'))
-                      <span class="error-message-cross">❌</span> E-MAIL
+                      <span class="error-message-cross">❌</span> E-mail
                     @elseif ($errors->all() != null && !$errors->get('email'))
-                        <span class="error-message-checked">✓</span> E-MAIL
+                        <span class="error-message-checked">✓</span> E-mail
                         @else
-                        E-MAIL
+                        E-mail
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="email" name="email" value="{{ old('email') }}">
                   @error('email') <p class="error-message">{{ $message }}</p> @enderror
                   </div>
                 <div class="form_item">
-                  <label class="label_newsletter_footer"  for="telephone">
+                  <label class="label_newsletter_footer"  for="telephone" style="text-transform: uppercase;">
                     @if ($errors->get('telephone'))
-                      <span class="error-message-cross">❌</span> TELÉFONO
+                      <span class="error-message-cross">❌</span> Teléfono
                     @elseif ($errors->all() != null && !$errors->get('telephone'))
-                        <span class="error-message-checked">✓</span> TELÉFONO
+                        <span class="error-message-checked">✓</span> Teléfono
                         @else
-                        TELÉFONO
+                        Teléfono
                     @endif
                     </label>
                   <input class="input_newsletter_footer" type="text" id="telephone" name="telephone" value="{{ old('telephone') }}">
                   @error('telephone') <p class="error-message">{{ $message }}</p> @enderror
                   </div>
                 <div class="form_item">
-                  <label class="label_newsletter_footer"  for="message">
+                  <label class="label_newsletter_footer"  for="message" style="text-transform: uppercase;">
                     @if ($errors->get('message'))
-                      <span class="error-message-cross">❌</span> MENSAJE
+                      <span class="error-message-cross">❌</span> Mensaje
                     @elseif ($errors->all() != null && !$errors->get('message'))
-                        <span class="error-message-checked">✓</span> MENSAJE
+                        <span class="error-message-checked">✓</span> Mensaje
                         @else
-                        MENSAJE
+                        Mensaje
                     @endif
                   </label>
                   <textarea  class="input_newsletter_footer" id="message" name="message" rows="5">{{ old('message') }}</textarea>

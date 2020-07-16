@@ -18,16 +18,16 @@
 
     <nav class="nav_aspergerCEA">
       <div class="link_congresos">
-        <a class="a_nav_aspergerCEA" href="#congresos">- JORNADAS Y CONGRESOS</a>
+        <a class="a_nav_aspergerCEA" href="#congresos" style="text-transform: uppercase;">- Jornadas y congresos</a>
       </div>
       <div class="link_debates">
-        <a class="a_nav_aspergerCEA" href="#debates">- CHARLAS/ DEBATES</a>
+        <a class="a_nav_aspergerCEA" href="#debates" style="text-transform: uppercase;">- Charlas/ Debates</a>
       </div>
       <div class="link_taller">
-        <a class="a_nav_aspergerCEA" href="#taller">- TALLER DE PADRES</a>
+        <a class="a_nav_aspergerCEA" href="#taller" style="text-transform: uppercase;">- Taller de padres</a>
       </div>
       <div class="link_grupos">
-        <a class="a_nav_aspergerCEA" href="#grupos">- GRUPOS DE PERTENENCIA</a>
+        <a class="a_nav_aspergerCEA" href="#grupos" style="text-transform: uppercase;">- Grupos de pertenencia</a>
       </div>
     </nav>
 
@@ -278,7 +278,7 @@
 
               <p class="p_aspergerCEA">La Asociación se financia únicamente con las cuotas de sus asociados y las actividades que realiza, por lo que solicitamos, un bono contribución de $ 100.- a fin de colaborar con nuestra institución.</p>
 
-              <p class="p_aspergerCEA">Lugar: LEOPOLDO MARECHAL 1160 (a media cuadra de Ángel Gallardo), CABA.</p>
+              {{-- <p class="p_aspergerCEA">Lugar: LEOPOLDO MARECHAL 1160 (a media cuadra de Ángel Gallardo), CABA.</p> --}}
 
               <p class="p_aspergerCEA">Informes:</p>
               <p class="p_aspergerCEA">E-mail: <a href="mailto:info@asperger.org.ar">info@asperger.org.ar</a></p>

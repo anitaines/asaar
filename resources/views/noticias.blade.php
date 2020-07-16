@@ -62,6 +62,9 @@
           </div>
         @endforeach
 
+        <a class="a_archivo" href="http://asperger.org.ar/" target="_blank" rel="noreferrer"><div class="archivo">Acceder a nuestro archivo de noticias</div></a>
+
+
       </div>
 
       {{-- {{ $noticiasAll->links() }} --}}
