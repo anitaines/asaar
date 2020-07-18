@@ -1,3 +1,8 @@
+/* ******************************************************** */
+/*       Al hacer cambios, recordar cambiar la versión      */
+/*       de css en app/Providers/AppServiceProvider.php     */
+/*       para evitar caché                                  */
+/* ******************************************************** */
 
  :root {
   --green: #6ACF95; /* rgba(106, 207, 149, 1) */

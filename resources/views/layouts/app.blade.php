@@ -411,7 +411,7 @@
         }
       }
         @yield('style')
-      </style>
+    </style>
 
       @yield('css')
 

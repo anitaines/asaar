@@ -1,3 +1,8 @@
+/* ******************************************************** */
+/*       Al hacer cambios, recordar cambiar la versión      */
+/*       de css en app/Providers/AppServiceProvider.php     */
+/*       para evitar caché                                  */
+/* ******************************************************** */
 
 /* Estilos MENU: inline en app.blade.php (layout principal) */
 
