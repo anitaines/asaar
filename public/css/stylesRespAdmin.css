@@ -468,6 +468,7 @@ padding-right: 0.5rem;
 }
 .admin .input{
   width: 100%;
+  background-color: #ffffff;
 }
 .admin .input .adminFormItem{
   width: 98%;
@@ -768,7 +769,11 @@ padding-left: 10px;
   width: 100%;
   overflow: hidden;
   height: 80vh;
-  display: none;
+  /* display: none; */
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background-color: #ffffff;
 }
 .admin .output .wrap_iframe iframe {
   border: 3px solid var(--black);
@@ -783,7 +788,11 @@ padding-left: 10px;
   width: 100%;
   overflow: hidden;
   height: 80vh;
-  display: none;
+  /* display: none; */
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background-color: #ffffff;
 }
 .admin .output .allCanvas .container_canvas p{
   text-align: center;
@@ -1815,7 +1824,8 @@ padding-left: 10px;
   .admin .output .wrap_iframe {
     width: 47%;
     height: 100vh;
-    display: block !important;
+    /* display: block !important; */
+    position: initial;
   }
   .admin .output .wrap_iframe iframe {
     width: 245% !important;
@@ -1827,7 +1837,8 @@ padding-left: 10px;
   }
   .admin .output .allCanvas{
     width: 51%;
-    display: block !important;
+    /* display: block !important; */
+    position: initial;
   }
   .admin .output .allCanvas .container_canvas{
     height: 74vh;

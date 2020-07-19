@@ -25,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-      View::share('cssVersion', '1.1.1');
+      View::share('cssVersion', '1.1.2');
     }
 }

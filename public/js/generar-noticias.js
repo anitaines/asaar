@@ -22,23 +22,39 @@ window.onload = function(){
       switch (this.className) {
         case "menuInformacion":
           menuInformacion.style.display = "block";
-          menuNoticia.style.display = "none";
-          menuImagen.style.display = "none";
+
+          // menuNoticia.style.display = "none";
+          menuNoticia.style.zIndex = "-1";
+
+          // menuImagen.style.display = "none";
+          menuImagen.style.zIndex = "-1";
           break;
         case "menuNoticia":
           menuInformacion.style.display = "none";
-          menuNoticia.style.display = "block";
-          menuImagen.style.display = "none";
+
+          // menuNoticia.style.display = "block";
+          menuNoticia.style.zIndex = "500";
+
+          // menuImagen.style.display = "none";
+          menuImagen.style.zIndex = "-1";
           break;
         case "menuImagen":
           menuInformacion.style.display = "none";
-          menuNoticia.style.display = "none";
-          menuImagen.style.display = "block";
+
+          // menuNoticia.style.display = "none";
+          menuNoticia.style.zIndex = "-1";
+
+          // menuImagen.style.display = "block";
+          menuImagen.style.zIndex = "500";
           break;
         default:
           menuInformacion.style.display = "block";
-          menuNoticia.style.display = "none";
-          menuImagen.style.display = "none";
+
+          // menuNoticia.style.display = "none";
+          menuNoticia.style.zIndex = "-1";
+
+          // menuImagen.style.display = "none";
+          menuImagen.style.zIndex = "-1";
       }
     });
   }
@@ -48,6 +64,7 @@ window.onload = function(){
 
   // iframe para preview noticia:
   let iframe = document.getElementById("output_iframe");
+
   // (prevent clicks en iframe)
   let aIframe = iframe.contentWindow.document.querySelectorAll("a");
   for (var i = 0; i < aIframe.length; i++) {
@@ -584,6 +601,7 @@ window.onload = function(){
       // Canvas:
       setCanvas(canvasFacebook, imgCanvasFacebook);
     }
+    checkLayout();
     // validación:
     validarRectificacionImagen();
   });
@@ -884,17 +902,21 @@ window.onload = function(){
 
       // 2. Ajuste de alto imagen y contenedores dependiendo de la cantidad de información:
       infoImgContainerIframe.style.height = "auto";
-      let newHeight = infoImgContainerIframe.clientHeight + 50 + "px";
-      if (newHeight == "90px"){
-        newHeight = "655px";
+      let newHeight = infoImgContainerIframe.clientHeight + 50;
+      if (newHeight <= 90){
+        newHeight = 655;
       }
 
       let  wrapImgIframe = iframe.contentWindow.document.querySelector(".wrap_img");
-      wrapImgIframe.style.height = newHeight;
+      wrapImgIframe.style.height = newHeight + "px";
 
       let  imgContainerIframe = iframe.contentWindow.document.querySelector(".img_container");
-      imgContainerIframe.style.height = newHeight;
+      imgContainerIframe.style.height = newHeight + "px";
 
+      // 3. Ajuste de posición del mensaje de rectificación
+      let rectificacionImagenIframe = iframe.contentWindow.document.querySelector(".info_img_container .box4");
+
+      rectificacionImagenIframe.style.top = newHeight/2-rectificacionImagenIframe.clientHeight/2 + "px";
     }
 
 

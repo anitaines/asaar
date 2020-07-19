@@ -468,16 +468,21 @@
         // 2. Ajuste de alto imagen y contenedores dependiendo de la cantidad de información:
         infoImgContainer.style.height = "auto";
 
-        let newHeight = infoImgContainer.clientHeight + 50 + "px";
-        if (newHeight == "90px"){
-          newHeight = "655px";
+        let newHeight = infoImgContainer.clientHeight + 50;
+        if (newHeight <= 90){
+          newHeight = 655;
         }
 
         let  wrapImg = document.querySelector(".wrap_img");
-        wrapImg.style.height = newHeight;
+        wrapImg.style.height = newHeight + "px";
 
         let  imgContainer = document.querySelector(".img_container");
-        imgContainer.style.height = newHeight;
+        imgContainer.style.height = newHeight + "px";
+
+        // 3. Ajuste de posición del mensaje de rectificación
+        let rectificacionImagen = document.querySelector(".info_img_container .box4");
+
+        rectificacionImagen.style.top = newHeight/2 -rectificacionImagen.clientHeight/2 + "px";
 
       </script>
     @endif

@@ -1123,7 +1123,7 @@
 .main_detalle_noticias .wrap_img .info_img_container .box4{
   width: 100%;
   color: #f72929;
-  font-size: 90px;
+  font-size: 45px;
   font-weight: bold;
   text-align: center;
   transform: rotate(-15deg);
@@ -1761,6 +1761,9 @@ footer{
   }
   .main_detalle_noticias .wrap_img .info_img_container .box3 div:last-child p:first-child{
     font-size: 23px;
+  }
+  .main_detalle_noticias .wrap_img .info_img_container .box4{
+    font-size: 90px;
   }
   .main_detalle_noticias .imagenesAdicionales{
     flex-direction: row;
